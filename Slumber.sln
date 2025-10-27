@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slumber", "Slumber.csproj", "{4E53A75F-0C26-AD73-A070-804BAAB344EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Construct", "..\Libraries\Construct-Engine\Construct.csproj", "{D28B47A2-C5BE-464C-97C4-DAA1956A6D89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E53A75F-0C26-AD73-A070-804BAAB344EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E53A75F-0C26-AD73-A070-804BAAB344EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E53A75F-0C26-AD73-A070-804BAAB344EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E53A75F-0C26-AD73-A070-804BAAB344EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28B47A2-C5BE-464C-97C4-DAA1956A6D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28B47A2-C5BE-464C-97C4-DAA1956A6D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28B47A2-C5BE-464C-97C4-DAA1956A6D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28B47A2-C5BE-464C-97C4-DAA1956A6D89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65163BAB-D1A2-4833-A4B2-8900364FFDCB}
+	EndGlobalSection
+EndGlobal
