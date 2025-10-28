@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "P6yJBOUzyhw=",
+  "dgSpecHash": "U7qREvWlKWY=",
   "success": true,
   "projectFilePath": "/home/nils/Documents/Project/Slumber/Slumber.csproj",
   "expectedPackageFiles": [
@@ -19,8 +19,7 @@
     "/home/nils/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
     "/home/nils/.nuget/packages/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg.sha512",
     "/home/nils/.nuget/packages/textcopy/6.2.1/textcopy.6.2.1.nupkg.sha512",
-    "/home/nils/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.20/microsoft.aspnetcore.app.ref.8.0.20.nupkg.sha512",
-    "/home/nils/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.20/microsoft.netcore.app.host.linux-x64.8.0.20.nupkg.sha512"
+    "/home/nils/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.9/microsoft.aspnetcore.app.ref.9.0.9.nupkg.sha512"
   ],
   "logs": []
 }

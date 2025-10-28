@@ -3,11 +3,11 @@
   <SourceFile>/home/nils/Documents/Project/Slumber/Content/Assets/Fonts/Font.spritefont</SourceFile>
   <SourceTime>2025-10-27T07:36:46+01:00</SourceTime>
   <DestFile>/home/nils/Documents/Project/Slumber/Content/bin/DesktopGL/Assets/Fonts/Font.xnb</DestFile>
-  <DestTime>2025-10-28T18:34:05.2129063+01:00</DestTime>
+  <DestTime>2025-10-28T19:40:02.3160966+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
-  <ImporterTime>2025-06-02T12:31:02+02:00</ImporterTime>
+  <ImporterTime>2025-10-20T16:25:32+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
-  <ProcessorTime>2025-06-02T12:31:02+02:00</ProcessorTime>
+  <ProcessorTime>2025-10-20T16:25:32+02:00</ProcessorTime>
   <Parameters>
     <Key>PremultiplyAlpha</Key>
     <Value>True</Value>

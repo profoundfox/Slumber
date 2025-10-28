@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
+    "net9.0": {
       "FlatRedBall.GumCommon/2025.9.27.1": {
         "type": "package",
         "dependencies": {
@@ -657,11 +657,11 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
+    "net9.0": [
       "Construct >= 1.0.0",
       "Gum.MonoGame >= 2025.9.27.1",
-      "MonoGame.Content.Builder.Task >= 3.8.*",
-      "MonoGame.Framework.DesktopGL >= 3.8.*"
+      "MonoGame.Content.Builder.Task >= 3.8.4.1",
+      "MonoGame.Framework.DesktopGL >= 3.8.4.1"
     ]
   },
   "packageFolders": {
@@ -680,14 +680,14 @@
         "/home/nils/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net9.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "projectReferences": {
             "/home/nils/Documents/Project/Libraries/Construct-Engine/Construct.csproj": {
               "projectPath": "/home/nils/Documents/Project/Libraries/Construct-Engine/Construct.csproj"
@@ -708,8 +708,8 @@
       "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net9.0": {
+        "targetAlias": "net9.0",
         "dependencies": {
           "Gum.MonoGame": {
             "target": "Package",
@@ -717,11 +717,11 @@
           },
           "MonoGame.Content.Builder.Task": {
             "target": "Package",
-            "version": "[3.8.*, )"
+            "version": "[3.8.4.1, )"
           },
           "MonoGame.Framework.DesktopGL": {
             "target": "Package",
-            "version": "[3.8.*, )"
+            "version": "[3.8.4.1, )"
           }
         },
         "imports": [
@@ -738,11 +738,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[8.0.20, 8.0.20]"
+            "version": "[9.0.9, 9.0.9]"
           }
         ],
         "frameworkReferences": {

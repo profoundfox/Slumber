@@ -1,35 +1,29 @@
-﻿#if OPENGL
-	#define SV_POSITION POSITION
-	#define VS_SHADERMODEL vs_3_0
-	#define PS_SHADERMODEL ps_3_0
-#else
-	#define VS_SHADERMODEL vs_4_0_level_9_1
-	#define PS_SHADERMODEL ps_4_0_level_9_1
-#endif
+﻿sampler2D inputTexture : register(s0);
 
-Texture2D SpriteTexture;
+float2 texelSize; 
+float blurAmount = 1.0;
 
-sampler2D SpriteTextureSampler = sampler_state
+float4 PixelShaderFunction(float2 texCoord : TEXCOORD0) : COLOR0
 {
-	Texture = <SpriteTexture>;
-};
+    float4 color = float4(0,0,0,0);
 
-struct VertexShaderOutput
-{
-	float4 Position : SV_POSITION;
-	float4 Color : COLOR0;
-	float2 TextureCoordinates : TEXCOORD0;
-};
 
-float4 MainPS(VertexShaderOutput input) : COLOR
-{
-	return tex2D(SpriteTextureSampler,input.TextureCoordinates) * input.Color;
+    for(int x=-1; x<=1; x++)
+    {
+        for(int y=-1; y<=1; y++)
+        {
+            color += tex2D(inputTexture, texCoord + float2(x, y) * texelSize * blurAmount);
+        }
+    }
+
+    color /= 9.0;
+    return color;
 }
 
-technique SpriteDrawing
+technique SimpleBlur
 {
-	pass P0
-	{
-		PixelShader = compile PS_SHADERMODEL MainPS();
-	}
-};
+    pass P0
+    {
+        PixelShader = compile ps_2_0 PixelShaderFunction();
+    }
+}
