@@ -58,7 +58,7 @@ public class Player : Entity, Entity.IEntity
 
     Keys MoveRightKey = Keys.Right;
     Keys MoveLeftKey = Keys.Left;
-    Keys JumpKey = Keys.Space;
+    Keys JumpKey = Keys.Z;
     Keys AttackKey = Keys.X;
 
     int AttackColliderOffset;
@@ -123,8 +123,8 @@ public class Player : Entity, Entity.IEntity
 
         if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Escape))
         {
-            
-            Core.SceneManager.SceneFrozen = true;
+
+            Core.SceneManager.ToggleSceneFreeze(true);
             pauseMenu.Root.Visible = true;
         }
 

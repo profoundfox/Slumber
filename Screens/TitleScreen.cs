@@ -18,7 +18,7 @@ namespace Slumber.Screens
         {
             StartButton.IsFocused = true;
             Main.Visible = true;
-            Settings.Visible = false;
+            Settings.IsVisible = false;
             
             StartButton.Click += (_, _) =>
             {
@@ -32,19 +32,19 @@ namespace Slumber.Screens
 
             SettingsButton.Click += (_, _) =>
             {
-                Settings.Visible = true;
+                Settings.IsVisible = true;
                 Main.Visible = false;
-                MasterSlider.IsFocused = true;
+                Settings.MasterSlider.IsFocused = true;
             };
 
-            Back.Click += (_, _) =>
+            Settings.Back.Click += (_, _) =>
             {
-                Settings.Visible = false;
+                Settings.IsVisible = false;
                 Main.Visible = true;
                 StartButton.IsFocused = true;
             };
 
-            MusicSlider.Value = 10;
+            Settings.MusicSlider.Value = 10;
         
 
             

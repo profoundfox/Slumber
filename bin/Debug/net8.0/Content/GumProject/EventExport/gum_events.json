@@ -2331,6 +2331,1000 @@
         "ElementType": "Components",
         "EventType": 6,
         "TimestampUtc": "2025-10-27T16:44:33.7073626Z"
+      },
+      {
+        "NewName": "PauseMenu.ConstructButtonInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T13:57:15.9950162Z"
+      },
+      {
+        "NewName": "PauseMenu.ConstructButtonInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T13:57:18.0629816Z"
+      },
+      {
+        "NewName": "PauseMenu.ConstructButtonInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T13:57:19.0659648Z"
+      },
+      {
+        "NewName": "PauseMenu.ResumeButton1",
+        "OldName": "PauseMenu.ResumeButton",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:57:26.8458348Z"
+      },
+      {
+        "NewName": "PauseMenu.ResumeButton",
+        "OldName": "PauseMenu.ConstructButtonInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:57:31.0037656Z"
+      },
+      {
+        "NewName": "PauseMenu.SettingsButton1",
+        "OldName": "PauseMenu.SettingsButton",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:57:42.4695756Z"
+      },
+      {
+        "NewName": "PauseMenu.SettingsButton",
+        "OldName": "PauseMenu.ConstructButtonInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:57:44.5725409Z"
+      },
+      {
+        "NewName": "PauseMenu.QuitButton1",
+        "OldName": "PauseMenu.QuitButton",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:57:48.807471Z"
+      },
+      {
+        "NewName": "PauseMenu.QuitButton",
+        "OldName": "PauseMenu.ConstructButtonInstance2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:57:52.3544127Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/ButtonStandard ResumeButton1 in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:58:08.5791471Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/ButtonStandard SettingsButton1 in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:58:08.580147Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/ButtonStandard QuitButton1 in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:58:08.581147Z"
+      },
+      {
+        "NewName": "PauseMenu.ConstructButtonInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T13:58:31.7577712Z"
+      },
+      {
+        "NewName": "PauseMenu.ConstructButtonInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T13:58:34.251731Z"
+      },
+      {
+        "NewName": "PauseMenu.ConstructButtonInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T13:58:34.9477198Z"
+      },
+      {
+        "NewName": "PauseMenu.ConstructButtonInstance3",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T13:58:35.6077091Z"
+      },
+      {
+        "NewName": "PauseMenu.Volume1",
+        "OldName": "PauseMenu.Volume",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:58:38.9036561Z"
+      },
+      {
+        "NewName": "PauseMenu.Volume11",
+        "OldName": "PauseMenu.Volume1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:58:40.5926289Z"
+      },
+      {
+        "NewName": "PauseMenu.Input1",
+        "OldName": "PauseMenu.Input",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:58:45.8485446Z"
+      },
+      {
+        "NewName": "PauseMenu.SFX1",
+        "OldName": "PauseMenu.SFX",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:58:49.4504869Z"
+      },
+      {
+        "NewName": "PauseMenu.Back1",
+        "OldName": "PauseMenu.Back",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:58:51.4614547Z"
+      },
+      {
+        "NewName": "PauseMenu.Volume",
+        "OldName": "PauseMenu.ConstructButtonInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:58:59.0063342Z"
+      },
+      {
+        "NewName": "PauseMenu.Inpu",
+        "OldName": "PauseMenu.ConstructButtonInstance2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:59:03.9842549Z"
+      },
+      {
+        "NewName": "PauseMenu.Input",
+        "OldName": "PauseMenu.Inpu",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:59:06.1302208Z"
+      },
+      {
+        "NewName": "PauseMenu.SFX",
+        "OldName": "PauseMenu.ConstructButtonInstance3",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T13:59:11.6101338Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Container Settings in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:59:17.5730393Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/ButtonStandard Volume11 in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:59:25.243918Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/ButtonStandard Input1 in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:59:25.244918Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/ButtonStandard SFX1 in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:59:25.245918Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/ButtonStandard Back1 in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:59:25.247918Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructButton Volume in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:59:25.248918Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructButton Input in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:59:25.249918Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructButton SFX in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:59:25.2559179Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructButton ConstructButtonInstance in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T13:59:25.2569178Z"
+      },
+      {
+        "NewName": "PauseMenu.Settings",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.0666765Z"
+      },
+      {
+        "NewName": "PauseMenu.SFXLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.1096759Z"
+      },
+      {
+        "NewName": "PauseMenu.SFXSlider",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.1466753Z"
+      },
+      {
+        "NewName": "PauseMenu.MusicLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.1846747Z"
+      },
+      {
+        "NewName": "PauseMenu.MusicSlider",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.2206742Z"
+      },
+      {
+        "NewName": "PauseMenu.MasterLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.2586736Z"
+      },
+      {
+        "NewName": "PauseMenu.MasterSlider",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.2956731Z"
+      },
+      {
+        "NewName": "PauseMenu.VsyncLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.3316725Z"
+      },
+      {
+        "NewName": "PauseMenu.VsyncCheckbox",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.369672Z"
+      },
+      {
+        "NewName": "PauseMenu.HorizontalGrid",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.4066714Z"
+      },
+      {
+        "NewName": "PauseMenu.Back",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:02:57.4436709Z"
+      },
+      {
+        "NewName": "TitleScreen.RectangleInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:04:23.1383992Z"
+      },
+      {
+        "NewName": "TitleScreen.ColoredRectangleInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:04:34.544231Z"
+      },
+      {
+        "NewName": "TitleScreen.ColoredRectangleInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:08:21.502355Z"
+      },
+      {
+        "NewName": "TitleScreen.NineSliceInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:10:51.6213021Z"
+      },
+      {
+        "NewName": "TitleScreen.BackgroundPanel",
+        "OldName": "TitleScreen.NineSliceInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T14:11:00.158135Z"
+      },
+      {
+        "NewName": "TitleScreen.NonPanel",
+        "OldName": "TitleScreen.Settings",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T14:12:56.25892Z"
+      },
+      {
+        "NewName": "TitleScreen.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:13:06.7497247Z"
+      },
+      {
+        "NewName": "TitleScreen.Settings",
+        "OldName": "TitleScreen.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T14:13:19.1644946Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Container Settings in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:19:42.3937851Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Container Settings in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:19:49.3006695Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Container Settings in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.0994892Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Container HorizontalGrid in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.1014892Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructLabel SFXLabel in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.1014892Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/Slider SFXSlider in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.1024892Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructLabel MusicLabel in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.1034891Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/Slider MusicSlider in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.1044891Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructLabel MasterLabel in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.1054891Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/Slider MasterSlider in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.1074891Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructLabel VsyncLabel in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.1084891Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructCheckBox VsyncCheckbox in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.109489Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructButton Back in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:00.110489Z"
+      },
+      {
+        "NewName": "PauseMenu.BackgroundPanel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:01.3784679Z"
+      },
+      {
+        "NewName": "PauseMenu.NonPanel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:01.490466Z"
+      },
+      {
+        "NewName": "PauseMenu.SFXLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:01.5954643Z"
+      },
+      {
+        "NewName": "PauseMenu.SFXSlider",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:01.7044624Z"
+      },
+      {
+        "NewName": "PauseMenu.MusicLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:01.8124606Z"
+      },
+      {
+        "NewName": "PauseMenu.MusicSlider",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:01.9184589Z"
+      },
+      {
+        "NewName": "PauseMenu.MasterLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:02.0244571Z"
+      },
+      {
+        "NewName": "PauseMenu.MasterSlider",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:02.1284554Z"
+      },
+      {
+        "NewName": "PauseMenu.VsyncLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:02.2334536Z"
+      },
+      {
+        "NewName": "PauseMenu.VsyncCheckbox",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:02.3414518Z"
+      },
+      {
+        "NewName": "PauseMenu.HorizontalGrid",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:02.44745Z"
+      },
+      {
+        "NewName": "PauseMenu.Back",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:02.5544483Z"
+      },
+      {
+        "NewName": "PauseMenu.Settings",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:02.6604465Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2025-10-28T14:20:17.8511935Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).BackgroundPanel",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:19.5341655Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).NonPanel",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:19.6471637Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).SFXLabel",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:19.7541619Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).SFXSlider",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:19.8631601Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).MusicLabel",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:19.9701583Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).MusicSlider",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:20.0781565Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).MasterLabel",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:20.1871547Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).MasterSlider",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:20.2951529Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).VsyncLabel",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:20.4051511Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).VsyncCheckbox",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:20.5141492Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).HorizontalGrid",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:20.6251474Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).Back",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:20.7341456Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).Settings",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:20.8431438Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.Container Settings in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:32.8329447Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Container Settings in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:35.705897Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.Container NonPanel in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.5677171Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.Container HorizontalGrid in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.5717171Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.ConstructControls/ConstructLabel SFXLabel in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.572717Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.Controls/Slider SFXSlider in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.573717Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.ConstructControls/ConstructLabel MusicLabel in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.576717Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.Controls/Slider MusicSlider in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.577717Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.ConstructControls/ConstructLabel MasterLabel in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.5837169Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.Controls/Slider MasterSlider in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.5847168Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.ConstructControls/ConstructLabel VsyncLabel in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.5867168Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.ConstructControls/ConstructCheckBox VsyncCheckbox in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.5897168Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.ConstructControls/ConstructButton Back in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:20:46.6007166Z"
+      },
+      {
+        "NewName": "TitleScreen.SettingsInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:20:51.1256417Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.NineSlice BackgroundPanel in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:21:00.5614858Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ConstructControls/Settings (Container).Container Settings in ConstructControls/Settings (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:22:55.1466098Z"
+      },
+      {
+        "NewName": "ConstructControls/Settings (Container).ConstructButtonInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:23:01.726503Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Container Settings in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.265863Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.NineSlice BackgroundPanel in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.267863Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Container NonPanel in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.268863Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Container HorizontalGrid in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.2708629Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructLabel SFXLabel in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.2718629Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/Slider SFXSlider in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.2728629Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructLabel MusicLabel in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.2738629Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/Slider MusicSlider in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.2748629Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructLabel MasterLabel in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.2758628Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Controls/Slider MasterSlider in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.2758628Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructLabel VsyncLabel in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.2768628Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructCheckBox VsyncCheckbox in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.2778628Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructButton Back in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:23:41.2798628Z"
+      },
+      {
+        "NewName": "PauseMenu.SettingsInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:23:48.517746Z"
+      },
+      {
+        "NewName": "TitleScreen.Settings",
+        "OldName": "TitleScreen.SettingsInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T14:23:59.7465649Z"
+      },
+      {
+        "NewName": "PauseMenu.Settings",
+        "OldName": "PauseMenu.SettingsInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T14:24:04.1384942Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.Container Main in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:26:43.3219519Z"
+      },
+      {
+        "NewName": "PauseMenu.Main",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:26:44.8759272Z"
+      },
+      {
+        "NewName": "PauseMenu.StartButton",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:26:44.9929254Z"
+      },
+      {
+        "NewName": "PauseMenu.SettingsButton1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:26:45.0909238Z"
+      },
+      {
+        "NewName": "PauseMenu.QuitButton1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:26:45.1899222Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructButton ResumeButton in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:26:54.9407678Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructButton SettingsButton in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:26:54.9417678Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ConstructButton QuitButton in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T14:26:54.9427677Z"
+      },
+      {
+        "NewName": "PauseMenu.Main",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:26:56.1217491Z"
+      },
+      {
+        "NewName": "PauseMenu.StartButton",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:26:56.2317473Z"
+      },
+      {
+        "NewName": "PauseMenu.SettingsButton",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:26:56.3327457Z"
+      },
+      {
+        "NewName": "PauseMenu.QuitButton",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T14:26:56.4337441Z"
+      },
+      {
+        "NewName": "PauseMenu.ResumeButton",
+        "OldName": "PauseMenu.StartButton",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T14:28:43.5760548Z"
+      },
+      {
+        "NewName": "TitleScreen.SpriteInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-28T16:54:53.6288926Z"
+      },
+      {
+        "NewName": "TitleScreen.BG",
+        "OldName": "TitleScreen.SpriteInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-28T16:54:58.6408124Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.Sprite BG in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-28T16:56:49.3310432Z"
       }
     ],
     "bf7e9c9416dbbfa56951c8f06d5481c475badbcac0debd9483928f196aace3b2": [

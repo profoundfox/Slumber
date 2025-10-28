@@ -3,7 +3,7 @@ using GumRuntime;
 using System.Linq;
 using MonoGameGum;
 using MonoGameGum.GueDeriving;
-using Slumber.Components.Controls;
+using Slumber.Components.ConstructControls;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
@@ -42,16 +42,12 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         });
     }
     public ColoredRectangleRuntime ColoredRectangleInstance { get; protected set; }
-    public ContainerRuntime Main { get; protected set; }
-    public ButtonStandard ResumeButton { get; protected set; }
-    public ButtonStandard SettingsButton { get; protected set; }
-    public ButtonStandard QuitButton { get; protected set; }
     public ContainerRuntime Root { get; protected set; }
-    public ContainerRuntime Settings { get; protected set; }
-    public ButtonStandard Volume { get; protected set; }
-    public ButtonStandard Input { get; protected set; }
-    public ButtonStandard SFX { get; protected set; }
-    public ButtonStandard Back { get; protected set; }
+    public ContainerRuntime Main { get; protected set; }
+    public Settings Settings { get; protected set; }
+    public ConstructButton ResumeButton { get; protected set; }
+    public ConstructButton SettingsButton { get; protected set; }
+    public ConstructButton QuitButton { get; protected set; }
 
     public PauseMenu(InteractiveGue visual) : base(visual)
     {
@@ -66,16 +62,12 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     {
         base.ReactToVisualChanged();
         ColoredRectangleInstance = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance") as global::MonoGameGum.GueDeriving.ColoredRectangleRuntime;
-        Main = this.Visual?.GetGraphicalUiElementByName("Main") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        ResumeButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"ResumeButton");
-        SettingsButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"SettingsButton");
-        QuitButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"QuitButton");
         Root = this.Visual?.GetGraphicalUiElementByName("Root") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        Settings = this.Visual?.GetGraphicalUiElementByName("Settings") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        Volume = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"Volume");
-        Input = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"Input");
-        SFX = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"SFX");
-        Back = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"Back");
+        Main = this.Visual?.GetGraphicalUiElementByName("Main") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        Settings = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Settings>(this.Visual,"Settings");
+        ResumeButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"ResumeButton");
+        SettingsButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"SettingsButton");
+        QuitButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"QuitButton");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

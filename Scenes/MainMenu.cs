@@ -7,6 +7,7 @@ using MonoGameGum;
 using Slumber.Screens;
 using System;
 using ConstructEngine;
+using ConstructEngine.Graphics;
 
 
 namespace Slumber;
@@ -28,6 +29,8 @@ public class MainMenu : Scene, Scene.IScene
         GumHelper.AddScreenToRoot(new TitleScreen());
         
 
+        ParallaxBackground.AddBackground(new("Assets/Backgrounds/streetsbg", 0.1f,  ParallaxBackground.RepeatX, new Vector2(0,0)));
+
     }
 
     public void Load()
@@ -39,14 +42,13 @@ public class MainMenu : Scene, Scene.IScene
     public void Update(GameTime gameTime)
     {
         
-
+        
         
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        
-        
+        ParallaxBackground.DrawParallaxBackgrounds(spriteBatch, Core.GraphicsDevice, SamplerState.LinearWrap);
     }
 
 }

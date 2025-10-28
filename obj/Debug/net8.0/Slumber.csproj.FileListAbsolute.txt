@@ -478,3 +478,6 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net8.0/Content/Assets/UI/CheckButtonPress.xnb
 /home/nils/Documents/Project/Slumber/bin/Debug/net8.0/Content/GumProject/Components/ConstructControls/ConstructSlider.gucx
 /home/nils/Documents/Project/Slumber/bin/Debug/net8.0/Content/GumProject/Components/ConstructControls/ConstructSliderAnimations.ganx
+/home/nils/Documents/Project/Slumber/bin/Debug/net8.0/Content/GumProject/Components/ConstructControls/Settings.gucx
+/home/nils/Documents/Project/Slumber/bin/Debug/net8.0/Content/Assets/Backgrounds/streetsbg.xnb
+/home/nils/Documents/Project/Slumber/bin/Debug/net8.0/Content/GumProject/streetsbg.png

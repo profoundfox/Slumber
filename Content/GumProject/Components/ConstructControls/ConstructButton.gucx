@@ -629,14 +629,14 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Alpha</Name>
-        <Value xsi:type="xsd:int">153</Value>
+        <Value xsi:type="xsd:int">107</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Blue</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">64</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -648,13 +648,13 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Green</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">64</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Red</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">64</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>

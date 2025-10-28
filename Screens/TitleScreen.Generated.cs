@@ -4,7 +4,6 @@ using System.Linq;
 using MonoGameGum;
 using MonoGameGum.GueDeriving;
 using Slumber.Components.ConstructControls;
-using Slumber.Components.Controls;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
@@ -47,17 +46,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ConstructButton StartButton { get; protected set; }
     public ConstructButton SettingsButton { get; protected set; }
     public ConstructButton QuitButton { get; protected set; }
-    public ContainerRuntime Settings { get; protected set; }
-    public ConstructLabel SFXLabel { get; protected set; }
-    public Slider SFXSlider { get; protected set; }
-    public ConstructLabel MusicLabel { get; protected set; }
-    public Slider MusicSlider { get; protected set; }
-    public ConstructLabel MasterLabel { get; protected set; }
-    public Slider MasterSlider { get; protected set; }
-    public ConstructLabel VsyncLabel { get; protected set; }
-    public ConstructCheckBox VsyncCheckbox { get; protected set; }
-    public ContainerRuntime HorizontalGrid { get; protected set; }
-    public ConstructButton Back { get; protected set; }
+    public Settings Settings { get; protected set; }
 
     public TitleScreen(InteractiveGue visual) : base(visual)
     {
@@ -76,17 +65,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         StartButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"StartButton");
         SettingsButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"SettingsButton");
         QuitButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"QuitButton");
-        Settings = this.Visual?.GetGraphicalUiElementByName("Settings") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        SFXLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructLabel>(this.Visual,"SFXLabel");
-        SFXSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Slider>(this.Visual,"SFXSlider");
-        MusicLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructLabel>(this.Visual,"MusicLabel");
-        MusicSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Slider>(this.Visual,"MusicSlider");
-        MasterLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructLabel>(this.Visual,"MasterLabel");
-        MasterSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Slider>(this.Visual,"MasterSlider");
-        VsyncLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructLabel>(this.Visual,"VsyncLabel");
-        VsyncCheckbox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructCheckBox>(this.Visual,"VsyncCheckbox");
-        HorizontalGrid = this.Visual?.GetGraphicalUiElementByName("HorizontalGrid") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        Back = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"Back");
+        Settings = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Settings>(this.Visual,"Settings");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

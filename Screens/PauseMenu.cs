@@ -17,12 +17,10 @@ namespace Slumber.Screens
             Root.Visible = false;
 
             ResumeButton.IsFocused = true;
-
-            Settings.Visible = false;
             
             ResumeButton.Click += (_, _) =>
             {
-                Core.SceneManager.SceneFrozen = false;
+                Core.SceneManager.ToggleSceneFreeze(false);
                 Root.Visible = false;
             };
 
@@ -33,14 +31,16 @@ namespace Slumber.Screens
 
             SettingsButton.Click += (_, _) =>
             {
-                Settings.Visible = true;
+                Settings.IsVisible = true;
                 Main.Visible = false;
+                Settings.MasterSlider.IsFocused = true;
             };
 
-            Back.Click += (_, _) =>
+            Settings.Back.Click += (_, _) =>
             {
-                Settings.Visible = false;
+                Settings.IsVisible = false;
                 Main.Visible = true;
+                ResumeButton.IsFocused = true;
             };
         }
     }
