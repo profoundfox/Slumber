@@ -463,7 +463,7 @@
     <Variable>
       <Type>float</Type>
       <Name>VsyncCheckbox.Height</Name>
-      <Value xsi:type="xsd:float">20</Value>
+      <Value xsi:type="xsd:float">14</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -475,7 +475,7 @@
     <Variable>
       <Type>float</Type>
       <Name>VsyncCheckbox.Width</Name>
-      <Value xsi:type="xsd:float">53</Value>
+      <Value xsi:type="xsd:float">30</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -499,7 +499,7 @@
     <Variable>
       <Type>float</Type>
       <Name>VsyncCheckbox.Y</Name>
-      <Value xsi:type="xsd:float">-1</Value>
+      <Value xsi:type="xsd:float">-4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

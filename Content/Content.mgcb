@@ -170,12 +170,6 @@
 /processorParam:TextureFormat=Compressed
 /build:Assets/Fonts/Font.spritefont
 
-#begin Assets/Shaders/blur.fx
-/importer:EffectImporter
-/processor:EffectProcessor
-/processorParam:DebugMode=Auto
-/build:Assets/Shaders/blur.fx
-
 #begin Assets/Tileset/SlumberTilesetAtlas.png
 /importer:TextureImporter
 /processor:TextureProcessor

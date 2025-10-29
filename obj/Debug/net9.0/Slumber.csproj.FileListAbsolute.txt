@@ -14,7 +14,6 @@
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Backgrounds/Main.xnb
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Backgrounds/streetsbg.xnb
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Fonts/Font.xnb
-/home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Shaders/blur.xnb
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Tileset/SlumberTilesetAtlas.xnb
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Tileset/WoodPrototype.xnb
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/UI/ButtonBorderFromKenny.xnb
