@@ -44,6 +44,13 @@ namespace Slumber.Screens
                 StartButton.IsFocused = true;
             };
 
+            Settings.MasterSlider.ValueChanged += (_, _) =>
+            {
+                Console.WriteLine(Settings.MasterSlider.Value);
+            };
+
+            Console.WriteLine(Settings.MasterSlider.Value);
+
             
         
 

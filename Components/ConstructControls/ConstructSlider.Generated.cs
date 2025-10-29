@@ -75,7 +75,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ContainerRuntime TrackInstance { get; protected set; }
     public NineSliceRuntime TrackBackground { get; protected set; }
     public ButtonStandard ThumbInstance { get; protected set; }
-    public NineSliceRuntime FocusedIndicator { get; protected set; }
 
     public float SliderPercent
     {
@@ -98,7 +97,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         TrackInstance = this.Visual?.GetGraphicalUiElementByName("TrackInstance") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         TrackBackground = this.Visual?.GetGraphicalUiElementByName("TrackBackground") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         ThumbInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"ThumbInstance");
-        FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
