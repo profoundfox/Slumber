@@ -9,6 +9,7 @@ using RenderingLibrary.Graphics;
 using System.Linq;
 using ConstructEngine;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace Slumber.Screens
 {
@@ -16,6 +17,7 @@ namespace Slumber.Screens
     {
         partial void CustomInitialize()
         {
+            
             StartButton.IsFocused = true;
             Main.Visible = true;
             Settings.IsVisible = false;
@@ -41,13 +43,6 @@ namespace Slumber.Screens
             {
                 Settings.IsVisible = false;
                 Controls.IsVisible = true;
-            };
-
-            Settings.BackButton.Click += (_, _) =>
-            {
-                Settings.IsVisible = false;
-                Main.Visible = true;
-                StartButton.IsFocused = true;
             };
 
             Settings.MasterSlider.ValueChanged += (_, _) =>

@@ -46,7 +46,7 @@ namespace Slumber
 
             SceneManager.AddScene(new MainMenu());
 
-            //ToggleFullscreen();
+            ToggleFullscreen();
 
         }
 
@@ -69,16 +69,12 @@ namespace Slumber
             SetRenderTarget();
 
 
-            if (!SceneManager.IsStackEmpty())
-            {
-                GraphicsDevice.Clear(Color.DarkSlateGray);
-                SceneManager.GetCurrentScene().Draw(SpriteBatch);
-            }
+            GraphicsDevice.Clear(Color.DarkSlateGray);
 
 
+            SceneManager.DrawCurrentScene(SpriteBatch);
 
             base.Draw(gameTime);
-
 
             GumUI.Draw();
 

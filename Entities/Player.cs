@@ -15,6 +15,7 @@ using Gum.Forms.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Slumber.Logic;
 using Slumber.Screens;
 using Timer = ConstructEngine.Util.Timer;
 
@@ -70,7 +71,7 @@ public class Player : Entity, Entity.IEntity
 
 
     private PlayerUI Screen;
-    private PauseMenu pauseMenu;
+    private Pausemenu pauseMenu;
 
     public Player() : base(4)
     {
@@ -79,9 +80,8 @@ public class Player : Entity, Entity.IEntity
     public override void Load()
     {
         Screen = new PlayerUI();
-        pauseMenu = new PauseMenu();
-        GumHelper.AddScreenToRoot(pauseMenu);
-        GumHelper.AddScreenToRoot(Screen);
+        pauseMenu = new Pausemenu();
+        
 
 
         _atlas = TextureAtlas.FromFile(Core.Content, "Assets/Atlas/Player/player-atlas.xml", "Assets/Animations/Player/PlayerModel3Atlas");
@@ -119,14 +119,6 @@ public class Player : Entity, Entity.IEntity
         }
 
         HealthComponent.Update(gameTime);
-
-
-        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Escape))
-        {
-
-            Core.SceneManager.ToggleSceneFreeze(true);
-            pauseMenu.Root.Visible = true;
-        }
 
         DamageArea.Circ.X = KinematicBase.Collider.Rect.X + AttackColliderOffset;
         DamageArea.Circ.Y = KinematicBase.Collider.Rect.Y - 10;

@@ -5,54 +5,6 @@
   <State>
     <Name>Default</Name>
     <Variable>
-      <Type>string</Type>
-      <Name>BackButton.Parent</Name>
-      <Value xsi:type="xsd:string">Wrapper</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>BackButton.Text</Name>
-      <Value xsi:type="xsd:string">Back</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BackButton.X</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>BackButton.XOrigin</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BackButton.XUnits</Name>
-      <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BackButton.Y</Name>
-      <Value xsi:type="xsd:float">16</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>BackButton.YOrigin</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BackButton.YUnits</Name>
-      <Value xsi:type="xsd:int">5</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>int</Type>
       <Name>BackgroundPanel.Alpha</Name>
       <Value xsi:type="xsd:int">189</Value>
@@ -188,7 +140,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ControlButton.Y</Name>
-      <Value xsi:type="xsd:float">-100</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -200,7 +152,7 @@
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>ControlButton.YUnits</Name>
-      <Value xsi:type="xsd:int">7</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -319,12 +271,6 @@
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>MasterSlider.Width</Name>
-      <Value xsi:type="xsd:float">90</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
       <Name>MasterSlider.X</Name>
       <Value xsi:type="xsd:float">-0</Value>
       <SetsValue>true</SetsValue>
@@ -387,12 +333,6 @@
       <Type>string</Type>
       <Name>MusicSlider.Parent</Name>
       <Value xsi:type="xsd:string">NonPanel</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>MusicSlider.Width</Name>
-      <Value xsi:type="xsd:float">90</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -641,12 +581,6 @@
       <Type>string</Type>
       <Name>SFXSlider.Parent</Name>
       <Value xsi:type="xsd:string">NonPanel</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>SFXSlider.Width</Name>
-      <Value xsi:type="xsd:float">90</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -941,7 +875,7 @@
   </Instance>
   <Instance>
     <Name>SFXSlider</Name>
-    <BaseType>ConstructControls/ConstructSlider</BaseType>
+    <BaseType>Controls/Slider</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
@@ -951,7 +885,7 @@
   </Instance>
   <Instance>
     <Name>MusicSlider</Name>
-    <BaseType>ConstructControls/ConstructSlider</BaseType>
+    <BaseType>Controls/Slider</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
@@ -960,18 +894,13 @@
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>MasterSlider</Name>
-    <BaseType>ConstructControls/ConstructSlider</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>BackButton</Name>
-    <BaseType>ConstructControls/ConstructButton</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
     <Name>Wrapper</Name>
     <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>MasterSlider</Name>
+    <BaseType>Controls/Slider</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
