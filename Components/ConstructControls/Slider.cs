@@ -4,21 +4,16 @@ using Gum.Managers;
 using Gum.Wireframe;
 
 using RenderingLibrary.Graphics;
-using System;
+
 using System.Linq;
 
 namespace Slumber.Components.ConstructControls
 {
-    partial class ConstructSlider
+    partial class Slider
     {
         partial void CustomInitialize()
         {
-            TrackPercentOverlay.Width = Convert.ToSingle(Value);
-
-            ValueChanged += (_, _) =>
-            {
-                TrackPercentOverlay.Width = Convert.ToSingle(Value);
-            };
+        
         }
     }
 }

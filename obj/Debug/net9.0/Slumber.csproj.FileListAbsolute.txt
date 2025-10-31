@@ -97,7 +97,6 @@
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/ScrollBar.gucx
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/ScrollViewer.gucx
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/SettingsView.gucx
-/home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/Slider.gucx
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/SplitterStandard.gucx
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/StackPanel.gucx
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/TextBox.gucx

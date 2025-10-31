@@ -6,6 +6,71 @@
     <Name>Default</Name>
     <Variable>
       <Type>float</Type>
+      <Name>ControlComponentInstance.X</Name>
+      <Value xsi:type="xsd:float">-40.8000031</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ControlComponentInstance.Y</Name>
+      <Value xsi:type="xsd:float">65.59999</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ColorCategory</Type>
+      <Name>FocusedIndicator.ColorCategoryState</Name>
+      <Value xsi:type="xsd:string">Warning</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>FocusedIndicator.Height</Name>
+      <Value xsi:type="xsd:float">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>FocusedIndicator.HeightUnits</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>FocusedIndicator.Parent</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>StyleCategory</Type>
+      <Name>FocusedIndicator.StyleCategoryState</Name>
+      <Value xsi:type="xsd:string">Solid</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>FocusedIndicator.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>FocusedIndicator.Y</Name>
+      <Value xsi:type="xsd:float">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>FocusedIndicator.YOrigin</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>FocusedIndicator.YUnits</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>Height</Name>
       <Value xsi:type="xsd:float">24</Value>
       <SetsValue>true</SetsValue>
@@ -24,51 +89,81 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>NineSliceInstance.Height</Name>
-      <Value xsi:type="xsd:float">-16</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>NineSliceInstance.Parent</Name>
-      <Value xsi:type="xsd:string">TrackInstance</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>NineSliceInstance.Width</Name>
-      <Value xsi:type="xsd:float">-96</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>NineSliceInstance.X</Name>
-      <Value xsi:type="xsd:float">-48</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>NineSliceInstance.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>SliderCategory</Type>
       <Name>SliderCategoryState</Name>
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>SliderPercentage</Name>
-      <Value xsi:type="xsd:float">0.01</Value>
-      <SetsValue>true</SetsValue>
-      <IsCustomVariable>true</IsCustomVariable>
-    </Variable>
-    <Variable>
       <Type>State</Type>
       <Name>State</Name>
       <Category>States and Visibility</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ButtonCategory</Type>
+      <Name>ThumbInstance.ButtonCategoryState</Name>
+      <Value xsi:type="xsd:string">Enabled</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ThumbInstance.Height</Name>
+      <Value xsi:type="xsd:float">24</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>IconCategory</Type>
+      <Name>ThumbInstance.IconCategory</Name>
+      <Value xsi:type="xsd:string">None</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>ThumbInstance.Parent</Name>
+      <Value xsi:type="xsd:string">TrackInstance</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>ThumbInstance.Text</Name>
+      <Value xsi:type="xsd:string"></Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ThumbInstance.Width</Name>
+      <Value xsi:type="xsd:float">32</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ThumbInstance.X</Name>
+      <Value xsi:type="xsd:float">25</Value>
+      <ExposedAsName>SliderPercent</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>ThumbInstance.XOrigin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ThumbInstance.XUnits</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>ThumbInstance.YOrigin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ThumbInstance.YUnits</Name>
+      <Value xsi:type="xsd:int">7</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -80,7 +175,7 @@
     <Variable>
       <Type>int</Type>
       <Name>TrackBackground.Blue</Name>
-      <Value xsi:type="xsd:int">26</Value>
+      <Value xsi:type="xsd:int">25</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -92,7 +187,7 @@
     <Variable>
       <Type>int</Type>
       <Name>TrackBackground.Green</Name>
-      <Value xsi:type="xsd:int">26</Value>
+      <Value xsi:type="xsd:int">25</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -116,7 +211,7 @@
     <Variable>
       <Type>int</Type>
       <Name>TrackBackground.Red</Name>
-      <Value xsi:type="xsd:int">26</Value>
+      <Value xsi:type="xsd:int">25</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -204,6 +299,96 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>TrackPercentOverlay.Alpha</Name>
+      <Value xsi:type="xsd:int">255</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>TrackPercentOverlay.Blue</Name>
+      <Value xsi:type="xsd:int">172</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>TrackPercentOverlay.Green</Name>
+      <Value xsi:type="xsd:int">172</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TrackPercentOverlay.Height</Name>
+      <Value xsi:type="xsd:float">8</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>TrackPercentOverlay.HeightUnits</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TrackPercentOverlay.Parent</Name>
+      <Value xsi:type="xsd:string">TrackInstance</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>TrackPercentOverlay.Red</Name>
+      <Value xsi:type="xsd:int">172</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TrackPercentOverlay.Width</Name>
+      <Value xsi:type="xsd:float">25</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>TrackPercentOverlay.WidthUnits</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TrackPercentOverlay.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>TrackPercentOverlay.XOrigin</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>TrackPercentOverlay.XUnits</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TrackPercentOverlay.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>TrackPercentOverlay.YOrigin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>TrackPercentOverlay.YUnits</Name>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>Width</Name>
       <Value xsi:type="xsd:float">128</Value>
@@ -215,24 +400,19 @@
       <IsFile>false</IsFile>
       <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
       <Value>
-        <string>Red=26</string>
-        <string>Green=26</string>
-        <string>Blue=26</string>
+        <string>Red=25</string>
+        <string>Green=25</string>
+        <string>Blue=25</string>
       </Value>
     </VariableList>
     <VariableList xsi:type="VariableListSaveOfString">
       <Type>string</Type>
-      <Name>VariableReferences</Name>
+      <Name>TrackPercentOverlay.VariableReferences</Name>
       <IsFile>false</IsFile>
       <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
-      <Value />
-    </VariableList>
-    <VariableList xsi:type="VariableListSaveOfString">
-      <Type>string</Type>
-      <Name>NineSliceInstance.VariableReferences</Name>
-      <IsFile>false</IsFile>
-      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
-      <Value />
+      <Value>
+        <string>Width=ThumbInstance.X</string>
+      </Value>
     </VariableList>
   </State>
   <Category>
@@ -240,189 +420,231 @@
     <State>
       <Name>Enabled</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>TrackBackground.Alpha</Name>
-        <Value xsi:type="xsd:int">99</Value>
+        <Type>bool</Type>
+        <Name>FocusedIndicator.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategory</Type>
+        <Name>ThumbInstance.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Blue</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Blue</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Green</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Green</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Red</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Red</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Disabled</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>TrackBackground.Alpha</Name>
-        <Value xsi:type="xsd:int">99</Value>
+        <Type>bool</Type>
+        <Name>FocusedIndicator.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategory</Type>
+        <Name>ThumbInstance.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Disabled</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Blue</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Blue</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Green</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Green</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Red</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Red</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>DisabledFocused</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>TrackBackground.Alpha</Name>
-        <Value xsi:type="xsd:int">99</Value>
+        <Type>bool</Type>
+        <Name>FocusedIndicator.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategory</Type>
+        <Name>ThumbInstance.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Disabled</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Blue</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Blue</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Green</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Red</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Focused</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>TrackBackground.Alpha</Name>
-        <Value xsi:type="xsd:int">99</Value>
+        <Type>bool</Type>
+        <Name>FocusedIndicator.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategory</Type>
+        <Name>ThumbInstance.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Blue</Name>
-        <Value xsi:type="xsd:int">172</Value>
+        <Name>TrackPercentOverlay.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Green</Name>
-        <Value xsi:type="xsd:int">172</Value>
+        <Name>TrackPercentOverlay.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Red</Name>
-        <Value xsi:type="xsd:int">172</Value>
+        <Name>TrackPercentOverlay.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Highlighted</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>TrackBackground.Alpha</Name>
-        <Value xsi:type="xsd:int">99</Value>
+        <Type>bool</Type>
+        <Name>FocusedIndicator.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>string</Type>
+        <Name>ThumbInstance.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Highlighted</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Blue</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Blue</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Green</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Green</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Red</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Red</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>HighlightedFocused</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>TrackBackground.Alpha</Name>
-        <Value xsi:type="xsd:int">107</Value>
+        <Type>bool</Type>
+        <Name>FocusedIndicator.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategory</Type>
+        <Name>ThumbInstance.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Highlighted</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Blue</Name>
-        <Value xsi:type="xsd:int">64</Value>
+        <Name>TrackPercentOverlay.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Green</Name>
-        <Value xsi:type="xsd:int">64</Value>
+        <Name>TrackPercentOverlay.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Red</Name>
-        <Value xsi:type="xsd:int">64</Value>
+        <Name>TrackPercentOverlay.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Pushed</Name>
       <Variable>
-        <Type>int</Type>
-        <Name>TrackBackground.Alpha</Name>
-        <Value xsi:type="xsd:int">99</Value>
+        <Type>bool</Type>
+        <Name>FocusedIndicator.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>ButtonCategory</Type>
+        <Name>ThumbInstance.ButtonCategoryState</Name>
+        <Value xsi:type="xsd:string">Enabled</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Blue</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Blue</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Green</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Green</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TrackBackground.Red</Name>
-        <Value xsi:type="xsd:int">25</Value>
+        <Name>TrackPercentOverlay.Red</Name>
+        <Value xsi:type="xsd:int">172</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -438,7 +660,17 @@
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>NineSliceInstance</Name>
+    <Name>ThumbInstance</Name>
+    <BaseType>Controls/ButtonStandard</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>FocusedIndicator</Name>
+    <BaseType>NineSlice</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>TrackPercentOverlay</Name>
     <BaseType>NineSlice</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>

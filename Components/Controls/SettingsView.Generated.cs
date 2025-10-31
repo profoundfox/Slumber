@@ -4,6 +4,7 @@ using System.Linq;
 using MonoGameGum;
 using MonoGameGum.GueDeriving;
 using Slumber.Components.Controls;
+using Slumber.Components.ConstructControls;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
@@ -39,9 +40,9 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     }
     public CheckBox FullscreenCheckboxInstance { get; protected set; }
     public Label MusicVolumeLabel { get; protected set; }
-    public Slider MusicSliderInstance { get; protected set; }
+    public ConstructSlider MusicSliderInstance { get; protected set; }
     public Label SoundVolumeLabel { get; protected set; }
-    public Slider SoundSliderInstance { get; protected set; }
+    public ConstructSlider SoundSliderInstance { get; protected set; }
 
     public SettingsView(InteractiveGue visual) : base(visual)
     {
@@ -57,9 +58,9 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         base.ReactToVisualChanged();
         FullscreenCheckboxInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CheckBox>(this.Visual,"FullscreenCheckboxInstance");
         MusicVolumeLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Label>(this.Visual,"MusicVolumeLabel");
-        MusicSliderInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Slider>(this.Visual,"MusicSliderInstance");
+        MusicSliderInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructSlider>(this.Visual,"MusicSliderInstance");
         SoundVolumeLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Label>(this.Visual,"SoundVolumeLabel");
-        SoundSliderInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Slider>(this.Visual,"SoundSliderInstance");
+        SoundSliderInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructSlider>(this.Visual,"SoundSliderInstance");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

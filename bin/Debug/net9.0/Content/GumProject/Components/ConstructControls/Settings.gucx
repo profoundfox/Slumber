@@ -875,7 +875,7 @@
   </Instance>
   <Instance>
     <Name>SFXSlider</Name>
-    <BaseType>Controls/Slider</BaseType>
+    <BaseType>ConstructControls/ConstructSlider</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
@@ -885,7 +885,7 @@
   </Instance>
   <Instance>
     <Name>MusicSlider</Name>
-    <BaseType>Controls/Slider</BaseType>
+    <BaseType>ConstructControls/ConstructSlider</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
@@ -900,7 +900,7 @@
   </Instance>
   <Instance>
     <Name>MasterSlider</Name>
-    <BaseType>Controls/Slider</BaseType>
+    <BaseType>ConstructControls/ConstructSlider</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />

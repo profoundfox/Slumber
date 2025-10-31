@@ -271,8 +271,14 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>MasterSlider.Width</Name>
+      <Value xsi:type="xsd:float">80</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>MasterSlider.X</Name>
-      <Value xsi:type="xsd:float">-0</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -337,8 +343,14 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>MusicSlider.Width</Name>
+      <Value xsi:type="xsd:float">80</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>MusicSlider.X</Name>
-      <Value xsi:type="xsd:float">-0</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -441,7 +453,7 @@
     <Variable>
       <Type>float</Type>
       <Name>NonPanel.X</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">7</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -585,8 +597,14 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>SFXSlider.Width</Name>
+      <Value xsi:type="xsd:float">80</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>SFXSlider.X</Name>
-      <Value xsi:type="xsd:float">-0</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -875,7 +893,7 @@
   </Instance>
   <Instance>
     <Name>SFXSlider</Name>
-    <BaseType>Controls/Slider</BaseType>
+    <BaseType>ConstructControls/ConstructSlider</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
@@ -885,7 +903,7 @@
   </Instance>
   <Instance>
     <Name>MusicSlider</Name>
-    <BaseType>Controls/Slider</BaseType>
+    <BaseType>ConstructControls/ConstructSlider</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
@@ -900,7 +918,7 @@
   </Instance>
   <Instance>
     <Name>MasterSlider</Name>
-    <BaseType>Controls/Slider</BaseType>
+    <BaseType>ConstructControls/ConstructSlider</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />

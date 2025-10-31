@@ -2,62 +2,6 @@
   "UserEvents": {
     "1b4cf534c7f762dd4e014b865f6faca83e93e85a072ee1a3a6663cc3ee668162": [
       {
-        "NewName": "TitleScreen.Main",
-        "OldName": "TitleScreen.ContainerInstance",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2025-10-16T13:54:08.5238589Z"
-      },
-      {
-        "NewName": "TitleScreen.ContainerInstance",
-        "OldName": null,
-        "ElementType": "Screens",
-        "EventType": 5,
-        "TimestampUtc": "2025-10-16T13:54:20.228636Z"
-      },
-      {
-        "NewName": "TitleScreen.Root",
-        "OldName": "TitleScreen.ContainerInstance",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2025-10-16T13:54:29.1594696Z"
-      },
-      {
-        "NewName": "TitleScreen.ContainerInstance",
-        "OldName": null,
-        "ElementType": "Screens",
-        "EventType": 5,
-        "TimestampUtc": "2025-10-16T13:54:32.9873993Z"
-      },
-      {
-        "NewName": "TitleScreen.Settings",
-        "OldName": "TitleScreen.ContainerInstance",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2025-10-16T13:54:39.0832884Z"
-      },
-      {
-        "NewName": "TitleScreen.SettingsButton",
-        "OldName": "TitleScreen.ButtonStandardInstance1",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2025-10-16T13:54:51.086074Z"
-      },
-      {
-        "NewName": "TitleScreen.QuitButton",
-        "OldName": "TitleScreen.Quit",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2025-10-16T13:54:54.6200119Z"
-      },
-      {
-        "NewName": "TitleScreen.StartButton",
-        "OldName": "TitleScreen.Start",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2025-10-16T13:55:05.6108215Z"
-      },
-      {
         "NewName": "TitleScreen.ButtonStandardInstance",
         "OldName": null,
         "ElementType": "Screens",
@@ -4410,6 +4354,230 @@
         "ElementType": "Components",
         "EventType": 7,
         "TimestampUtc": "2025-10-30T18:52:29.4940987Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ConstructControls/ConstructSlider",
+        "ElementType": "Components",
+        "EventType": 1,
+        "TimestampUtc": "2025-10-31T06:53:13.7217301Z"
+      },
+      {
+        "NewName": "ConstructControls/Slider",
+        "OldName": "Controls/Slider",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2025-10-31T06:53:38.0065103Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider",
+        "OldName": "ConstructControls/Slider",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2025-10-31T06:53:48.1874187Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).ControlComponentInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-31T06:53:48.3554171Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSlice FocusedIndicator in ConstructControls/ConstructSlider (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-31T06:55:09.3956975Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-31T06:56:21.8920656Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T06:59:36.7414032Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T06:59:36.7464031Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T06:59:36.7514031Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T06:59:36.7544031Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T06:59:36.759403Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T06:59:36.7744029Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T06:59:36.7794029Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T06:59:36.7844028Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:30:05.3629105Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:30:05.3679104Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:30:05.3749103Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:30:05.3759103Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:30:05.3779103Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:30:05.3789103Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:30:05.3809103Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackPercentOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:30:05.3819103Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-10-31T07:32:16.3385805Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackFocusOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:32:27.6714662Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackFocusOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:32:27.6754662Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackFocusOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:32:27.6824661Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackFocusOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:32:27.695466Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackFocusOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:32:27.696466Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackFocusOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:32:27.7004659Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackFocusOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:32:27.7024659Z"
+      },
+      {
+        "NewName": "ConstructControls/ConstructSlider (Container).TrackFocusOverlay",
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSliceInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-10-31T07:32:27.7034659Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ConstructControls/ConstructSlider (Container).NineSlice TrackFocusOverlay in ConstructControls/ConstructSlider (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2025-10-31T07:36:30.1420448Z"
       }
     ],
     "bf7e9c9416dbbfa56951c8f06d5481c475badbcac0debd9483928f196aace3b2": [

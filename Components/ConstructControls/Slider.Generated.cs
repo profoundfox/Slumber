@@ -1,4 +1,4 @@
-//Code for ConstructControls/ConstructSlider (Container)
+//Code for ConstructControls/Slider (Container)
 using GumRuntime;
 using System.Linq;
 using MonoGameGum;
@@ -14,7 +14,7 @@ using RenderingLibrary.Graphics;
 using System.Linq;
 
 namespace Slumber.Components.ConstructControls;
-partial class ConstructSlider : global::Gum.Forms.Controls.Slider
+partial class Slider : global::Gum.Forms.Controls.Slider
 {
     [System.Runtime.CompilerServices.ModuleInitializer]
     public static void RegisterRuntimeType()
@@ -22,16 +22,16 @@ partial class ConstructSlider : global::Gum.Forms.Controls.Slider
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("ConstructControls/ConstructSlider");
+            var element = ObjectFinder.Self.GetElementSave("ConstructControls/Slider");
 #if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named ConstructControls/ConstructSlider - did you forget to load a Gum project?");
+if(element == null) throw new System.InvalidOperationException("Could not find an element named ConstructControls/Slider - did you forget to load a Gum project?");
 #endif
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
-            if(createForms) visual.FormsControlAsObject = new ConstructSlider(visual);
+            if(createForms) visual.FormsControlAsObject = new Slider(visual);
             return visual;
         });
-        global::Gum.Forms.Controls.FrameworkElement.DefaultFormsTemplates[typeof(ConstructSlider)] = template;
-        ElementSaveExtensions.RegisterGueInstantiation("ConstructControls/ConstructSlider", () => 
+        global::Gum.Forms.Controls.FrameworkElement.DefaultFormsTemplates[typeof(Slider)] = template;
+        ElementSaveExtensions.RegisterGueInstantiation("ConstructControls/Slider", () => 
         {
             var gue = template.CreateContent(null, true) as InteractiveGue;
             return gue;
@@ -76,7 +76,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public NineSliceRuntime TrackBackground { get; protected set; }
     public ButtonStandard ThumbInstance { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
-    public NineSliceRuntime TrackPercentOverlay { get; protected set; }
 
     public float SliderPercent
     {
@@ -84,10 +83,10 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         set => ThumbInstance.Visual.X = value;
     }
 
-    public ConstructSlider(InteractiveGue visual) : base(visual)
+    public Slider(InteractiveGue visual) : base(visual)
     {
     }
-    public ConstructSlider()
+    public Slider()
     {
 
 
@@ -100,7 +99,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         TrackBackground = this.Visual?.GetGraphicalUiElementByName("TrackBackground") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         ThumbInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"ThumbInstance");
         FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
-        TrackPercentOverlay = this.Visual?.GetGraphicalUiElementByName("TrackPercentOverlay") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
