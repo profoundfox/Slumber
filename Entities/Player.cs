@@ -148,17 +148,20 @@ public class Player : Entity, Entity.IEntity
         //DrawHelper.DrawRectangle(KinematicBase.Collider.Rect, Color.Red, 2, 0.6f);
     }
     
-    private void SaveData()
+    public void SaveData()
     {
         PlayerData.CurrentPosition = KinematicBase.Collider.GetPosition();
         PlayerData.CurrentHealth = HealthComponent.CurrentHealth;
+        PlayerData.CurrentScene = Core.SceneManager.GetCurrentScene(); 
 
         FileSaver.SaveDataToJson(PlayerData, "", FileSavePath);
     }
 
-    private void LoadDataFromSave()
+    public void LoadDataFromSave()
     {
         FileSaver.LoadDataFromJson(PlayerData, FileSavePath);
+
+        Core.SceneManager.AddScene(PlayerData.CurrentScene);
 
         KinematicBase.Collider.Rect.X = (int)PlayerData.CurrentPosition.X;
         KinematicBase.Collider.Rect.Y = (int)PlayerData.CurrentPosition.Y;

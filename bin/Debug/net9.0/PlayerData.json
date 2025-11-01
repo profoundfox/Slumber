@@ -1,7 +1,22 @@
 {
-  "CurrentHealth": 4,
+  "CurrentHealth": 5,
   "CurrentPosition": {
-    "X": 146,
-    "Y": 167
+    "X": 198,
+    "Y": 275
+  },
+  "CurrentScene": {
+    "_camera": {
+      "Transform": {
+        "Backward": {},
+        "Down": {},
+        "Forward": {},
+        "Left": {},
+        "Right": {},
+        "Translation": {},
+        "Up": {}
+      },
+      "Zoom": 1,
+      "LerpFactor": 0.1
+    }
   }
 }
