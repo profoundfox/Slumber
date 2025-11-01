@@ -301,7 +301,6 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/ScrollBar.gucx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/ScrollViewer.gucx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/SettingsView.gucx
-/Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/Slider.gucx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/SplitterStandard.gucx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/StackPanel.gucx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/Controls/TextBox.gucx
@@ -447,3 +446,5 @@
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Debug/net9.0/ref/Slumber.dll
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/ConstructControls/ControlComponent.gucx
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/ConstructControls/Wrapper.gucx
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/ConstructControls/ControlComponent.gucx
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Components/ConstructControls/Wrapper.gucx

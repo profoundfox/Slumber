@@ -12,6 +12,7 @@ using Slumber.Entities;
 using ConstructEngine.Components.Entity;
 using ConstructEngine.Gum;
 using Slumber.Screens;
+using ConstructEngine.Directory;
 using ConstructEngine.Physics;
 
 namespace Slumber;

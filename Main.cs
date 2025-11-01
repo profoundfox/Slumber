@@ -17,10 +17,7 @@ namespace Slumber
         public Main() : base("Platformer", 640, 360, false)
         {
             Window.AllowUserResizing = true;
-
             Window.IsBorderless = true;
-
-            //IsMouseVisible = false;
 
             var displayMode = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode;
 
@@ -46,7 +43,7 @@ namespace Slumber
 
             SceneManager.AddScene(new MainMenu());
 
-            ToggleFullscreen();
+            //ToggleFullscreen();
 
         }
 
