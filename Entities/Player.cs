@@ -22,8 +22,6 @@ public class Player : Entity, Entity.IEntity
     Animation _idleAnim;
     Animation _fallAnim;
 
-    string FileSavePath = "PlayerData.json";
-
     private Vector2 AnimatedSpriteRenderingPosition;
 
     Keys MoveRightKey = Keys.Right;
@@ -38,7 +36,6 @@ public class Player : Entity, Entity.IEntity
     HealthComponent HealthComponent;
 
     PlayerInfo PlayerInfo = new();
-    PlayerData PlayerData = new();
 
     private PlayerUI Screen;
     private Pausemenu pauseMenu;
@@ -52,7 +49,6 @@ public class Player : Entity, Entity.IEntity
         Screen = new PlayerUI();
         pauseMenu = new Pausemenu();
 
-        VariableData = PlayerData;
         
 
         _atlas = TextureAtlas.FromFile(Core.Content, "Assets/Atlas/Player/player-atlas.xml", "Assets/Animations/Player/PlayerModel3Atlas");
@@ -89,8 +85,8 @@ public class Player : Entity, Entity.IEntity
             PlayerInfo.falling = true;
         }
 
-    
 
+        SaveManager.PlayerData.CurrentPosition = KinematicBase.Position;
 
         HealthComponent.Update(gameTime);
 
@@ -122,12 +118,12 @@ public class Player : Entity, Entity.IEntity
         
         if (Core.Input.Keyboard.WasKeyJustPressed(Keys.K))
         {
-            SaveData();
+            SaveManager.SaveData();
         }
 
         if (Core.Input.Keyboard.WasKeyJustPressed(Keys.L))
         {
-            LoadDataFromSave();
+            SaveManager.LoadData();
         }
     }
 

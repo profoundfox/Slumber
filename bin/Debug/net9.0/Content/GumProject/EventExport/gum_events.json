@@ -5126,6 +5126,20 @@
         "ElementType": "Components",
         "EventType": 7,
         "TimestampUtc": "2025-10-29T12:28:15.928257Z"
+      },
+      {
+        "NewName": "TitleScreen.StartButton1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-02T20:04:21.799452Z"
+      },
+      {
+        "NewName": "TitleScreen.ResumeButton",
+        "OldName": "TitleScreen.StartButton1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-02T20:04:30.548296Z"
       }
     ]
   }

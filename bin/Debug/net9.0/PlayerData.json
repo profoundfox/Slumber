@@ -1,8 +1,8 @@
 {
-  "FileSavePath": "PlayerData.json",
-  "AnimatedSpriteRenderingPosition": {
-    "X": 153,
-    "Y": 206
+  "CurrentHealth": 0,
+  "CurrentPosition": {
+    "X": 128,
+    "Y": 167
   },
-  "AttackColliderOffset": 15
+  "CurrentScene": "Scene1"
 }

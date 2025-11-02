@@ -44,6 +44,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ContainerRuntime Main { get; protected set; }
     public ContainerRuntime Root { get; protected set; }
     public ConstructButton StartButton { get; protected set; }
+    public ConstructButton ResumeButton { get; protected set; }
     public ConstructButton SettingsButton { get; protected set; }
     public ConstructButton QuitButton { get; protected set; }
     public Settings Settings { get; protected set; }
@@ -64,6 +65,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         Main = this.Visual?.GetGraphicalUiElementByName("Main") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         Root = this.Visual?.GetGraphicalUiElementByName("Root") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         StartButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"StartButton");
+        ResumeButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"ResumeButton");
         SettingsButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"SettingsButton");
         QuitButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"QuitButton");
         Settings = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Settings>(this.Visual,"Settings");

@@ -10,6 +10,7 @@ using System.Linq;
 using ConstructEngine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System.IO;
 
 namespace Slumber.Screens
 {
@@ -20,11 +21,18 @@ namespace Slumber.Screens
             StartButton.IsFocused = true;
             Main.Visible = true;
             Settings.IsVisible = false;
+
             
             StartButton.Click += (_, _) =>
             {
                 Core.SceneManager.AddScene(new Scene1());
             };
+
+            ResumeButton.Click += (_, _) =>
+            {
+                SaveManager.LoadData();
+            };
+
 
             QuitButton.Click += (_, _) =>
             {

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Slumber.Entities;
 using static ConstructEngine.Util.Scene;
 
-public class PlayerData : VariableData
+public class PlayerData
 {
     public int CurrentHealth;
     public Vector2 CurrentPosition;
