@@ -1,18 +1,8 @@
-using System;
-using System.ComponentModel;
-using System.Net.Mime;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices;
-using System.Timers;
 using ConstructEngine;
 using ConstructEngine.Components.Entity;
 using ConstructEngine.Components.Physics;
-using ConstructEngine.Directory;
 using ConstructEngine.Graphics;
-using ConstructEngine.Gum;
 using ConstructEngine.Physics;
-using ConstructEngine.Util;
-using Gum.Forms.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -61,8 +51,9 @@ public class Player : Entity, Entity.IEntity
     {
         Screen = new PlayerUI();
         pauseMenu = new Pausemenu();
-        
 
+        VariableData = PlayerData;
+        
 
         _atlas = TextureAtlas.FromFile(Core.Content, "Assets/Atlas/Player/player-atlas.xml", "Assets/Animations/Player/PlayerModel3Atlas");
                 
@@ -148,26 +139,7 @@ public class Player : Entity, Entity.IEntity
         //DrawHelper.DrawRectangle(KinematicBase.Collider.Rect, Color.Red, 2, 0.6f);
     }
     
-    public void SaveData()
-    {
-        PlayerData.CurrentPosition = KinematicBase.Collider.GetPosition();
-        PlayerData.CurrentHealth = HealthComponent.CurrentHealth;
-        PlayerData.CurrentScene = Core.SceneManager.GetCurrentScene(); 
 
-        FileSaver.SaveDataToJson(PlayerData, "", FileSavePath);
-    }
-
-    public void LoadDataFromSave()
-    {
-        FileSaver.LoadDataFromJson(PlayerData, FileSavePath);
-
-        Core.SceneManager.AddScene(PlayerData.CurrentScene);
-
-        KinematicBase.Collider.Rect.X = (int)PlayerData.CurrentPosition.X;
-        KinematicBase.Collider.Rect.Y = (int)PlayerData.CurrentPosition.Y;
-        HealthComponent.CurrentHealth = PlayerData.CurrentHealth;
-    }
-    
     //Functions
     private void HandleWall()
     {

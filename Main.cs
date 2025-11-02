@@ -8,6 +8,7 @@ using ConstructEngine.Physics;
 using ConstructEngine.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ConstructEngine.Directory;
+using System.Runtime.Loader;
 
 namespace Slumber
 {  
@@ -44,8 +45,6 @@ namespace Slumber
             UpdateGumCamera();
 
             SceneManager.AddScene(new MainMenu());
-
-        
 
             //ToggleFullscreen();
 

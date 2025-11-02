@@ -1,14 +1,14 @@
 
 
+using ConstructEngine.Directory;
 using ConstructEngine.Util;
 using Microsoft.Xna.Framework;
+using Slumber.Entities;
 using static ConstructEngine.Util.Scene;
 
-public class PlayerData
+public class PlayerData : VariableData
 {
-    public PlayerData() { }
-
     public int CurrentHealth;
     public Vector2 CurrentPosition;
-    public IScene CurrentScene;
+    public string CurrentScene;
 }

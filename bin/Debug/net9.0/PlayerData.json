@@ -1,22 +1,8 @@
 {
-  "CurrentHealth": 5,
-  "CurrentPosition": {
-    "X": 198,
-    "Y": 275
+  "FileSavePath": "PlayerData.json",
+  "AnimatedSpriteRenderingPosition": {
+    "X": 153,
+    "Y": 206
   },
-  "CurrentScene": {
-    "_camera": {
-      "Transform": {
-        "Backward": {},
-        "Down": {},
-        "Forward": {},
-        "Left": {},
-        "Right": {},
-        "Translation": {},
-        "Up": {}
-      },
-      "Zoom": 1,
-      "LerpFactor": 0.1
-    }
-  }
+  "AttackColliderOffset": 15
 }
