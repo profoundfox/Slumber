@@ -23,7 +23,7 @@ public class Pausemenu : BackseatComponent
     {
         if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Escape))
         {
-            Core.SceneManager.ToggleSceneFreeze(true);
+            Core.SceneManager.QueeFreezeCurrentScene();
             Menu.Root.Visible = true;
         }
 
@@ -31,7 +31,7 @@ public class Pausemenu : BackseatComponent
         {
             if (Menu.Main.Visible)
             {
-                Core.SceneManager.ToggleSceneFreeze(false);
+                Core.SceneManager.UnFreezeCurrentScene();
                 Menu.Root.Visible = false;
             }
             if (Menu.Settings.IsVisible)

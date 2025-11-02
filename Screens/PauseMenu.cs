@@ -20,7 +20,7 @@ namespace Slumber.Screens
             
             ResumeButton.Click += (_, _) =>
             {
-                Core.SceneManager.ToggleSceneFreeze(false);
+                Core.SceneManager.UnFreezeCurrentScene();
                 Root.Visible = false;
             };
 
