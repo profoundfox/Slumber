@@ -9,7 +9,7 @@
     <key>CFBundleIconFile</key>
     <string>Slumber</string>
     <key>CFBundleIdentifier</key>
-    <string>com.nightfall.slumber</string>
+    <string>com.yourdomain.slumber</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
