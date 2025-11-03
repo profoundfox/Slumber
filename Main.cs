@@ -12,7 +12,7 @@ namespace Slumber
     {   
         private GumService GumUI;
 
-        public Main() : base("Platformer", 640, 360, false)
+        public Main() : base("Platformer", 640, 360, false, "Assets/Fonts/Font")
         {
             Window.AllowUserResizing = true;
             Window.IsBorderless = true;

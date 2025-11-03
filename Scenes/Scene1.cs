@@ -20,7 +20,6 @@ namespace Slumber;
 public class Scene1 : Scene, Scene.IScene
 {
     public RoomCamera _camera { get; set; }
-    private SpriteFont _font;
     private ContentManager contentManager;
 
     public Scene1()
@@ -35,8 +34,6 @@ public class Scene1 : Scene, Scene.IScene
     }
     public void Load()
     {
-
-        _font = Core.Content.Load<SpriteFont>("Assets/Fonts/Font");
 
         TilemapFromOgmo.InstantiateEntities("Content/Data/Scene1.json");
         TilemapFromOgmo.FromFile(contentManager, "Content/Data/Scene1.json", "0 0 512 512", "Assets/Tileset/SlumberTilesetAtlas");
@@ -102,7 +99,8 @@ public class Scene1 : Scene, Scene.IScene
 
             //DrawHelper.DrawCircle(col.Circ, Color.AliceBlue, 2);
         }
-        
+
+            
 
         //DrawHelper.DrawRectangle(_camera.CameraRectangle, Color.Red, 2);
         

@@ -3,6 +3,7 @@ using ConstructEngine.Components.Entity;
 using ConstructEngine.Components.Physics;
 using ConstructEngine.Graphics;
 using ConstructEngine.Physics;
+using ConstructEngine.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -131,6 +132,8 @@ public class Player : Entity, Entity.IEntity
     {
         DrawSprites(spriteBatch, AnimatedSpriteRenderingPosition, PlayerInfo.textureOffset);
 
+
+        DrawHelper.DrawString(HealthComponent.CurrentHealth.ToString(), Color.Red, Camera.CurrentCamera.GetScreenEdges().TopLeft) ;    
         //ColliderDraw.DrawCircle(AttackCollider.Circ, Color.Red, 2);
         //DrawHelper.DrawRectangle(KinematicBase.Collider.Rect, Color.Red, 2, 0.6f);
     }
