@@ -7,7 +7,6 @@ using ConstructEngine.Components.Entity;
 using ConstructEngine.Graphics;
 using ConstructEngine.Objects;
 using ConstructEngine.Area;
-using ConstructEngine.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Timer = ConstructEngine.Util.Timer;
@@ -37,6 +36,8 @@ public class Enemy : Entity, Entity.IEntity
 
     private Animation RunAnimation;
 
+    Vector2 RayPos;
+
     public Enemy() : base(1)
     {
 
@@ -55,22 +56,30 @@ public class Enemy : Entity, Entity.IEntity
         KinematicBase.Collider = new Area2D(new Rectangle(400, 150, 16, 16), true, this);
 
         Health = 5;
+
+        float forwardOffset = KinematicBase.Collider.Rect.Width / 2f + 5f;
+
+        RayPos = new Vector2(
+            KinematicBase.Collider.Rect.Center.X + forwardOffset * Direction,
+            KinematicBase.Collider.Rect.Bottom
+        );
+
+        EnemyRay = new Ray2D(RayPos, 90, 5);
+        EnemyRayNotDown = new Ray2D(RayPos, 0, 50);
     }
 
     public void Update(GameTime gameTime)
     {
         float forwardOffset = KinematicBase.Collider.Rect.Width / 2f + 5f;
 
-        Vector2 rayStart = new Vector2(
-            KinematicBase.Collider.Rect.Center.X + forwardOffset * Direction,
-            KinematicBase.Collider.Rect.Bottom
-        );
+        RayPos.X = KinematicBase.Collider.Rect.Center.X + forwardOffset * Direction;
+        RayPos.Y = KinematicBase.Collider.Rect.Bottom;
 
-        EnemyRay = new Ray2D(rayStart, 90, 5);
-        //EnemyRayNotDown = new Ray2D(rayStart, 0, 50);
+        EnemyRay.Update(RayPos, 90);
+        EnemyRayNotDown.Update(RayPos, 0);
 
-        RayColliding = EnemyRay.Raycast(Area2D.RectangleList);
-        RayCollidingNotDown = EnemyRayNotDown.Raycast(Area2D.RectangleList);
+        RayColliding = EnemyRay.Raycast(Area2D.AreaList, typeof(CollisionObject));
+        RayCollidingNotDown = EnemyRayNotDown.Raycast(Area2D.AreaList, typeof(CollisionObject));
 
         HandleDamage();
 

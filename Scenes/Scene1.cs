@@ -82,10 +82,11 @@ public class Scene1 : Scene, Scene.IScene
             transformMatrix: _camera.Transform
         );
 
-        foreach(Ray2D ray in Ray2D.RayList)
+        foreach (Ray2D ray in Ray2D.RayList)
         {
             DrawHelper.DrawRay(ray, Color.Red, 2);
         }
+        
         
         Tilemap.DrawTilemaps(spriteBatch);
         
