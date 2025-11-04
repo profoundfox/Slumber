@@ -4,12 +4,10 @@ using ConstructEngine;
 using ConstructEngine.Gum;
 using ConstructEngine.Util;
 using MonoGameGum;
-using ConstructEngine.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace Slumber
 {  
-    
     public class Main : Core
     {
 

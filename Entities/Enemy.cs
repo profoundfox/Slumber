@@ -23,11 +23,13 @@ public class Enemy : Entity, Entity.IEntity
     private int TextureOffset;
 
     private Ray2D EnemyRay;
+    private Ray2D EnemyRayNotDown;
 
     private Vector2 SpritePosition;
 
     private bool CanTakeDamage = true;
     private bool RayColliding;
+    private bool RayCollidingNotDown;
 
     private TextureAtlas Atlas;
 
@@ -64,9 +66,11 @@ public class Enemy : Entity, Entity.IEntity
             KinematicBase.Collider.Rect.Bottom
         );
 
-        EnemyRay = new Ray2D(rayStart, new Vector2(0, 1), 50);
+        EnemyRay = new Ray2D(rayStart, 90, 5);
+        //EnemyRayNotDown = new Ray2D(rayStart, 0, 50);
 
         RayColliding = EnemyRay.Raycast(Area2D.RectangleList);
+        RayCollidingNotDown = EnemyRayNotDown.Raycast(Area2D.RectangleList);
 
         HandleDamage();
 
@@ -124,7 +128,7 @@ public class Enemy : Entity, Entity.IEntity
     private void HandleMovement()
     {
         
-        if (!RayColliding)
+        if (!RayColliding || RayCollidingNotDown)
         {
             Direction = -Direction;
         }

@@ -26,6 +26,7 @@ namespace Slumber.Screens
 
             QuitButton.Click += (_, _) =>
             {
+                SaveManager.SaveData();
                 Core.SceneManager.AddScene(new MainMenu());
             };
 

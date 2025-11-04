@@ -81,6 +81,11 @@ public class Scene1 : Scene, Scene.IScene
             samplerState: SamplerState.PointClamp,
             transformMatrix: _camera.Transform
         );
+
+        foreach(Ray2D ray in Ray2D.RayList)
+        {
+            DrawHelper.DrawRay(ray, Color.Red, 2);
+        }
         
         Tilemap.DrawTilemaps(spriteBatch);
         

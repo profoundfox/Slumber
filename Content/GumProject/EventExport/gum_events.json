@@ -4648,6 +4648,27 @@
         "ElementType": "Components",
         "EventType": 6,
         "TimestampUtc": "2025-10-31T17:09:48.4768412Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "TitleScreen.ConstructControls/ConstructButton ResumeButton in TitleScreen",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-11-04T14:00:59.7762862Z"
+      },
+      {
+        "NewName": "TitleScreen.ConstructButtonInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-04T14:04:19.1470596Z"
+      },
+      {
+        "NewName": "TitleScreen.DeleteSaveButton",
+        "OldName": "TitleScreen.ConstructButtonInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-04T14:04:54.9444861Z"
       }
     ],
     "bf7e9c9416dbbfa56951c8f06d5481c475badbcac0debd9483928f196aace3b2": [

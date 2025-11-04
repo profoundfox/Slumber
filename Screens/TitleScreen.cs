@@ -22,17 +22,22 @@ namespace Slumber.Screens
             Main.Visible = true;
             Settings.IsVisible = false;
 
-            
+
+            if (File.Exists(SaveManager.SaveLocation)) StartButton.Text = "Resume";
+            else StartButton.Text = "Start";
+
             StartButton.Click += (_, _) =>
             {
-                Core.SceneManager.AddScene(new Scene1());
+                if (File.Exists(SaveManager.SaveLocation)) SaveManager.LoadData();
+                else Core.SceneManager.AddScene(new Scene1());
             };
 
-            ResumeButton.Click += (_, _) =>
+            DeleteSaveButton.Click += (_, _) =>
             {
-                SaveManager.LoadData();
+                File.Delete(SaveManager.SaveLocation);
+                if (File.Exists(SaveManager.SaveLocation)) StartButton.Text = "Resume";
+                else StartButton.Text = "Start";
             };
-
 
             QuitButton.Click += (_, _) =>
             {
