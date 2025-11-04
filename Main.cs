@@ -21,12 +21,12 @@ namespace Slumber
         {
             Window.AllowUserResizing = true;
             Window.IsBorderless = true;
-            
+
             var displayMode = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode;
 
             Graphics.PreferredBackBufferWidth = displayMode.Width;
             Graphics.PreferredBackBufferHeight = displayMode.Height;
-
+            
             IsFixedTimeStep = false;
             Graphics.SynchronizeWithVerticalRetrace = true;
             Graphics.ApplyChanges();

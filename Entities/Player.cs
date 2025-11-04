@@ -2,7 +2,7 @@ using ConstructEngine;
 using ConstructEngine.Components.Entity;
 using ConstructEngine.Components.Physics;
 using ConstructEngine.Graphics;
-using ConstructEngine.Physics;
+using ConstructEngine.Area;
 using ConstructEngine.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -32,7 +32,7 @@ public class Player : Entity, Entity.IEntity
 
     int AttackColliderOffset;
 
-    Collider DamageArea;
+    Area2D DamageArea;
 
     HealthComponent HealthComponent;
 
@@ -62,13 +62,13 @@ public class Player : Entity, Entity.IEntity
         AnimatedSprite = _atlas.CreateAnimatedSprite("idle-animation");
         AnimatedSprite.LayerDepth = 0.5f;
 
-        KinematicBase.Collider = new Collider(new Rectangle(400, 150, 10, 25), true, this);
+        KinematicBase.Collider = new Area2D(new Rectangle(400, 150, 10, 25), true, this);
 
 
         Circle AttackCircle = new(0, 0, 30);
 
 
-        DamageArea = new Collider(AttackCircle, false, this);
+        DamageArea = new Area2D(AttackCircle, false, this);
 
         HealthComponent = new HealthComponent(this, 5, KinematicBase.Collider);
 
@@ -95,7 +95,7 @@ public class Player : Entity, Entity.IEntity
         DamageArea.Circ.Y = KinematicBase.Collider.Rect.Y - 10;
 
         
-        Screen.LabelInstance.Text = "Health: " + HealthComponent.CurrentHealth + " Colliding: " + KinematicBase.Collider.IsIntersectingAny() + " Type: "  + KinematicBase.Collider.GetCurrentlyIntersectingCollider()?.GetType();
+        Screen.LabelInstance.Text = "Health: " + HealthComponent.CurrentHealth + " Colliding: " + KinematicBase.Collider.IsIntersectingAny() + " Type: "  + KinematicBase.Collider.GetCurrentlyIntersectingArea()?.GetType();
         
         HandleInput(gameTime);
 

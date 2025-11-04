@@ -13,7 +13,7 @@ using ConstructEngine.Components.Entity;
 using ConstructEngine.Gum;
 using Slumber.Screens;
 using ConstructEngine.Directory;
-using ConstructEngine.Physics;
+using ConstructEngine.Area;
 
 namespace Slumber;
 
@@ -55,10 +55,6 @@ public class Scene1 : Scene, Scene.IScene
 
     }
 
-
-
-
-
     public void Update(GameTime gameTime)
     {
   
@@ -71,19 +67,13 @@ public class Scene1 : Scene, Scene.IScene
 
         UpdateEntities(gameTime);
 
-
-
         _camera.Follow(Entity.EntityList.OfType<Player>().FirstOrDefault());
-
-    
-        
     }
 
 
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        
         ParallaxBackground.DrawParallaxBackgrounds(spriteBatch, Core.GraphicsDevice, SamplerState.LinearWrap);
 
         spriteBatch.Begin(
@@ -91,27 +81,12 @@ public class Scene1 : Scene, Scene.IScene
             samplerState: SamplerState.PointClamp,
             transformMatrix: _camera.Transform
         );
-
-        
-
-        foreach (Collider col in Collider.ColliderList)
-        {
-
-            //DrawHelper.DrawRectangle(col.Rect, Color.AliceBlue, 2);
-
-            //DrawHelper.DrawCircle(col.Circ, Color.AliceBlue, 2);
-        }
-
-            
-
-        //DrawHelper.DrawRectangle(_camera.CameraRectangle, Color.Red, 2);
         
         Tilemap.DrawTilemaps(spriteBatch);
         
         DrawEntities(spriteBatch);
         
         spriteBatch.End();
-        
     }
 
 }

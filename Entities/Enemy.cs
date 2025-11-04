@@ -6,7 +6,7 @@ using ConstructEngine;
 using ConstructEngine.Components.Entity;
 using ConstructEngine.Graphics;
 using ConstructEngine.Objects;
-using ConstructEngine.Physics;
+using ConstructEngine.Area;
 using ConstructEngine.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -50,7 +50,7 @@ public class Enemy : Entity, Entity.IEntity
         AnimatedSprite = Atlas.CreateAnimatedSprite("run-animation");
         AnimatedSprite.LayerDepth = 0.5f;
 
-        KinematicBase.Collider = new Collider(new Rectangle(400, 150, 16, 16), true, this);
+        KinematicBase.Collider = new Area2D(new Rectangle(400, 150, 16, 16), true, this);
 
         Health = 5;
     }
@@ -66,7 +66,7 @@ public class Enemy : Entity, Entity.IEntity
 
         EnemyRay = new Ray2D(rayStart, new Vector2(0, 1), 50);
 
-        RayColliding = EnemyRay.Raycast(Collider.RectangleList);
+        RayColliding = EnemyRay.Raycast(Area2D.RectangleList);
 
         HandleDamage();
 
@@ -134,9 +134,9 @@ public class Enemy : Entity, Entity.IEntity
 
     private void HandleDamage()
     {
-        for (int i = 0; i < Collider.ColliderList.Count; i++)
+        for (int i = 0; i < Area2D.AreaList.Count; i++)
         {
-            Collider collider = Collider.ColliderList[i];
+            Area2D collider = Area2D.AreaList[i];
 
             if (collider.Circ != null)
             {
