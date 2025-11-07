@@ -22,7 +22,8 @@ public class Player : Entity, Entity.IEntity
     Animation _runAnim;
     Animation _idleAnim;
     Animation _fallAnim;
-    Animation _attackAnim;
+    Animation _attackAnim1;
+    Animation _attackAnim2;
 
     private Vector2 AnimatedSpriteRenderingPosition;
 
@@ -56,7 +57,8 @@ public class Player : Entity, Entity.IEntity
         _runAnim = _atlas.GetAnimation("run-animation");
         _idleAnim = _atlas.GetAnimation("idle-animation");
         _fallAnim = _atlas.GetAnimation("fall-animation");
-        _attackAnim = _atlas.GetAnimation("attack-animation");
+        _attackAnim1 = _atlas.GetAnimation("attack-animation-1");
+        _attackAnim2 = _atlas.GetAnimation("attack-animation-2");
 
         AnimatedSprite = _atlas.CreateAnimatedSprite("idle-animation");
         AnimatedSprite.LayerDepth = 0.5f;
@@ -204,7 +206,7 @@ public class Player : Entity, Entity.IEntity
 
         //HandleAttack();
 
-        if (PlayerInfo.AttackCount == 3)
+        if (PlayerInfo.AttackCount == 2)
         {
             PlayerInfo.AttackCount = 0;
         }
@@ -214,20 +216,23 @@ public class Player : Entity, Entity.IEntity
 
     private void HandleAttack()
     {
-        if (!PlayerInfo.attacking)
+
+        if (PlayerInfo.attackBufferTimer > 0)
+            PlayerInfo.attackBufferTimer -= Core.DeltaTime;
+
+        if (Core.Input.Keyboard.WasKeyJustPressed(AttackKey))
         {
-
-            if (Core.Input.Keyboard.WasKeyJustPressed(AttackKey))
-            {
-                PlayerInfo.AttackCount++;
-
-                PlayerInfo.attacking = true;
-
-                DamageArea.Enabled = true;
-
-            }
+            PlayerInfo.attackBufferTimer = PlayerInfo.attackBufferTime;
         }
 
+        if (!PlayerInfo.attacking)
+        {
+            if (PlayerInfo.attackBufferTimer > 0)
+            {
+                StartAttack();
+                PlayerInfo.attackBufferTimer = 0;
+            }
+        }
         else
         {
             if (AnimatedSprite.finished)
@@ -236,6 +241,13 @@ public class Player : Entity, Entity.IEntity
                 DamageArea.Enabled = false;
             }
         }
+    }
+
+    private void StartAttack()
+    {
+        PlayerInfo.AttackCount++;
+        PlayerInfo.attacking = true;
+        DamageArea.Enabled = true;
     }
 
     private void Jump(GameTime gameTime)
@@ -306,7 +318,8 @@ public class Player : Entity, Entity.IEntity
 
         else
         {
-            AnimatedSprite.PlayAnimation(_attackAnim, false);
+            if (PlayerInfo.AttackCount == 1) AnimatedSprite.PlayAnimation(_attackAnim1, false);
+            if (PlayerInfo.AttackCount == 2) AnimatedSprite.PlayAnimation(_attackAnim2, false);
         }
     }
 }

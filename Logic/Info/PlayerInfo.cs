@@ -7,6 +7,9 @@ public class PlayerInfo
     public PlayerInfo() { }
 
     public bool attacking;
+
+    public float attackBufferTime = 0.1f;
+    public float attackBufferTimer = 0f;
     
     public float Gravity = 1300f;
     public float JumpForce = -350f;

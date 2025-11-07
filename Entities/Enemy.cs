@@ -18,7 +18,6 @@ namespace Slumber.Entities;
 public class Enemy : Entity, Entity.IEntity
 {
     public float Gravity = 1300f;
-
     private int Health;
     private int Direction = 1;
     private int TextureOffset;
