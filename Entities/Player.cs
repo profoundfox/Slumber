@@ -3,13 +3,13 @@ using ConstructEngine.Components.Entity;
 using ConstructEngine.Components.Physics;
 using ConstructEngine.Graphics;
 using ConstructEngine.Area;
-using ConstructEngine.Helpers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Slumber.Logic;
 using Slumber.Screens;
 using Timer = ConstructEngine.Util.Timer;
+using System;
 
 namespace Slumber.Entities;
 
@@ -131,7 +131,7 @@ public class Player : Entity, Entity.IEntity
     public void Draw(SpriteBatch spriteBatch)
     {
         DrawSprites(spriteBatch, AnimatedSpriteRenderingPosition, PlayerInfo.textureOffset);
-
+        //DrawHelper.DrawRectangle(KinematicBase.Collider.Rect, Color.Red, 2);
     }
 
 
@@ -216,6 +216,7 @@ public class Player : Entity, Entity.IEntity
     {
         if (!PlayerInfo.attacking)
         {
+
             if (Core.Input.Keyboard.WasKeyJustPressed(AttackKey))
             {
                 PlayerInfo.AttackCount++;
@@ -276,7 +277,7 @@ public class Player : Entity, Entity.IEntity
         else
         {
             AttackColliderOffset = -38;
-            PlayerInfo.textureOffset = 4;
+            PlayerInfo.textureOffset = 8;
             AnimatedSprite.Effects = SpriteEffects.FlipHorizontally;
         }
     }

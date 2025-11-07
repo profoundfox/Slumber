@@ -87,7 +87,7 @@ public class Enemy : Entity, Entity.IEntity
         EnemyRay.CheckIntersection(Area2D.AreaList, typeof(CollisionObject));
         EnemyRayNotDown.CheckIntersection(Area2D.AreaList, typeof(CollisionObject));
 
-        HandleDamage();
+        //HandleDamage();
 
         HandleGravity();
 

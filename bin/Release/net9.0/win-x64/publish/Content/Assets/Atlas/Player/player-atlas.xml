@@ -17,7 +17,6 @@
     <Region name="player-run-4" x="384" y="128" width="128" height="128" />
     <Region name="player-run-5" x="512" y="128" width="128" height="128" />
     <Region name="player-run-6" x="640" y="128" width="128" height="128" />
-    <Region name="player-run-7" x="768" y="128" width="128" height="128" />
 
     <!-- Fall animation -->
 
@@ -57,7 +56,6 @@
       <Frame region="player-run-4"/>
       <Frame region="player-run-5"/>
       <Frame region="player-run-6"/>
-      <Frame region="player-run-7"/>
     </Animation>
 
     <Animation name="fall-animation" delay="100">
