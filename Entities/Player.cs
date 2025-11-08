@@ -10,6 +10,7 @@ using Slumber.Logic;
 using Slumber.Screens;
 using Timer = ConstructEngine.Util.Timer;
 using System;
+using ConstructEngine.Helpers;
 
 namespace Slumber.Entities;
 
@@ -76,64 +77,40 @@ public class Player : Entity, Entity.IEntity
 
     }
 
+
     public void Update(GameTime gameTime)
     {
-        if (KinematicBase.Velocity.Y < 0)
-        {
-            PlayerInfo.falling = false;
-        }
-        else
-        {
-            PlayerInfo.falling = true;
-        }
-
-
-        SaveManager.PlayerData.CurrentPosition = KinematicBase.Position;
-
         HealthComponent.Update(gameTime);
-
         DamageArea.Circ.X = KinematicBase.Collider.Rect.X + AttackColliderOffset;
         DamageArea.Circ.Y = KinematicBase.Collider.Rect.Y - 10;
 
 
-        Screen.LabelInstance.Text = "Health: " + HealthComponent.CurrentHealth + " Colliding: " + KinematicBase.Collider.IsIntersectingAny() + " Type: " + KinematicBase.Collider.GetCurrentlyIntersectingArea()?.GetType();
 
-        HandleInput(gameTime);
-
-        HandleGravity(gameTime);
+        ApplyGravity();
+        HandleHorizontalInput();
+        HandleJump();
+        HandleWall();
+        HandleWallJump();
 
         KinematicBase.UpdateCollider(gameTime);
+        SaveManager.PlayerData.CurrentPosition = KinematicBase.Position;
 
-        if (KinematicBase.IsOnGround())
-        {
-            KinematicBase.Velocity.Y = 0;
-        }
+
+        FlipSprite();
+        Animation();
 
         AnimatedSpriteRenderingPosition = new Vector2(KinematicBase.Collider.Rect.X - 64, KinematicBase.Collider.Rect.Y - 55);
 
-        FlipSprite();
-        HandleWall();
-        HandleWallJump();
-        HandleAttack();
-        Animation();
-
         AnimatedSprite.Update(gameTime);
 
-        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.K))
-        {
-            SaveManager.SaveData();
-        }
-
-        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.L))
-        {
-            SaveManager.LoadData();
-        }
+        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.K)) SaveManager.SaveData();
+        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.L)) SaveManager.LoadData();
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
         DrawSprites(spriteBatch, AnimatedSpriteRenderingPosition, PlayerInfo.textureOffset);
-        //DrawHelper.DrawRectangle(KinematicBase.Collider.Rect, Color.Red, 2);
+        DrawHelper.DrawRectangle(KinematicBase.Collider.Rect, Color.Red, 2);
     }
 
 
@@ -180,39 +157,44 @@ public class Player : Entity, Entity.IEntity
         }
     }
 
-    private void HandleGravity(GameTime gameTime)
+    private void ApplyGravity()
     {
-        KinematicBase.Velocity.Y += PlayerInfo.Gravity * Core.DeltaTime;
+        if (!KinematicBase.IsOnGround())
+        {
+            KinematicBase.Velocity.Y = MathF.Min(KinematicBase.Velocity.Y + PlayerInfo.Gravity * Core.DeltaTime, PlayerInfo.TerminalVelocity);
+        }
+        else if (KinematicBase.Velocity.Y > 0)
+        {
+            KinematicBase.Velocity.Y = 0;
+        }
     }
 
-    private void HandleInput(GameTime gameTime)
+
+    private void HandleHorizontalInput()
     {
-        if (PlayerInfo.canMove)
+        float targetSpeed = 0f;
+
+        if (Core.Input.Keyboard.IsKeyDown(MoveLeftKey) && !Core.Input.Keyboard.IsKeyDown(MoveRightKey))
         {
-            KinematicBase.Velocity.X = 0;
-
-            if (Core.Input.Keyboard.IsKeyDown(MoveLeftKey) && !Core.Input.Keyboard.IsKeyDown(MoveRightKey))
-            {
-                KinematicBase.Velocity.X = -PlayerInfo.MoveSpeed;
-                PlayerInfo.dir = false;
-            }
-
-            if (Core.Input.Keyboard.IsKeyDown(MoveRightKey) && !Core.Input.Keyboard.IsKeyDown(MoveLeftKey))
-            {
-                KinematicBase.Velocity.X = PlayerInfo.MoveSpeed;
-                PlayerInfo.dir = true;
-            }
+            targetSpeed = -PlayerInfo.MoveSpeed;
+            PlayerInfo.dir = false;
+        }
+        else if (Core.Input.Keyboard.IsKeyDown(MoveRightKey) && !Core.Input.Keyboard.IsKeyDown(MoveLeftKey))
+        {
+            targetSpeed = PlayerInfo.MoveSpeed;
+            PlayerInfo.dir = true;
         }
 
-        //HandleAttack();
-
-        if (PlayerInfo.AttackCount == 2)
-        {
-            PlayerInfo.AttackCount = 0;
-        }
-
-        Jump(gameTime);
+        float accel = (MathF.Abs(targetSpeed) > 0) ? PlayerInfo.Acceleration : PlayerInfo.Deceleration;
+        KinematicBase.Velocity.X = MoveToward(KinematicBase.Velocity.X, targetSpeed, accel * Core.DeltaTime);
     }
+
+    private float MoveToward(float current, float target, float maxDelta)
+    {
+        if (MathF.Abs(target - current) <= maxDelta) return target;
+        return current + MathF.Sign(target - current) * maxDelta;
+    }
+
 
     private void HandleAttack()
     {
@@ -250,33 +232,20 @@ public class Player : Entity, Entity.IEntity
         DamageArea.Enabled = true;
     }
 
-    private void Jump(GameTime gameTime)
+    private void HandleJump()
     {
-        if (Core.Input.Keyboard.WasKeyJustPressed(JumpKey) || PlayerInfo.bufferActivated)
+        if ((Core.Input.Keyboard.WasKeyJustPressed(JumpKey) || PlayerInfo.bufferActivated) && KinematicBase.IsOnGround())
         {
-            if (KinematicBase.IsOnGround())
-            {
-                PlayerInfo._upwardAir = true;
-                PlayerInfo.bufferActivated = false;
-                KinematicBase.Velocity.Y = PlayerInfo.JumpForce;
-            }
-            else
-            {
-                PlayerInfo.bufferActivated = true;
-                Timer.Wait(PlayerInfo.bufferTimer, () => PlayerInfo.bufferActivated = false);
-            }
+            KinematicBase.Velocity.Y = -PlayerInfo.JumpForce;
+            PlayerInfo.bufferActivated = false;
         }
 
-        if (Core.Input.Keyboard.WasKeyJustReleased(JumpKey) && KinematicBase.Velocity.Y < 0)
+        if (PlayerInfo.VariableJump && Core.Input.Keyboard.WasKeyJustReleased(JumpKey) && KinematicBase.Velocity.Y < 0)
         {
-            KinematicBase.Velocity.Y = PlayerInfo.JumpForce / 4;
-        }
-
-        if (PlayerInfo._upwardAir && KinematicBase.Velocity.Y > 0)
-        {
-            PlayerInfo._upwardAir = false;
+            KinematicBase.Velocity.Y *= 0.5f;
         }
     }
+
 
     private void FlipSprite()
     {

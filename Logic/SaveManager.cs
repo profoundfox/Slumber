@@ -35,11 +35,8 @@ public class SaveManager
 
         Core.SceneManager.AddSceneFromString(PlayerData.CurrentScene);
 
-        Player player;
-
-        player = Entity.EntityList.OfType<Player>().FirstOrDefault();
-
-        player.KinematicBase.Position = PlayerData.CurrentPosition;
+        Entity.EntityList.OfType<Player>().FirstOrDefault().KinematicBase.Position = PlayerData.CurrentPosition;
+        
 
     }
 }
