@@ -3,12 +3,12 @@ using ConstructEngine;
 using Microsoft.Xna.Framework;
 using Slumber.Entities;
 
-public class IdleState : State
+public class FallState : State
 {
 
     Player player;
 
-    public IdleState (Player player)
+    public FallState (Player player)
     {
         this.player = player;
     }
@@ -22,16 +22,13 @@ public class IdleState : State
     {
         if (Core.Input.Keyboard.IsKeyDown(player.MoveLeftKey) || Core.Input.Keyboard.IsKeyDown(player.MoveRightKey))
         {
-            RequestTransition("RunState");
+            RequestTransition("FallMoveState");
         }
 
-        if (Core.Input.Keyboard.WasKeyJustPressed(player.JumpKey))
+        if (player.KinematicBase.Velocity.Y == 0)
         {
-            RequestTransition("JumpState");
+            RequestTransition("IdleState");
         }
-
-        float accel = (MathF.Abs(0) > 0) ? player.PlayerInfo.Acceleration : player.PlayerInfo.Deceleration;
-        player.KinematicBase.Velocity.X = player.MoveToward(player.KinematicBase.Velocity.X, 0, accel * Core.DeltaTime);
     }
     
     public override void OnExit()

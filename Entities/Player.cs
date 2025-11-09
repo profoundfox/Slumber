@@ -11,6 +11,7 @@ using Slumber.Screens;
 using Timer = ConstructEngine.Util.Timer;
 using System;
 using ConstructEngine.Helpers;
+using System.Runtime.CompilerServices;
 
 namespace Slumber.Entities;
 
@@ -19,38 +20,38 @@ public class Player : Entity, Entity.IEntity
     private TextureAtlas _atlas;
     private TextureAtlas _atlasFeet;
 
-
-    Animation _runAnim;
-    Animation _idleAnim;
-    Animation _fallAnim;
-    Animation _attackAnim1;
-    Animation _attackAnim2;
+    public Animation _runAnim;
+    public Animation _idleAnim;
+    public Animation _fallAnim;
+    public Animation _attackAnim1;
+    public Animation _attackAnim2;
 
     private Vector2 AnimatedSpriteRenderingPosition;
 
-    Keys MoveRightKey = Keys.Right;
-    Keys MoveLeftKey = Keys.Left;
-    Keys JumpKey = Keys.Z;
-    Keys AttackKey = Keys.X;
+    public Keys MoveRightKey = Keys.Right;
+    public Keys MoveLeftKey = Keys.Left;
+    public Keys JumpKey = Keys.Z;
+    public Keys AttackKey = Keys.X;
 
-    int AttackColliderOffset;
+    public int AttackColliderOffset;
 
-    Area2D DamageArea;
+    public Area2D DamageArea;
 
-    HealthComponent HealthComponent;
+    public HealthComponent HealthComponent;
 
-    PlayerInfo PlayerInfo = new();
+    public PlayerInfo PlayerInfo = new();
 
-    private PlayerUI Screen;
+    public StateController StateMachine;
+
     private Pausemenu pauseMenu;
 
     public Player() : base(4)
     {
+
     }
 
     public override void Load()
     {
-        Screen = new PlayerUI();
         pauseMenu = new Pausemenu();
 
         _atlas = TextureAtlas.FromFile(Core.Content, "Assets/Atlas/Player/player-atlas.xml", "Assets/Animations/Player/PlayerModel3Atlas");
@@ -69,6 +70,14 @@ public class Player : Entity, Entity.IEntity
 
         Circle AttackCircle = new(0, 0, 30);
 
+        var idleState = new IdleState(this);
+        var runState = new RunState(this);
+        var jumpState = new JumpState(this);
+        var fallState = new FallState(this);
+        var fallMoveState = new FallMoveState(this);
+
+        StateMachine = new(idleState, [idleState, runState, jumpState, fallState, fallMoveState]);
+
 
         DamageArea = new Area2D(AttackCircle, false, this);
 
@@ -84,10 +93,11 @@ public class Player : Entity, Entity.IEntity
         DamageArea.Circ.X = KinematicBase.Collider.Rect.X + AttackColliderOffset;
         DamageArea.Circ.Y = KinematicBase.Collider.Rect.Y - 10;
 
+        StateMachine.Update(gameTime);
+        Console.WriteLine(StateMachine.CurrentState);
 
 
         ApplyGravity();
-        HandleHorizontalInput();
         HandleJump();
         HandleWall();
         HandleWallJump();
@@ -110,7 +120,8 @@ public class Player : Entity, Entity.IEntity
     public void Draw(SpriteBatch spriteBatch)
     {
         DrawSprites(spriteBatch, AnimatedSpriteRenderingPosition, PlayerInfo.textureOffset);
-        DrawHelper.DrawRectangle(KinematicBase.Collider.Rect, Color.Red, 2);
+        DrawHelper.DrawString(StateMachine.CurrentState.ToString(), Color.White, Camera.CurrentCamera.GetScreenEdges().TopLeft);
+        //DrawHelper.DrawRectangle(KinematicBase.Collider.Rect, Color.Red, 2);
     }
 
     
@@ -171,26 +182,9 @@ public class Player : Entity, Entity.IEntity
     }
 
 
-    private void HandleHorizontalInput()
-    {
-        float targetSpeed = 0f;
 
-        if (Core.Input.Keyboard.IsKeyDown(MoveLeftKey) && !Core.Input.Keyboard.IsKeyDown(MoveRightKey))
-        {
-            targetSpeed = -PlayerInfo.MoveSpeed;
-            PlayerInfo.dir = false;
-        }
-        else if (Core.Input.Keyboard.IsKeyDown(MoveRightKey) && !Core.Input.Keyboard.IsKeyDown(MoveLeftKey))
-        {
-            targetSpeed = PlayerInfo.MoveSpeed;
-            PlayerInfo.dir = true;
-        }
 
-        float accel = (MathF.Abs(targetSpeed) > 0) ? PlayerInfo.Acceleration : PlayerInfo.Deceleration;
-        KinematicBase.Velocity.X = MoveToward(KinematicBase.Velocity.X, targetSpeed, accel * Core.DeltaTime);
-    }
-
-    private float MoveToward(float current, float target, float maxDelta)
+    public float MoveToward(float current, float target, float maxDelta)
     {
         if (MathF.Abs(target - current) <= maxDelta) return target;
         return current + MathF.Sign(target - current) * maxDelta;

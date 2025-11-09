@@ -11,7 +11,7 @@ namespace Slumber
     public class Main : Core
     {
         bool bloomEnabled = true;
-
+        
         private GumService GumUI;
 
         public Main() : base("Platformer", 640, 360, false, "Assets/Fonts/Font")
