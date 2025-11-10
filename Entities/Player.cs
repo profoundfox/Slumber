@@ -79,6 +79,7 @@ public class Player : Entity, Entity.IEntity
         idle.SetParent(grounded);
         run.SetParent(grounded);
         attack.SetParent(grounded);
+        
 
         _stateController = new StateController(idle, new IState[]
         {

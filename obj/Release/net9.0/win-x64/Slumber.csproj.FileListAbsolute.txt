@@ -384,7 +384,6 @@
 /home/nils/Documents/Project/Slumber/obj/Release/net9.0/win-x64/Slumber.genruntimeconfig.cache
 /home/nils/Documents/Project/Slumber/obj/Release/net9.0/win-x64/ref/Slumber.dll
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/Assets/Atlas/enemyatlas.xml
-/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/Data/Slumber.ogmo
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/GumProject/.gumfcs
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/GumProject/42725-1.png
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/GumProject/Behaviors/ButtonBehavior.behx
@@ -554,7 +553,6 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/Assets/UI/ButtonBorderFromKenny.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/Assets/UI/CheckButton.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/Assets/UI/CheckButtonPress.xnb
-/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/Data/Scene1.json
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Slumber.exe
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Slumber.deps.json
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Slumber.runtimeconfig.json
@@ -768,3 +766,5 @@
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Release/net9.0/win-x64/Slumber.pdb
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Release/net9.0/win-x64/Slumber.genruntimeconfig.cache
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Release/net9.0/win-x64/ref/Slumber.dll
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Data/Scene1.json
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Data/Slumber.ogmo

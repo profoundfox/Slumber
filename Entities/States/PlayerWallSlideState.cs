@@ -16,6 +16,8 @@ public class PlayerWallSlideState : State
 
     public override void Update(GameTime gameTime)
     {
+        p.KinematicBase.Velocity.Y = 0;
+        
         if (!p.KinematicBase.IsOnWall() || p.KinematicBase.IsOnGround())
         {
             RequestTransition(nameof(PlayerFallState));
@@ -27,6 +29,7 @@ public class PlayerWallSlideState : State
             RequestTransition(nameof(PlayerWallJumpState));
             return;
         }
+
     }
 
     public override void OnExit()

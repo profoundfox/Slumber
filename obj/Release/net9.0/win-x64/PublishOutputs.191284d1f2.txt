@@ -19,8 +19,6 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/UI/ButtonBorderFromKenny.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/UI/CheckButton.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/UI/CheckButtonPress.xnb
-/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Data/Scene1.json
-/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Data/Slumber.ogmo
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/.gumfcs
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/42725-1.png
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/Behaviors/ButtonBehavior.behx
@@ -171,6 +169,8 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/Standards/Text.gutx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/streetsbg.png
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/UISpriteSheet.png
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Data/Scene1.json
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Data/Slumber.ogmo
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Slumber.dll
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Slumber.deps.json
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Slumber.runtimeconfig.json

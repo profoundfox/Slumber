@@ -36,11 +36,11 @@ public class Scene1 : Scene, Scene.IScene
     public void Load()
     {
 
-        TilemapFromOgmo.InstantiateEntities("Content/Data/Scene1.json");
-        TilemapFromOgmo.FromFile(contentManager, "Content/Data/Scene1.json", "0 0 512 512", "Assets/Tileset/SlumberTilesetAtlas");
-        TilemapFromOgmo.SearchForObjects("Content/Data/Scene1.json", Entity.EntityList.OfType<Player>().FirstOrDefault(), Core.SceneManager);
+        TilemapFromOgmo.InstantiateEntities("Data/Scene1.json");
+        TilemapFromOgmo.FromFile(contentManager, "Data/Scene1.json", "0 0 512 512", "Assets/Tileset/SlumberTilesetAtlas");
+        TilemapFromOgmo.SearchForObjects("Data/Scene1.json", Entity.EntityList.OfType<Player>().FirstOrDefault(), Core.SceneManager);
 
-        _camera = new RoomCamera(Entity.EntityList.OfType<Player>().FirstOrDefault().KinematicBase.Collider.Rect, 1f); 
+        _camera = new RoomCamera(1f); 
         
         ParallaxBackground.AddBackground(new("Assets/Backgrounds/Main", 0.1f,  ParallaxBackground.RepeatYX, _camera));
 
