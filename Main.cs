@@ -46,11 +46,15 @@ namespace Slumber
             UpdateRenderTargetTransform();
             UpdateGumCamera();
 
-            Input.Binds.Add("MoveLeft", [new InputAction(Keys.Left), new InputAction(Buttons.LeftStick)]);
-            Input.Binds.Add("MoveRight", [new InputAction(Keys.Right), new InputAction(Buttons.RightStick)]);
-            Input.Binds.Add("Jump", [new InputAction(Keys.Z), new InputAction(Buttons.A)]);
-            Input.Binds.Add("Attack", [new InputAction(Keys.X), new InputAction(Buttons.Y)]);
+            var binds = new Dictionary<string, List<InputAction>>
+            {
+                {"MoveLeft", [new InputAction(Keys.Left), new InputAction(Buttons.LeftStick)]},
+                {"MoveRight", [new InputAction(Keys.Right), new InputAction(Buttons.RightStick)]},
+                {"Jump", [new InputAction(Keys.Z), new InputAction(Buttons.A)]},
+                {"Attack", [new InputAction(Keys.X), new InputAction(Buttons.Y)]}
+            };
 
+            Input.AddBinds(binds);
 
             SceneManager.AddScene(new MainMenu());
         }

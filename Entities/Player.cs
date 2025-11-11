@@ -35,7 +35,7 @@ public class Player : Entity, Entity.IEntity
     public int AttackColliderOffset;
 
     public Area2D DamageArea;
-    public HealthComponent HealthComponent;
+
 
     public PlayerInfo PlayerInfo = new();
 
@@ -49,7 +49,7 @@ public class Player : Entity, Entity.IEntity
     public override void Load()
     {
         Screen = new PlayerUI();
-        pauseMenu = new Pausemenu();
+        pauseMenu = new Pausemenu(this);
 
         _atlas = TextureAtlas.FromFile(Core.Content, "Assets/Atlas/Player/player-atlas.xml", "Assets/Animations/Player/PlayerModel3Atlas");
 
@@ -66,8 +66,6 @@ public class Player : Entity, Entity.IEntity
 
         Circle attackCircle = new(0, 0, 30);
         DamageArea = new Area2D(attackCircle, false, this);
-
-        HealthComponent = new HealthComponent(this, 5, KinematicBase.Collider, this);
 
         var grounded = new PlayerGroundedState(this);
         var idle = new PlayerIdleState(this);
@@ -91,7 +89,6 @@ public class Player : Entity, Entity.IEntity
 
     public void Update(GameTime gameTime)
     {
-        HealthComponent.Update(gameTime);
 
         DamageArea.Circ.X = KinematicBase.Collider.Rect.X + AttackColliderOffset;
         DamageArea.Circ.Y = KinematicBase.Collider.Rect.Y - 10;

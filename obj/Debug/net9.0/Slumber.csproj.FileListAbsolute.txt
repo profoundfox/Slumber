@@ -19,8 +19,6 @@
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/UI/ButtonBorderFromKenny.xnb
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/UI/CheckButton.xnb
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/UI/CheckButtonPress.xnb
-/home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Data/Scene1.json
-/home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Data/Slumber.ogmo
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/.gumfcs
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/42725-1.png
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/Behaviors/ButtonBehavior.behx
@@ -424,3 +422,5 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/GumProject/FontCache/Font28Arial_Bold_0.png
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Data/Scene1.json
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Data/Slumber.ogmo
+/home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Data/Scene1.json
+/home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Data/Slumber.ogmo
