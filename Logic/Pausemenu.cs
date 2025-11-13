@@ -41,15 +41,14 @@ public class Pausemenu : BackseatComponent
                 Menu.Main.Visible = true;
                 Menu.ResumeButton.IsFocused = true;
             }
-            if (Menu.Controls.IsVisible)
+            if (Menu.Settings.Controls.IsVisible)
             {
-                Menu.Controls.IsVisible = false;
+                Menu.Settings.Controls.IsVisible = false;
                 Menu.Settings.IsVisible = true;
                 Menu.Settings.ControlButton.IsFocused = true;
             }
         }
 
-        Menu.Controls.Update(Core.DeltaTime);
         
     }
 }

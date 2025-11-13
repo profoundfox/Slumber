@@ -7,7 +7,7 @@
     <Variable>
       <Type>string</Type>
       <Name>ControlButton.Parent</Name>
-      <Value xsi:type="xsd:string">WrapperInstance</Value>
+      <Value xsi:type="xsd:string">Main</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -50,6 +50,36 @@
       <Type>PositionUnitType</Type>
       <Name>ControlButton.YUnits</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Controls.Height</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>Controls.HeightUnits</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>Controls.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Controls.Width</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>Controls.WidthUnits</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -139,7 +169,7 @@
     <Variable>
       <Type>string</Type>
       <Name>LanguageButton.Parent</Name>
-      <Value xsi:type="xsd:string">WrapperInstance</Value>
+      <Value xsi:type="xsd:string">Main</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -182,6 +212,30 @@
       <Type>PositionUnitType</Type>
       <Name>LanguageButton.YUnits</Name>
       <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Main.Height</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>Main.HeightUnits</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Main.Width</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>Main.WidthUnits</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -379,7 +433,7 @@
     <Variable>
       <Type>string</Type>
       <Name>NonPanel.Parent</Name>
-      <Value xsi:type="xsd:string">WrapperInstance</Value>
+      <Value xsi:type="xsd:string">Main</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -699,30 +753,6 @@
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>WrapperInstance.Height</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>WrapperInstance.HeightUnits</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WrapperInstance.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>WrapperInstance.WidthUnits</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
       <Name>X</Name>
       <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
@@ -834,8 +864,13 @@
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>WrapperInstance</Name>
+    <Name>Main</Name>
     <BaseType>ConstructControls/Wrapper</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>Controls</Name>
+    <BaseType>ConstructControls/ControlComponent</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />

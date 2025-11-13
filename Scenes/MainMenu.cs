@@ -49,7 +49,7 @@ public class MainMenu : Scene, Scene.IScene
 
     public void Update(GameTime gameTime)
     {
-
+        
 
 
         if (Core.Input.IsActionJustPressed("Back"))
@@ -60,15 +60,14 @@ public class MainMenu : Scene, Scene.IScene
                 titleScreen.Main.Visible = true;
                 titleScreen.StartButton.IsFocused = true;
             }
-            if (titleScreen.Controls.IsVisible)
+            if (titleScreen.Settings.Controls.IsVisible)
             {
-                titleScreen.Controls.IsVisible = false;
+                titleScreen.Settings.Controls.IsVisible = false;
                 titleScreen.Settings.IsVisible = true;
                 titleScreen.Settings.ControlButton.IsFocused = true;
             }
         }
 
-        titleScreen.Controls.Update(Core.DeltaTime);
     }
 
     public void Draw(SpriteBatch spriteBatch)

@@ -59,6 +59,7 @@ namespace Slumber.Components.ConstructControls
         public void Update(float deltaTime)
         {
             var keyboardState = Keyboard.GetState();
+            var mouseState = Mouse.GetState();
 
             if (waitingForKeyRelease)
             {
@@ -73,6 +74,8 @@ namespace Slumber.Components.ConstructControls
             if (isRebinding)
             {
                 var key = Core.Input.Keyboard.GetCurrentlyReleasedKey();
+                var mouse = Core.Input.Mouse.CurrentlyReleasedButtons;
+
 
                 if (key != Keys.None)
                 {
@@ -80,6 +83,11 @@ namespace Slumber.Components.ConstructControls
                     currentRebindButton.TextRight = key.ToString();
                     isRebinding = false;
                     currentRebindButton = null;
+                }
+
+                if (mouse != null)
+                {
+                    
                 }
             }
 

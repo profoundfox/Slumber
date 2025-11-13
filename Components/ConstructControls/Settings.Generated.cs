@@ -52,7 +52,8 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ConstructLabel MasterLabel { get; protected set; }
     public ConstructSlider MasterSlider { get; protected set; }
     public ConstructButton LanguageButton { get; protected set; }
-    public Wrapper WrapperInstance { get; protected set; }
+    public Wrapper Main { get; protected set; }
+    public ControlComponent Controls { get; protected set; }
 
     public float Padding
     {
@@ -92,7 +93,8 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         MasterLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructLabel>(this.Visual,"MasterLabel");
         MasterSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructSlider>(this.Visual,"MasterSlider");
         LanguageButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"LanguageButton");
-        WrapperInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Wrapper>(this.Visual,"WrapperInstance");
+        Main = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Wrapper>(this.Visual,"Main");
+        Controls = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ControlComponent>(this.Visual,"Controls");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

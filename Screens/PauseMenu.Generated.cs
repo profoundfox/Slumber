@@ -48,7 +48,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ConstructButton ResumeButton { get; protected set; }
     public ConstructButton SettingsButton { get; protected set; }
     public ConstructButton QuitButton { get; protected set; }
-    public ControlComponent Controls { get; protected set; }
 
     public PauseMenu(InteractiveGue visual) : base(visual)
     {
@@ -69,7 +68,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         ResumeButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"ResumeButton");
         SettingsButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"SettingsButton");
         QuitButton = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ConstructButton>(this.Visual,"QuitButton");
-        Controls = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ControlComponent>(this.Visual,"Controls");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

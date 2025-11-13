@@ -54,7 +54,7 @@ namespace Slumber
                 {"MoveLeft", [new InputAction(Keys.Left), new InputAction(Buttons.DPadLeft)]},
                 {"MoveRight", [new InputAction(Keys.Right), new InputAction(Buttons.DPadRight)]},
                 {"Jump", [new InputAction(Keys.Z), new InputAction(Buttons.A)]},
-                {"Attack", [new InputAction(Keys.X), new InputAction(Buttons.Y)]},
+                {"Attack", [new InputAction(Keys.X), new InputAction(Buttons.Y), new InputAction(MouseButton.Left)]},
                 {"Pause", [new InputAction(Keys.Escape), new InputAction(Buttons.Start)]},
                 {"Back", [new InputAction(Keys.X), new InputAction(Buttons.B)]}
                 
@@ -83,11 +83,8 @@ namespace Slumber
 
             SceneManager.UpdateCurrentScene(gameTime);
 
+            GumManager.UpdateAll(gameTime);
             GumUI.Update(this, gameTime);
-
-            
-
-
 
             base.Update(gameTime);
         }
@@ -98,14 +95,7 @@ namespace Slumber
             GraphicsDevice.Clear(Color.DarkSlateGray);
             SceneManager.DrawCurrentScene(SpriteBatch);
 
-
-            GraphicsDevice.SetRenderTarget(null);
-            GraphicsDevice.Clear(Color.Black);
-
-            SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive, SamplerState.PointClamp);
-            SpriteBatch.Draw(RenderTarget, new Rectangle(offsetX, offsetY, finalWidth, finalHeight), Color.White);
-
-            SpriteBatch.End();
+            base.Draw(gameTime);
 
             GumUI.Draw();
         }

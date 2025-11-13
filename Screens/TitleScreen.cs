@@ -14,6 +14,7 @@ using System.IO;
 using MonoGameGum;
 using Gum.Forms.Controls;
 using Slumber.Components.ConstructControls;
+using ConstructEngine.UI;
 
 namespace Slumber.Screens
 {
@@ -53,12 +54,6 @@ namespace Slumber.Screens
                 Settings.ControlButton.IsFocused = true;
             };
 
-            Settings.ControlButton.Click += (_, _) =>
-            {
-                Settings.IsVisible = false;
-                Controls.IsVisible = true;
-                Controls.ResetBindsButton.IsFocused = true;
-            };
 
             Settings.MasterSlider.ValueChanged += (_, _) =>
             {
@@ -66,11 +61,11 @@ namespace Slumber.Screens
             };
 
 
-            
-        
+    
 
             
 
         }
+
     }
 }
