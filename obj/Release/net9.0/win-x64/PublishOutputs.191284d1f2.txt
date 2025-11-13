@@ -55,6 +55,8 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/Components/ConstructControls/Blur.gucx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/Components/ConstructControls/ConstructButton.gucx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/Components/ConstructControls/ConstructButtonAnimations.ganx
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/Components/ConstructControls/ConstructButtonAnimationsDuo.ganx
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/Components/ConstructControls/ConstructButtonDuo.gucx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/Components/ConstructControls/ConstructCheckBox.gucx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/Components/ConstructControls/ConstructCheckBoxAnimations.ganx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/Components/ConstructControls/ConstructLabel.gucx
@@ -150,7 +152,7 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/FontCache/Font28Arial_Bold.bmfc
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/FontCache/Font28Arial_Bold.fnt
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/FontCache/Font28Arial_Bold_0.png
-/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/GumProject.gumx
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/gumproject.gumx
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/ProjectCodeSettings.codsj
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/RainHearts.fnt
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/GumProject/RainHearts.png

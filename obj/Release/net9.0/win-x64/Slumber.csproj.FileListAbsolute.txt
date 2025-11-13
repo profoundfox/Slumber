@@ -768,3 +768,5 @@
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Release/net9.0/win-x64/ref/Slumber.dll
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Data/Scene1.json
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Data/Slumber.ogmo
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/GumProject/Components/ConstructControls/ConstructButtonAnimationsDuo.ganx
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/Content/GumProject/Components/ConstructControls/ConstructButtonDuo.gucx

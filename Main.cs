@@ -11,6 +11,7 @@ using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Text.Json;
+using ConstructEngine.Helpers;
 
 namespace Slumber
 {
@@ -61,9 +62,9 @@ namespace Slumber
 
             Input.AddBinds(binds);
 
-            Input.InitialBinds = Input.Binds.ToDictionary(
-                kvp => kvp.Key,
-                kvp => kvp.Value.Select(action => action.Clone()).ToList()
+            Input.InitialBinds = DictionaryHelper.CloneDictionaryOfLists(
+                Input.Binds,
+                action => action.Clone()
             );
 
 
