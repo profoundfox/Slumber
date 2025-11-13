@@ -21,13 +21,14 @@ public class Pausemenu : BackseatComponent
     
     public override void Update(GameTime gameTime)
     {
-        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Escape))
+        
+        if (Core.Input.IsActionJustPressed("Pause"))
         {
             Core.SceneManager.QueeFreezeCurrentScene();
             Menu.Root.Visible = true;
         }
 
-        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.X))
+        if (Core.Input.IsActionJustPressed("Back"))
         {
             if (Menu.Main.Visible)
             {
@@ -47,6 +48,8 @@ public class Pausemenu : BackseatComponent
                 Menu.Settings.ControlButton.IsFocused = true;
             }
         }
+
+        Menu.Controls.Update(Core.DeltaTime);
         
     }
 }

@@ -52,7 +52,7 @@ public class MainMenu : Scene, Scene.IScene
 
 
 
-        if (Core.Input.Keyboard.WasKeyJustPressed(Microsoft.Xna.Framework.Input.Keys.X))
+        if (Core.Input.IsActionJustPressed("Back"))
         {
             if (titleScreen.Settings.IsVisible)
             {
@@ -68,7 +68,7 @@ public class MainMenu : Scene, Scene.IScene
             }
         }
 
-        titleScreen.Controls.Update();
+        titleScreen.Controls.Update(Core.DeltaTime);
     }
 
     public void Draw(SpriteBatch spriteBatch)

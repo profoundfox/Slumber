@@ -1206,6 +1206,27 @@
         "ElementType": "Components",
         "EventType": 6,
         "TimestampUtc": "2025-11-12T21:21:12.954872Z"
+      },
+      {
+        "NewName": "PauseMenu.Controls1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-13T09:36:24.777558Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "PauseMenu.ConstructControls/ControlComponent Controls in PauseMenu",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-11-13T09:36:38.488334Z"
+      },
+      {
+        "NewName": "PauseMenu.Controls",
+        "OldName": "PauseMenu.Controls1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-13T09:36:41.96625Z"
       }
     ]
   }

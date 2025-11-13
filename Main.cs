@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Text.Json;
 
 namespace Slumber
 {
@@ -60,6 +61,12 @@ namespace Slumber
 
             Input.AddBinds(binds);
 
+            Input.InitialBinds = Input.Binds.ToDictionary(
+                kvp => kvp.Key,
+                kvp => kvp.Value.Select(action => action.Clone()).ToList()
+            );
+
+
             SceneManager.AddScene(new MainMenu());
         }
 
@@ -76,6 +83,9 @@ namespace Slumber
             SceneManager.UpdateCurrentScene(gameTime);
 
             GumUI.Update(this, gameTime);
+
+            
+
 
 
             base.Update(gameTime);

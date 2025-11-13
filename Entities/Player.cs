@@ -131,12 +131,12 @@ public class Player : Entity, Entity.IEntity
     {
         float targetSpeed = 0f;
 
-        if (Core.Input.Keyboard.IsKeyDown(MoveLeftKey) && !Core.Input.Keyboard.IsKeyDown(MoveRightKey))
+        if (Core.Input.IsActionPressed("MoveLeft") && !Core.Input.IsActionPressed("MoveRight"))
         {
             targetSpeed = -PlayerInfo.MoveSpeed;
             PlayerInfo.dir = -1;
         }
-        else if (Core.Input.Keyboard.IsKeyDown(MoveRightKey) && !Core.Input.Keyboard.IsKeyDown(MoveLeftKey))
+        else if (Core.Input.IsActionPressed("MoveRight") && !Core.Input.IsActionPressed("MoveLeft"))
         {
             targetSpeed = PlayerInfo.MoveSpeed;
             PlayerInfo.dir = 1;
