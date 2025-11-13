@@ -11,7 +11,6 @@ using Slumber.Screens;
 using System;
 using ConstructEngine.Helpers;
 using ConstructEngine.Util;
-using System.Security.Cryptography;
 
 namespace Slumber.Entities;
 
@@ -81,10 +80,10 @@ public class Player : Entity, Entity.IEntity
         attack.SetParent(grounded);
         
 
-        _stateController = new StateController(idle, new IState[]
-        {
+        _stateController = new StateController(idle,
+        [
             grounded, idle, run, attack, jump, fall, wallSlide, wallJump
-        });
+        ]);
     }
 
     public void Update(GameTime gameTime)
