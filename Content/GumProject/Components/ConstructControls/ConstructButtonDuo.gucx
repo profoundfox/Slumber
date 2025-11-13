@@ -138,78 +138,6 @@
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>FocusIndicator.Height</Name>
-      <Value xsi:type="xsd:float">-15.9</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>FocusIndicator.IgnoredByParentSize</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>FocusIndicator.Parent</Name>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <IsFile>true</IsFile>
-      <Type>string</Type>
-      <Name>FocusIndicator.SourceFile</Name>
-      <Value xsi:type="xsd:string">ConstructUISheet.png</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>FocusIndicator.TextureHeight</Name>
-      <Value xsi:type="xsd:int">32</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>FocusIndicator.TextureLeft</Name>
-      <Value xsi:type="xsd:int">64</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>FocusIndicator.TextureTop</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>FocusIndicator.TextureWidth</Name>
-      <Value xsi:type="xsd:int">96</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>FocusIndicator.Visible</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>FocusIndicator.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>FocusIndicator.X</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>FocusIndicator.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
       <Name>Height</Name>
       <Value xsi:type="xsd:float">40</Value>
       <SetsValue>true</SetsValue>
@@ -644,12 +572,6 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>FocusIndicator.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
         <Name>IsRenderTarget</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <Category>Rendering</Category>
@@ -755,12 +677,6 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>FocusIndicator.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
         <Name>IsRenderTarget</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <Category>Rendering</Category>
@@ -812,14 +728,14 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Alpha</Name>
-        <Value xsi:type="xsd:int">107</Value>
+        <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Blue</Name>
-        <Value xsi:type="xsd:int">64</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -831,13 +747,13 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Green</Name>
-        <Value xsi:type="xsd:int">64</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Red</Name>
-        <Value xsi:type="xsd:int">64</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -862,12 +778,6 @@
         <Type>int</Type>
         <Name>Background.TextureWidth</Name>
         <Value xsi:type="xsd:int">22</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>FocusIndicator.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -919,14 +829,14 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Alpha</Name>
-        <Value xsi:type="xsd:int">107</Value>
+        <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Blue</Name>
-        <Value xsi:type="xsd:int">64</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -938,13 +848,13 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Green</Name>
-        <Value xsi:type="xsd:int">64</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Red</Name>
-        <Value xsi:type="xsd:int">64</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -969,12 +879,6 @@
         <Type>int</Type>
         <Name>Background.TextureWidth</Name>
         <Value xsi:type="xsd:int">22</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>FocusIndicator.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1030,14 +934,14 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Alpha</Name>
-        <Value xsi:type="xsd:int">153</Value>
+        <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Blue</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1049,13 +953,13 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Green</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Red</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1080,12 +984,6 @@
         <Type>int</Type>
         <Name>Background.TextureWidth</Name>
         <Value xsi:type="xsd:int">22</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>FocusIndicator.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1141,14 +1039,14 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Alpha</Name>
-        <Value xsi:type="xsd:int">153</Value>
+        <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Blue</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1160,13 +1058,13 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Green</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Red</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1191,12 +1089,6 @@
         <Type>int</Type>
         <Name>Background.TextureWidth</Name>
         <Value xsi:type="xsd:int">22</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>FocusIndicator.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1252,14 +1144,14 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Alpha</Name>
-        <Value xsi:type="xsd:int">153</Value>
+        <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Blue</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1271,13 +1163,13 @@
       <Variable>
         <Type>int</Type>
         <Name>Background.Green</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>Background.Red</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Value xsi:type="xsd:int">153</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1302,12 +1194,6 @@
         <Type>int</Type>
         <Name>Background.TextureWidth</Name>
         <Value xsi:type="xsd:int">22</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>FocusIndicator.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1372,11 +1258,6 @@
   <Instance>
     <Name>TextInstanceRight</Name>
     <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>FocusIndicator</Name>
-    <BaseType>NineSlice</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors>

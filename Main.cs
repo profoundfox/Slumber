@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Slumber
 {
@@ -75,6 +76,7 @@ namespace Slumber
             SceneManager.UpdateCurrentScene(gameTime);
 
             GumUI.Update(this, gameTime);
+
 
             base.Update(gameTime);
         }

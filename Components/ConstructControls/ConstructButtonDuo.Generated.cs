@@ -74,7 +74,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public NineSliceRuntime Background { get; protected set; }
     public TextRuntime TextInstanceLeft { get; protected set; }
     public TextRuntime TextInstanceRight { get; protected set; }
-    public NineSliceRuntime FocusIndicator { get; protected set; }
 
     public string BackgroundSourceFile
     {
@@ -108,7 +107,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         Background = this.Visual?.GetGraphicalUiElementByName("Background") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         TextInstanceLeft = this.Visual?.GetGraphicalUiElementByName("TextInstanceLeft") as global::MonoGameGum.GueDeriving.TextRuntime;
         TextInstanceRight = this.Visual?.GetGraphicalUiElementByName("TextInstanceRight") as global::MonoGameGum.GueDeriving.TextRuntime;
-        FocusIndicator = this.Visual?.GetGraphicalUiElementByName("FocusIndicator") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
