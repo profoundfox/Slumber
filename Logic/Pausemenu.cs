@@ -35,7 +35,7 @@ public class Pausemenu : BackseatComponent
                 Core.SceneManager.UnFreezeCurrentScene();
                 Menu.Root.Visible = false;
             }
-            if (Menu.Settings.IsVisible)
+            if (Menu.Settings.Main.IsVisible)
             {
                 Menu.Settings.IsVisible = false;
                 Menu.Main.Visible = true;
@@ -44,7 +44,7 @@ public class Pausemenu : BackseatComponent
             if (Menu.Settings.Controls.IsVisible)
             {
                 Menu.Settings.Controls.IsVisible = false;
-                Menu.Settings.IsVisible = true;
+                Menu.Settings.Main.IsVisible = true;
                 Menu.Settings.ControlButton.IsFocused = true;
             }
         }

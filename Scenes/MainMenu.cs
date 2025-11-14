@@ -22,6 +22,7 @@ namespace Slumber;
 public class MainMenu : Scene, Scene.IScene
 {
     TitleScreen titleScreen;
+
     
     public MainMenu()
     {
@@ -49,21 +50,18 @@ public class MainMenu : Scene, Scene.IScene
 
     public void Update(GameTime gameTime)
     {
-        
-
-
         if (Core.Input.IsActionJustPressed("Back"))
         {
-            if (titleScreen.Settings.IsVisible)
+            if (titleScreen.Settings.Main.IsVisible)
             {
                 titleScreen.Settings.IsVisible = false;
                 titleScreen.Main.Visible = true;
                 titleScreen.StartButton.IsFocused = true;
             }
-            if (titleScreen.Settings.Controls.IsVisible)
+            else if (titleScreen.Settings.Controls.IsVisible)
             {
                 titleScreen.Settings.Controls.IsVisible = false;
-                titleScreen.Settings.IsVisible = true;
+                titleScreen.Settings.Main.IsVisible = true;
                 titleScreen.Settings.ControlButton.IsFocused = true;
             }
         }
