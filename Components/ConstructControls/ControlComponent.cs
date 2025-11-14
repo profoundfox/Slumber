@@ -71,20 +71,32 @@ namespace Slumber.Components.ConstructControls
             if (isRebinding)
             {
                 var key = Core.Input.Keyboard.GetFirstKeyDown();
-                var mouse = Core.Input.Mouse.GetFirstButtonDown;
+                var mouse = Core.Input.Mouse.GetFirstButtonDown();
+                var button = Core.Input.CurrentGamePad.GetFirstButtonDown();
 
 
                 if (key != Keys.None)
                 {
-                    Core.Input.RebindKey(currentAction, key);
+                    Core.Input.Rebind.Rebind(currentAction, key);
                     currentRebindButton.TextRight = key.ToString();
                     isRebinding = false;
                     currentRebindButton = null;
                 }
 
-                if (mouse != null)
+                if (mouse != MouseButton.None)
                 {
-                    
+                    Core.Input.Rebind.Rebind(currentAction, mouse);
+                    currentRebindButton.TextRight = mouse.ToString();
+                    isRebinding = false;
+                    currentRebindButton = null;
+                }
+
+                if (button != Buttons.None)
+                {
+                    Core.Input.Rebind.Rebind(currentAction, button);
+                    currentRebindButton.TextRight = button.ToString();
+                    isRebinding = false;
+                    currentRebindButton = null;
                 }
             }
 
