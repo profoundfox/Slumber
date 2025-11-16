@@ -1,14 +1,6 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using ConstructEngine;
-using ConstructEngine.UI;
 using ConstructEngine.Util;
-using ConstructEngine.Input;
-using MonoGameGum;
-using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
-using ConstructEngine.Helpers;
-using System;
 
 namespace Slumber
 {

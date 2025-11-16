@@ -15,6 +15,7 @@ using Slumber.Screens;
 using ConstructEngine.Directory;
 using ConstructEngine.Area;
 using ConstructEngine.Helpers;
+using ConstructEngine.Objects;
 
 namespace Slumber;
 
@@ -35,10 +36,7 @@ public class Scene1 : Scene, Scene.IScene
     }
     public void Load()
     {
-
-        TilemapFromOgmo.InstantiateEntities("Data/Scene1.json");
-        TilemapFromOgmo.FromFile(contentManager, "Data/Scene1.json", "0 0 512 512", "Assets/Tileset/SlumberTilesetAtlas");
-        TilemapFromOgmo.SearchForObjects("Data/Scene1.json", Entity.EntityList.OfType<Player>().FirstOrDefault(), Engine.SceneManager);
+        OgmoParser.FromFile("Data/Scene1.json", Entity.EntityList.OfType<Player>().FirstOrDefault(), "Assets/Tileset/SlumberTilesetAtlas", "0 0 512 512");
 
         _camera = new RoomCamera(1f); 
         
@@ -66,7 +64,7 @@ public class Scene1 : Scene, Scene.IScene
             Engine.SceneManager.ReloadCurrentScene();
         }
 
-        TilemapFromOgmo.UpdateObjects(gameTime);
+        ConstructObject.UpdateObjects(gameTime);
 
         UpdateEntities(gameTime);
 
@@ -87,8 +85,7 @@ public class Scene1 : Scene, Scene.IScene
             transformMatrix: _camera.Transform
         );
 
-        
-        
+    
         Tilemap.DrawTilemaps(spriteBatch);
         
         DrawEntities(spriteBatch);
