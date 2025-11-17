@@ -15,6 +15,8 @@ public class Scene1 : Scene, IScene
         OgmoParser.FromFile("Data/Scene1.json", "Assets/Tileset/SlumberTilesetAtlas", "0 0 512 512");
 
         _camera = new RoomCamera(1f); 
+
+        Engine.DrawManager.SetCamera(_camera.Transform);
         
         Background = new ParallaxBackground(
             texture: Engine.Content.Load<Texture2D>("Assets/Backgrounds/Desert"),
@@ -47,6 +49,8 @@ public class Scene1 : Scene, IScene
     {
         Background.Draw(spriteBatch, Engine.GraphicsDevice);
 
+        Engine.SpriteManager.DrawAllSprites(Engine.SpriteBatch);
+
         spriteBatch.Begin(
             SpriteSortMode.BackToFront,
             samplerState: SamplerState.PointClamp,
@@ -55,7 +59,6 @@ public class Scene1 : Scene, IScene
 
         ConstructObject.DrawObjects(spriteBatch);
 
-        Engine.SpriteManager.DrawAllSprites(Engine.SpriteBatch);
     
         Tilemap.DrawTilemaps(spriteBatch);
                 
