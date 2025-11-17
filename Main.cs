@@ -1,7 +1,3 @@
-using Microsoft.Xna.Framework;
-using ConstructEngine;
-using ConstructEngine.Util;
-
 namespace Slumber
 {
     public class Main : Engine 
@@ -9,8 +5,8 @@ namespace Slumber
         public Main() : base(new EngineConfig
         {
             Title = "Slumber",
-            VirtualWidth = 640,
-            VirtualHeight = 360,
+            RenderWidth = 640,
+            RenderHeight = 360,
             Fullscreen = false,
             IntegerScaling = true,
             AllowUserResizing = true,

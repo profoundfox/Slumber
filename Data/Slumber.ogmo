@@ -44,7 +44,7 @@
       "name": "Decal",
       "gridSize": {"x": 8, "y": 8},
       "exportID": "33974804",
-      "folder": "../../../Art",
+      "folder": "../Content",
       "includeImageSequence": true,
       "scaleable": false,
       "rotatable": false,

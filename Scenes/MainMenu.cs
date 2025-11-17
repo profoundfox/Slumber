@@ -1,28 +1,12 @@
 
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ConstructEngine.Util;
-using ConstructEngine.UI;
-using MonoGameGum;
-using Slumber.Screens;
-using System;
-using ConstructEngine;
-using ConstructEngine.Graphics;
-using Gum.Forms.Controls;
-using Slumber.Components.ConstructControls;
-using ConstructEngine.Input;
-using System.Security.Cryptography;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework.Input;
-
-
 namespace Slumber;
 
 
-public class MainMenu : Scene, Scene.IScene
+public class MainMenu : Scene, IScene
 {
     TitleScreen titleScreen;
 
+    ParallaxBackground Background;
     
     public MainMenu()
     {
@@ -38,9 +22,13 @@ public class MainMenu : Scene, Scene.IScene
 
         GumHelper.AddScreenToRoot(titleScreen);
 
-        ParallaxBackground.AddBackground(new("Assets/Backgrounds/streetsbg", 0.1f,  ParallaxBackground.RepeatX, new Vector2(0,0)));
-
-    }
+        Background = new ParallaxBackground(
+            texture: Engine.Content.Load<Texture2D>("Assets/Backgrounds/streetsbg"),
+            parallaxFactor: 0.1f,
+            samplerState: ParallaxSamplers.RepeatX,
+            position: new Vector2(0,0)
+        );
+    }   
 
     public void Load() { }
     public void Unload() { }
@@ -67,7 +55,7 @@ public class MainMenu : Scene, Scene.IScene
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        ParallaxBackground.DrawParallaxBackgrounds(spriteBatch, Engine.GraphicsDevice, SamplerState.LinearWrap);
+       Background.Draw(spriteBatch, Engine.GraphicsDevice);
     }
 
 }

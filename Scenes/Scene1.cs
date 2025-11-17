@@ -1,35 +1,11 @@
-
-using System;
-using ConstructEngine;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using ConstructEngine.Graphics;
-using ConstructEngine.Util;
-using System.Linq;
-using Slumber.Entities;
-using ConstructEngine.Components;
-using ConstructEngine.UI;
-using Slumber.Screens;
-using ConstructEngine.Directory;
-using ConstructEngine.Area;
-using ConstructEngine.Helpers;
-using ConstructEngine.Objects;
-
 namespace Slumber;
 
-public class Scene1 : Scene, Scene.IScene
+public class Scene1 : Scene, IScene
 {
     public RoomCamera _camera { get; set; }
-    private ContentManager contentManager;
+    public ParallaxBackground Background;
 
-    public Scene1()
-    {
-        this.contentManager = Engine.Content;
-        
-    }
-
+    public Scene1() {  }
     public void Initialize()
     {
         GumHelper.RemoveScreenOfType<TitleScreen>();
@@ -40,17 +16,12 @@ public class Scene1 : Scene, Scene.IScene
 
         _camera = new RoomCamera(1f); 
         
-        ParallaxBackground.AddBackground(new("Assets/Backgrounds/Main", 0.1f,  ParallaxBackground.RepeatYX, _camera));
-
-        ParallaxBackground.AddBackgrounds([
-            "Assets/Backgrounds/Clouds5",
-            "Assets/Backgrounds/Clouds4",
-            "Assets/Backgrounds/Clouds3",
-            "Assets/Backgrounds/Clouds2",
-            "Assets/Backgrounds/Clouds1"
-        ], 0.2f, _camera);
-
-
+        Background = new ParallaxBackground(
+            texture: Engine.Content.Load<Texture2D>("Assets/Backgrounds/Desert"),
+            parallaxFactor: 0.2f,
+            samplerState: ParallaxSamplers.RepeatX,
+            camera: _camera
+        );
 
     }
 
@@ -74,7 +45,7 @@ public class Scene1 : Scene, Scene.IScene
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        ParallaxBackground.DrawParallaxBackgrounds(spriteBatch, Engine.GraphicsDevice, SamplerState.LinearWrap);
+        Background.Draw(spriteBatch, Engine.GraphicsDevice);
 
         spriteBatch.Begin(
             SpriteSortMode.BackToFront,
@@ -83,6 +54,8 @@ public class Scene1 : Scene, Scene.IScene
         );
 
         ConstructObject.DrawObjects(spriteBatch);
+
+        Engine.SpriteManager.DrawAllSprites(Engine.SpriteBatch);
     
         Tilemap.DrawTilemaps(spriteBatch);
                 

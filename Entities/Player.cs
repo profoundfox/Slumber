@@ -1,17 +1,3 @@
-using ConstructEngine;
-using ConstructEngine.Components;
-using ConstructEngine.Components.Physics;
-using ConstructEngine.Graphics;
-using ConstructEngine.Area;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Slumber.Logic;
-using Slumber.Screens;
-using System;
-using ConstructEngine.Helpers;
-using ConstructEngine.Util;
-
 namespace Slumber.Entities;
 
 public class Player : KinematicEntity, IKinematicEntity

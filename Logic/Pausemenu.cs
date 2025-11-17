@@ -1,12 +1,3 @@
-using System;
-using ConstructEngine;
-using ConstructEngine.Components;
-using ConstructEngine.UI;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using Slumber.Components.ConstructControls;
-using Slumber.Screens;
-
 namespace Slumber.Logic;
 
 public class Pausemenu : BackseatComponent

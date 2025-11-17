@@ -1,7 +1,3 @@
-using System;
-using ConstructEngine;
-using ConstructEngine.Util;
-using Microsoft.Xna.Framework;
 
 namespace Slumber.Entities;
 
@@ -35,7 +31,7 @@ public class PlayerWallJumpState : State
         
         if (!controlRestored)
         {
-            Timer.Wait(controlLockTimer, () => { controlRestored = true; p.PlayerInfo.canMove = true; });
+            CTimer.Wait(controlLockTimer, () => { controlRestored = true; p.PlayerInfo.canMove = true; });
         }
 
         if (controlRestored)

@@ -1,18 +1,4 @@
 
-using System;
-using System.IO.Pipes;
-using System.Runtime.CompilerServices;
-using ConstructEngine;
-using ConstructEngine.Components;
-using ConstructEngine.Graphics;
-using ConstructEngine.Objects;
-using ConstructEngine.Area;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Timer = ConstructEngine.Util.Timer;
-using ConstructEngine.Helpers;
-using System.Net.Http.Headers;
-
 namespace Slumber.Entities;
 
 public class Enemy : KinematicEntity, IKinematicEntity
@@ -168,7 +154,7 @@ public class Enemy : KinematicEntity, IKinematicEntity
         CanTakeDamage = false;
         Health -= DamageAmount;
 
-        Timer.Wait(0.7f, () => { CanTakeDamage = true; });
+        CTimer.Wait(0.7f, () => { CanTakeDamage = true; });
     }
 
 }

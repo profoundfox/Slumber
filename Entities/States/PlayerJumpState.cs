@@ -1,6 +1,3 @@
-using ConstructEngine;
-using ConstructEngine.Util;
-using Microsoft.Xna.Framework;
 
 namespace Slumber.Entities
 {
@@ -32,7 +29,7 @@ namespace Slumber.Entities
             if ((Engine.Input.IsActionJustPressed("Jump") || p.PlayerInfo.bufferActivated) && !p.KinematicBase.IsOnGround())
             {
                 p.PlayerInfo.bufferActivated = true;
-                Timer.Wait(p.PlayerInfo.bufferTimer, () => p.PlayerInfo.bufferActivated = false);
+                CTimer.Wait(p.PlayerInfo.bufferTimer, () => p.PlayerInfo.bufferActivated = false);
             }
 
             if (p.KinematicBase.Velocity.Y > 0)
