@@ -8,19 +8,15 @@ public class MainMenu : Scene, IScene
 
     ParallaxBackground Background;
     
-    public MainMenu()
+    public MainMenu() : base(new SceneConfig {GumScreen = new TitleScreen()})
     {
-        
         
     }
 
-    public void Initialize()
+    public override void Initialize()
     {
         GumHelper.Wipe();
 
-        titleScreen = new TitleScreen();
-
-        GumHelper.AddScreenToRoot(titleScreen);
 
         Background = new ParallaxBackground(
             texture: Engine.Content.Load<Texture2D>("Assets/Backgrounds/streetsbg"),
@@ -30,10 +26,10 @@ public class MainMenu : Scene, IScene
         );
     }   
 
-    public void Load() { }
-    public void Unload() { }
+    public override void Load() { }
+    public override void Unload() { }
 
-    public void Update(GameTime gameTime)
+    public override void Update(GameTime gameTime)
     {
         if (Engine.Input.IsActionJustPressed("Back"))
         {
@@ -53,7 +49,7 @@ public class MainMenu : Scene, IScene
 
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
        Background.Draw(spriteBatch, Engine.GraphicsDevice);
     }

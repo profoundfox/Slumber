@@ -20,7 +20,7 @@ namespace Slumber
         protected override void Initialize()
         {
             base.Initialize();
-            SceneManager.AddScene(new Scene1());
+            SceneManager.AddScene(new MainMenu());
         }
 
         protected override void Update(GameTime gameTime)

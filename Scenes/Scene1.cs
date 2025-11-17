@@ -2,49 +2,35 @@ namespace Slumber;
 
 public class Scene1 : Scene, IScene
 {
-    public RoomCamera _camera { get; set; }
+    public RoomCamera Camera { get; set; }
     public ParallaxBackground Background;
 
-    public Scene1() {  }
-    public void Initialize()
+    public Scene1 ():  base(new SceneConfig
     {
-        GumHelper.RemoveScreenOfType<TitleScreen>();
-    }
-    public void Load()
+        DataPath = "Data/Scene1.json",
+        TilemapTexturePath = "Assets/Tileset/SlumberTilesetAtlas",
+        TilemapRegion = "0 0 512 512"
+    }) {  }
+
+    public override void Initialize()
     {
-        OgmoParser.FromFile("Data/Scene1.json", "Assets/Tileset/SlumberTilesetAtlas", "0 0 512 512");
-
-        _camera = new RoomCamera(1f); 
-
         
     }
-
-    public void Unload() {  }
-
-    public void Update(GameTime gameTime)
+    public override void Load()
     {
-  
+
+        Camera = new RoomCamera(1f); 
+    }
+
+    public override void Unload() {  }
+
+    public override void Update(GameTime gameTime)
+    {
         if (Engine.Input.Keyboard.WasKeyJustPressed(Keys.R))
-        {
             Engine.SceneManager.ReloadCurrentScene();
-        }
-
-        ConstructObject.UpdateObjects(gameTime);
-
-        _camera.Follow(KinematicEntity.EntityList.OfType<Player>().FirstOrDefault());
+    
+        Camera.Follow(KinematicEntity.EntityList.OfType<Player>().FirstOrDefault());
     }
-    public void Draw(SpriteBatch spriteBatch)
-    {
-        foreach (var s in Engine.SpriteManager.Sprites) 
-        {
-            Engine.DrawManager.Draw(s);
-        }
-
-        ConstructObject.DrawObjects(spriteBatch);
-
-        Tilemap.DrawTilemaps(spriteBatch);
-
-        Engine.DrawManager.Flush();
-    }
+    public override void Draw(SpriteBatch spriteBatch) {  }
 
 }
