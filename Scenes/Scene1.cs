@@ -16,15 +16,7 @@ public class Scene1 : Scene, IScene
 
         _camera = new RoomCamera(1f); 
 
-        Engine.DrawManager.SetCamera(_camera.Transform);
         
-        Background = new ParallaxBackground(
-            texture: Engine.Content.Load<Texture2D>("Assets/Backgrounds/Desert"),
-            parallaxFactor: 0.2f,
-            samplerState: ParallaxSamplers.RepeatX,
-            camera: _camera
-        );
-
     }
 
     public void Unload() {  }
@@ -40,29 +32,19 @@ public class Scene1 : Scene, IScene
         ConstructObject.UpdateObjects(gameTime);
 
         _camera.Follow(KinematicEntity.EntityList.OfType<Player>().FirstOrDefault());
-
     }
-
-
-
     public void Draw(SpriteBatch spriteBatch)
     {
-        Background.Draw(spriteBatch, Engine.GraphicsDevice);
-
-        Engine.SpriteManager.DrawAllSprites(Engine.SpriteBatch);
-
-        spriteBatch.Begin(
-            SpriteSortMode.BackToFront,
-            samplerState: SamplerState.PointClamp,
-            transformMatrix: _camera.Transform
-        );
+        foreach (var s in Engine.SpriteManager.Sprites) 
+        {
+            Engine.DrawManager.Draw(s);
+        }
 
         ConstructObject.DrawObjects(spriteBatch);
 
-    
         Tilemap.DrawTilemaps(spriteBatch);
-                
-        spriteBatch.End();
+
+        Engine.DrawManager.Flush();
     }
 
 }

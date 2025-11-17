@@ -15,13 +15,12 @@ namespace Slumber
             SynchronizeWithVerticalRetrace = true,
             FontPath = "Assets/Fonts/Font",
             GumProject = "GumProject/GumProject.gumx",
-
         }) {  }
 
         protected override void Initialize()
         {
             base.Initialize();
-            SceneManager.AddScene(new MainMenu());
+            SceneManager.AddScene(new Scene1());
         }
 
         protected override void Update(GameTime gameTime)
