@@ -1,12 +1,10 @@
 
 namespace Slumber;
 
-
 public class MainMenu : Scene, IScene
 {
     TitleScreen titleScreen;
-
-    ParallaxBackground Background;
+    Texture2D texture;
     
     public MainMenu() : base(new SceneConfig {})
     {
@@ -21,12 +19,8 @@ public class MainMenu : Scene, IScene
 
         GumHelper.AddScreenToRoot(titleScreen);
 
-        Background = new ParallaxBackground(
-            texture: Engine.Content.Load<Texture2D>("Assets/Backgrounds/streetsbg"),
-            parallaxFactor: 0.1f,
-            samplerState: ParallaxSamplers.RepeatX,
-            position: new Vector2(0,0)
-        );
+        
+        texture = Engine.Content.Load<Texture2D>("Assets/Backgrounds/streetsbg");
     }   
 
     public override void Load() { }
@@ -54,7 +48,12 @@ public class MainMenu : Scene, IScene
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-       Background.Draw(spriteBatch, Engine.GraphicsDevice);
+        Engine.DrawManager.DrawLooping(
+            texture,
+            Vector2.Zero,
+            Vector2.Zero,
+            DrawLayer.Background
+        );
     }
 
 }

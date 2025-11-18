@@ -93,8 +93,6 @@ public class Player : KinematicEntity, IKinematicEntity
     public override void Draw(SpriteBatch spriteBatch)
     {   
         Engine.DrawManager.Draw(AnimatedSprite);
-        DrawHelper.DrawRectangle(KinematicBase.Collider.Rect, Color.Red, 2);
-        DrawHelper.DrawString(_stateController.CurrentState.ToString(), Color.White, CCamera.CurrentCamera.GetScreenEdges().TopLeft);
     }
 
     public void ApplyGravity()
