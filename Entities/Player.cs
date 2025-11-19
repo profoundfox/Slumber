@@ -100,6 +100,7 @@ public class Player : KinematicEntity, IKinematicEntity
     {   
         Engine.DrawManager.Draw(AnimatedSprite);
         DrawHelper.DrawString(KinematicBase.Collider.IsIntersectingAny().ToString(), Color.White, CTCamera.CurrentCamera.GetScreenEdges().TopLeft);
+        DrawHelper.DrawRectangle(KinematicBase.Collider.Rect, Color.Red, 2);
     }
 
     public void ApplyGravity()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>/Users/nilslauvstad/Documents/Project/Slumber/Content/Assets/Backgrounds/Desert.png</SourceFile>
-  <SourceTime>2025-11-17T20:51:55.7210939+01:00</SourceTime>
-  <DestFile>/Users/nilslauvstad/Documents/Project/Slumber/Content/bin/DesktopGL/Content/Assets/Backgrounds/Desert.xnb</DestFile>
-  <DestTime>2025-11-17T20:53:53.6682546+01:00</DestTime>
+  <SourceFile>/home/nils/Documents/Project/Slumber/Content/Assets/Backgrounds/Desert.png</SourceFile>
+  <SourceTime>2025-11-19T14:46:18.9877272+01:00</SourceTime>
+  <DestFile>/home/nils/Documents/Project/Slumber/Content/bin/DesktopGL/Content/Assets/Backgrounds/Desert.xnb</DestFile>
+  <DestTime>2025-11-19T14:50:11.2320421+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-10-20T16:25:32+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

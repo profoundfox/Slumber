@@ -2,7 +2,12 @@ namespace Slumber;
 
 public class Scene1 : Scene, IScene
 {
-    public RoomCamera Camera { get; set; }
+    public FollowCamera Camera { get; set; }
+
+    CollisionObject collisionObject;
+    float colPosXTarget = -100f;
+
+    Tween tween;
 
     public Scene1 ():  base(new SceneConfig
     {
@@ -21,7 +26,20 @@ public class Scene1 : Scene, IScene
         
         GumHelper.Wipe();
 
-        Camera = new RoomCamera(1f); 
+        collisionObject = new CollisionObject(new Rectangle((int)colPosXTarget, 150, 100, 20), true, false);
+
+        tween = new Tween(
+            100f,
+            EasingFunctions.Linear,
+            t => colPosXTarget = MathHelper.Lerp(colPosXTarget, 500f, t),
+            () => tween.Sta
+        );
+        
+        tween.Start();
+        Engine.TweenManager.AddTween(tween);
+
+        Camera = new FollowCamera(1f); 
+        Camera.LerpFactor = 1f;
     }
 
     public override void Unload()
@@ -33,18 +51,22 @@ public class Scene1 : Scene, IScene
     {
         base.Update(gameTime);
         
-        Camera.Follow(KinematicEntity.EntityList.OfType<Player>().FirstOrDefault());
+        Camera.Follow(KinematicEntity.EntityList.OfType<Player>().FirstOrDefault().KinematicBase.Collider.Rect);
 
         if (Engine.Input.Keyboard.WasKeyJustPressed(Keys.R))
         {
             Engine.SceneManager.ReloadCurrentScene();
         }
 
+        collisionObject.Position = new Vector2(colPosXTarget, 150);
+
 
     }
     public override void Draw(SpriteBatch spriteBatch)
     {
         base.Draw(spriteBatch);
+
+        DrawHelper.DrawRectangle(collisionObject.Area.Rect, Color.Red, 2);
     }
 
 }

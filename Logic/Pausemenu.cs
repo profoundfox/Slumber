@@ -13,11 +13,11 @@ public class Pausemenu : BackseatComponent
     public override void Update(GameTime gameTime)
     {
 
-        
         if (Engine.Input.IsActionJustPressed("Pause"))
         {
             Engine.SceneManager.QueueFreezeCurrentScene();
             Menu.Main.Visible = true;
+            Menu.Root.Visible = true;
         }
 
         if (Engine.Input.IsActionJustPressed("Back"))
