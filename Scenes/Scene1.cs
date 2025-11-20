@@ -5,9 +5,8 @@ public class Scene1 : Scene, IScene
     public FollowCamera Camera { get; set; }
 
     Area Area1;
-    RegionShape2D Rect1;
     Area Area2;
-    RegionShape2D Rect2;
+
 
     public Scene1 ():  base(new SceneConfig
     {
@@ -26,6 +25,9 @@ public class Scene1 : Scene, IScene
         GumHelper.Wipe();
         Camera = new FollowCamera(1f);
         Camera.LerpFactor = 1f;
+
+        Area1 = new(new RectangleShape2D(10, 10, 10, 10));
+        Area2 = new(new RectangleShape2D(10, 10, 10, 10));
     }
 
     public override void Unload()
@@ -44,7 +46,8 @@ public class Scene1 : Scene, IScene
             Engine.SceneManager.ReloadCurrentScene();
         }
 
-        Console.WriteLine($"Area Intersecting: {Area1.AreaEntered()}");
+        Area1.AreaEntered(out Area other);
+        Console.WriteLine($"Area1 Intersector: {other}");
     }
     public override void Draw(SpriteBatch spriteBatch)
     {
