@@ -17,12 +17,12 @@ public class PlayerFallState : State
 
         p.HandleHorizontalInput();
 
-        if (p.KinematicBase.IsOnGround())
+        if (p.IsOnGround())
         {
             RequestTransition(nameof(PlayerIdleState));
         }
 
-        if (p.KinematicBase.IsOnWall())
+        if (p.IsOnWall())
         {
             RequestTransition(nameof(PlayerWallSlideState));
         }

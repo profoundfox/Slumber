@@ -9,14 +9,14 @@ public class PlayerWallSlideState : State
     public override void OnEnter()
     {
         p.PlayerInfo.wallSlide = true;
-        p.KinematicBase.Velocity.Y = 0;
+        p.Velocity.Y = 0;
     }
 
     public override void Update(GameTime gameTime)
     {
-        p.KinematicBase.Velocity.Y = 0;
+        p.Velocity.Y = 0;
         
-        if (!p.KinematicBase.IsOnWall() || p.KinematicBase.IsOnGround())
+        if (!p.IsOnWall() || p.IsOnGround())
         {
             RequestTransition(nameof(PlayerFallState));
             return;

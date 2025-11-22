@@ -35,7 +35,7 @@ public class Scene1 : Scene, IScene
     {
         base.Update(gameTime);
         
-        Camera.Follow(KinematicEntity.EntityList.OfType<Player>().FirstOrDefault());
+        Camera.Follow(Node.AllInstances.OfType<Player>().FirstOrDefault());
 
         if (Engine.Input.Keyboard.WasKeyJustPressed(Keys.R))
             Engine.SceneManager.ReloadCurrentScene();
@@ -45,5 +45,4 @@ public class Scene1 : Scene, IScene
     {
         base.Draw(spriteBatch);
     }
-
 }

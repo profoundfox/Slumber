@@ -1,7 +1,7 @@
 
 namespace Slumber.Entities;
 
-public class Enemy : KinematicEntity, IKinematicEntity
+public class Enemy : KinematicBody2D
 {
     public float Gravity = 1300f;
     private int Health;
@@ -26,11 +26,7 @@ public class Enemy : KinematicEntity, IKinematicEntity
 
     private Area2D TakeDamageArea;
 
-    public Enemy() : base(1)
-    {
-
-    }
-
+    public Enemy() {}
 
     public override void Load()
     {
@@ -41,21 +37,23 @@ public class Enemy : KinematicEntity, IKinematicEntity
         AnimatedSprite = Atlas.CreateAnimatedSprite("run-animation");
         AnimatedSprite.LayerDepth = 0.5f;
 
-        KinematicBase.Collider = new RectangleShape2D(400, 150, 16, 16);
+        Collider = new RectangleShape2D(400, 150, 16, 16);
+        Position = Shape.Location.ToVector2();
 
         Health = 5;
 
-        float forwardOffset = KinematicBase.Collider.BoundingBox.Width / 2f + 5f;
+        float forwardOffset = Collider.BoundingBox.Width / 2f + 5f;
 
-        RayPos = new Vector2(
-            KinematicBase.Collider.BoundingBox.Center.X + forwardOffset * Direction,
-            KinematicBase.Collider.BoundingBox.Bottom
+        RayPos = new Vector2
+        (
+            Collider.BoundingBox.Center.X + forwardOffset * Direction,
+            Collider.BoundingBox.Bottom
         );
 
         EnemyRay = new RayCast2D(RayPos, 90, 50);
         EnemyRayNotDown = new RayCast2D(RayPos, 0, 5);
 
-        TakeDamageArea = new Area2D(KinematicBase.Collider);
+        TakeDamageArea = new Area2D(Collider);
 
         
 
@@ -63,10 +61,10 @@ public class Enemy : KinematicEntity, IKinematicEntity
 
     public override void Update(GameTime gameTime)
     {
-        float forwardOffset = KinematicBase.Collider.BoundingBox.Width / 2f + 5f;
+        float forwardOffset = Collider.BoundingBox.Width / 2f + 5f;
 
-        RayPos.X = KinematicBase.Collider.BoundingBox.Center.X + forwardOffset * Direction;
-        RayPos.Y = KinematicBase.Collider.BoundingBox.Bottom;
+        RayPos.X = Collider.BoundingBox.Center.X + forwardOffset * Direction;
+        RayPos.Y = Collider.BoundingBox.Bottom;
 
         EnemyRay.Update(RayPos, 90, 50);
         EnemyRayNotDown.Update(RayPos, 0, 5);
@@ -80,14 +78,14 @@ public class Enemy : KinematicEntity, IKinematicEntity
 
         FlipSprite(Direction);
 
-        KinematicBase.UpdateCollider(gameTime);
+        UpdateCollider(gameTime);
 
-        if (KinematicBase.IsOnGround())
+        if (IsOnGround())
         {
-            KinematicBase.Velocity.Y = 0;
+            Velocity.Y = 0;
         }
 
-        SpritePosition = new Vector2(KinematicBase.Collider.X, KinematicBase.Collider.BoundingBox.Y);
+        SpritePosition = new Vector2(Collider.X, Collider.BoundingBox.Y);
 
         AnimatedSprite.PlayAnimation(RunAnimation, true);
 
@@ -99,23 +97,19 @@ public class Enemy : KinematicEntity, IKinematicEntity
     public override void Draw(SpriteBatch spriteBatch)
     {
         Engine.DrawManager.Draw(AnimatedSprite);
-        //DrawHelper.DrawRay(EnemyRay, Color.Red, 2);
     }
 
     private void FlipSprite(int direction)
     {
         if (direction == 1)
-        {
-            if (AnimatedSprite != null) AnimatedSprite.Effects = SpriteEffects.None;        }
+            if (AnimatedSprite != null) AnimatedSprite.Effects = SpriteEffects.None;
         else
-        {
             if (AnimatedSprite != null) AnimatedSprite.Effects = SpriteEffects.FlipHorizontally;
-        }
     }
 
     private void HandleGravity()
     {
-        KinematicBase.Velocity.Y += Gravity * Engine.DeltaTime;
+        Velocity.Y += Gravity * Engine.DeltaTime;
     }
 
     private void HandleMovement()
@@ -126,7 +120,7 @@ public class Enemy : KinematicEntity, IKinematicEntity
             Direction = -Direction;
         }
 
-        KinematicBase.Velocity.X = 80 * Direction;
+        Velocity.X = 80 * Direction;
     }
 
     public void TakeDamage(int DamageAmount)

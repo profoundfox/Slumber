@@ -11,7 +11,7 @@ namespace Slumber.Entities
         public override void OnEnter()
         {
             p.PlayerInfo.bufferActivated = false;
-            p.KinematicBase.Velocity.Y = p.PlayerInfo.JumpForce;
+            p.Velocity.Y = p.PlayerInfo.JumpForce;
             jumpReleased = false;
         }
 
@@ -20,19 +20,19 @@ namespace Slumber.Entities
             p.AnimatedSprite.PlayAnimation(p._fallAnim, false);
             p.HandleHorizontalInput();
 
-            if (!jumpReleased && Engine.Input.IsActionJustReleased("Jump") && p.KinematicBase.Velocity.Y < 0)
+            if (!jumpReleased && Engine.Input.IsActionJustReleased("Jump") && p.Velocity.Y < 0)
             {
-                p.KinematicBase.Velocity.Y /= 4f;
+                p.Velocity.Y /= 4f;
                 jumpReleased = true;
             }
 
-            if ((Engine.Input.IsActionJustPressed("Jump") || p.PlayerInfo.bufferActivated) && !p.KinematicBase.IsOnGround())
+            if ((Engine.Input.IsActionJustPressed("Jump") || p.PlayerInfo.bufferActivated) && !p.IsOnGround())
             {
                 p.PlayerInfo.bufferActivated = true;
                 CTimer.Wait(p.PlayerInfo.bufferTimer, () => p.PlayerInfo.bufferActivated = false);
             }
 
-            if (p.KinematicBase.Velocity.Y > 0)
+            if (p.Velocity.Y > 0)
             {
                 RequestTransition(nameof(PlayerFallState));
                 return;

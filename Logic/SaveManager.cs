@@ -11,7 +11,7 @@ public class SaveManager
     {
         Player player;
 
-        player = KinematicEntity.EntityList.OfType<Player>().FirstOrDefault();
+        player = Node.AllInstances.OfType<Player>().FirstOrDefault();
 
         PlayerData.CurrentScene = Engine.SceneManager.GetCurrentScene().GetType().Name;
 
@@ -25,7 +25,9 @@ public class SaveManager
 
         Engine.SceneManager.AddSceneFromString(PlayerData.CurrentScene);
 
-        KinematicEntity.EntityList.OfType<Player>().FirstOrDefault().KinematicBase.Position = PlayerData.CurrentPosition;
+        Player player = Node.AllInstances.OfType<Player>().FirstOrDefault();
+
+        player.Position = PlayerData.CurrentPosition;
         
 
     }

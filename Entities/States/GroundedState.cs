@@ -10,7 +10,7 @@ public class PlayerGroundedState : State
     {
         p.HandleHorizontalInput();
 
-        if (!p.KinematicBase.IsOnGround())
+        if (!p.IsOnGround())
         {
             RequestTransition(nameof(PlayerFallState));
             return;

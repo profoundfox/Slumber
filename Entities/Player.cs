@@ -2,7 +2,7 @@ using RenderingLibrary;
 
 namespace Slumber.Entities;
 
-public class Player : KinematicEntity, IKinematicEntity
+public class Player : KinematicBody2D
 {
     private TextureAtlas _atlas;
 
@@ -23,7 +23,7 @@ public class Player : KinematicEntity, IKinematicEntity
 
     public int PlayerAxis;
 
-    public Player() : base(4) { }
+    public Player() {}
 
     public override void Load()
     {
@@ -43,9 +43,9 @@ public class Player : KinematicEntity, IKinematicEntity
         AnimatedSprite.LayerDepth = 0.5f;
 
 
-        KinematicBase.Collider = new RectangleShape2D(400, 150, 10, 25);
+        Collider = new RectangleShape2D(400, 150, 10, 25);
 
-        KinematicBase.Position = Shape.Location.ToVector2();
+        Position = Shape.Location.ToVector2();
 
         CircleShape2D attackCircle = new(0, 0, 30);
         
@@ -77,12 +77,12 @@ public class Player : KinematicEntity, IKinematicEntity
 
         _stateController.Update(gameTime);
 
-        KinematicBase.UpdateCollider(gameTime);
-        SaveManager.PlayerData.CurrentPosition = KinematicBase.Position;
+        UpdateCollider(gameTime);
+        SaveManager.PlayerData.CurrentPosition = Position;
 
         FlipSprite();
 
-        AnimatedSprite.Position = new Vector2(KinematicBase.Collider.X - 64 + PlayerInfo.textureOffset, KinematicBase.Collider.Y - 55);
+        AnimatedSprite.Position = new Vector2(Collider.X - 64 + PlayerInfo.textureOffset, Collider.Y - 55);
         AnimatedSprite.Update(gameTime);
     }
 
@@ -93,16 +93,16 @@ public class Player : KinematicEntity, IKinematicEntity
 
     public void ApplyGravity()
     {
-        if (!KinematicBase.IsOnGround())
+        if (!IsOnGround())
         {
-            KinematicBase.Velocity.Y = MathF.Min(
-                KinematicBase.Velocity.Y + PlayerInfo.Gravity * Engine.DeltaTime,
+            Velocity.Y = MathF.Min(
+                Velocity.Y + PlayerInfo.Gravity * Engine.DeltaTime,
                 PlayerInfo.TerminalVelocity
             );
         }
-        else if (KinematicBase.Velocity.Y > 0)
+        else if (Velocity.Y > 0)
         {
-            KinematicBase.Velocity.Y = 0;
+            Velocity.Y = 0;
         }
     }
 
@@ -122,7 +122,7 @@ public class Player : KinematicEntity, IKinematicEntity
         }
 
         float accel = (MathF.Abs(targetSpeed) > 0) ? PlayerInfo.Acceleration : PlayerInfo.Deceleration;
-        KinematicBase.Velocity.X = MoveToward(KinematicBase.Velocity.X, targetSpeed, accel * Engine.DeltaTime);
+        Velocity.X = MoveToward(Velocity.X, targetSpeed, accel * Engine.DeltaTime);
     }
 
     private float MoveToward(float current, float target, float maxDelta)

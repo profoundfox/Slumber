@@ -16,12 +16,12 @@ public class PlayerWallJumpState : State
         controlRestored = false;
 
         if (p.PlayerInfo.dir == 1)
-            p.KinematicBase.Velocity.X = -p.PlayerInfo.WallJumpHorizontalSpeed;
+            p.Velocity.X = -p.PlayerInfo.WallJumpHorizontalSpeed;
         
         else
-            p.KinematicBase.Velocity.X = p.PlayerInfo.WallJumpHorizontalSpeed;
+            p.Velocity.X = p.PlayerInfo.WallJumpHorizontalSpeed;
 
-        p.KinematicBase.Velocity.Y = -p.PlayerInfo.WallJumpVerticalSpeed;
+        p.Velocity.Y = -p.PlayerInfo.WallJumpVerticalSpeed;
 
 
     }
@@ -37,10 +37,10 @@ public class PlayerWallJumpState : State
         if (controlRestored)
             p.HandleHorizontalInput();
 
-        if (p.KinematicBase.Velocity.Y > 0)
+        if (p.Velocity.Y > 0)
             RequestTransition(nameof(PlayerFallState));
 
-        if (p.KinematicBase.IsOnGround())
+        if (p.IsOnGround())
             RequestTransition(nameof(PlayerIdleState));
     }
 
