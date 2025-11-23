@@ -1,12 +1,6 @@
-using ConstructEngine;
-using ConstructEngine.Input;
-using ConstructEngine.Util;
-using Gum.Forms.Controls;
-using Microsoft.Xna.Framework.Input;
-using MonoGameGum;
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using MonoGameGum;
+using Monolith.Input;
 
 namespace Slumber.Components.ConstructControls
 {

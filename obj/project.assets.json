@@ -248,17 +248,17 @@
           }
         }
       },
-      "Construct/1.0.0": {
+      "Monolith/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
           "Gum.MonoGame": "2025.9.27.1"
         },
         "compile": {
-          "bin/placeholder/Construct.dll": {}
+          "bin/placeholder/Monolith.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Construct.dll": {}
+          "bin/placeholder/Monolith.dll": {}
         }
       }
     }
@@ -650,18 +650,18 @@
         "textcopy.nuspec"
       ]
     },
-    "Construct/1.0.0": {
+    "Monolith/1.0.0": {
       "type": "project",
-      "path": "../Libraries/Construct-Engine/Construct.csproj",
-      "msbuildProject": "../Libraries/Construct-Engine/Construct.csproj"
+      "path": "../Libraries/Monolith-Engine/Monolith.csproj",
+      "msbuildProject": "../Libraries/Monolith-Engine/Monolith.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Construct >= 1.0.0",
       "Gum.MonoGame >= 2025.9.27.1",
       "MonoGame.Content.Builder.Task >= 3.8.4.1",
-      "MonoGame.Framework.DesktopGL >= 3.8.4.1"
+      "MonoGame.Framework.DesktopGL >= 3.8.4.1",
+      "Monolith >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -689,8 +689,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/nilslauvstad/Documents/Project/Libraries/Construct-Engine/Construct.csproj": {
-              "projectPath": "/Users/nilslauvstad/Documents/Project/Libraries/Construct-Engine/Construct.csproj"
+            "/Users/nilslauvstad/Documents/Project/Libraries/Monolith-Engine/Monolith.csproj": {
+              "projectPath": "/Users/nilslauvstad/Documents/Project/Libraries/Monolith-Engine/Monolith.csproj"
             }
           }
         }

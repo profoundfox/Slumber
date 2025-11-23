@@ -4,14 +4,14 @@
     "/Users/nilslauvstad/Documents/Project/Slumber/Slumber.csproj": {}
   },
   "projects": {
-    "/Users/nilslauvstad/Documents/Project/Libraries/Construct-Engine/Construct.csproj": {
+    "/Users/nilslauvstad/Documents/Project/Libraries/Monolith-Engine/Monolith.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nilslauvstad/Documents/Project/Libraries/Construct-Engine/Construct.csproj",
-        "projectName": "Construct",
-        "projectPath": "/Users/nilslauvstad/Documents/Project/Libraries/Construct-Engine/Construct.csproj",
+        "projectUniqueName": "/Users/nilslauvstad/Documents/Project/Libraries/Monolith-Engine/Monolith.csproj",
+        "projectName": "Monolith",
+        "projectPath": "/Users/nilslauvstad/Documents/Project/Libraries/Monolith-Engine/Monolith.csproj",
         "packagesPath": "/Users/nilslauvstad/.nuget/packages/",
-        "outputPath": "/Users/nilslauvstad/Documents/Project/Libraries/Construct-Engine/obj/",
+        "outputPath": "/Users/nilslauvstad/Documents/Project/Libraries/Monolith-Engine/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nilslauvstad/.nuget/NuGet/NuGet.Config"
@@ -96,8 +96,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/nilslauvstad/Documents/Project/Libraries/Construct-Engine/Construct.csproj": {
-                "projectPath": "/Users/nilslauvstad/Documents/Project/Libraries/Construct-Engine/Construct.csproj"
+              "/Users/nilslauvstad/Documents/Project/Libraries/Monolith-Engine/Monolith.csproj": {
+                "projectPath": "/Users/nilslauvstad/Documents/Project/Libraries/Monolith-Engine/Monolith.csproj"
               }
             }
           }

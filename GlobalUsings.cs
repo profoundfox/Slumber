@@ -1,12 +1,12 @@
-global using ConstructEngine;
-global using ConstructEngine.Region;
-global using ConstructEngine.IO;
-global using ConstructEngine.Graphics;
-global using ConstructEngine.Helpers;
-global using ConstructEngine.Managers;
-global using ConstructEngine.Nodes;
-global using ConstructEngine.UI;
-global using ConstructEngine.Util;
+global using Monolith;
+global using Monolith.Region;
+global using Monolith.IO;
+global using Monolith.Graphics;
+global using Monolith.Helpers;
+global using Monolith.Managers;
+global using Monolith.Nodes;
+global using Monolith.UI;
+global using Monolith.Util;
 
 global using FlatRedBall.Glue.StateInterpolation;
 

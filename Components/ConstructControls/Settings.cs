@@ -1,15 +1,3 @@
-using ConstructEngine.UI;
-using Gum.Converters;
-using Gum.DataTypes;
-using Gum.Managers;
-using Gum.Wireframe;
-using Microsoft.Xna.Framework;
-using RenderingLibrary.Graphics;
-
-using System.Linq;
-using ConstructEngine.UI;
-using System;
-using ConstructEngine;
 
 namespace Slumber.Components.ConstructControls
 {
