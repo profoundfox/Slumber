@@ -1,6 +1,6 @@
 global using ConstructEngine;
 global using ConstructEngine.Region;
-global using ConstructEngine.Directory;
+global using ConstructEngine.IO;
 global using ConstructEngine.Graphics;
 global using ConstructEngine.Helpers;
 global using ConstructEngine.Managers;
