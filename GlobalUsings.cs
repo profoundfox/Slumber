@@ -20,9 +20,6 @@ global using Slumber.Logic;
 global using Slumber.Screens;
 
 global using System;
-global using System.Diagnostics.Contracts;
 global using System.IO;
-global using System.IO.Pipes;
 global using System.Linq;
-global using System.Runtime.CompilerServices;
 

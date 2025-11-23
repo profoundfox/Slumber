@@ -8,10 +8,10 @@
     ".NETCoreApp,Version=v9.0": {
       "Slumber/1.0.0": {
         "dependencies": {
-          "Construct": "1.0.0",
           "Gum.MonoGame": "2025.9.27.1",
           "MonoGame.Content.Builder.Task": "3.8.4.1",
-          "MonoGame.Framework.DesktopGL": "3.8.4.1"
+          "MonoGame.Framework.DesktopGL": "3.8.4.1",
+          "Monolith": "1.0.0"
         },
         "runtime": {
           "Slumber.dll": {}
@@ -181,12 +181,12 @@
           }
         }
       },
-      "Construct/1.0.0": {
+      "Monolith/1.0.0": {
         "dependencies": {
           "Gum.MonoGame": "2025.9.27.1"
         },
         "runtime": {
-          "Construct.dll": {
+          "Monolith.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -305,7 +305,7 @@
       "path": "textcopy/6.2.1",
       "hashPath": "textcopy.6.2.1.nupkg.sha512"
     },
-    "Construct/1.0.0": {
+    "Monolith/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

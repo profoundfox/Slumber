@@ -321,8 +321,6 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/runtimes/linux-x64/native/libSDL2-2.0.so.0
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/runtimes/osx/native/libSDL2-2.0.0.dylib
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/runtimes/win-x64/native/SDL2.dll
-/Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Construct.dll
-/Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Construct.pdb
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Debug/net9.0/mgcb.tool.restore
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Debug/net9.0/Slumber.csproj.AssemblyReference.cache
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Debug/net9.0/Slumber.GeneratedMSBuildEditorConfig.editorconfig
@@ -406,3 +404,5 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Shader/Blur.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Backgrounds/Desert.xnb
 /home/nils/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Backgrounds/Desert.xnb
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Monolith.dll
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Monolith.pdb

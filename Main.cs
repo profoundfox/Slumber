@@ -9,6 +9,7 @@ namespace Slumber
             RenderHeight = 360,
             Fullscreen = false,
             IntegerScaling = true,
+            DebugMode = true,
             AllowUserResizing = true,
             Maximised = true,
             IsBorderless = true,
@@ -33,8 +34,6 @@ namespace Slumber
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
-
-            foreach (var node in Node.AllInstances) node.DrawShapeHollow(Color.Red);
         }
     }
 }

@@ -37,9 +37,6 @@ public class Scene1 : Scene, IScene
         base.Update(gameTime);
         
         Camera.Follow(Node.AllInstances.OfType<Player>().FirstOrDefault());
-
-        if (Engine.Input.Keyboard.WasKeyJustPressed(Keys.R))
-            Engine.SceneManager.ReloadCurrentScene();
     }
     
     public override void Draw(SpriteBatch spriteBatch)
