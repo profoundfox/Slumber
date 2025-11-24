@@ -68,8 +68,8 @@ public class Enemy : KinematicBody2D
         EnemyRay.Update(RayPos, 90, 50);
         EnemyRayNotDown.Update(RayPos, 0, 5);
 
-        EnemyRay.CheckIntersection(Node.AllInstances.OfType<StaticBody2D>());
-        EnemyRayNotDown.CheckIntersection(Node.AllInstances.OfType<StaticBody2D>());
+        EnemyRay.CheckIntersection(NodeManager.AllInstances.OfType<StaticBody2D>());
+        EnemyRayNotDown.CheckIntersection(NodeManager.AllInstances.OfType<StaticBody2D>());
 
         HandleGravity();
 

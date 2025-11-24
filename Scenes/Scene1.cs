@@ -36,7 +36,7 @@ public class Scene1 : Scene, IScene
     {
         base.Update(gameTime);
         
-        Camera.Follow(Node.AllInstances.OfType<Player>().FirstOrDefault());
+        Camera.Follow(NodeManager.AllInstances.OfType<Player>().FirstOrDefault());
     }
     
     public override void Draw(SpriteBatch spriteBatch)

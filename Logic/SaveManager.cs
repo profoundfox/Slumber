@@ -11,7 +11,7 @@ public class SaveManager
     {
         Player player;
 
-        player = Node.AllInstances.OfType<Player>().FirstOrDefault();
+        player = NodeManager.AllInstances.OfType<Player>().FirstOrDefault();
 
         PlayerData.CurrentScene = Engine.SceneManager.GetCurrentScene().GetType().Name;
 
@@ -24,7 +24,7 @@ public class SaveManager
 
         Engine.SceneManager.AddSceneFromString(PlayerData.CurrentScene);
 
-        Player player = Node.AllInstances.OfType<Player>().FirstOrDefault();
+        Player player = NodeManager.AllInstances.OfType<Player>().FirstOrDefault();
 
         
         player.Location = PlayerData.CurrentPosition.ToPoint();
