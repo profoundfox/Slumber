@@ -18,6 +18,8 @@ public class Player : KinematicBody2D
 
     Area2D TakeDamageArea;
 
+    public bool Dead;
+
     private PlayerUI Screen;
     private Pausemenu pauseMenu;
     public AnimatedSprite AnimatedSprite;

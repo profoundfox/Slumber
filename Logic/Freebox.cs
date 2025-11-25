@@ -30,9 +30,10 @@ public class FreeBox : Node
     {
         base.Update(gameTime);
 
-        if (FreeArea.BodyEntered(out KinematicBody2D body) && body is Player)
+        if (FreeArea.BodyEntered(out KinematicBody2D body) && body is Player player)
         {
-            body.QueueFree();
+            PlayerData.Dead = true;
+            player.QueueFree();
         }
     }
 
