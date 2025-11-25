@@ -23,7 +23,7 @@ public class SaveManager
         FileSaver.LoadData(PlayerData, FileSavePath, FileFormat.Binary);
 
         Engine.SceneManager.AddSceneFromString(PlayerData.CurrentScene);
-
+        
         Player player = NodeManager.AllInstances.OfType<Player>().FirstOrDefault();
 
         if (!PlayerData.Dead)

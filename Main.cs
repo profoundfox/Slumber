@@ -13,8 +13,6 @@ namespace Slumber
             AllowUserResizing = true,
             Maximised = true,
             IsBorderless = true,
-            IsFixedTimeStep = false,
-            SynchronizeWithVerticalRetrace = true,
             FontPath = "Assets/Fonts/Font",
             GumProject = "GumProject/GumProject.gumx",
             MainCharacterType = typeof(Player)
@@ -24,7 +22,16 @@ namespace Slumber
         {
             base.Initialize();
             SceneManager.AddScene(new MainMenu());
+
+            DebugOverlay.AddInfo("PlayerLocation", () =>
+            {
+                var p = NodeManager.GetNodeByName("Player") as Player;
+                
+                return p == null ? "Player: Null" : $"Player State: {p.StateController.CurrentState}";
+            }, Color.Aqua);
+            
         }
+
 
         protected override void Update(GameTime gameTime)
         {

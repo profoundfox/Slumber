@@ -52,7 +52,7 @@ public class Enemy : KinematicBody2D
         EnemyRay = new RayCast2D(RayPos, 90, 50);
         EnemyRayNotDown = new RayCast2D(RayPos, 0, 5);
 
-        TakeDamageArea = new(new NodeConfig{Shape = Shape, Root = this, Name = "EnemyTakeDamageArea"});
+        TakeDamageArea = new(new NodeConfig{Shape = Shape, Parent = this, Name = "EnemyTakeDamageArea"});
 
         
 

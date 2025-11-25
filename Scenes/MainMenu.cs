@@ -43,20 +43,24 @@ public class MainMenu : Scene, IScene
 
         if (Engine.Input.IsActionJustPressed("Back"))
         {
-            if (titleScreen.Settings.Main.IsVisible)
-            {
-                titleScreen.Settings.IsVisible = false;
-                titleScreen.Main.Visible = true;
-                titleScreen.StartButton.IsFocused = true;
-            }
             if (titleScreen.Settings.Controls.IsVisible)
             {
                 titleScreen.Settings.Controls.IsVisible = false;
                 titleScreen.Settings.Main.IsVisible = true;
                 titleScreen.Settings.ControlButton.IsFocused = true;
+                return;
+            }
+
+            if (titleScreen.Settings.Main.IsVisible)
+            {
+                titleScreen.Settings.IsVisible = false;
+                titleScreen.Main.Visible = true;
+                titleScreen.StartButton.IsFocused = true;
+                return;
             }
         }
     }
+
     public override void Draw(SpriteBatch spriteBatch)
     {
         base.Draw(spriteBatch);

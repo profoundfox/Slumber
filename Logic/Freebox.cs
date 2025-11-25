@@ -17,7 +17,7 @@ public class FreeBox : Node
         {
             Shape = this.Shape,
             Name = "FreeBoxArea",
-            Root = this
+            Parent = this
         });
     }
 

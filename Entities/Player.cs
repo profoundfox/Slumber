@@ -23,7 +23,7 @@ public class Player : KinematicBody2D
     private PlayerUI Screen;
     private Pausemenu pauseMenu;
     public AnimatedSprite AnimatedSprite;
-    private StateController _stateController;
+    public StateController StateController;
 
     public int PlayerAxis;
 
@@ -49,7 +49,7 @@ public class Player : KinematicBody2D
         Shape.Height = 25;
 
 
-        TakeDamageArea = new(new NodeConfig{Shape = Shape, Root = this, Name = "PlayerTakeDamageArea"});
+        TakeDamageArea = new(new NodeConfig{Shape = Shape, Parent = this, Name = "PlayerTakeDamageArea"});
 
         CircleShape2D attackCircle = new(0, 0, 30);
         
@@ -67,7 +67,7 @@ public class Player : KinematicBody2D
         attack.SetParent(grounded);
         
 
-        _stateController = new StateController(idle,
+        StateController = new StateController(idle,
         [
             grounded, idle, run, attack, jump, fall, wallSlide, wallJump
         ]);
@@ -81,7 +81,7 @@ public class Player : KinematicBody2D
 
         ApplyGravity();
 
-        _stateController.Update(gameTime);
+        StateController.Update(gameTime);
 
         SaveManager.PlayerData.CurrentPosition = Location.ToVector2();
 
