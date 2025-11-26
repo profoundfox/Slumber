@@ -4,6 +4,8 @@ namespace Slumber
     {
         public Main() : base(new EngineConfig
         {
+            AssetsFolder = "Content",
+            AssetLoaderType = LoaderType.Runtime,
             Title = "Slumber",
             RenderWidth = 640,
             RenderHeight = 360,
