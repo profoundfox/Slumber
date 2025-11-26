@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>/Users/nilslauvstad/Documents/Project/Slumber/Content/Assets/Fonts/Font.spritefont</SourceFile>
-  <SourceTime>2025-11-16T18:37:37.2551464+01:00</SourceTime>
+  <SourceTime>2025-11-25T21:18:13.5686851+01:00</SourceTime>
   <DestFile>/Users/nilslauvstad/Documents/Project/Slumber/Content/bin/DesktopGL/Assets/Fonts/Font.xnb</DestFile>
-  <DestTime>2025-11-17T09:55:59.1197679+01:00</DestTime>
+  <DestTime>2025-11-25T21:18:36.879464+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2025-10-20T16:25:32+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
