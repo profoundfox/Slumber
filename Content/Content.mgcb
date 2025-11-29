@@ -37,12 +37,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/Animations/Player/PlayerModel3Atlas.png
 
-#begin Assets/Atlas/enemyatlas.xml
-/copy:Assets/Atlas/enemyatlas.xml
-
-#begin Assets/Atlas/Player/player-atlas.xml
-/copy:Assets/Atlas/Player/player-atlas.xml
-
 #begin Assets/Backgrounds/Desert.png
 /importer:TextureImporter
 /processor:TextureProcessor

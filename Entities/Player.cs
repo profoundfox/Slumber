@@ -38,15 +38,14 @@ public class Player : KinematicBody2D
         List<MTexture> IdleAnimSheet = SpriteSlicer.Slice(PlayerTexture, 128, 128, 0, 5, 0, 0);
         List<MTexture> RunAnimSheet = SpriteSlicer.Slice(PlayerTexture, 128, 128, 0, 5, 1, 1);
         List<MTexture> FallAnimSheet = SpriteSlicer.Slice(PlayerTexture, 128, 128, 0, 4, 2, 2);
-        List<MTexture> AttackAnimSheet = SpriteSlicer.Slice(PlayerTexture, 128, 128, 0, 10, 3, 3);
-
-
+        List<MTexture> AttackAnimSheet1 = SpriteSlicer.Slice(PlayerTexture, 128, 128, 0, 6, 3, 3);
+        List<MTexture> AttackAnimSheet2 = SpriteSlicer.Slice(PlayerTexture, 128, 128, 7, 10, 3, 3);
 
         _runAnim = new(RunAnimSheet, TimeSpan.FromMilliseconds(100));
         _idleAnim = new(IdleAnimSheet, TimeSpan.FromMilliseconds(100));
         _fallAnim = new(FallAnimSheet, TimeSpan.FromMilliseconds(100));
-        _attackAnim1 = new(AttackAnimSheet, TimeSpan.FromMilliseconds(100));
-        _attackAnim2 = new(AttackAnimSheet, TimeSpan.FromMilliseconds(100));
+        _attackAnim1 = new(AttackAnimSheet1, TimeSpan.FromMilliseconds(65));
+        _attackAnim2 = new(AttackAnimSheet2, TimeSpan.FromMilliseconds(65));
         
         AnimatedSprite = new(_idleAnim);
         AnimatedSprite.LayerDepth = 0.5f;

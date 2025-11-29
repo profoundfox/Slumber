@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 namespace Slumber.Entities;
 
 public class Enemy : KinematicBody2D
@@ -6,8 +8,6 @@ public class Enemy : KinematicBody2D
     public float Gravity = 1300f;
     private int Health;
     private int Direction = 1;
-    private int TextureOffset;
-
 
     private RayCast2D EnemyRay;
     private RayCast2D EnemyRayNotDown;
@@ -18,7 +18,7 @@ public class Enemy : KinematicBody2D
 
     private bool CanTakeDamage = true;
 
-    private Animation RunAnimation;
+    Animation RunAnimation;
     AnimatedSprite AnimatedSprite;
 
     private Area2D TakeDamageArea;
@@ -27,11 +27,13 @@ public class Enemy : KinematicBody2D
 
     public override void Load()
     {
-        //Atlas = TextureAtlas.FromFile("Content/Assets/Atlas/enemyatlas.xml", "Content/Assets/Animations/Enemies/grassspidersheet");
+        MTexture EnemyTexture = new("Assets/Animations/Enemies/grassspidersheet");
 
-        //RunAnimation = Atlas.CreateAnimatedSprite("run-animation").Animation;
+        List<MTexture> RunAnimSheet = SpriteSlicer.Slice(EnemyTexture, 16, 16, 0, 3, 0, 0);
 
-        //AnimatedSprite = Atlas.CreateAnimatedSprite("run-animation");
+        RunAnimation = new(RunAnimSheet, TimeSpan.FromMilliseconds(100));
+
+        AnimatedSprite = new(RunAnimation);
         AnimatedSprite.LayerDepth = 0.5f;
 
         Shape.Width = 16;
@@ -88,7 +90,7 @@ public class Enemy : KinematicBody2D
 
         AnimatedSprite.Update(gameTime);
 
-        AnimatedSprite.Position = new Vector2(SpritePosition.X + TextureOffset, SpritePosition.Y);
+        AnimatedSprite.Position = new Vector2(SpritePosition.X , SpritePosition.Y);
     }
 
     public override void Draw(SpriteBatch spriteBatch)

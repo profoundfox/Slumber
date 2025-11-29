@@ -14,8 +14,8 @@ namespace Slumber
             IntegerScaling = true,
             DebugMode = true,
             AllowUserResizing = true,
-            Maximised = false,
-            IsBorderless = false,
+            Maximised = true,
+            IsBorderless = true,
             FontPath = "Assets/Fonts/Font",
             GumProject = "GumProject/GumProject.gumx",
             MainCharacterType = typeof(Player)
@@ -45,9 +45,6 @@ namespace Slumber
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-
-            if (Input.Keyboard.WasKeyJustPressed(Keys.E))
-                ContentProvider.ReloadAll();
         }
 
         protected override void Draw(GameTime gameTime)
