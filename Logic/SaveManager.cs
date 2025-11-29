@@ -27,7 +27,7 @@ public class SaveManager
         Player player = NodeManager.AllInstances.OfType<Player>().FirstOrDefault();
 
         if (!PlayerData.Dead)
-            player.Location = PlayerData.CurrentPosition.ToPoint();
+            player.Position = PlayerData.CurrentPosition;
         
 
     }

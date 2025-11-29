@@ -84,7 +84,7 @@ public class Enemy : KinematicBody2D
             Velocity.Y = 0;
         }
 
-        SpritePosition = Location.ToVector2();
+        SpritePosition = Position;
 
         AnimatedSprite.PlayAnimation(RunAnimation, true);
 

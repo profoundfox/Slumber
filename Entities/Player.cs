@@ -89,11 +89,11 @@ public class Player : KinematicBody2D
 
         StateController.Update(gameTime);
 
-        SaveManager.PlayerData.CurrentPosition = Location.ToVector2();
+        SaveManager.PlayerData.CurrentPosition = Position;
 
         FlipSprite();
 
-        AnimatedSprite.Position = new Vector2(Location.X - 64 + PlayerInfo.textureOffset, Location.Y - 55);
+        AnimatedSprite.Position = new Vector2(Position.X - 64 + PlayerInfo.textureOffset, Position.Y - 55);
         AnimatedSprite.Update(gameTime);
     }
 
