@@ -26,25 +26,13 @@ public class Scene1 : Scene, IScene
 
         var sprite = new Sprite2D(new NodeConfig
         {
-            Parent = this,
+            Parent = null,
             Name = "SpriteOne",
             Shape = new RectangleShape2D(10, 10, 10, 10)
         });
 
         sprite.Texture = new MTexture("Assets/Animations/Enemies/grassspidersheet");
 
-        var exNode = new ExampleNode(new NodeConfig
-        {
-            Parent = this,
-            Name = "ExNode",
-            Position = new Vector2(40, 10)
-        });
-
-        var exNode2 = new ExampleNode(new NodeConfig
-        {
-            Parent = this,
-            Name = "ExNode"
-        });
     }
 
     public override void Unload()
@@ -55,9 +43,8 @@ public class Scene1 : Scene, IScene
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
-        foreach (var node in NodeManager.AllInstances)
-            Console.WriteLine(node.Position);
-        Camera.Follow(NodeManager.AllInstances.OfType<Player>().FirstOrDefault());
+
+        Camera.Follow(NodeManager.GetNodeByName("Player"));
 
     }
     

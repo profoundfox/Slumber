@@ -162,7 +162,7 @@
       "nodeGhost": true,
       "tags": [],
       "values": [
-        {"name": "Collision", "definition": "Boolean", "display": 0, "defaults": true},
+        {"name": "Collidable", "definition": "Boolean", "display": 0, "defaults": true},
         {"name": "OneWay", "definition": "Boolean", "display": 0, "defaults": false}
       ]
     },
