@@ -3,17 +3,17 @@
 
 namespace Slumber;
 
-public class FreeBox : Node
+public class FreeBox : Node2D
 {   
     Area2D FreeArea;
     
-    public FreeBox(NodeConfig config) : base(config) {}
+    public FreeBox(Node2DConfig config) : base(config) {}
 
     public override void Load()
     {
         base.Load();
 
-        FreeArea = new(new NodeConfig
+        FreeArea = new(new Node2DConfig
         {
             Shape = this.Shape,
             Name = "FreeBoxArea",

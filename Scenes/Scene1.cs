@@ -24,7 +24,7 @@ public class Scene1 : Scene, IScene
         Camera = new RoomCamera(1f);
         Camera.LerpFactor = 1f;
 
-        var sprite = new Sprite2D(new NodeConfig
+        var sprite = new Sprite2D(new Node2DConfig
         {
             Parent = null,
             Name = "SpriteOne",
@@ -44,7 +44,7 @@ public class Scene1 : Scene, IScene
     {
         base.Update(gameTime);
 
-        Camera.Follow(NodeManager.GetNodeByName("Player"));
+        Camera.Follow((Node2D)NodeManager.GetNodeByName("Player"));
 
     }
     

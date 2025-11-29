@@ -26,7 +26,7 @@ public class Player : KinematicBody2D
 
     public int PlayerAxis;
 
-    public Player(NodeConfig config) : base(config) {}
+    public Player(Node2DConfig config) : base(config) {}
 
     public override void Load()
     {
@@ -55,7 +55,7 @@ public class Player : KinematicBody2D
         Shape.Width = 10;
         Shape.Height = 25;
 
-        TakeDamageArea = new(new NodeConfig{Shape = Shape, Parent = this, Name = "PlayerTakeDamageArea"});
+        TakeDamageArea = new(new Node2DConfig{Shape = Shape, Parent = this, Name = "PlayerTakeDamageArea"});
 
         CircleShape2D attackCircle = new(0, 0, 30);
         
