@@ -14,9 +14,6 @@ public class Player : KinematicBody2D
     public int AttackColliderOffset;
 
     public PlayerInfo PlayerInfo = new();
-
-    Area2D TakeDamageArea;
-
     public bool Dead;
 
     private PlayerUI Screen;
@@ -26,7 +23,7 @@ public class Player : KinematicBody2D
 
     public int PlayerAxis;
 
-    public Player(Node2DConfig config) : base(config) {}
+    public Player(KinematicBody2DConfig config) : base(config) {}
 
     public override void Load()
     {
@@ -54,10 +51,6 @@ public class Player : KinematicBody2D
 
         Shape.Width = 10;
         Shape.Height = 25;
-
-        TakeDamageArea = new(new Node2DConfig{Shape = Shape, Parent = this, Name = "PlayerTakeDamageArea"});
-
-        CircleShape2D attackCircle = new(0, 0, 30);
         
         var grounded = new PlayerGroundedState(this);
         var idle = new PlayerIdleState(this);

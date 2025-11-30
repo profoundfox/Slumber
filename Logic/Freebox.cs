@@ -13,11 +13,13 @@ public class FreeBox : Node2D
     {
         base.Load();
 
-        FreeArea = new(new Node2DConfig
+        FreeArea = new(new Area2DConfig
         {
             Shape = this.Shape,
             Name = "FreeBoxArea",
-            Parent = this
+            Parent = this,
+            MonitorAreas = true,
+            MonitorBodies = true
         });
     }
 

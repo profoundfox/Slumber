@@ -20,10 +20,7 @@ public class Enemy : KinematicBody2D
 
     Animation RunAnimation;
     AnimatedSprite AnimatedSprite;
-
-    private Area2D TakeDamageArea;
-
-    public Enemy(Node2DConfig config) : base(config) {}
+    public Enemy(KinematicBody2DConfig config) : base(config) {}
 
     public override void Load()
     {
@@ -51,11 +48,6 @@ public class Enemy : KinematicBody2D
 
         EnemyRay = new RayCast2D(RayPos, 90, 50);
         EnemyRayNotDown = new RayCast2D(RayPos, 0, 5);
-
-        TakeDamageArea = new(new Node2DConfig{Shape = Shape, Parent = this, Name = "EnemyTakeDamageArea"});
-
-        
-
     }
 
     public override void Update(GameTime gameTime)
@@ -68,8 +60,8 @@ public class Enemy : KinematicBody2D
         EnemyRay.Update(RayPos, 90, 50);
         EnemyRayNotDown.Update(RayPos, 0, 5);
 
-        EnemyRay.CheckIntersection(NodeManager.AllInstances.OfType<StaticBody2D>());
-        EnemyRayNotDown.CheckIntersection(NodeManager.AllInstances.OfType<StaticBody2D>());
+        //EnemyRay.CheckIntersection(NodeManager.AllInstances.OfType<StaticBody2D>());
+        //EnemyRayNotDown.CheckIntersection(NodeManager.AllInstances.OfType<StaticBody2D>());
 
         HandleGravity();
 

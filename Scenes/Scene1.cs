@@ -24,15 +24,15 @@ public class Scene1 : Scene, IScene
         Camera = new RoomCamera(1f);
         Camera.LerpFactor = 1f;
 
-        var sprite = new Sprite2D(new Node2DConfig
+        var sprite = new Sprite2D(new Sprite2DConfig
         {
             Parent = null,
             Name = "SpriteOne",
-            Shape = new RectangleShape2D(10, 10, 10, 10)
+            Position = new Vector2(10, 10),
+            Texture = new MTexture("Assets/Animations/Enemies/grassspidersheet")
         });
 
-        sprite.Texture = new MTexture("Assets/Animations/Enemies/grassspidersheet");
-
+       
     }
 
     public override void Unload()
