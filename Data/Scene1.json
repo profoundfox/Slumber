@@ -44,16 +44,19 @@
         },
         {"name": "Player", "id": 1, "_eid": "92345250", "x": 240, "y": 176, "originX": 0, "originY": 0},
         {
-          "name": "ExampleNode",
-          "id": 2,
-          "_eid": "53227683",
+          "name": "Area2D",
+          "id": 4,
+          "_eid": "49261216",
           "x": 128,
-          "y": 184,
-          "width": 32,
+          "y": 128,
+          "width": 16,
           "height": 16,
           "originX": 0,
           "originY": 0,
-          "values": {"TestVar": true}
+          "nodes": [
+            {"x": 216, "y": 112}
+          ],
+          "values": {"MonitorAreas": true, "MonitorBodies": true}
         }
       ]
     },

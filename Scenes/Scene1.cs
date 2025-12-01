@@ -24,7 +24,7 @@ public class Scene1 : Scene, IScene
         Camera = new RoomCamera(1f);
         Camera.LerpFactor = 1f;
 
-        var sprite = new Sprite2D(new Sprite2DConfig
+        new Sprite2D(new SpriteConfig
         {
             Parent = null,
             Name = "SpriteOne",
@@ -32,7 +32,6 @@ public class Scene1 : Scene, IScene
             Texture = new MTexture("Assets/Animations/Enemies/grassspidersheet")
         });
 
-       
     }
 
     public override void Unload()

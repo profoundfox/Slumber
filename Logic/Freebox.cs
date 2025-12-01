@@ -7,7 +7,7 @@ public class FreeBox : Node2D
 {   
     Area2D FreeArea;
     
-    public FreeBox(Node2DConfig config) : base(config) {}
+    public FreeBox(SpatialNodeConfig config) : base(config) {}
 
     public override void Load()
     {
@@ -15,7 +15,7 @@ public class FreeBox : Node2D
 
         FreeArea = new(new Area2DConfig
         {
-            Shape = this.Shape,
+            Region = Region,
             Name = "FreeBoxArea",
             Parent = this,
             MonitorAreas = true,

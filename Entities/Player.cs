@@ -49,8 +49,8 @@ public class Player : KinematicBody2D
 
         
 
-        Shape.Width = 10;
-        Shape.Height = 25;
+        Region.Width = 10;
+        Region.Height = 25;
         
         var grounded = new PlayerGroundedState(this);
         var idle = new PlayerIdleState(this);
