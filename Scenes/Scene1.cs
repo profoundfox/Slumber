@@ -43,8 +43,12 @@ public class Scene1 : Scene, IScene
     {
         base.Update(gameTime);
 
-        Camera.Follow((Node2D)NodeManager.GetNodeByName("Player"));
+        Camera.Follow(NodeManager.GetNodeByType<Player>());
 
+        foreach (var area in NodeManager.GetNodesByType<Area2D>())
+        {
+            Console.WriteLine(area.AreaEntered());
+        }
     }
     
     public override void Draw(SpriteBatch spriteBatch)

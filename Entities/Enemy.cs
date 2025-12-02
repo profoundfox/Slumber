@@ -20,7 +20,7 @@ public class Enemy : KinematicBody2D
 
     Animation RunAnimation;
     AnimatedSprite AnimatedSprite;
-    public Enemy(KinematicBody2DConfig config) : base(config) {}
+    public Enemy(KinematicBaseConfig config) : base(config) {}
 
     public override void Load()
     {

@@ -8,14 +8,7 @@ namespace Slumber
         {
             ContentProvider = new ContentPipelineLoader(),
             Title = "Slumber",
-            RenderWidth = 640,
-            RenderHeight = 360,
-            Fullscreen = false,
-            IntegerScaling = true,
             DebugMode = true,
-            AllowUserResizing = true,
-            Maximised = true,
-            IsBorderless = true,
             FontPath = "Assets/Fonts/Font",
             GumProject = "GumProject/GumProject.gumx",
             MainCharacterType = typeof(Player)
@@ -40,7 +33,6 @@ namespace Slumber
                 return p == null ? "Player: Null" : $"Player State: {p.StateController.CurrentState}";
             }, Color.Yellow);
         }
-
 
         protected override void Update(GameTime gameTime)
         {

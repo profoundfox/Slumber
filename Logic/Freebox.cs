@@ -13,7 +13,7 @@ public class FreeBox : Node2D
     {
         base.Load();
 
-        FreeArea = new(new Area2DConfig
+        FreeArea = new(new AreaConfig
         {
             Region = Region,
             Name = "FreeBoxArea",

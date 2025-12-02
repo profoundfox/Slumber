@@ -23,7 +23,7 @@ public class Player : KinematicBody2D
 
     public int PlayerAxis;
 
-    public Player(KinematicBody2DConfig config) : base(config) {}
+    public Player(KinematicBaseConfig config) : base(config) {}
 
     public override void Load()
     {
