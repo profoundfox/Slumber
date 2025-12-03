@@ -5,6 +5,7 @@ global using Monolith.Graphics;
 global using Monolith.Helpers;
 global using Monolith.Managers;
 global using Monolith.Nodes;
+global using Monolith.UI.GUM;
 global using Monolith.UI;
 global using Monolith.Util;
 

@@ -18,7 +18,7 @@ public class Player : KinematicBody2D
 
     private PlayerUI Screen;
     private Pausemenu pauseMenu;
-    public AnimatedSprite AnimatedSprite;
+    public AnimatedSprite2D AnimatedSprite;
     public StateController StateController;
 
     public int PlayerAxis;
@@ -44,10 +44,16 @@ public class Player : KinematicBody2D
         _attackAnim1 = new(AttackAnimSheet1, TimeSpan.FromMilliseconds(65));
         _attackAnim2 = new(AttackAnimSheet2, TimeSpan.FromMilliseconds(65));
         
-        AnimatedSprite = new(_idleAnim);
-        AnimatedSprite.LayerDepth = 0.5f;
+        AnimatedSprite = new AnimatedSprite2D(new AnimatedSpriteConfig
+        {
+            Parent = this,
+            Name = "PlayerSprite",
+            Animation = _runAnim,
+            Position = new Vector2(Position.X, Position.Y + 10),
+            IsLooping = true
+        });
 
-        
+        AnimatedSprite.LayerDepth = 0.5f;
 
         Region.Width = 10;
         Region.Height = 25;
@@ -86,13 +92,14 @@ public class Player : KinematicBody2D
 
         FlipSprite();
 
-        AnimatedSprite.Position = new Vector2(Position.X - 64 + PlayerInfo.textureOffset, Position.Y - 55);
-        AnimatedSprite.Update(gameTime);
+
+        AnimatedSprite.Position = new Vector2(Position.X + PlayerInfo.textureOffset, Position.Y + 10);
+
     }
 
     public override void Draw(SpriteBatch spriteBatch)
     {   
-        Engine.DrawManager.Draw(AnimatedSprite);
+        
     }
 
     public void ApplyGravity()
@@ -127,12 +134,6 @@ public class Player : KinematicBody2D
 
         float accel = (MathF.Abs(targetSpeed) > 0) ? PlayerInfo.Acceleration : PlayerInfo.Deceleration;
         Velocity.X = MoveToward(Velocity.X, targetSpeed, accel * Engine.DeltaTime);
-    }
-
-    private float MoveToward(float current, float target, float maxDelta)
-    {
-        if (MathF.Abs(target - current) <= maxDelta) return target;
-        return current + MathF.Sign(target - current) * maxDelta;
     }
 
     public void FlipSprite()

@@ -44,7 +44,6 @@
       <Folder Include="Content\GumProject\" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="../Libraries/Construct-Engine/Monolith.csproj" />
       <ProjectReference Include="../Libraries/Monolith-Engine/Monolith.csproj" />
     </ItemGroup>
 </Project>

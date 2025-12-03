@@ -1,4 +1,4 @@
-using RenderingLibrary.Content;
+using Monolith.Input;
 
 namespace Slumber
 {
@@ -8,10 +8,13 @@ namespace Slumber
         {
             ContentProvider = new ContentPipelineLoader(),
             Title = "Slumber",
-            DebugMode = true,
             FontPath = "Assets/Fonts/Font",
             GumProject = "GumProject/GumProject.gumx",
-            MainCharacterType = typeof(Player)
+            MainCharacterType = typeof(Player),
+            DebugMode = true,
+            Maximised = false,
+            IsBorderless = false
+
         }) {  }
 
         protected override void Initialize()

@@ -23,7 +23,7 @@ public class PlayerAttackState : PlayerGroundedState
     {
         base.Update(gameTime);
 
-        if (p.AnimatedSprite.finished)
+        if (p.AnimatedSprite.Finished)
         {
             p.PlayerInfo.attacking = false;
             //p.DamageArea.Enabled = false;
