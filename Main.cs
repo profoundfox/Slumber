@@ -24,15 +24,14 @@ namespace Slumber
 
             DebugOverlay.AddInfo("PlayerLocation", () =>
             {
-                var p = NodeManager.GetNodeByName("Player") as Player;
+                var p = NodeManager.GetNodeByType<Player>();
                 
                 return p == null ? "Player: Null" : $"Player Position: {p.Position}";
             }, Color.Yellow);
            
             DebugOverlay.AddInfo("PlayerState", () =>
             {
-                var p = NodeManager.GetNodeByName("Player") as Player;
-                
+                var p = NodeManager.GetNodeByType<Player>();                
                 return p == null ? "Player: Null" : $"Player State: {p.StateController.CurrentState}";
             }, Color.Yellow);
         }

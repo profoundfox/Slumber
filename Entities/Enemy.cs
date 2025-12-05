@@ -33,17 +33,15 @@ public class Enemy : KinematicBody2D
         AnimatedSprite = new(RunAnimation);
         AnimatedSprite.LayerDepth = 0.5f;
 
-        Region.Width = 16;
-        Region.Height = 16;
 
         Health = 5;
 
-        float forwardOffset = Region.BoundingBox.Width / 2f + 5f;
+        float forwardOffset = CollisionShape2D.Shape.BoundingBox.Width / 2f + 5f;
 
         RayPos = new Vector2
         (
-            Region.BoundingBox.Center.X + forwardOffset * Direction,
-            Region.BoundingBox.Bottom
+            CollisionShape2D.Shape.BoundingBox.Center.X + forwardOffset * Direction,
+            CollisionShape2D.Shape.BoundingBox.Bottom
         );
 
         EnemyRay = new RayCast2D(RayPos, 90, 50);
@@ -52,10 +50,10 @@ public class Enemy : KinematicBody2D
 
     public override void Update(GameTime gameTime)
     {
-        float forwardOffset = Region.BoundingBox.Width / 2f + 5f;
+        float forwardOffset = CollisionShape2D.Shape.BoundingBox.Width / 2f + 5f;
 
-        RayPos.X = Region.BoundingBox.Center.X + forwardOffset * Direction;
-        RayPos.Y = Region.BoundingBox.Bottom;
+        RayPos.X = CollisionShape2D.Shape.BoundingBox.Center.X + forwardOffset * Direction;
+        RayPos.Y = CollisionShape2D.Shape.BoundingBox.Bottom;
 
         EnemyRay.Update(RayPos, 90, 50);
         EnemyRayNotDown.Update(RayPos, 0, 5);

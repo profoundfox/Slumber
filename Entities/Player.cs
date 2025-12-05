@@ -54,9 +54,6 @@ public class Player : KinematicBody2D
         });
 
         AnimatedSprite.LayerDepth = 0.5f;
-
-        Region.Width = 10;
-        Region.Height = 25;
         
         var grounded = new PlayerGroundedState(this);
         var idle = new PlayerIdleState(this);
