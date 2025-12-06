@@ -12,7 +12,7 @@ public class Scene1 : Scene, IScene
     {
         DataPath = "Data/Scene1.json",
         TilemapTexturePath = "Assets/Tileset/SlumberTilesetAtlas",
-        TilemapRegion = "0 0 512 512"
+        TilemapRegion = new Rectangle(0, 0, 512, 512)
     }) {  }
 
     public override void Initialize()
