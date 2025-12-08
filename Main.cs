@@ -12,8 +12,8 @@ namespace Slumber
             GumProject = "GumProject/GumProject.gumx",
             MainCharacterType = typeof(Player),
             DebugMode = true,
-            Maximised = false,
-            IsBorderless = false
+            Maximised = true,
+            IsBorderless = true
 
         }) {  }
 

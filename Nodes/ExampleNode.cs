@@ -1,6 +1,4 @@
-using Monlith.Nodes;
-
-namespace Slumber;
+namespace Slumber.Nodes;
 
 public record class ExNodeConfig : SpatialNodeConfig
 {

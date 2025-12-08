@@ -17,7 +17,7 @@ public class PlayerInfo
     public float JumpForce = -350f;
     public bool VariableJump = true;
     public bool bufferActivated = false;
-    public float bufferTimer = 0.2f;
+    public float bufferTimer = 0.1f;
 
     public float WallJumpHorizontalSpeed = 200;
     public float WallJumpVerticalSpeed = 300;

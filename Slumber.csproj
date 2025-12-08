@@ -19,6 +19,9 @@
         <None Update="Content\GumProject\**\*.*">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Update="Raw\**\*.*">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
         <None Update="Data\**\*.*">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
