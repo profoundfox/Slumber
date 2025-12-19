@@ -198,3 +198,4 @@
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Debug/net9.0/Slumber.pdb
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Debug/net9.0/Slumber.genruntimeconfig.cache
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Debug/net9.0/ref/Slumber.dll
+/Users/nilslauvstad/Documents/Project/Slumber/obj/Debug/net9.0/Slumber.sourcelink.json

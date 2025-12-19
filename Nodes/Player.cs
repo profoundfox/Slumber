@@ -35,7 +35,7 @@ public class Player : KinematicBody2D
             Parent = this,
             Name = "PlayerSprite",
             Atlas = animations,
-            Position = new Vector2(Position.X + 5, Position.Y + 10),
+            Position = new Vector2(5, 10),
             IsLooping = true
         });
 
@@ -43,7 +43,6 @@ public class Player : KinematicBody2D
         {
             Parent = this,
             Shape = new RectangleShape2D(10, 25),
-            Position = Position
         });
 
         AnimatedSprite.LayerDepth = 0.5f;

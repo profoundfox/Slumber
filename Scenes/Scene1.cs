@@ -26,8 +26,6 @@ public class Scene1 : Scene, IScene
         base.Load();
         
         GumHelper.Wipe();
-        //Camera = new Monlith.Util.RoomCamera(1f, NodeManager.GetNodeByType<Player>().Position);
-        //Camera.LerpFactor = 1f;
 
         var camera = new RoomCamera(new RoomCameraConfig
         {

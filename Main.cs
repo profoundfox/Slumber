@@ -24,7 +24,7 @@ namespace Slumber
             {
                 var p = NodeManager.GetNodeByType<Player>();
                 
-                return p == null ? "Player: Null" : $"Player Position: {p.Position}";
+                return p == null ? "Player: Null" : $"Player Position: {p.GlobalTransform.Position}";
             }, Color.Yellow);
            
             DebugOverlay.AddInfo("PlayerState", () =>
