@@ -7,7 +7,7 @@ using RenderingLibrary.Graphics;
 
 using System.Linq;
 
-namespace Slumber.Screens
+namespace Slumber
 {
     partial class PlayerUI
     {

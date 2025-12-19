@@ -1,2 +1,3 @@
-﻿using var game = new Slumber.Main();
+using var game = new Slumber.Main();
 game.Run();
+

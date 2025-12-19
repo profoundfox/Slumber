@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualBasic;
 using Monlith.Nodes;
+using RenderingLibrary;
 
 namespace Slumber;
 
@@ -10,7 +11,7 @@ public class Scene1 : Scene, IScene
 
     public Scene1 ():  base(new SceneConfig
     {
-        DataPath = "Data/Scene1.json",
+        DataPath = "Raw/LevelData/Scene1.json",
         TilemapTexturePath = "Assets/Tileset/SlumberTilesetAtlas",
         TilemapRegion = new Rectangle(0, 0, 512, 512)
     }) {  }
@@ -25,8 +26,15 @@ public class Scene1 : Scene, IScene
         base.Load();
         
         GumHelper.Wipe();
-        Camera = new RoomCamera(1f);
-        Camera.LerpFactor = 1f;
+        //Camera = new Monlith.Util.RoomCamera(1f, NodeManager.GetNodeByType<Player>().Position);
+        //Camera.LerpFactor = 1f;
+
+        var camera = new RoomCamera(new RoomCameraConfig
+        {
+            Position = NodeManager.GetNodeByType<Player>().Position,
+            TargetNode = NodeManager.GetNodeByType<Player>()
+        });
+        
     }
 
     public override void Unload()
@@ -38,7 +46,7 @@ public class Scene1 : Scene, IScene
     {
         base.Update(gameTime);
 
-        Camera.Follow(NodeManager.GetNodeByType<Player>());
+        //Camera.Follow(NodeManager.GetNodeByType<Player>());
     }
     
     public override void Draw(SpriteBatch spriteBatch)

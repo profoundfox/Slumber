@@ -1,4 +1,4 @@
-namespace Slumber.Nodes;
+namespace Slumber;
 
 public record class ExNodeConfig : SpatialNodeConfig
 {

@@ -1,5 +1,5 @@
 
-namespace Slumber.Screens
+namespace Slumber
 {
     partial class PauseMenu
     {

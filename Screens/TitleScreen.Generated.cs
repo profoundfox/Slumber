@@ -13,7 +13,7 @@ using RenderingLibrary.Graphics;
 
 using System.Linq;
 
-namespace Slumber.Screens;
+namespace Slumber;
 partial class TitleScreen : MonoGameGum.Forms.Controls.FrameworkElement
 {
     [System.Runtime.CompilerServices.ModuleInitializer]

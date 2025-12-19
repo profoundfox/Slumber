@@ -1,8 +1,6 @@
-using Monolith.Input;
-
 namespace Slumber
 {
-    public class Main : Engine 
+    public class Main : Engine
     {
         public Main() : base(new EngineConfig
         {
@@ -12,14 +10,14 @@ namespace Slumber
             GumProject = "GumProject/GumProject.gumx",
             MainCharacterType = typeof(Player),
             DebugMode = true,
-            Maximised = true,
-            IsBorderless = true
-
-        }) {  }
+            Maximised = false,
+            IsBorderless = false
+        }) {}
 
         protected override void Initialize()
         {
             base.Initialize();
+
             SceneManager.AddScene(new MainMenu());
 
             DebugOverlay.AddInfo("PlayerLocation", () =>
@@ -47,3 +45,4 @@ namespace Slumber
         }
     }
 }
+

@@ -1,7 +1,7 @@
 
 using System.Collections.Generic;
 
-namespace Slumber.Nodes;
+namespace Slumber;
 
 public class Enemy : KinematicBody2D
 {

@@ -16,7 +16,7 @@ using Gum.Forms.Controls;
 using Slumber.Components.ConstructControls;
 using Monolith.UI;
 
-namespace Slumber.Screens
+namespace Slumber
 {
     partial class TitleScreen
     {
