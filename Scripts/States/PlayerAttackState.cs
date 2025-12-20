@@ -15,9 +15,9 @@ public class PlayerAttackState : State
         p.PlayerInfo.attacking = true;
 
         if (p.PlayerInfo.AttackCount == 1)
-            p.AnimatedSprite.PlayAnimation("attack1", false);
+            p.AnimatedSprite.PlayAnimation("Attack1", false);
         else
-            p.AnimatedSprite.PlayAnimation("attack2", false);
+            p.AnimatedSprite.PlayAnimation("Attack2", false);
     }
 
     public override void Update(GameTime gameTime)

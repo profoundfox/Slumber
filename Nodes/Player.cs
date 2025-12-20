@@ -14,9 +14,8 @@ public class Player : KinematicBody2D
     public AnimatedSprite2D AnimatedSprite;
     public StateController StateController;
 
-    private PlayerUI Screen;
     private Pausemenu pauseMenu;
-
+    
     public Area2D AttackZone;
 
     public int PlayerDirection = 1;
@@ -74,12 +73,11 @@ public class Player : KinematicBody2D
 
         SaveManager.PlayerData.CurrentPosition = Position;
 
-        Console.WriteLine($"Position: {Position} Velocity: {Velocity}");
-
         FlipSprite();
 
         if (PlayerInfo.AttackCount == 2)
-            PlayerInfo.AttackCount = 0;        
+            PlayerInfo.AttackCount = 0;
+
     }
 
     public override void Draw(SpriteBatch spriteBatch) { }

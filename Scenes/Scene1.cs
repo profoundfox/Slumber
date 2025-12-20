@@ -27,12 +27,11 @@ public class Scene1 : Scene, IScene
         
         GumHelper.Wipe();
 
-        var camera = new RoomCamera(new RoomCameraConfig
+        Camera = new RoomCamera(new RoomCameraConfig
         {
-            Position = NodeManager.GetNodeByType<Player>().Position,
-            TargetNode = NodeManager.GetNodeByType<Player>()
+            Position = NodeManager.GetFirstNodeByT<Player>().Position,
+            TargetNode = NodeManager.GetFirstNodeByT<Player>()
         });
-        
     }
 
     public override void Unload()
@@ -43,8 +42,6 @@ public class Scene1 : Scene, IScene
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
-
-        //Camera.Follow(NodeManager.GetNodeByType<Player>());
     }
     
     public override void Draw(SpriteBatch spriteBatch)
