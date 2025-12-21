@@ -44,7 +44,7 @@ public class Player : KinematicBody2D
             Shape = new RectangleShape2D(10, 25),
         });
 
-        AnimatedSprite.LayerDepth = 0.5f;
+        AnimatedSprite.Visual.LayerDepth = 0.5f;
         
         var idle = new PlayerIdleState(this);
         var run = new PlayerRunState(this);
@@ -61,6 +61,7 @@ public class Player : KinematicBody2D
         ]);
 
         pauseMenu = new Pausemenu();
+
     }
 
     public override void Update(GameTime gameTime)
@@ -134,14 +135,12 @@ public class Player : KinematicBody2D
         if (PlayerAxis == 1)
         {
             AttackColliderOffset = 15;
-            AnimatedSprite.Effects = SpriteEffects.None;
-
-
+            AnimatedSprite.Visual.SpriteEffects = SpriteEffects.None;
         }
         if (PlayerAxis == -1)
         {
             AttackColliderOffset = -38;
-            AnimatedSprite.Effects = SpriteEffects.FlipHorizontally;
+            AnimatedSprite.Visual.SpriteEffects = SpriteEffects.FlipHorizontally;
         }
     }
 }

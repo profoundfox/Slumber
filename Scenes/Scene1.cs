@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.VisualBasic;
 using Monlith.Nodes;
 using RenderingLibrary;
+using RenderingLibrary.Graphics;
 
 namespace Slumber;
 
@@ -31,6 +32,12 @@ public class Scene1 : Scene, IScene
         {
             Position = NodeManager.GetFirstNodeByT<Player>().Position,
             TargetNode = NodeManager.GetFirstNodeByT<Player>()
+        });
+
+        new Sprite2D(new SpriteConfig
+        {
+            Texture = new MTexture("Assets/Backgrounds/streetsbg"),
+            Position = new Vector2(100, 100)
         });
     }
 
