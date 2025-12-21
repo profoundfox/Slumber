@@ -19,7 +19,6 @@ public class Enemy : KinematicBody2D
     private bool CanTakeDamage = true;
 
     Animation RunAnimation;
-    AnimatedSprite AnimatedSprite;
     public Enemy(KinematicBaseConfig config) : base(config) {}
 
     public override void Load()
@@ -29,10 +28,6 @@ public class Enemy : KinematicBody2D
         var animations = AsepriteLoader.LoadAnimations(EnemyTexture, "Raw/EnemyModel.json");
 
         RunAnimation = animations["Run"];
-
-        AnimatedSprite = new(RunAnimation);
-        AnimatedSprite.LayerDepth = 0.5f;
-
 
         Health = 5;
 
@@ -75,26 +70,16 @@ public class Enemy : KinematicBody2D
         }
 
         SpritePosition = Position;
-
-        AnimatedSprite.PlayAnimation(RunAnimation, true);
-
-        AnimatedSprite.Update(gameTime);
-
-        AnimatedSprite.Position = new Vector2(SpritePosition.X , SpritePosition.Y);
     }
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        Engine.DrawManager.Draw(AnimatedSprite);
+        
     }
 
     private void FlipSprite(int direction)
     {
-        if (direction == 1)
-            if (AnimatedSprite != null) AnimatedSprite.Effects = SpriteEffects.None;
-        else
-            if (AnimatedSprite != null) AnimatedSprite.Effects = SpriteEffects.FlipHorizontally;
-    }
+        }
 
     private void HandleGravity()
     {
