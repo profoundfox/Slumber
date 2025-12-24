@@ -69,7 +69,7 @@ public class Enemy : KinematicBody2D
             Velocity.Y = 0;
         }
 
-        SpritePosition = Position;
+        SpritePosition = LocalPosition;
     }
 
     public override void Draw(SpriteBatch spriteBatch)

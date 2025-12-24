@@ -34,7 +34,7 @@ public class Player : KinematicBody2D
             Parent = this,
             Name = "PlayerSprite",
             Atlas = animations,
-            Position = new Vector2(5, 10),
+            LocalPosition = new Vector2(5, 10),
             IsLooping = true
         });
 
@@ -72,7 +72,7 @@ public class Player : KinematicBody2D
 
         StateController.Update(gameTime);
 
-        SaveManager.PlayerData.CurrentPosition = Position;
+        SaveManager.PlayerData.CurrentPosition = LocalPosition;
 
         FlipSprite();
 
@@ -85,17 +85,7 @@ public class Player : KinematicBody2D
 
     public void ApplyGravity()
     {
-        if (!IsOnGround())
-        {
-            Velocity.Y = MathF.Min(
-                Velocity.Y + PlayerInfo.Gravity * Engine.DeltaTime,
-                PlayerInfo.TerminalVelocity
-            );
-        }
-        else if (Velocity.Y > 0)
-        {
-            Velocity.Y = 0;
-        }
+        
     }
 
 
@@ -114,6 +104,18 @@ public class Player : KinematicBody2D
             PlayerDirection = 1;
         }
 
+        Velocity.Y = 0;
+
+        if (Engine.Input.IsActionPressed("MoveUp") && !Engine.Input.IsActionPressed("MoveDown"))
+        {
+            Velocity.Y = -130;
+        }
+
+         if (Engine.Input.IsActionPressed("MoveDown") && !Engine.Input.IsActionPressed("MoveUp"))
+        {
+            Velocity.Y = 130;
+        }
+
         if (targetSpeed != 0)
         {
             Velocity.X = MoveToward(Velocity.X, targetSpeed, PlayerInfo.Acceleration * Engine.DeltaTime);
@@ -128,7 +130,10 @@ public class Player : KinematicBody2D
         }
     }
 
-
+    public void Debug()
+    {
+        
+    }
 
     public void FlipSprite()
     {

@@ -7,10 +7,12 @@
     <File>/Users/nilslauvstad/Documents/Project/Slumber/Content/Assets/Animations/grassspidersheet.png</File>
     <File>/Users/nilslauvstad/Documents/Project/Slumber/Content/Assets/Animations/PlayerModel3Atlas.png</File>
     <File>/Users/nilslauvstad/Documents/Project/Slumber/Content/Assets/Backgrounds/streetsbg.png</File>
+    <File>/Users/nilslauvstad/Documents/Project/Slumber/Content/Assets/ButtonBG.png</File>
     <File>/Users/nilslauvstad/Documents/Project/Slumber/Content/Assets/Fonts/Font.spritefont</File>
     <File>/Users/nilslauvstad/Documents/Project/Slumber/Content/Assets/Tileset/SlumberTilesetAtlas.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

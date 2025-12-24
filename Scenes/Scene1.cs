@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using Microsoft.VisualBasic;
-using Monlith.Nodes;
-using RenderingLibrary;
+
 using RenderingLibrary.Graphics;
 
 namespace Slumber;
@@ -10,6 +7,9 @@ public class Scene1 : Scene, IScene
 {
     public RoomCamera Camera { get; set; }
 
+    public Effect Blur;
+
+    Sprite2D sprite;
     public Scene1 ():  base(new SceneConfig
     {
         DataPath = "Raw/LevelData/Scene1.json",
@@ -30,14 +30,14 @@ public class Scene1 : Scene, IScene
 
         Camera = new RoomCamera(new RoomCameraConfig
         {
-            Position = NodeManager.GetFirstNodeByT<Player>().Position,
+            LocalPosition = NodeManager.GetFirstNodeByT<Player>().LocalPosition,
             TargetNode = NodeManager.GetFirstNodeByT<Player>()
         });
 
-        new Sprite2D(new SpriteConfig
+        new ParallaxLayer(new ParallaxLayerConfig
         {
             Texture = new MTexture("Assets/Backgrounds/streetsbg"),
-            Position = new Vector2(100, 100)
+            LoopTimes = 1
         });
     }
 
@@ -53,6 +53,6 @@ public class Scene1 : Scene, IScene
     
     public override void Draw(SpriteBatch spriteBatch)
     {
-        base.Draw(spriteBatch);       
+        base.Draw(spriteBatch);
     }
 }

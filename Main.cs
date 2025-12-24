@@ -32,6 +32,9 @@ namespace Slumber
                 var p = NodeManager.GetFirstNodeByT<Player>();                
                 return p == null ? "Player: Null" : $"Player State: {p.StateController.CurrentState}";
             }, Color.Yellow);
+
+            Input.AddBind("MoveDown", [new InputAction(Keys.S), new InputAction(Keys.Down)]);
+            Input.AddBind("MoveUp", [new InputAction(Keys.W), new InputAction(Keys.Up)]);
         }
 
         protected override void Update(GameTime gameTime)

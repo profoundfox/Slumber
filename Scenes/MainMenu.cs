@@ -65,12 +65,7 @@ public class MainMenu : Scene, IScene
     {
         base.Draw(spriteBatch);
 
-        Engine.DrawManager.DrawLooping(
-            texture,
-            Vector2.Zero,
-            Vector2.Zero,
-            DrawLayer.Background
-        );
+        
     }
 
 

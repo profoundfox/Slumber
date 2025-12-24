@@ -5,7 +5,6 @@ namespace Slumber
     {
         partial void CustomInitialize()
         {
-            Root.Visible = false;
 
             ResumeButton.IsFocused = true;
             
