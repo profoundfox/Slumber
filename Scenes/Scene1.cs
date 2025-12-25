@@ -37,6 +37,7 @@ public class Scene1 : Scene, IScene
         new ParallaxLayer(new ParallaxLayerConfig
         {
             Texture = new MTexture("Assets/Backgrounds/streetsbg"),
+            ParallaxFactor = new Vector2(0.1f),
             LoopTimes = 1
         });
     }
