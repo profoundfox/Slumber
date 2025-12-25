@@ -5,7 +5,7 @@ namespace Slumber;
 
 public class Scene1 : Scene, IScene
 {
-    public RoomCamera Camera { get; set; }
+    public Camera2D Camera { get; set; }
 
     public Effect Blur;
 
@@ -28,17 +28,9 @@ public class Scene1 : Scene, IScene
         
         GumHelper.Wipe();
 
-        Camera = new RoomCamera(new RoomCameraConfig
+        Camera = new Camera2D(new CameraConfig
         {
-            LocalPosition = NodeManager.GetFirstNodeByT<Player>().LocalPosition,
-            TargetNode = NodeManager.GetFirstNodeByT<Player>()
-        });
-
-        new ParallaxLayer(new ParallaxLayerConfig
-        {
-            Texture = new MTexture("Assets/Backgrounds/streetsbg"),
-            ParallaxFactor = new Vector2(0.1f),
-            LoopTimes = 1
+            Parent = NodeManager.GetFirstNodeByT<Player>()
         });
     }
 
