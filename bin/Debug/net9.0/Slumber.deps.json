@@ -182,9 +182,6 @@
         }
       },
       "Monolith/1.0.0": {
-        "dependencies": {
-          "Gum.MonoGame": "2025.9.27.1"
-        },
         "runtime": {
           "Monolith.dll": {
             "assemblyVersion": "1.0.0.0",

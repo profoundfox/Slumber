@@ -1,5 +1,4 @@
 
-using RenderingLibrary.Graphics;
 
 namespace Slumber;
 
@@ -26,8 +25,6 @@ public class Scene1 : Scene, IScene
     {
         base.Load();
         
-        GumHelper.Wipe();
-
         Camera = new Camera2D(new CameraConfig
         {
             Parent = NodeManager.GetFirstNodeByT<Player>()

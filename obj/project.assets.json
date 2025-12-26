@@ -251,9 +251,6 @@
       "Monolith/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
-        "dependencies": {
-          "Gum.MonoGame": "2025.9.27.1"
-        },
         "compile": {
           "bin/placeholder/Monolith.dll": {}
         },

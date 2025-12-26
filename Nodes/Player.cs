@@ -13,8 +13,6 @@ public class Player : KinematicBody2D
 
     public AnimatedSprite2D AnimatedSprite;
     public StateController StateController;
-
-    private Pausemenu pauseMenu;
     
     public Area2D AttackZone;
 
@@ -60,8 +58,6 @@ public class Player : KinematicBody2D
             idle, run, attack, jump, fall, wallSlide, wallJump
         ]);
 
-        pauseMenu = new Pausemenu();
-
     }
 
     public override void Update(GameTime gameTime)
@@ -85,7 +81,17 @@ public class Player : KinematicBody2D
 
     public void ApplyGravity()
     {
-        
+        if (!IsOnGround())
+        {
+            Velocity.Y = MathF.Min(
+                Velocity.Y + PlayerInfo.Gravity * Engine.DeltaTime,
+                PlayerInfo.TerminalVelocity
+            );
+        }
+        else if (Velocity.Y > 0)
+        {
+            Velocity.Y = 0;
+        }
     }
 
 
@@ -103,8 +109,6 @@ public class Player : KinematicBody2D
             targetSpeed = PlayerInfo.MoveSpeed;
             PlayerDirection = 1;
         }
-
-        Velocity.Y = 0;
 
         if (Engine.Input.IsActionPressed("MoveUp") && !Engine.Input.IsActionPressed("MoveDown"))
         {

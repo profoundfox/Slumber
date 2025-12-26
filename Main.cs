@@ -7,7 +7,6 @@ namespace Slumber
             ContentProvider = new ContentPipelineLoader(),
             Title = "Slumber",
             FontPath = "Assets/Fonts/Font",
-            GumProject = "GumProject/GumProject.gumx",
             MainCharacterType = typeof(Player),
             DebugMode = true,
             Maximised = false,
@@ -18,7 +17,7 @@ namespace Slumber
         {
             base.Initialize();
 
-            SceneManager.AddScene(new MainMenu());
+            SceneManager.AddScene(new Scene1());
 
             DebugOverlay.AddInfo("PlayerLocation", () =>
             {

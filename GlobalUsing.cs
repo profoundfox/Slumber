@@ -7,7 +7,6 @@ global using Monolith.Input;
 global using Monolith.IO;
 global using Monolith.Managers;
 global using Monolith.Nodes;
-global using Monolith.UI;
 global using Monolith.Util;
 
 global using System;
