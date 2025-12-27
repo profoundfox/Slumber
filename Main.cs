@@ -7,10 +7,10 @@ namespace Slumber
             ContentProvider = new ContentPipelineLoader(),
             Title = "Slumber",
             FontPath = "Assets/Fonts/Font",
-            MainCharacterType = typeof(Player),
             DebugMode = true,
             Maximised = false,
-            IsBorderless = false
+            IsBorderless = false,
+            ExitOnEscape = true
         }) {}
 
         protected override void Initialize()

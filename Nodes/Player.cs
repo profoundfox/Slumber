@@ -42,7 +42,7 @@ public class Player : KinematicBody2D
             Shape = new RectangleShape2D(10, 25),
         });
 
-        AnimatedSprite.Visual.LayerDepth = 0.5f;
+        AnimatedSprite.LocalOrdering = AnimatedSprite.LocalOrdering with { Depth = 5 };
         
         var idle = new PlayerIdleState(this);
         var run = new PlayerRunState(this);
@@ -144,12 +144,12 @@ public class Player : KinematicBody2D
         if (PlayerAxis == 1)
         {
             AttackColliderOffset = 15;
-            AnimatedSprite.Visual.SpriteEffects = SpriteEffects.None;
+            AnimatedSprite.LocalMaterial = AnimatedSprite.LocalMaterial with { SpriteEffects = SpriteEffects.None };
         }
         if (PlayerAxis == -1)
         {
             AttackColliderOffset = -38;
-            AnimatedSprite.Visual.SpriteEffects = SpriteEffects.FlipHorizontally;
+            AnimatedSprite.LocalMaterial = AnimatedSprite.LocalMaterial with { SpriteEffects = SpriteEffects.FlipHorizontally };
         }
     }
 }

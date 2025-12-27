@@ -24,7 +24,7 @@
   "layers": [
     {
       "definition": "tile",
-      "name": "0.2",
+      "name": "2",
       "gridSize": {"x": 16, "y": 16},
       "exportID": "96367620",
       "exportMode": 0,

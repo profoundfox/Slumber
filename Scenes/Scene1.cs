@@ -5,10 +5,7 @@ namespace Slumber;
 public class Scene1 : Scene, IScene
 {
     public Camera2D Camera { get; set; }
-
-    public Effect Blur;
-
-    Sprite2D sprite;
+    
     public Scene1 ():  base(new SceneConfig
     {
         DataPath = "Raw/LevelData/Scene1.json",
