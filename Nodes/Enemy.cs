@@ -103,7 +103,7 @@ public class Enemy : KinematicBody2D
         CanTakeDamage = false;
         Health -= DamageAmount;
 
-        CTimer.Wait(0.7f, () => { CanTakeDamage = true; });
+        MTimer.Wait(0.7f, () => { CanTakeDamage = true; });
     }
 
 }

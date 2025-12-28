@@ -30,7 +30,7 @@ public class PlayerWallJumpState : State
 
         if (!controlRestored)
         {
-            CTimer.Wait(controlLockTimer, () => { controlRestored = true;});
+            MTimer.Wait(controlLockTimer, () => { controlRestored = true;});
         }
 
         if (p.IsOnRoof())

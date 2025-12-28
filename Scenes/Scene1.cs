@@ -26,6 +26,7 @@ public class Scene1 : Scene, IScene
         {
             Parent = Engine.Node.GetFirstNodeByT<Player>()
         });
+
     }
 
     public override void Unload()
