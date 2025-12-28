@@ -4,7 +4,7 @@ namespace Slumber
     {
         public Main() : base(new EngineConfig
         {
-            ContentProvider = new ContentPipelineLoader(),
+            Resources = new ContentPipelineLoader(),
             Title = "Slumber",
             FontPath = "Assets/Fonts/Font",
             DebugMode = true,
@@ -17,18 +17,18 @@ namespace Slumber
         {
             base.Initialize();
 
-            SceneManager.AddScene(new Scene1());
+            Scene.AddScene(new Scene1());
 
             DebugOverlay.AddInfo("PlayerLocation", () =>
             {
-                var p = NodeManager.GetFirstNodeByT<Player>();
+                var p = Node.GetFirstNodeByT<Player>();
                 
                 return p == null ? "Player: Null" : $"Player Position: {p.GlobalTransform.Position}";
             }, Color.Yellow);
            
             DebugOverlay.AddInfo("PlayerState", () =>
             {
-                var p = NodeManager.GetFirstNodeByT<Player>();                
+                var p = Node.GetFirstNodeByT<Player>();                
                 return p == null ? "Player: Null" : $"Player State: {p.StateController.CurrentState}";
             }, Color.Yellow);
 

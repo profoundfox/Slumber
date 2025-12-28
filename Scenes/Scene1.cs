@@ -24,7 +24,7 @@ public class Scene1 : Scene, IScene
         
         Camera = new Camera2D(new CameraConfig
         {
-            Parent = NodeManager.GetFirstNodeByT<Player>()
+            Parent = Engine.Node.GetFirstNodeByT<Player>()
         });
     }
 

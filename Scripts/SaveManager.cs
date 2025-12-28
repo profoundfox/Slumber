@@ -11,7 +11,7 @@ public class SaveManager
 
     public static void SaveData()
     {
-        PlayerData.CurrentScene = Engine.SceneManager.GetCurrentScene().GetType().Name;
+        PlayerData.CurrentScene = Engine.Scene.GetCurrentScene().GetType().Name;
 
         FileSaver.SaveData(PlayerData, FileSavePath, FileFormat.Binary);
     }
@@ -20,7 +20,7 @@ public class SaveManager
     {
         FileSaver.LoadData(PlayerData, FileSavePath, FileFormat.Binary);
 
-        Engine.SceneManager.AddSceneFromString(PlayerData.CurrentScene);
+        Engine.Scene.AddSceneFromString(PlayerData.CurrentScene);
 
         
 
