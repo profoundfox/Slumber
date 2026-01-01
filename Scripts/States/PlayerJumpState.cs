@@ -32,7 +32,7 @@ public class PlayerJumpState : State
         if ((Engine.Input.IsActionJustPressed("Jump") || p.PlayerInfo.bufferActivated) && !p.IsOnGround())
         {
             p.PlayerInfo.bufferActivated = true;
-            MTimer.Wait(p.PlayerInfo.bufferTimer, () => p.PlayerInfo.bufferActivated = false);
+            Engine.Timer.Wait(p.PlayerInfo.bufferTimer, () => p.PlayerInfo.bufferActivated = false);
         }
 
         if (p.Velocity.Y > 0)

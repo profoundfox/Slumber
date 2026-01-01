@@ -62,7 +62,7 @@ public class Player : KinematicBody2D
 
     public override void Update(GameTime gameTime)
     {   
-        UpdateKinematicBody();
+        base.Update(gameTime);
 
         PlayerAxis = Engine.Input.GetAxis("MoveLeft", "MoveRight");
 
@@ -77,7 +77,10 @@ public class Player : KinematicBody2D
 
     }
 
-    public override void Draw(SpriteBatch spriteBatch) { }
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        base.Draw(spriteBatch);
+    }
 
     public void ApplyGravity()
     {

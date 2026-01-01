@@ -17,7 +17,7 @@ namespace Slumber
         {
             base.Initialize();
 
-            Scene.AddScene(new Scene1());
+            Stage.AddStage(new Scene1());
 
             DebugOverlay.AddInfo("PlayerLocation", () =>
             {

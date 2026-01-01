@@ -45,6 +45,8 @@ public class Enemy : KinematicBody2D
 
     public override void Update(GameTime gameTime)
     {
+        base.Update(gameTime);
+        
         float forwardOffset = CollisionShape2D.Shape.BoundingBox.Width / 2f + 5f;
 
         RayPos.X = CollisionShape2D.Shape.BoundingBox.Center.X + forwardOffset * Direction;
@@ -62,7 +64,6 @@ public class Enemy : KinematicBody2D
 
         FlipSprite(Direction);
 
-        UpdateKinematicBody();
 
         if (IsOnGround())
         {
@@ -103,7 +104,7 @@ public class Enemy : KinematicBody2D
         CanTakeDamage = false;
         Health -= DamageAmount;
 
-        MTimer.Wait(0.7f, () => { CanTakeDamage = true; });
+        Engine.Timer.Wait(0.7f, () => { CanTakeDamage = true; });
     }
 
 }

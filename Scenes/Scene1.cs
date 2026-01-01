@@ -1,8 +1,10 @@
 
 
+using System.Linq;
+
 namespace Slumber;
 
-public class Scene1 : Scene, IScene
+public class Scene1 : Scene, IStage
 {
     public Camera2D Camera { get; set; }
     
@@ -26,7 +28,26 @@ public class Scene1 : Scene, IScene
         {
             Parent = Engine.Node.GetFirstNodeByT<Player>()
         });
+        
+        var par = new Parallax2D(new ParallaxConfig
+        {
+            LocalPosition = new Vector2(0, -50)
+        });
 
+        var layer2 = new ParallaxLayer(new ParallaxLayerConfig
+        {
+            Parent = par,
+            Texture = new MTexture("Assets/Backgrounds/HeightsBG"),
+            MotionScale = Vector2.Zero,
+            LoopAxes = LoopAxis.X
+        });
+
+        var layer1 = new ParallaxLayer(new ParallaxLayerConfig
+        {
+            Parent = par,
+            Texture = new MTexture("Assets/Backgrounds/HeightsBGNoMain"),
+            MotionScale = Vector2.Zero
+        });
     }
 
     public override void Unload()
