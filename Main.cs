@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Slumber
 {
     public class Main : Engine
@@ -8,9 +10,18 @@ namespace Slumber
             Title = "Slumber",
             FontPath = "Assets/Fonts/Font",
             DebugMode = true,
-            Maximised = false,
-            IsBorderless = false,
-            ExitOnEscape = true
+            Maximised = true,
+            IsBorderless = true,
+            ExitOnEscape = true,
+            Actions = 
+            {
+                {"MoveLeft", new List<InputAction> { new InputAction(Keys.Left), new InputAction(Buttons.DPadLeft) }},
+                {"MoveRight", new List<InputAction> { new InputAction(Keys.Right), new InputAction(Buttons.DPadRight) }},
+                {"Jump", new List<InputAction> { new InputAction(Keys.Z), new InputAction(Buttons.A) }},
+                {"Attack", new List<InputAction> { new InputAction(Keys.X), new InputAction(Buttons.Y), new InputAction(MouseButton.Left) }},
+                {"Pause", new List<InputAction> { new InputAction(Keys.Escape), new InputAction(Buttons.Start) }},
+                {"Back", new List<InputAction> { new InputAction(Keys.X), new InputAction(Buttons.B) }}
+            }
         }) {}
 
         protected override void Initialize()
