@@ -24,10 +24,12 @@ public class Scene1 : Scene, IStage
     {
         base.Load();
         
-        Camera = new Camera2D(new CameraConfig
+        Camera = new RoomCamera(new RoomCameraConfig
         {
-            Parent = Engine.Node.GetFirstNodeByT<Player>()
+            TargetNode = Engine.Node.GetFirstNodeByT<Player>()
         });
+
+        Camera.LocalPosition = Engine.Node.GetFirstNodeByT<Player>().GlobalPosition;
         
         var par = new Parallax2D(new ParallaxConfig
         {

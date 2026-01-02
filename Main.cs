@@ -11,7 +11,7 @@ namespace Slumber
             FontPath = "Assets/Fonts/Font",
             DebugMode = true,
             Maximised = true,
-            IsBorderless = true,
+            IsBorderless = false,
             ExitOnEscape = true,
             Actions = 
             {
