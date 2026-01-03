@@ -10,18 +10,9 @@ namespace Slumber
             Title = "Slumber",
             FontPath = "Assets/Fonts/Font",
             DebugMode = true,
-            Maximised = true,
+            Maximised = false,
             IsBorderless = false,
             ExitOnEscape = true,
-            Actions = 
-            {
-                {"MoveLeft", new List<InputAction> { new InputAction(Keys.Left), new InputAction(Buttons.DPadLeft) }},
-                {"MoveRight", new List<InputAction> { new InputAction(Keys.Right), new InputAction(Buttons.DPadRight) }},
-                {"Jump", new List<InputAction> { new InputAction(Keys.Z), new InputAction(Buttons.A) }},
-                {"Attack", new List<InputAction> { new InputAction(Keys.X), new InputAction(Buttons.Y), new InputAction(MouseButton.Left) }},
-                {"Pause", new List<InputAction> { new InputAction(Keys.Escape), new InputAction(Buttons.Start) }},
-                {"Back", new List<InputAction> { new InputAction(Keys.X), new InputAction(Buttons.B) }}
-            }
         }) {}
 
         protected override void Initialize()
@@ -42,9 +33,18 @@ namespace Slumber
                 var p = Node.GetFirstNodeByT<Player>();                
                 return p == null ? "Player: Null" : $"Player State: {p.StateController.CurrentState}";
             }, Color.Yellow);
+            
+            Input.AddBind("MoveLeft", [new InputAction(Keys.A), new InputAction(Buttons.DPadLeft)]);
+            Input.AddBind("MoveRight", [new InputAction(Keys.D), new InputAction(Buttons.DPadRight)]);
+            Input.AddBind("MoveDown", [new InputAction(Keys.Down), new InputAction(Buttons.DPadDown)]);
+            Input.AddBind("MoveUp", [new InputAction(Keys.Up), new InputAction(Buttons.DPadUp)]);
 
-            Input.AddBind("MoveDown", [new InputAction(Keys.S), new InputAction(Keys.Down)]);
-            Input.AddBind("MoveUp", [new InputAction(Keys.W), new InputAction(Keys.Up)]);
+            Input.AddBind("Jump", [new InputAction(Keys.Z), new InputAction(Buttons.A)]);
+
+            Input.AddBind("Attack", [new InputAction(Keys.X), new InputAction(Buttons.Y)]);
+
+            Input.AddBind("Pause", [new InputAction(Keys.Escape), new InputAction(Buttons.Start)]);
+            Input.AddBind("Back", [new InputAction(Keys.X), new InputAction(Buttons.B)]);
         }
 
         protected override void Update(GameTime gameTime)

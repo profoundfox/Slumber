@@ -7,6 +7,8 @@ namespace Slumber;
 public class Scene1 : Scene, IStage
 {
     public Camera2D Camera { get; set; }
+
+    float val = 0;
     
     public Scene1 ():  base(new SceneConfig
     {
@@ -50,6 +52,8 @@ public class Scene1 : Scene, IStage
             Texture = new MTexture("Assets/Backgrounds/HeightsBGNoMain"),
             MotionScale = Vector2.Zero
         });
+
+        Engine.Tween.CreateTween(v => val = v, 1, 10, 1, EasingFunctions.Linear);
     }
 
     public override void Unload()
@@ -60,6 +64,8 @@ public class Scene1 : Scene, IStage
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+
+        Console.WriteLine(val);
     }
     
     public override void Draw(SpriteBatch spriteBatch)
