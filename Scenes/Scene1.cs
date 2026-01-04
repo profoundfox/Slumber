@@ -52,8 +52,6 @@ public class Scene1 : Scene, IStage
             Texture = new MTexture("Assets/Backgrounds/HeightsBGNoMain"),
             MotionScale = Vector2.Zero
         });
-
-        Engine.Tween.CreateTween(v => val = v, 1, 10, 1, EasingFunctions.Linear);
     }
 
     public override void Unload()
