@@ -17,11 +17,6 @@ public class Scene1 : Scene, IStage
         TilemapRegion = new Rectangle(0, 0, 512, 512)
     }) {  }
 
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     public override void Load()
     {
         base.Load();
@@ -43,7 +38,7 @@ public class Scene1 : Scene, IStage
             Parent = par,
             Texture = new MTexture("Assets/Backgrounds/HeightsBG"),
             MotionScale = Vector2.Zero,
-            LoopAxes = LoopAxis.X
+            LoopAxis = LoopAxis.X
         });
 
         var layer1 = new ParallaxLayer(new ParallaxLayerConfig
@@ -62,12 +57,19 @@ public class Scene1 : Scene, IStage
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
-
-        Console.WriteLine(val);
     }
     
     public override void Draw(SpriteBatch spriteBatch)
     {
         base.Draw(spriteBatch);
+
+        Engine.Screen.Draw(new BitmapFontDrawCall
+        {
+            Font = Engine.Instance.BitmapFont,
+            Text = "Hello, World!",
+            Color = Color.White,
+            Position = new Vector2(20, 20),
+        }, DrawLayer.UI);
+
     }
 }

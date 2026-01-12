@@ -42,7 +42,7 @@ public class Player : KinematicBody2D
             Shape = new RectangleShape2D(10, 25),
         });
 
-        AnimatedSprite.LocalOrdering = AnimatedSprite.LocalOrdering with { Depth = 5 };
+        AnimatedSprite.LocalOrdering = AnimatedSprite.LocalOrdering with { Depth = 1 };
         
         var idle = new PlayerIdleState(this);
         var run = new PlayerRunState(this);
@@ -74,7 +74,6 @@ public class Player : KinematicBody2D
 
         if (PlayerInfo.AttackCount == 2)
             PlayerInfo.AttackCount = 0;
-
     }
 
     public override void Draw(SpriteBatch spriteBatch)
@@ -135,11 +134,6 @@ public class Player : KinematicBody2D
         {
             Velocity.X = MoveToward(Velocity.X, 0, PlayerInfo.Deceleration * Engine.DeltaTime);
         }
-    }
-
-    public void Debug()
-    {
-        
     }
 
     public void FlipSprite()

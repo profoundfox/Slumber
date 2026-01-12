@@ -8,10 +8,9 @@ namespace Slumber
         {
             Resources = new ContentPipelineLoader(),
             Title = "Slumber",
-            FontPath = "Assets/Fonts/Font",
             DebugMode = true,
-            Maximised = true,
-            IsBorderless = true,
+            Maximised = false,
+            IsBorderless = false,
             ExitOnEscape = true,
         }) {}
 
@@ -24,16 +23,14 @@ namespace Slumber
             DebugOverlay.AddInfo("PlayerLocation", () =>
             {
                 var p = Node.GetFirstNodeByT<Player>();
-                
                 return p == null ? "Player: Null" : $"Player Position: {p.GlobalTransform.Position}";
             }, Color.Yellow);
-           
+            
             DebugOverlay.AddInfo("PlayerState", () =>
             {
                 var p = Node.GetFirstNodeByT<Player>();                
                 return p == null ? "Player: Null" : $"Player State: {p.StateController.CurrentState}";
             }, Color.Yellow);
-
             
             Input.AddBind("MoveLeft", new InputAction(Keys.Left), new InputAction(Buttons.DPadLeft));
             Input.AddBind("MoveRight", new InputAction(Keys.Right), new InputAction(Buttons.DPadRight));
@@ -46,6 +43,16 @@ namespace Slumber
 
             Input.AddBind("Pause", new InputAction(Keys.Escape), new InputAction(Buttons.Start));
             Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));
+        }
+
+        protected override void LoadContent()
+        {
+            base.LoadContent();
+        }
+
+        protected override void UnloadContent()
+        {
+            base.UnloadContent();
         }
 
         protected override void Update(GameTime gameTime)
