@@ -60,9 +60,9 @@ public class Player : KinematicBody2D
 
     }
 
-    public override void Update(GameTime gameTime)
+    public override void PhysicsUpdate(float delta)
     {   
-        base.Update(gameTime);
+        base.PhysicsUpdate(delta);
 
         PlayerAxis = Engine.Input.GetAxis("MoveLeft", "MoveRight");
 
