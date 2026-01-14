@@ -7,8 +7,6 @@ namespace Slumber;
 public class Scene1 : Scene, IStage
 {
     public Camera2D Camera { get; set; }
-
-    float val = 0;
     
     public Scene1 ():  base(new SceneConfig
     {
@@ -62,14 +60,5 @@ public class Scene1 : Scene, IStage
     public override void Draw(SpriteBatch spriteBatch)
     {
         base.Draw(spriteBatch);
-
-        Engine.Screen.Draw(new BitmapFontDrawCall
-        {
-            Font = Engine.Instance.BitmapFont,
-            Text = "Hello, World!",
-            Color = Color.White,
-            Position = new Vector2(20, 20),
-        }, DrawLayer.UI);
-
     }
 }

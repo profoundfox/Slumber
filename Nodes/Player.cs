@@ -32,17 +32,17 @@ public class Player : KinematicBody2D
             Parent = this,
             Name = "PlayerSprite",
             Atlas = animations,
-            LocalPosition = new Vector2(5, 10),
+            LocalPosition = new Vector2(2, 10),
             IsLooping = true
         });
 
         CollisionShape2D = new CollisionShape2D(new CollisionShapeConfig
         {
             Parent = this,
-            Shape = new RectangleShape2D(10, 25),
+            Shape = new RectangleShape2D(10, 25)
         });
 
-        AnimatedSprite.LocalOrdering = AnimatedSprite.LocalOrdering with { Depth = 1 };
+        LocalOrdering = LocalOrdering with { Depth = 3 };
         
         var idle = new PlayerIdleState(this);
         var run = new PlayerRunState(this);
@@ -99,18 +99,9 @@ public class Player : KinematicBody2D
 
     public void HandleMovementInput()
     {
-        float targetSpeed = 0f;
-
-        if (Engine.Input.IsActionPressed("MoveLeft") && !Engine.Input.IsActionPressed("MoveRight"))
-        {
-            targetSpeed = -PlayerInfo.MoveSpeed;
-            PlayerDirection = -1;
-        }
-        else if (Engine.Input.IsActionPressed("MoveRight") && !Engine.Input.IsActionPressed("MoveLeft"))
-        {
-            targetSpeed = PlayerInfo.MoveSpeed;
-            PlayerDirection = 1;
-        }
+        PlayerDirection = PlayerAxis != 0 ? PlayerAxis : PlayerDirection;
+        
+        float targetSpeed = PlayerInfo.MoveSpeed * PlayerAxis;
 
         if (Engine.Input.IsActionPressed("MoveUp") && !Engine.Input.IsActionPressed("MoveDown"))
         {
