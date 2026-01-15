@@ -24,7 +24,7 @@ public class PlayerWallJumpState : State
 
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update(float delta)
     {
         p.ApplyGravity();
 

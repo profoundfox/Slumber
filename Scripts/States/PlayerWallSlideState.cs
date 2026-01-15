@@ -20,7 +20,7 @@ public class PlayerWallSlideState : State
     }
 
 
-    public override void Update(GameTime gameTime)
+    public override void Update(float delta)
     {
         p.AnimatedSprite.PlayAnimation("Wall", false);
 

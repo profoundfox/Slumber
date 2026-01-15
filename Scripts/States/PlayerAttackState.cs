@@ -20,9 +20,9 @@ public class PlayerAttackState : State
             p.AnimatedSprite.PlayAnimation("Attack2", false);
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update(float delta)
     {
-        base.Update(gameTime);
+        base.Update(delta);
 
         p.HandleDeceleration();
         p.ApplyGravity();

@@ -11,7 +11,7 @@ public class PlayerFallState : State
 
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update(float delta)
     {
         p.AnimatedSprite.PlayAnimation("Fall", false);
 

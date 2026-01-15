@@ -66,7 +66,7 @@ public class Player : KinematicBody2D
 
         PlayerAxis = Engine.Input.GetAxis("MoveLeft", "MoveRight");
 
-        StateController.Update(gameTime);
+        StateController.Update(delta);
 
         SaveManager.PlayerData.CurrentPosition = LocalPosition;
 

@@ -16,11 +16,11 @@ public class PlayerIdleState : State
         
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update(float delta)
     {
         p.AnimatedSprite.PlayAnimation("Idle", false);
         
-        base.Update(gameTime);
+        base.Update(delta);
 
         p.HandleDeceleration();
         p.ApplyGravity();
