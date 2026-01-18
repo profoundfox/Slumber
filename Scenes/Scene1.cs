@@ -6,8 +6,7 @@ namespace Slumber;
 
 public class Scene1 : Scene, IStage
 {
-    public Camera2D Camera { get; set; }
-    
+    public Camera2D Camera { get; set; }    
     public Scene1 ():  base(new SceneConfig
     {
         DataPath = "Raw/LevelData/Scene1.json",
@@ -55,6 +54,7 @@ public class Scene1 : Scene, IStage
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+
     }
     
     public override void Draw(SpriteBatch spriteBatch)

@@ -63,6 +63,7 @@ namespace Slumber
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
+
         }
     }
 }
