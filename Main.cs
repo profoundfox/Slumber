@@ -4,21 +4,14 @@ namespace Slumber
 {
     public class Main : Engine
     {
-        public Main() : base(new EngineConfig
-        {
-            Resources = new ContentPipelineLoader(),
-            Title = "Slumber",
-            DebugMode = true,
-            Maximised = false,
-            IsBorderless = false,
-            ExitOnEscape = true,
-        }) {}
+        public Main() {}
 
         protected override void Initialize()
         {
             base.Initialize();
 
             Stage.AddStage(new Scene1());
+
 
             DebugOverlay.AddInfo("PlayerLocation", () =>
             {
@@ -31,6 +24,8 @@ namespace Slumber
                 var p = Node.GetFirstNodeByT<Player>();                
                 return p == null ? "Player: Null" : $"Player State: {p.StateController.CurrentState}";
             }, Color.Yellow);
+
+            Settings.Debug.ExitOnEscape = true;            
             
             Input.AddBind("MoveLeft", new InputAction(Keys.A), new InputAction(Buttons.DPadLeft));
             Input.AddBind("MoveRight", new InputAction(Keys.D), new InputAction(Buttons.DPadRight));
@@ -63,6 +58,14 @@ namespace Slumber
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
+
+            Screen.Draw(new BitmapFontDrawCall
+            {
+                Font = BitmapFont,
+                Text = Math.Round(FPS).ToString(),
+                Color = Color.Yellow,
+                Depth = 99
+            }, DrawLayer.UI);
 
         }
     }

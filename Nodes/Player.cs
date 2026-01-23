@@ -103,16 +103,6 @@ public class Player : KinematicBody2D
         
         float targetSpeed = PlayerInfo.MoveSpeed * PlayerAxis;
 
-        if (Engine.Input.IsActionPressed("MoveUp") && !Engine.Input.IsActionPressed("MoveDown"))
-        {
-            Velocity.Y = -130;
-        }
-
-         if (Engine.Input.IsActionPressed("MoveDown") && !Engine.Input.IsActionPressed("MoveUp"))
-        {
-            Velocity.Y = 130;
-        }
-
         if (targetSpeed != 0)
         {
             Velocity.X = MoveToward(Velocity.X, targetSpeed, PlayerInfo.Acceleration * Engine.DeltaTime);

@@ -14,9 +14,9 @@ public class Scene1 : Scene, IStage
         TilemapRegion = new Rectangle(0, 0, 512, 512)
     }) {  }
 
-    public override void Load()
+    public override void OnEnter()
     {
-        base.Load();
+        base.OnEnter();
         
         Camera = new RoomCamera(new RoomCameraConfig
         {
@@ -46,9 +46,9 @@ public class Scene1 : Scene, IStage
         });
     }
 
-    public override void Unload()
+    public override void OnExit()
     {
-        base.Unload();
+        base.OnExit();
     }
 
     public override void Update(GameTime gameTime)

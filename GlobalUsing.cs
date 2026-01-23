@@ -8,6 +8,7 @@ global using Monolith.IO;
 global using Monolith.Managers;
 global using Monolith.Nodes;
 global using Monolith.Util;
+global using Monolith.Attributes;
 
 global using System;
 
