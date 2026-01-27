@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>/Users/nilslauvstad/Documents/Project/Slumber/Content/Assets/Backgrounds/HeightsBGNoMain.png</SourceFile>
-  <SourceTime>2025-12-31T20:25:49.3811442+01:00</SourceTime>
+  <SourceTime>2026-01-27T20:30:03.0179348+01:00</SourceTime>
   <DestFile>/Users/nilslauvstad/Documents/Project/Slumber/Content/bin/DesktopGL/Assets/Backgrounds/HeightsBGNoMain.xnb</DestFile>
-  <DestTime>2025-12-31T21:01:38.4215356+01:00</DestTime>
+  <DestTime>2026-01-27T20:30:43.0385322+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-10-20T16:25:32+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

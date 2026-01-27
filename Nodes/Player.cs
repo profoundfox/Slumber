@@ -42,7 +42,7 @@ public class Player : KinematicBody2D
             Shape = new RectangleShape2D(10, 25)
         });
 
-        LocalOrdering = LocalOrdering with { Depth = 3 };
+        LocalOrdering = LocalOrdering with { Depth = 10 };
         
         var idle = new PlayerIdleState(this);
         var run = new PlayerRunState(this);
@@ -69,8 +69,6 @@ public class Player : KinematicBody2D
         StateController.Update(delta);
 
         SaveManager.PlayerData.CurrentPosition = LocalPosition;
-
-        Console.WriteLine(GlobalPosition);
 
         FlipSprite();
 

@@ -19,26 +19,21 @@ public class Scene1 : Scene, IStage
             TargetNode = Engine.Node.GetFirstNodeByT<Player>()
         });
 
-        Camera.LocalPosition = Engine.Node.GetFirstNodeByT<Player>().GlobalPosition;
-        
-        var par = new Parallax2D(new ParallaxConfig
-        {
-            LocalPosition = new Vector2(0, -50)
-        });
-        
-        var layer2 = new ParallaxLayer(new ParallaxLayerConfig
-        {
-            Parent = par,
-            Texture = new MTexture("Assets/Backgrounds/HeightsBG"),
-            MotionScale = Vector2.Zero,
-            LoopAxis = LoopAxis.X
-        });
+        Camera.LocalPosition = new Vector2(Engine.Node.GetFirstNodeByT<Player>().GlobalPosition.X, Engine.Node.GetFirstNodeByT<Player>().GlobalPosition.Y - 60);
 
         var layer1 = new ParallaxLayer(new ParallaxLayerConfig
         {
-            Parent = par,
             Texture = new MTexture("Assets/Backgrounds/HeightsBGNoMain"),
-            MotionScale = Vector2.Zero
+            LoopAxis = LoopAxis.X,
+            LocalPosition = new Vector2(0, 250)
+        });
+
+        var layer2 = new ParallaxLayer(new ParallaxLayerConfig
+        {
+            Texture = new MTexture("Assets/Backgrounds/HeightsBG"),
+            MotionScale = Vector2.Zero,
+            LoopAxis = LoopAxis.X,
+            LocalPosition = new Vector2(0, 300)
         });
     }
 

@@ -6,7 +6,7 @@
   "gridColor": "#3c4049cc",
   "anglesRadians": true,
   "directoryDepth": 5,
-  "layerGridDefaultSize": {"x": 8, "y": 8},
+  "layerGridDefaultSize": {"x": 16, "y": 16},
   "levelDefaultSize": {"x": 320, "y": 240},
   "levelMinSize": {"x": 128, "y": 128},
   "levelMaxSize": {"x": 4096, "y": 4096},
@@ -24,9 +24,18 @@
   "layers": [
     {
       "definition": "tile",
-      "name": "9",
+      "name": "12",
       "gridSize": {"x": 16, "y": 16},
-      "exportID": "37100830",
+      "exportID": "54401624",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": "16x16"
+    },
+    {
+      "definition": "tile",
+      "name": "11",
+      "gridSize": {"x": 16, "y": 16},
+      "exportID": "54393482",
       "exportMode": 0,
       "arrayMode": 0,
       "defaultTileset": "16x16"
@@ -34,8 +43,8 @@
     {
       "definition": "tile",
       "name": "4",
-      "gridSize": {"x": 8, "y": 8},
-      "exportID": "37187516",
+      "gridSize": {"x": 16, "y": 16},
+      "exportID": "37100830",
       "exportMode": 0,
       "arrayMode": 0,
       "defaultTileset": "16x16"
