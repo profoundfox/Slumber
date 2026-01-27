@@ -8,7 +8,6 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Animations/PlayerModel3Atlas.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Fonts/Font.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Tileset/SlumberTilesetAtlas.xnb
-/Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Raw/LevelData/Scene1.json
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Raw/LevelData/Slumber.ogmo
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Raw/Raw/PlayerModel3.json
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Slumber
@@ -49,3 +48,4 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/ButtonBG.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Backgrounds/HeightsBG.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Content/Assets/Backgrounds/HeightsBGNoMain.xnb
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Debug/net9.0/Raw/LevelData/Level1.json

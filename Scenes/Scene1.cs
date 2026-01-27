@@ -1,7 +1,3 @@
-
-
-using System.Linq;
-
 namespace Slumber;
 
 public class Scene1 : Scene, IStage
@@ -9,7 +5,7 @@ public class Scene1 : Scene, IStage
     public Camera2D Camera { get; set; }    
     public Scene1 ():  base(new SceneConfig
     {
-        DataPath = "Raw/LevelData/Scene1.json",
+        DataPath = "Raw/LevelData/Level1.json",
         TilemapTexturePath = "Assets/Tileset/SlumberTilesetAtlas",
         TilemapRegion = new Rectangle(0, 0, 512, 512)
     }) {  }
@@ -29,7 +25,7 @@ public class Scene1 : Scene, IStage
         {
             LocalPosition = new Vector2(0, -50)
         });
-
+        
         var layer2 = new ParallaxLayer(new ParallaxLayerConfig
         {
             Parent = par,

@@ -10,29 +10,14 @@ namespace Slumber
         {
             base.Initialize();
 
-            Stage.AddStage(new Scene1());
-
-
-            DebugOverlay.AddInfo("PlayerLocation", () =>
-            {
-                var p = Node.GetFirstNodeByT<Player>();
-                return p == null ? "Player: Null" : $"Player Position: {p.GlobalTransform.Position}";
-            }, Color.Yellow);
+            Stage.AddStage(new Scene1());    
             
-            DebugOverlay.AddInfo("PlayerState", () =>
-            {
-                var p = Node.GetFirstNodeByT<Player>();                
-                return p == null ? "Player: Null" : $"Player State: {p.StateController.CurrentState}";
-            }, Color.Yellow);
+            Input.AddBind("MoveLeft", new InputAction(Keys.Left), new InputAction(Buttons.DPadLeft));
+            Input.AddBind("MoveRight", new InputAction(Keys.Right), new InputAction(Buttons.DPadRight));
+            Input.AddBind("MoveDown", new InputAction(Keys.Up), new InputAction(Buttons.DPadDown));
+            Input.AddBind("MoveUp", new InputAction(Keys.Down), new InputAction(Buttons.DPadUp));
 
-            Settings.Debug.ExitOnEscape = true;            
-            
-            Input.AddBind("MoveLeft", new InputAction(Keys.A), new InputAction(Buttons.DPadLeft));
-            Input.AddBind("MoveRight", new InputAction(Keys.D), new InputAction(Buttons.DPadRight));
-            Input.AddBind("MoveDown", new InputAction(Keys.W), new InputAction(Buttons.DPadDown));
-            Input.AddBind("MoveUp", new InputAction(Keys.S), new InputAction(Buttons.DPadUp));
-
-            Input.AddBind("Jump", new InputAction(Keys.Space), new InputAction(Buttons.A));
+            Input.AddBind("Jump", new InputAction(Keys.Z), new InputAction(Buttons.A));
 
             Input.AddBind("Attack", new InputAction(MouseButton.Left), new InputAction(Buttons.Y));
 
@@ -59,10 +44,10 @@ namespace Slumber
         {
             base.Draw(gameTime);
 
-            Screen.Draw(new BitmapFontDrawCall
+            Screen.Draw(new FontDrawCall
             {
                 Font = BitmapFont,
-                Text = Math.Round(FPS).ToString(),
+                Text = DeltaTime.ToString(),
                 Color = Color.Yellow,
                 Depth = 99
             }, DrawLayer.UI);
