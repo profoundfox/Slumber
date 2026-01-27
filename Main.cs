@@ -38,6 +38,9 @@ namespace Slumber
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+            if (Input.Keyboard.WasKeyJustPressed(Keys.R)) 
+                Stage.ReloadCurrentStage();
         }
 
         protected override void Draw(GameTime gameTime)
@@ -47,11 +50,9 @@ namespace Slumber
             Screen.Draw(new FontDrawCall
             {
                 Font = BitmapFont,
-                Text = DeltaTime.ToString(),
+                Text = Math.Round(FPS).ToString(),
                 Color = Color.Yellow,
-                Depth = 99
             }, DrawLayer.UI);
-
         }
     }
 }

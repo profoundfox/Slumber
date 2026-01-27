@@ -66,12 +66,11 @@ public class Player : KinematicBody2D
 
         PlayerAxis = Engine.Input.GetAxis("MoveLeft", "MoveRight");
 
-        if (PlayerAxis != 0)
-            Console.WriteLine("Axis");
-
         StateController.Update(delta);
 
         SaveManager.PlayerData.CurrentPosition = LocalPosition;
+
+        Console.WriteLine(GlobalPosition);
 
         FlipSprite();
 
