@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Slumber
 {
     public class Main : Engine
@@ -25,6 +23,7 @@ namespace Slumber
             Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));
         }
 
+
         protected override void LoadContent()
         {
             base.LoadContent();
@@ -47,7 +46,7 @@ namespace Slumber
         {
             base.Draw(gameTime);
 
-            Screen.Draw(new FontDrawCall
+            Screen.Call(new FontDrawCall
             {
                 Font = BitmapFont,
                 Text = Math.Round(FPS).ToString(),

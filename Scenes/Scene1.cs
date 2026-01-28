@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace Slumber;
 
 public class Scene1 : Scene, IStage
@@ -5,7 +7,7 @@ public class Scene1 : Scene, IStage
     public Camera2D Camera { get; set; }    
     public Scene1 ():  base(new SceneConfig
     {
-        DataPath = "Raw/LevelData/Level1.json",
+        DataPath = PathHelper.Combine("Raw", "LevelData", "Level1.json"),
         TilemapTexturePath = "Assets/Tileset/SlumberTilesetAtlas",
         TilemapRegion = new Rectangle(0, 0, 512, 512)
     }) {  }
@@ -13,7 +15,7 @@ public class Scene1 : Scene, IStage
     public override void OnEnter()
     {
         base.OnEnter();
-        
+                
         Camera = new RoomCamera(new RoomCameraConfig
         {
             TargetNode = Engine.Node.GetFirstNodeByT<Player>()

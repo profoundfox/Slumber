@@ -25,7 +25,7 @@ public class Player : KinematicBody2D
     {
         MTexture PlayerTexture = new("Assets/Animations/PlayerModel3Atlas");
 
-        var animations = AsepriteLoader.LoadAnimations(PlayerTexture, "Raw/Raw/PlayerModel3.json");
+        var animations = AsepriteLoader.LoadAnimations(PlayerTexture, PathHelper.Combine("Raw/Raw/PlayerModel3.json"));
         
         AnimatedSprite = new AnimatedSprite2D(new AnimatedSpriteConfig
         {
