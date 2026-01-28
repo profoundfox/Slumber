@@ -22,6 +22,7 @@ public class PlayerJumpState : State
         p.HandleMovementInput();
         p.ApplyGravity();
 
+        p.FlipSprite();
 
         if (!jumpReleased && Engine.Input.IsActionJustReleased("Jump") && p.Velocity.Y < 0)
         {

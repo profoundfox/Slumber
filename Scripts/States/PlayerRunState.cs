@@ -19,6 +19,9 @@ public class PlayerRunState : State
 
         p.HandleMovementInput();
         p.ApplyGravity();
+
+        p.FlipSprite();
+
         
         p.AnimatedSprite.PlayAnimation("Run", false);
 
@@ -31,6 +34,7 @@ public class PlayerRunState : State
         if (!p.IsOnGround())
         {
             RequestTransition(nameof(PlayerFallState));
+            p.PlayerInfo.justLeftLedge = true;
             return;
         }
 

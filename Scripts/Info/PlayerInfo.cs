@@ -14,6 +14,11 @@ public class PlayerInfo
 
     public bool bufferActivated = false;
     public float bufferTimer = 0.2f;
+
+    public bool justLeftLedge = false;
+    public bool coyoteActivated = false;
+    public float coyoteTimer = 0.2f;
+
     public bool attacking;
 
     public float attackBufferTime = 0.1f;

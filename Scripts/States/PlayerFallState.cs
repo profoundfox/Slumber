@@ -19,6 +19,18 @@ public class PlayerFallState : State
         p.HandleDeceleration();
         p.ApplyGravity();
 
+        p.FlipSprite();
+
+
+        if (p.PlayerInfo.justLeftLedge)
+            Engine.Timer.Wait(p.PlayerInfo.coyoteTimer, () => { p.PlayerInfo.justLeftLedge = false;});
+
+
+        if (Engine.Input.IsActionJustPressed("Jump") && p.PlayerInfo.justLeftLedge)
+        {
+            RequestTransition(nameof(PlayerJumpState));
+        }
+
         if (p.IsOnGround())
         {
             RequestTransition(nameof(PlayerIdleState));

@@ -24,6 +24,7 @@ public class PlayerAttackState : State
     {
         base.Update(delta);
 
+        p.HandleMovementInput();
         p.HandleDeceleration();
         p.ApplyGravity();
 

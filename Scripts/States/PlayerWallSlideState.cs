@@ -25,7 +25,9 @@ public class PlayerWallSlideState : State
         p.AnimatedSprite.PlayAnimation("Wall", false);
 
         ApplyWallSlide();
-        
+
+        p.FlipSprite();
+
         if (!p.IsOnWall() || p.IsOnGround())
         {
             RequestTransition(nameof(PlayerFallState));

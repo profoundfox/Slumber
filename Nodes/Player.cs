@@ -69,9 +69,7 @@ public class Player : KinematicBody2D
         StateController.Update(delta);
 
         SaveManager.PlayerData.CurrentPosition = LocalPosition;
-
-        FlipSprite();
-
+        
         if (PlayerInfo.AttackCount == 2)
             PlayerInfo.AttackCount = 0;
     }

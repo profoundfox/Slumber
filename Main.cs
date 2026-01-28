@@ -19,7 +19,7 @@ namespace Slumber
 
             Input.AddBind("Jump", new InputAction(Keys.Z), new InputAction(Buttons.A));
 
-            Input.AddBind("Attack", new InputAction(MouseButton.Left), new InputAction(Buttons.Y));
+            Input.AddBind("Attack", new InputAction(Keys.X), new InputAction(Buttons.Y));
 
             Input.AddBind("Pause", new InputAction(Keys.Escape), new InputAction(Buttons.Start));
             Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));

@@ -25,6 +25,8 @@ public class PlayerIdleState : State
         p.HandleDeceleration();
         p.ApplyGravity();
 
+        p.FlipSprite();
+
         if (p.PlayerAxis != 0)
         {
             RequestTransition(nameof(PlayerRunState));

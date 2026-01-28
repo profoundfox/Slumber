@@ -28,6 +28,9 @@ public class PlayerWallJumpState : State
     {
         p.ApplyGravity();
 
+        p.FlipSprite();
+
+
         if (!controlRestored)
         {
             Engine.Timer.Wait(controlLockTimer, () => { controlRestored = true;});
