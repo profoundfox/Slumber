@@ -21,6 +21,7 @@ public class Player : KinematicBody2D
 
     public Player(KinematicBaseConfig config) : base(config) {}
 
+
     public override void Load()
     {
         MTexture PlayerTexture = new("Assets/Animations/PlayerModel3Atlas");
