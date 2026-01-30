@@ -19,7 +19,6 @@ public class PlayerRunState : State
 
         p.HandleMovementInput();
         p.ApplyGravity();
-
         p.FlipSprite();
 
         
@@ -46,7 +45,7 @@ public class PlayerRunState : State
 
         if (Engine.Input.IsActionJustPressed("Attack"))
         {
-            RequestTransition(nameof(PlayerAttackState));
+            RequestTransition(nameof(PlayerRunAttackState));
             return;
         }
     }

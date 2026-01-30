@@ -48,6 +48,7 @@ public class Player : KinematicBody2D
         var idle = new PlayerIdleState(this);
         var run = new PlayerRunState(this);
         var attack = new PlayerAttackState(this);
+        var runAttack = new PlayerRunAttackState(this);
         var jump = new PlayerJumpState(this);
         var fall = new PlayerFallState(this);
         var wallSlide = new PlayerWallSlideState(this);
@@ -56,7 +57,7 @@ public class Player : KinematicBody2D
 
         StateController = new StateController(idle,
         [
-            idle, run, attack, jump, fall, wallSlide, wallJump
+            idle, run, attack, runAttack, jump, fall, wallSlide, wallJump
         ]);
 
     }

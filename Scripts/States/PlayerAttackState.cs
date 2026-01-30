@@ -26,6 +26,7 @@ public class PlayerAttackState : State
 
         p.HandleMovementInput();
         p.HandleDeceleration();
+        p.FlipSprite();
         p.ApplyGravity();
 
         if (p.AnimatedSprite.Finished)
