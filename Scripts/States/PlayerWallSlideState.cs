@@ -22,7 +22,7 @@ public class PlayerWallSlideState : State
 
     public override void Update(float delta)
     {
-        p.AnimatedSprite.PlayAnimation("Wall", false);
+        p.AnimatedSprite.PlayAnimation("Idle", false);
 
         ApplyWallSlide();
 

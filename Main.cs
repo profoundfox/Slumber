@@ -23,7 +23,6 @@ namespace Slumber
             Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));
         }
 
-
         protected override void LoadContent()
         {
             base.LoadContent();

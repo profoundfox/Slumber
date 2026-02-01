@@ -1,27 +1,24 @@
 using System.IO;
+using RenderingLibrary.Graphics;
 
 namespace Slumber;
 
-public class Scene1 : Scene, IStage
+public class Scene1 : IStage
 {
-    public Camera2D Camera { get; set; }    
-    public Scene1 ():  base(new SceneConfig
-    {
-        DataPath = PathHelper.Combine("Raw", "LevelData", "Level1.json"),
-        TilemapTexturePath = "Assets/Tileset/SlumberTilesetAtlas",
-        TilemapRegion = new Rectangle(0, 0, 512, 512)
-    }) {  }
+    public Scene1 () {}
 
-    public override void OnEnter()
-    {
-        base.OnEnter();
-                
-        Camera = new RoomCamera(new RoomCameraConfig
+    public Particle p;
+
+    public void OnEnter()
+    {          
+        var camera = new RoomCamera(new RoomCameraConfig
         {
             TargetNode = Engine.Node.GetFirstNodeByT<Player>()
         });
 
-        Camera.LocalPosition = new Vector2(Engine.Node.GetFirstNodeByT<Player>().GlobalPosition.X, Engine.Node.GetFirstNodeByT<Player>().GlobalPosition.Y - 60);
+        camera.LocalPosition = new Vector2(Engine.Node.GetFirstNodeByT<Player>().GlobalPosition.X, Engine.Node.GetFirstNodeByT<Player>().GlobalPosition.Y - 60);
+
+
 
         var layer1 = new ParallaxLayer(new ParallaxLayerConfig
         {
@@ -37,21 +34,21 @@ public class Scene1 : Scene, IStage
             LoopAxis = LoopAxis.X,
             LocalPosition = new Vector2(0, 300)
         });
+
+        layer1.LocalDepth = -2;
+        layer2.LocalDepth = -1;
+        
     }
 
-    public override void OnExit()
-    {
-        base.OnExit();
-    }
+    public void OnExit() {}
 
-    public override void Update(GameTime gameTime)
+    public void Update(GameTime gameTime)
     {
-        base.Update(gameTime);
-
     }
     
-    public override void Draw(SpriteBatch spriteBatch)
+    public void SubmitCall()
     {
-        base.Draw(spriteBatch);
+        foreach (var c in Engine.Node.GetNodesByT<CollisionShape2D>()) 
+            c.Shape.Draw();    
     }
 }

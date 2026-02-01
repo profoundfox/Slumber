@@ -76,9 +76,9 @@ public class Player : KinematicBody2D
             PlayerInfo.AttackCount = 0;
     }
 
-    public override void Draw(SpriteBatch spriteBatch)
+    public override void SubmitCall()
     {
-        base.Draw(spriteBatch);
+        base.SubmitCall();
     }
 
     public void ApplyGravity()
