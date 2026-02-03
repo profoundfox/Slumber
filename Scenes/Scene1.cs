@@ -7,10 +7,24 @@ public class Scene1 : IStage
 {
     public Scene1 () {}
 
-    public Particle p;
+    public Song bgMusic;
+    public SoundEffect bgSFX;
 
     public void OnEnter()
-    {          
+    {       
+        bgMusic = Engine.Resource.Load<Song>("Assets/Music/Cold_Heights_Ambient_01");
+        bgSFX = Engine.Resource.Load<SoundEffect>("Assets/Music/blizzard-445020");
+
+        MediaPlayer.IsRepeating = true;
+
+        MediaPlayer.Play(bgMusic);
+        
+        var bgSFXInstance = bgSFX.CreateInstance();
+
+        bgSFXInstance.IsLooped = true;
+
+        bgSFXInstance.Play();
+
         var camera = new RoomCamera(new RoomCameraConfig
         {
             TargetNode = Engine.Node.GetFirstNodeByT<Player>()
