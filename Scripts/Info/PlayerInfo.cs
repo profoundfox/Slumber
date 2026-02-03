@@ -12,12 +12,13 @@ public class PlayerInfo
     public float WallJumpHorizontalSpeed = 200f;
     public float WallJumpVerticalSpeed = 300f;
 
-    public bool bufferActivated = false;
-    public float bufferTimer = 0.2f;
 
     public bool justLeftLedge = false;
     public bool coyoteActivated = false;
     public float coyoteTimer = 0.2f;
+
+    public bool jumpBuffered = false;
+    public float jumpBufferTime = 0.2f;
 
     public bool attacking;
 

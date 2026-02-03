@@ -21,6 +21,24 @@ public class PlayerFallState : State
 
         p.FlipSprite();
 
+        if (Engine.Input.IsActionJustPressed("Jump"))
+        {
+            p.PlayerInfo.jumpBuffered = true;
+
+            Engine.Timer.Wait(
+                p.PlayerInfo.jumpBufferTime,
+                () => p.PlayerInfo.jumpBuffered = false
+            );
+        }
+
+        if (p.IsOnGround() && p.PlayerInfo.jumpBuffered)
+        {
+            p.PlayerInfo.jumpBuffered = false;
+            RequestTransition(nameof(PlayerJumpState));
+            return;
+        }
+
+
 
         if (p.PlayerInfo.justLeftLedge)
             Engine.Timer.Wait(p.PlayerInfo.coyoteTimer, () => { p.PlayerInfo.justLeftLedge = false;});
@@ -29,16 +47,19 @@ public class PlayerFallState : State
         if (Engine.Input.IsActionJustPressed("Jump") && p.PlayerInfo.justLeftLedge)
         {
             RequestTransition(nameof(PlayerJumpState));
+            return;
         }
 
         if (p.IsOnGround())
         {
             RequestTransition(nameof(PlayerIdleState));
+            return;
         }
 
         if (p.IsOnWall() && p.PlayerAxis != 0)
         {
             RequestTransition(nameof(PlayerWallSlideState));
+            return;
         }
     }
 }

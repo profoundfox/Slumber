@@ -17,7 +17,7 @@ namespace Slumber
 
             Input.AddBind("Jump", new InputAction(Keys.Space), new InputAction(Buttons.A));
 
-            Input.AddBind("Attack", new InputAction(MouseButton.Left), new InputAction(Buttons.Y));
+            Input.AddBind("Attack", new InputAction(Keys.K), new InputAction(Buttons.Y));
 
             Input.AddBind("Pause", new InputAction(Keys.Escape), new InputAction(Buttons.Start));
             Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));
@@ -51,6 +51,19 @@ namespace Slumber
                 Text = Math.Round(FPS).ToString(),
                 Color = Color.Yellow,
             }, DrawLayer.UI);
+            
+            Screen.Call(new FontDrawCall
+            {
+                Font = BitmapFont,
+                Text = Node.GetFirstNodeByT<Player>().GlobalPosition.ToString(),
+                Color = Color.Azure,
+                Position = new Vector2(0, 10)
+            }, DrawLayer.UI);
+
+
+            
+
+            
         }
     }
 }

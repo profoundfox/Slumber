@@ -33,7 +33,7 @@ public class Player : KinematicBody2D
             Parent = this,
             Name = "PlayerSprite",
             Atlas = animations,
-            LocalPosition = new Vector2(2, 10),
+            LocalPosition = new Vector2(2, 9),
             IsLooping = true
         });
 

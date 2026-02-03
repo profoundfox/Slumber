@@ -10,7 +10,6 @@ public class PlayerJumpState : State
 
     public override void OnEnter()
     {
-        p.PlayerInfo.bufferActivated = false;
         p.Velocity.Y = p.PlayerInfo.JumpForce;
         jumpReleased = false;
     }
@@ -28,12 +27,6 @@ public class PlayerJumpState : State
         {
             p.Velocity.Y /= 4f;
             jumpReleased = true;
-        }
-
-        if ((Engine.Input.IsActionJustPressed("Jump") || p.PlayerInfo.bufferActivated) && !p.IsOnGround())
-        {
-            p.PlayerInfo.bufferActivated = true;
-            Engine.Timer.Wait(p.PlayerInfo.bufferTimer, () => p.PlayerInfo.bufferActivated = false);
         }
 
         if (p.Velocity.Y > 0)
