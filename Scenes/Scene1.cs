@@ -1,4 +1,5 @@
 using System.IO;
+using System.Security.Cryptography;
 using RenderingLibrary.Graphics;
 
 namespace Slumber;
@@ -10,20 +11,25 @@ public class Scene1 : IStage
     public Song bgMusic;
     public SoundEffect bgSFX;
 
+    Random random;
+
     public void OnEnter()
     {       
+        
+        random = new Random();
+
         bgMusic = Engine.Resource.Load<Song>("Assets/Music/Cold_Heights_Ambient_01");
         bgSFX = Engine.Resource.Load<SoundEffect>("Assets/Music/blizzard-445020");
 
         MediaPlayer.IsRepeating = true;
 
-        MediaPlayer.Play(bgMusic);
+        //MediaPlayer.Play(bgMusic);
         
         var bgSFXInstance = bgSFX.CreateInstance();
 
         bgSFXInstance.IsLooped = true;
 
-        bgSFXInstance.Play();
+        //bgSFXInstance.Play();
 
         var camera = new RoomCamera(new RoomCameraConfig
         {
@@ -52,7 +58,10 @@ public class Scene1 : IStage
 
     public void OnExit() {}
 
-    public void Update(GameTime gameTime) {}
+    public void Update(GameTime gameTime)
+    {
+        
+    }
     
     public void SubmitCall()
     {
