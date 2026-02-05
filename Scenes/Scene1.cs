@@ -58,11 +58,16 @@ public class Scene1 : IStage
 
     public void OnExit() {}
 
-    public void Update(GameTime gameTime)
+    public void PhysicsUpdate(float deltaTime)
     {
         
     }
-    
+
+    public void ProcessUpdate(float deltaTime)
+    {
+        
+    }
+
     public void SubmitCall()
     {
         foreach (var c in Engine.Node.GetNodesByT<RayCast2D>()) 

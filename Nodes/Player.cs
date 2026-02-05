@@ -59,7 +59,6 @@ public class Player : KinematicBody2D
         [
             idle, run, attack, runAttack, jump, fall, wallSlide, wallJump
         ]);
-
     }
 
     public override void PhysicsUpdate(float delta)
