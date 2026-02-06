@@ -1,132 +1,169 @@
-using System.Collections.Generic;
-using Monolith.Nodes;
-using RenderingLibrary;
-
-namespace Slumber;
-
-public class Player : KinematicBody2D
+namespace Slumber
 {
-    public int AttackColliderOffset;
-
-    public PlayerInfo PlayerInfo = new();
-    public bool Dead;
-
-    public AnimatedSprite2D AnimatedSprite;
-    public StateController StateController;
-    
-    public Area2D AttackZone;
-
-    public int PlayerDirection = 1;
-    public int PlayerAxis = 1;
-
-    public Player(KinematicBaseConfig config) : base(config) {}
-
-
-    public override void Load()
+    public class Player : KinematicBody2D
     {
-        MTexture PlayerTexture = new("Assets/Animations/PlayerModel3Atlas");
+        public float MoveSpeed = 1000f;
+        public float Acceleration = 3500f;
+        public float Deceleration = 2500f;
+        public float Gravity = 1300f;
+        public float TerminalVelocity = 1200f;
+        public float JumpForce = -350f;
 
-        var animations = AsepriteLoader.LoadAnimations(PlayerTexture, PathHelper.Combine("Raw/Raw/PlayerModel3.json"));
-        
-        AnimatedSprite = new AnimatedSprite2D(new AnimatedSpriteConfig
+        public float WallSlideGravity = 200f;
+        public float WallJumpHorizontalSpeed = 200f;
+        public float WallJumpVerticalSpeed = 300f;
+
+        public int PlayerAxis;
+
+        public AnimatedSprite2D Sprite;
+
+        private bool jumpReleased = false;
+
+        public Player(KinematicBodyConfig cfg) : base(cfg) {}
+
+        public override void Load()
         {
-            Parent = this,
-            Name = "PlayerSprite",
-            Atlas = animations,
-            LocalPosition = new Vector2(2, 9),
-            IsLooping = true
-        });
+            base.Load();
 
-        CollisionShape2D = new CollisionShape2D(new CollisionShapeConfig
-        {
-            Parent = this,
-            Shape = new RectangleShape2D(10, 25)
-        });
+            var c = new CollisionShape2D(new CollisionShapeConfig
+            {
+                Parent = this,
+                Shape = new RectangleShape2D(10, 25)
+            });
 
-        LocalOrdering = LocalOrdering with { Depth = 10 };
-        
-        var idle = new PlayerIdleState(this);
-        var run = new PlayerRunState(this);
-        var attack = new PlayerAttackState(this);
-        var runAttack = new PlayerRunAttackState(this);
-        var jump = new PlayerJumpState(this);
-        var fall = new PlayerFallState(this);
-        var wallSlide = new PlayerWallSlideState(this);
-        var wallJump = new PlayerWallJumpState(this);
-        
+            new StaticBody2D(new StaticBodyConfig
+            {
+                CollisionShape = c
+            });
 
-        StateController = new StateController(idle,
-        [
-            idle, run, attack, runAttack, jump, fall, wallSlide, wallJump
-        ]);
-    }
-
-    public override void PhysicsUpdate(float delta)
-    {   
-        base.PhysicsUpdate(delta);
-
-        PlayerAxis = Engine.Input.GetAxis("MoveLeft", "MoveRight");
-
-        StateController.Update(delta);
-
-        SaveManager.PlayerData.CurrentPosition = LocalPosition;
-        
-        if (PlayerInfo.AttackCount == 2)
-            PlayerInfo.AttackCount = 0;
-    }
-
-    public override void SubmitCall()
-    {
-        base.SubmitCall();
-    }
-
-    public void ApplyGravity()
-    {
-        if (!IsOnGround())
-        {
-            Velocity.Y = MathF.Min(
-                Velocity.Y + PlayerInfo.Gravity * Engine.DeltaTime,
-                PlayerInfo.TerminalVelocity
+            var animations = AsepriteLoader.LoadAnimations(
+                new("PlayerModel3Atlas"),
+                PathHelper.Combine("Raw/PlayerModel3.json")
             );
+
+            Sprite = new AnimatedSprite2D(new AnimatedSpriteConfig
+            {
+                Parent = this,
+                Name = "PlayerSprite",
+                Atlas = animations,
+                LocalPosition = new Vector2(2, 9),
+                IsLooping = true
+            });
         }
-        else if (Velocity.Y > 0)
+
+        public override void PhysicsUpdate(float delta)
         {
-            Velocity.Y = 0;
+            PlayerAxis = Engine.Input.GetAxis("MoveLeft", "MoveRight");
+
+            HandleJump();
+            HandleMovementInput();
+            HandleDeceleration(delta);
+            ApplyGravity(delta);
+
+            base.PhysicsUpdate(delta);
         }
-    }
+
+        public override void ProcessUpdate(float delta)
+        {
+            base.ProcessUpdate(delta);
+
+            AnimateSprite();
+            FlipSprite();
+        }
+
+        private void ApplyGravity(float delta)
+        {
+            if (!IsOnFloor)
+            {
+                Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * delta);
+            }
+
+            else if (Velocity.Y > 0)
+            {
+                Velocity.Y = 0;
+            }
+        }
+
+        public void ApplyGravity()
+        {
+            if (!IsOnFloor)
+            {
+                Velocity.Y = MathF.Min(
+                    Velocity.Y + Gravity * Engine.DeltaTime,
+                    TerminalVelocity
+                );
+            }
+            else if (Velocity.Y > 0)
+            {
+                Velocity.Y = 0;
+            }
+        }
 
 
-    public void HandleMovementInput()
-    {
-        PlayerDirection = PlayerAxis != 0 ? PlayerAxis : PlayerDirection;
-        
-        float targetSpeed = PlayerInfo.MoveSpeed * PlayerAxis;
+        public void HandleMovementInput()
+        {
+            
+            float targetSpeed = MoveSpeed * PlayerAxis;
 
-        if (targetSpeed != 0)
-        {
-            Velocity.X = MoveToward(Velocity.X, targetSpeed, PlayerInfo.Acceleration * Engine.DeltaTime);
+            if (targetSpeed != 0)
+            {
+                Velocity.X = MoveToward(Velocity.X, targetSpeed, Acceleration);
+            }
         }
-    }
 
-    public void HandleDeceleration()
-    {
-        if (!Engine.Input.IsActionPressed("MoveLeft") && !Engine.Input.IsActionPressed("MoveRight"))
+        public void HandleDeceleration(float delta)
         {
-            Velocity.X = MoveToward(Velocity.X, 0, PlayerInfo.Deceleration * Engine.DeltaTime);
+            if (!Engine.Input.IsActionPressed("MoveLeft") && !Engine.Input.IsActionPressed("MoveRight"))
+            {
+                Velocity.X = MoveToward(Velocity.X, 0, Deceleration * delta);
+            }
         }
-    }
 
-    public void FlipSprite()
-    {
-        if (PlayerAxis == 1)
+        public void HandleJump()
         {
-            AttackColliderOffset = 15;
-            AnimatedSprite.LocalMaterial = AnimatedSprite.LocalMaterial with { SpriteEffects = SpriteEffects.None };
+            if (IsOnFloor)
+            {
+                if (Engine.Input.IsActionJustPressed("Jump"))
+                {
+                    Velocity.Y = JumpForce;
+                    jumpReleased = false;
+                }
+
+                if (!jumpReleased && Engine.Input.IsActionJustReleased("Jump") && Velocity.Y < 0)
+                {
+                    Velocity.Y /= 4f;
+                    jumpReleased = true;
+                }
+            }
         }
-        if (PlayerAxis == -1)
+
+        public float MoveToward(float current, float target, float maxDelta)
         {
-            AttackColliderOffset = -38;
-            AnimatedSprite.LocalMaterial = AnimatedSprite.LocalMaterial with { SpriteEffects = SpriteEffects.FlipHorizontally };
+            if (MathF.Abs(target - current) <= maxDelta) return target;
+            return current + MathF.Sign(target - current) * maxDelta;
+        }
+
+        private void AnimateSprite()
+        {
+            if (IsOnFloor)
+            {
+                if (PlayerAxis != 0)
+                    Sprite.PlayAnimation("Run");
+                else
+                    Sprite.PlayAnimation("Idle");
+            }
+            else
+            {
+                Sprite.PlayAnimation("Fall");
+            }
+        }
+
+        private void FlipSprite()
+        {
+            if (PlayerAxis > 0)
+                Sprite.LocalMaterial = Sprite.LocalMaterial with { SpriteEffects = SpriteEffects.None };
+            else if (PlayerAxis < 0)
+                Sprite.LocalMaterial = Sprite.LocalMaterial with { SpriteEffects = SpriteEffects.FlipHorizontally };
         }
     }
 }

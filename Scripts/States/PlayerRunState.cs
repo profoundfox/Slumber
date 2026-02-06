@@ -30,7 +30,7 @@ public class PlayerRunState : State
             return;
         }
 
-        if (!p.IsOnGround())
+        if (!p.IsOnFloor)
         {
             RequestTransition(nameof(PlayerFallState));
             p.PlayerInfo.justLeftLedge = true;

@@ -31,7 +31,7 @@ public class PlayerFallState : State
             );
         }
 
-        if (p.IsOnGround() && p.PlayerInfo.jumpBuffered)
+        if (p.IsOnFloor && p.PlayerInfo.jumpBuffered)
         {
             p.PlayerInfo.jumpBuffered = false;
             RequestTransition(nameof(PlayerJumpState));
@@ -50,13 +50,13 @@ public class PlayerFallState : State
             return;
         }
 
-        if (p.IsOnGround())
+        if (p.IsOnFloor)
         {
             RequestTransition(nameof(PlayerIdleState));
             return;
         }
 
-        if (p.IsOnWall() && p.PlayerAxis != 0)
+        if (p.IsOnWall && p.PlayerAxis != 0)
         {
             RequestTransition(nameof(PlayerWallSlideState));
             return;

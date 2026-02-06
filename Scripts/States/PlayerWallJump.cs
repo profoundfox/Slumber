@@ -36,7 +36,7 @@ public class PlayerWallJumpState : State
             Engine.Timer.Wait(controlLockTimer, () => { controlRestored = true;});
         }
 
-        if (p.IsOnRoof())
+        if (p.IsOnRoof)
         {
             p.Velocity.Y = 0;
         }
@@ -50,7 +50,7 @@ public class PlayerWallJumpState : State
         if (p.Velocity.Y > 0)
             RequestTransition(nameof(PlayerFallState));
 
-        if (p.IsOnGround())
+        if (p.IsOnFloor)
             RequestTransition(nameof(PlayerIdleState));
     }
 

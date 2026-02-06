@@ -34,6 +34,8 @@ public class Scene1 : IStage
         var camera = new RoomCamera(new RoomCameraConfig
         {
             TargetNode = Engine.Node.GetFirstNodeByT<Player>()
+            //Parent = Engine.Node.GetFirstNodeByT<Player>(),
+            //LocalPosition = Engine.Node.GetFirstNodeByT<Player>().GlobalPosition
         });
 
         camera.LocalPosition = new Vector2(Engine.Node.GetFirstNodeByT<Player>().GlobalPosition.X, Engine.Node.GetFirstNodeByT<Player>().GlobalPosition.Y - 60);
@@ -70,7 +72,7 @@ public class Scene1 : IStage
 
     public void SubmitCall()
     {
-        foreach (var c in Engine.Node.GetNodesByT<RayCast2D>()) 
-            c.Ray.Draw();        
+        foreach (var c in Engine.Node.GetNodesByT<CollisionShape2D>()) 
+            c.Shape.Draw();        
     }
 }

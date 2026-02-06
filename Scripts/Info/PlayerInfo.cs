@@ -1,7 +1,7 @@
 public class PlayerInfo
 {
     public PlayerInfo() { }
-    public float MoveSpeed = 100f;
+    public float MoveSpeed = 1000f;
     public float Acceleration = 3500f;
     public float Deceleration = 2500f;
     public float Gravity = 1300f;

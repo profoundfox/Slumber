@@ -25,7 +25,7 @@ namespace Slumber
             p.FlipSprite();
             p.ApplyGravity();
 
-            if (p.AnimatedSprite.Finished)
+            if (p.AnimatedSprite.IsFinished)
             {
                 p.PlayerInfo.attacking = false;
                 RequestTransition(nameof(PlayerIdleState));

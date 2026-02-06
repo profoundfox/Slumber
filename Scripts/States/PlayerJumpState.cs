@@ -35,7 +35,7 @@ public class PlayerJumpState : State
             return;
         }
 
-        if (p.IsOnGround())
+        if (p.IsOnFloor)
         {
             RequestTransition(nameof(PlayerIdleState));
             return;

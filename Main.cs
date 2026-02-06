@@ -63,7 +63,6 @@ namespace Slumber
             Screen.Call(new FontDrawCall
             {
                 Font = BitmapFont,
-                Text = Node.GetFirstNodeByT<Player>().StateController.CurrentState.ToString(),
                 Color = Color.WhiteSmoke,
                 Position = new Vector2(0, 20)
             }, DrawLayer.UI);

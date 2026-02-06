@@ -28,7 +28,7 @@ public class PlayerWallSlideState : State
 
         p.FlipSprite();
 
-        if (!p.IsOnWall() || p.IsOnGround())
+        if (!p.IsOnWall || p.IsOnFloor)
         {
             RequestTransition(nameof(PlayerFallState));
             return;
@@ -50,9 +50,9 @@ public class PlayerWallSlideState : State
 
     private bool _checkWallExit()
     {
-        if (p.IsOnWall(out int wallDir))
+        if (p.IsOnWall)
         {
-            return p.PlayerAxis == -wallDir;
+            return p.PlayerAxis == -p.WallNormal.X;
         }
 
         return false;
