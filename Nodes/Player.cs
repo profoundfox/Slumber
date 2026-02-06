@@ -2,22 +2,24 @@ namespace Slumber
 {
     public class Player : KinematicBody2D
     {
-        public float MoveSpeed = 1000f;
+        public float MoveSpeed = 100f;
         public float Acceleration = 3500f;
         public float Deceleration = 2500f;
         public float Gravity = 1300f;
         public float TerminalVelocity = 1200f;
         public float JumpForce = -350f;
 
-        public float WallSlideGravity = 200f;
+        public float WallSlideGravity = 10f;
         public float WallJumpHorizontalSpeed = 200f;
         public float WallJumpVerticalSpeed = 300f;
 
         public int PlayerAxis;
+        public int PlayerDirection;
 
         public AnimatedSprite2D Sprite;
 
         private bool jumpReleased = false;
+        private bool wallSlideTriggered = false;
 
         public Player(KinematicBodyConfig cfg) : base(cfg) {}
 
@@ -25,20 +27,15 @@ namespace Slumber
         {
             base.Load();
 
-            var c = new CollisionShape2D(new CollisionShapeConfig
+            CollisionShape = new CollisionShape2D(new CollisionShapeConfig
             {
                 Parent = this,
                 Shape = new RectangleShape2D(10, 25)
             });
 
-            new StaticBody2D(new StaticBodyConfig
-            {
-                CollisionShape = c
-            });
-
             var animations = AsepriteLoader.LoadAnimations(
-                new("PlayerModel3Atlas"),
-                PathHelper.Combine("Raw/PlayerModel3.json")
+                new("Assets/Animations/PlayerModel3Atlas"),
+                PathHelper.Combine("Raw/Raw/PlayerModel3.json")
             );
 
             Sprite = new AnimatedSprite2D(new AnimatedSpriteConfig
@@ -55,8 +52,11 @@ namespace Slumber
         {
             PlayerAxis = Engine.Input.GetAxis("MoveLeft", "MoveRight");
 
+            PlayerDirection = PlayerAxis != 0 ? PlayerAxis : PlayerDirection;
+
             HandleJump();
             HandleMovementInput();
+            HandleWallSlide();
             HandleDeceleration(delta);
             ApplyGravity(delta);
 
@@ -71,25 +71,46 @@ namespace Slumber
             FlipSprite();
         }
 
-        private void ApplyGravity(float delta)
+        public void HandleWallSlide()
         {
-            if (!IsOnFloor)
-            {
-                Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * delta);
-            }
+            if ((PlayerAxis > 0 || PlayerAxis < 0) && IsOnWall && !IsOnFloor)
+                wallSlideTriggered = true; 
 
-            else if (Velocity.Y > 0)
+            if (!wallSlideTriggered)
+                return;
+            
+            if (!IsOnWall || IsOnFloor)
+                wallSlideTriggered = false;
+
+            Velocity.Y = MathF.Min(
+                Velocity.Y + WallSlideGravity,
+                WallSlideGravity);
+            
+            if (Engine.Input.IsActionJustPressed("Jump"))
             {
-                Velocity.Y = 0;
+                WallJump();
             }
         }
 
-        public void ApplyGravity()
+        public void WallJump()
         {
+            if (PlayerDirection == 1)
+                Velocity.X = -WallJumpHorizontalSpeed;
+            
+            if (PlayerDirection == -1)
+                Velocity.X = WallJumpHorizontalSpeed;
+
+            Velocity.Y = -WallJumpVerticalSpeed;
+        }
+        public void ApplyGravity(float delta)
+        {
+            if (wallSlideTriggered)
+                return;
+
             if (!IsOnFloor)
             {
                 Velocity.Y = MathF.Min(
-                    Velocity.Y + Gravity * Engine.DeltaTime,
+                    Velocity.Y + Gravity * delta,
                     TerminalVelocity
                 );
             }
@@ -102,7 +123,6 @@ namespace Slumber
 
         public void HandleMovementInput()
         {
-            
             float targetSpeed = MoveSpeed * PlayerAxis;
 
             if (targetSpeed != 0)

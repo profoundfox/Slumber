@@ -21,6 +21,14 @@ namespace Slumber
 
             Input.AddBind("Pause", new InputAction(Keys.Escape), new InputAction(Buttons.Start));
             Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));
+
+
+            var bgMusic = Engine.Resource.Load<Song>("Assets/Music/Cold_Heights_Ambient_01");
+
+            MediaPlayer.IsRepeating = true;
+
+            MediaPlayer.Play(bgMusic);
+    
         }
 
         protected override void LoadContent()
