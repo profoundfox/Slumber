@@ -59,7 +59,7 @@ public class Scene1 : IStage
 
     public void SubmitCall()
     {
-        foreach (var c in Engine.Node.GetNodesByT<CollisionShape2D>()) 
-            c.Shape.Draw();        
+        //foreach (var c in Engine.Node.GetNodesByT<CollisionShape2D>()) 
+            //c.Shape.Draw();        
     }
 }

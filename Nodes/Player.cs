@@ -13,6 +13,11 @@ namespace Slumber
         public float WallJumpHorizontalSpeed = 200f;
         public float WallJumpVerticalSpeed = 300f;
 
+        public bool AllowControl = true;
+
+        public float CoyoteTime = 0.2f;
+        public float BufferTime = 0.2f;
+
         public int PlayerAxis;
         public int PlayerDirection;
 
@@ -20,6 +25,10 @@ namespace Slumber
 
         private bool jumpReleased = false;
         private bool wallSlideTriggered = false;
+        private bool jumpBuffered = false;
+        private bool canCoyoteJump = false;
+        private bool wasOnFloor = false;
+
 
         public Player(KinematicBodyConfig cfg) : base(cfg) {}
 
@@ -54,6 +63,7 @@ namespace Slumber
 
             PlayerDirection = PlayerAxis != 0 ? PlayerAxis : PlayerDirection;
 
+            HandleCoyoteTime();
             HandleJump();
             HandleMovementInput();
             HandleWallSlide();
@@ -94,6 +104,10 @@ namespace Slumber
 
         public void WallJump()
         {
+            AllowControl = false;
+
+            Engine.Timer.Wait(0.06f, () => AllowControl = true);
+
             if (PlayerDirection == 1)
                 Velocity.X = -WallJumpHorizontalSpeed;
             
@@ -123,6 +137,9 @@ namespace Slumber
 
         public void HandleMovementInput()
         {
+            if (!AllowControl)
+                return;
+            
             float targetSpeed = MoveSpeed * PlayerAxis;
 
             if (targetSpeed != 0)
@@ -139,20 +156,47 @@ namespace Slumber
             }
         }
 
-        public void HandleJump()
+        private void HandleCoyoteTime()
         {
+            if (wasOnFloor && !IsOnFloor)
+            {
+                canCoyoteJump = true;
+                Engine.Timer.Wait(CoyoteTime, () => canCoyoteJump = false);
+            }
+
             if (IsOnFloor)
             {
-                if (Engine.Input.IsActionJustPressed("Jump"))
+                canCoyoteJump = false;
+            }
+
+            wasOnFloor = IsOnFloor;
+        }
+
+
+        public void HandleJump()
+        {
+            if (IsOnFloor || canCoyoteJump)
+            {
+                if (Engine.Input.IsActionJustPressed("Jump") || jumpBuffered)
                 {
                     Velocity.Y = JumpForce;
                     jumpReleased = false;
+                    canCoyoteJump = false;
+                    jumpBuffered = false;
                 }
 
                 if (!jumpReleased && Engine.Input.IsActionJustReleased("Jump") && Velocity.Y < 0)
                 {
                     Velocity.Y /= 4f;
                     jumpReleased = true;
+                }
+            }
+            else
+            {
+                if (Engine.Input.IsActionJustPressed("Jump"))
+                {
+                    jumpBuffered = true;
+                    Engine.Timer.Wait(BufferTime, () => jumpBuffered = false);
                 }
             }
         }
