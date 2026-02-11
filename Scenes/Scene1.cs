@@ -21,8 +21,6 @@ public class Scene1 : IStage
         var camera = new RoomCamera(new RoomCameraConfig
         {
             TargetNode = Engine.Node.GetFirstNodeByT<Player>()
-            //Parent = Engine.Node.GetFirstNodeByT<Player>(),
-            //LocalPosition = Engine.Node.GetFirstNodeByT<Player>().GlobalPosition
         });
 
         camera.LocalPosition = new Vector2(Engine.Node.GetFirstNodeByT<Player>().GlobalPosition.X, Engine.Node.GetFirstNodeByT<Player>().GlobalPosition.Y - 60);

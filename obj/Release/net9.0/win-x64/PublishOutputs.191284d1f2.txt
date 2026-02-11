@@ -5,6 +5,10 @@
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/Backgrounds/HeightsBGNoMain.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/ButtonBG.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/Fonts/Font.xnb
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/Music/blizzard-445020.ogg
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/Music/blizzard-445020.xnb
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/Music/Cold_Heights_Ambient_01.ogg
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/Music/Cold_Heights_Ambient_01.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Content/Assets/Tileset/SlumberTilesetAtlas.xnb
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Raw/LevelData/Level1.json
 /Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/win-x64/publish/Raw/LevelData/Slumber.ogmo

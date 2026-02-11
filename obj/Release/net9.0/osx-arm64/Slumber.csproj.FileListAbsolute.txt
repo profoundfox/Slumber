@@ -221,3 +221,7 @@
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Release/net9.0/osx-arm64/Slumber.pdb
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Release/net9.0/osx-arm64/Slumber.genruntimeconfig.cache
 /Users/nilslauvstad/Documents/Project/Slumber/obj/Release/net9.0/osx-arm64/ref/Slumber.dll
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/osx-arm64/Content/Assets/Music/blizzard-445020.ogg
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/osx-arm64/Content/Assets/Music/blizzard-445020.xnb
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/osx-arm64/Content/Assets/Music/Cold_Heights_Ambient_01.ogg
+/Users/nilslauvstad/Documents/Project/Slumber/bin/Release/net9.0/osx-arm64/Content/Assets/Music/Cold_Heights_Ambient_01.xnb

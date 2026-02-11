@@ -23,7 +23,7 @@ namespace Slumber
             Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));
 
 
-            var bgMusic = Engine.Resource.Load<Song>("Assets/Music/Cold_Heights_Ambient_01");
+            var bgMusic = Resource.Load<Song>("Assets/Music/Cold_Heights_Ambient_01");
 
             MediaPlayer.IsRepeating = true;
 
@@ -63,7 +63,7 @@ namespace Slumber
             Screen.Call(new FontDrawCall
             {
                 Font = BitmapFont,
-                Text = Node.GetFirstNodeByT<Player>().GlobalPosition.ToString(),
+                Text = Vector2.Round(Node.GetFirstNodeByT<Player>().GlobalPosition).ToString(),
                 Color = Color.Azure,
                 Position = new Vector2(0, 10)
             }, DrawLayer.UI);

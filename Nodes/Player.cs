@@ -1,10 +1,15 @@
+using System.Net.Mail;
+
 namespace Slumber
 {
     public class Player : KinematicBody2D
     {
+        #region Configuration
+
         public float MoveSpeed = 100f;
         public float Acceleration = 3500f;
         public float Deceleration = 2500f;
+
         public float Gravity = 1300f;
         public float TerminalVelocity = 1200f;
         public float JumpForce = -350f;
@@ -13,15 +18,18 @@ namespace Slumber
         public float WallJumpHorizontalSpeed = 200f;
         public float WallJumpVerticalSpeed = 300f;
 
+        public float CoyoteTime = 0.12f;
+        public float JumpBufferTime = 0.2f;
+        public float AttackBufferTime = 0.2f;
+
         public bool AllowControl = true;
 
-        public float CoyoteTime = 0.2f;
-        public float BufferTime = 0.2f;
+        #endregion
+
+        #region State
 
         public int PlayerAxis;
         public int PlayerDirection;
-
-        public AnimatedSprite2D Sprite;
 
         private bool jumpReleased = false;
         private bool wallSlideTriggered = false;
@@ -29,8 +37,21 @@ namespace Slumber
         private bool canCoyoteJump = false;
         private bool wasOnFloor = false;
 
+        private int attackCounter;
+        private bool attackBuffer;
+        private bool isAttacking = false;
 
-        public Player(KinematicBodyConfig cfg) : base(cfg) {}
+        #endregion
+
+        #region Components
+
+        public AnimatedSprite2D Sprite;
+
+        #endregion
+
+        #region Constructors
+
+        public Player(KinematicBodyConfig cfg) : base(cfg) { }
 
         public override void Load()
         {
@@ -39,7 +60,7 @@ namespace Slumber
             CollisionShape = new CollisionShape2D(new CollisionShapeConfig
             {
                 Parent = this,
-                Shape = new RectangleShape2D(10, 25)
+                Shape = new RectangleShape2D(12, 25)
             });
 
             var animations = AsepriteLoader.LoadAnimations(
@@ -52,15 +73,20 @@ namespace Slumber
                 Parent = this,
                 Name = "PlayerSprite",
                 Atlas = animations,
-                LocalPosition = new Vector2(2, 9),
+                LocalPosition = new Vector2(6, 9),
                 IsLooping = true
             });
+
+            Depth = 5;
         }
+
+        #endregion
+
+        #region Update
 
         public override void PhysicsUpdate(float delta)
         {
             PlayerAxis = Engine.Input.GetAxis("MoveLeft", "MoveRight");
-
             PlayerDirection = PlayerAxis != 0 ? PlayerAxis : PlayerDirection;
 
             HandleCoyoteTime();
@@ -68,6 +94,7 @@ namespace Slumber
             HandleMovementInput();
             HandleWallSlide();
             HandleDeceleration(delta);
+            HandleAttack();
             ApplyGravity(delta);
 
             base.PhysicsUpdate(delta);
@@ -79,43 +106,54 @@ namespace Slumber
 
             AnimateSprite();
             FlipSprite();
+
+            if (attackCounter == 2)
+                attackCounter = 0;
         }
 
-        public void HandleWallSlide()
+        public override void SubmitCall()
         {
-            if ((PlayerAxis > 0 || PlayerAxis < 0) && IsOnWall && !IsOnFloor)
-                wallSlideTriggered = true; 
+            base.SubmitCall();
 
-            if (!wallSlideTriggered)
+            CollisionShape.Shape.Draw();
+        }
+
+        #endregion
+
+        #region Movement
+
+        public void HandleMovementInput()
+        {
+            if (!AllowControl)
                 return;
-            
-            if (!IsOnWall || IsOnFloor)
-                wallSlideTriggered = false;
 
-            Velocity.Y = MathF.Min(
-                Velocity.Y + WallSlideGravity,
-                WallSlideGravity);
-            
-            if (Engine.Input.IsActionJustPressed("Jump"))
+            float targetSpeed = MoveSpeed * PlayerAxis;
+
+            if (targetSpeed != 0)
+                Velocity.X = MoveToward(Velocity.X, targetSpeed, Acceleration);
+        }
+
+        public void HandleDeceleration(float delta)
+        {
+            if (!Engine.Input.IsActionPressed("MoveLeft") &&
+                !Engine.Input.IsActionPressed("MoveRight"))
             {
-                WallJump();
+                Velocity.X = MoveToward(Velocity.X, 0, Deceleration * delta);
             }
         }
 
-        public void WallJump()
+        public float MoveToward(float current, float target, float maxDelta)
         {
-            AllowControl = false;
+            if (MathF.Abs(target - current) <= maxDelta)
+                return target;
 
-            Engine.Timer.Wait(0.06f, () => AllowControl = true);
-
-            if (PlayerDirection == 1)
-                Velocity.X = -WallJumpHorizontalSpeed;
-            
-            if (PlayerDirection == -1)
-                Velocity.X = WallJumpHorizontalSpeed;
-
-            Velocity.Y = -WallJumpVerticalSpeed;
+            return current + MathF.Sign(target - current) * maxDelta;
         }
+
+        #endregion
+
+        #region Jumping and Gravity
+
         public void ApplyGravity(float delta)
         {
             if (wallSlideTriggered)
@@ -134,45 +172,6 @@ namespace Slumber
             }
         }
 
-
-        public void HandleMovementInput()
-        {
-            if (!AllowControl)
-                return;
-            
-            float targetSpeed = MoveSpeed * PlayerAxis;
-
-            if (targetSpeed != 0)
-            {
-                Velocity.X = MoveToward(Velocity.X, targetSpeed, Acceleration);
-            }
-        }
-
-        public void HandleDeceleration(float delta)
-        {
-            if (!Engine.Input.IsActionPressed("MoveLeft") && !Engine.Input.IsActionPressed("MoveRight"))
-            {
-                Velocity.X = MoveToward(Velocity.X, 0, Deceleration * delta);
-            }
-        }
-
-        private void HandleCoyoteTime()
-        {
-            if (wasOnFloor && !IsOnFloor)
-            {
-                canCoyoteJump = true;
-                Engine.Timer.Wait(CoyoteTime, () => canCoyoteJump = false);
-            }
-
-            if (IsOnFloor)
-            {
-                canCoyoteJump = false;
-            }
-
-            wasOnFloor = IsOnFloor;
-        }
-
-
         public void HandleJump()
         {
             if (IsOnFloor || canCoyoteJump)
@@ -184,37 +183,96 @@ namespace Slumber
                     canCoyoteJump = false;
                     jumpBuffered = false;
                 }
-
-                if (!jumpReleased && Engine.Input.IsActionJustReleased("Jump") && Velocity.Y < 0)
-                {
-                    Velocity.Y /= 4f;
-                    jumpReleased = true;
-                }
             }
             else
             {
                 if (Engine.Input.IsActionJustPressed("Jump"))
                 {
                     jumpBuffered = true;
-                    Engine.Timer.Wait(BufferTime, () => jumpBuffered = false);
+                    Engine.Timer.Wait(JumpBufferTime, () => jumpBuffered = false);
                 }
+            }
+
+            if (!jumpReleased && Engine.Input.IsActionJustReleased("Jump") && Velocity.Y < 0)
+            {
+                Velocity.Y /= 2f;
+                jumpReleased = true;
             }
         }
 
-        public float MoveToward(float current, float target, float maxDelta)
+        private void HandleCoyoteTime()
         {
-            if (MathF.Abs(target - current) <= maxDelta) return target;
-            return current + MathF.Sign(target - current) * maxDelta;
+            if (wasOnFloor && !IsOnFloor && Velocity.Y >= 0f)
+            {
+                canCoyoteJump = true;
+                Engine.Timer.Wait(CoyoteTime, () => canCoyoteJump = false);
+            }
+
+            if (IsOnFloor)
+                canCoyoteJump = false;
+
+            wasOnFloor = IsOnFloor;
         }
+
+        #endregion
+
+        #region Wall Interaction
+
+        public void HandleWallSlide()
+        {
+            if (PlayerAxis != 0 && IsOnWall && !IsOnFloor)
+                wallSlideTriggered = true;
+
+            if (!wallSlideTriggered)
+                return;
+
+            if (!IsOnWall || IsOnFloor)
+                wallSlideTriggered = false;
+
+            Velocity.Y = MathF.Min(
+                Velocity.Y + WallSlideGravity,
+                WallSlideGravity
+            );
+
+            if (Engine.Input.IsActionJustPressed("Jump"))
+                WallJump();
+        }
+
+        public void WallJump()
+        {
+            AllowControl = false;
+            Engine.Timer.Wait(0.06f, () => AllowControl = true);
+
+            if (PlayerDirection == 1)
+                Velocity.X = -WallJumpHorizontalSpeed;
+            else if (PlayerDirection == -1)
+                Velocity.X = WallJumpHorizontalSpeed;
+
+            Velocity.Y = -WallJumpVerticalSpeed;
+        }
+
+        #endregion
+
+        #region Visuals
 
         private void AnimateSprite()
         {
             if (IsOnFloor)
             {
-                if (PlayerAxis != 0)
-                    Sprite.PlayAnimation("Run");
+                if (!isAttacking)
+                {
+                    if (PlayerAxis != 0)
+                        Sprite.PlayAnimation("Run");
+                    else
+                        Sprite.PlayAnimation("Idle");
+                }
                 else
-                    Sprite.PlayAnimation("Idle");
+                {
+                    if (PlayerAxis != 0)
+                        Sprite.PlayAnimation("RunAttack");
+                    else
+                        Sprite.PlayAnimation("Attack" + attackCounter);
+                }
             }
             else
             {
@@ -229,5 +287,57 @@ namespace Slumber
             else if (PlayerAxis < 0)
                 Sprite.LocalMaterial = Sprite.LocalMaterial with { SpriteEffects = SpriteEffects.FlipHorizontally };
         }
+
+        #endregion
+
+        #region Attack
+
+        public void HandleAttack()
+        {
+            if (Engine.Input.IsActionJustPressed("Attack"))
+            {
+                if (!isAttacking)
+                {
+                    Attack();
+                }
+
+                else
+                {
+                    BufferAttack();
+                }
+            }
+
+            if (isAttacking && Sprite.IsFinished)
+            {
+                isAttacking = false;
+
+                if (attackBuffer)
+                {
+                    attackBuffer = false;
+                    Attack();
+                }
+            }
+        }
+
+        public void Attack()
+        {
+            attackCounter ++;
+            isAttacking = true;
+        }
+
+        public void BufferAttack()
+        {
+            if (attackBuffer)
+                return;
+            
+            attackBuffer = true;
+
+            Engine.Timer.Wait(AttackBufferTime, () =>
+            {
+                attackBuffer = false;
+            });
+        }
+
+        #endregion
     }
 }
