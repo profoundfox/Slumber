@@ -54,12 +54,12 @@ public class Gardens3 : Scene
 
     new Parallax2D().Set(n =>
     {
-      n.Texture = new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Background/Gardens-Layer-3"), new Rectangle(0, 0, 640, 609));
+      n.Texture = new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Background/Gardens-Layer-3"), new Rectangle(0, 0, 640, 640));
       n.Depth = -10;
       n.MotionScale = new Vector2(0.4f, 0f);
       n.RepeatTimes = 4;
       n.RepeatSize = new Extent(640, 0);
-      n.Position = new Vector2(0, -125);
+      n.Position = new Vector2(0, -156);
       n.SetParent(root);
     });
 

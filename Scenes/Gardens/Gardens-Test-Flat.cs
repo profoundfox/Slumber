@@ -28,7 +28,7 @@ public class GardensFlatTest : Scene
       .Set(n => n.Limit = rect)
       .Set(n => n.Deadzone = new Extent(30, 0))
       .Set(n => n.OffsetSmoothing = true)
-      .Set(n => n.Smoothing = false)
+      .Set(n => n.Smoothing = true)
       .Set(n => n.Target = Player);
 
 
