@@ -14,7 +14,7 @@ public static class DotTiledBridge
 
     var nodes = new List<Node>();
 
-    var objects = HandleObjects(map);
+    var objects = HandleObjects(map, path);
     var maps = map.Bridge(path);
 
     nodes.AddRange(objects);
@@ -23,9 +23,10 @@ public static class DotTiledBridge
     return nodes;
   }
 
-  public static List<CollisionNode2D> HandleObjects(this Map map)
+  public static List<CollisionNode2D> HandleObjects(this Map map, string path)
   {
     var nodes = new List<CollisionNode2D>();
+    var (tileset, firstGid) = ResolveTileset(map, path);
 
     foreach (var baseLayer in map.Layers)
     {
@@ -36,6 +37,25 @@ public static class DotTiledBridge
       {
         foreach (DotTiled.Object obj in layer.Objects)
         {
+          if (obj is TileObject tile)
+          {
+            uint gid = tile.GID;
+            int localId = (int)(gid - firstGid);
+
+            var sprite = new Sprite2D().Set(n =>
+            {
+              n.Texture = tileset.GetTile(localId);
+              n.Position = new Vector2(tile.X, tile.Y);
+              Console.WriteLine("Yes");
+            });
+
+            if (obj.Type == "=")
+            {
+              
+            }
+
+          }
+
           if (obj is PointObject point)
           {
             if (obj.Name == "enemy")

@@ -55,16 +55,24 @@ namespace Slumber
 
       Input.AddBind("Pause", new InputAction(Keys.Escape), new InputAction(Buttons.Start));
       Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));
-
+      
       Prefs.Graphics.Fullscreen = true;
+      #if DEBUG
+      Prefs.Graphics.Fullscreen = false;
+      #endif
 
       Prefs.General.ShowCollision = false;
 
       Prefs.Graphics.MouseVisible = true;
 
+      IsFixedTimeStep = true;
+      Graphics.SynchronizeWithVerticalRetrace = false;
+
       ExitOnEsc = false;
 
       Prefs.Apply();
+    
+      Core.Instance.Graphics.ApplyChanges();
     }
 
     protected override void LoadContent()
@@ -79,18 +87,13 @@ namespace Slumber
 
     protected override void Update(GameTime gameTime)
     {
-
       base.Update(gameTime);
 
       GumUI.Update(gameTime);
 
       GumUI.Root.HasEvents = false;
 
-      if (Core.Input.Keyboard.WasKeyJustPressed(Keys.R))
-        Core.Token.Anchor.ReloadCurrentAnchor();
-
       //Mouse.SetPosition(0, 0);
-
     }
 
     bool showCollision;
@@ -114,8 +117,10 @@ namespace Slumber
       var player = Core.Token.Get<Player>();
 
       var camera = Core.Token.Get<PixelCamera>();
-      
-      if (player == null || Graphics.IsFullScreen)
+
+      var sumBool = true;
+
+      if (player == null || Graphics.IsFullScreen || sumBool)
         return;
 
       if (!init)
@@ -137,6 +142,7 @@ namespace Slumber
       ImGui.Begin("Player");  
       ImGui.Text($"Velocity: {player.Velocity.ToString()}");
       ImGui.Text($"Position: {player.Transform.Global.Position.ToString()}");
+      ImGui.Text($"Visibility: {player.Visible}");
       ImGui.Text($"Term: {MathF.Round(player.Properties.CurrentTerminalVelocity / 100f) * 100f}");
       ImGui.Text($"State: {player.Get<StateMachine>()?.Current}");
       ImGui.Text($"Count: {Core.Token.GetAll<Player>().Count}");

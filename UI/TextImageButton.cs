@@ -10,9 +10,9 @@ namespace Slumber;
 public class TextAndSpriteButton : CustomButton
 {
     public string LeftText { get; set; }
-    public MTexture RightTexture { get; set; }
+    public TextureRegion RightTexture { get; set; }
   
-    public TextAndSpriteButton(string leftText, MTexture rightTexture)
+    public TextAndSpriteButton(string leftText, TextureRegion rightTexture)
     {
         LeftText = leftText;
         RightTexture = rightTexture;
@@ -46,9 +46,9 @@ public class TextAndSpriteButton : CustomButton
         var rightSprite = new SpriteRuntime();
         
         rightSprite.WidthUnits = DimensionUnitType.Absolute;
-        rightSprite.Width = 24; 
+        rightSprite.Width = 32; 
         rightSprite.HeightUnits = DimensionUnitType.Absolute;
-        rightSprite.Height = 24;
+        rightSprite.Height = 32;
 
         rightSprite.XUnits = GeneralUnitType.PixelsFromLarge;
         rightSprite.X = -15;
@@ -57,7 +57,7 @@ public class TextAndSpriteButton : CustomButton
         rightSprite.YUnits = GeneralUnitType.PixelsFromMiddle;
         rightSprite.YOrigin = VerticalAlignment.Center;
 
-        rightSprite.Texture = RightTexture.ToTexture();
+        rightSprite.FromRegion(RightTexture);
 
         this.Visual.Children.Add(rightSprite);
     }

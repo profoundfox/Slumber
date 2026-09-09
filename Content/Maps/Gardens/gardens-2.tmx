@@ -1668,7 +1668,7 @@
   </data>
  </layer>
  <objectgroup id="3" name="Node">
-  <object id="16" x="-320" y="-464" width="784" height="512"/>
+  <object id="16" x="-320" y="-480" width="784" height="544"/>
   <object id="39" name="@" x="480" y="-288" width="16" height="48">
    <properties>
     <property name="scene" value="Gardens3"/>

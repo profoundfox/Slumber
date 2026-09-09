@@ -16,14 +16,15 @@ public class Gardens7 : Scene
     base.EnterTree();
 
     var root = new Node2D()
-      .Set("Position", new Vector2(0, -150));
+      .Set("Position", new Vector2(0, -150))
+      .Set(n => n.Visible = true);
     
     var playerPos = new Vector2(168, -240);
     var playerDir = 1;
 
     Player = new Player();
 
-    var rect = new Rectangle(-704, -440, 896, 360);
+    var rect = new Rectangle(-704, -440, 960, 360);
 
     new PixelCamera()
       .Set(n => n.Weight = 0.3f)
@@ -64,6 +65,12 @@ public class Gardens7 : Scene
       n.SetParent(root);
     });
 
+    new Checkpoint().Set(n =>
+    {
+      n.Position = new Vector2(176, -240);
+      n.Name = "Gardens7Chckpnt";
+    });
+
     var loader = Loader.Default();
     var mapPath = Path.Combine(
         AppContext.BaseDirectory,
@@ -75,7 +82,7 @@ public class Gardens7 : Scene
     
     new CanvasAnchor().Set(n =>
     {
-      n.BackBufferColor = new Color(13, 22, 24);
+      n.BackBufferColor = new Color(182, 188, 192);
       n.AmbientColor = Color.White;
     });
     

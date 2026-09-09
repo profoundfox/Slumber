@@ -21,6 +21,8 @@ public class WallSlideState : State
   {
     base.Physics(delta);
     
+    p.Properties.PlayerAxis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp").ToVector2();
+
     p.HandleMovementInput();
 
     p.Velocity.Y = MathF.Min(

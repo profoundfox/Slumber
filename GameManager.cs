@@ -4,7 +4,10 @@ namespace Slumber;
 
 public class GameManager : Object
 {
-  public Persistence Persistence { get; set; } = new();  
+  public Persistence Persistence { get; set; }
+  public JangoPersistence JangoPersistence { get; set; }
+
+  public Data Data { get; set; }
 
   public Player Player { get; set; }
 
@@ -12,24 +15,45 @@ public class GameManager : Object
 
   public GameManager()
   {
+    Persistence = new();
+    JangoPersistence = new();
+    Data = new (Persistence);
+
     ScreenEffects = new ScreenEffects().Set(n => n.Detach());
   }
 
   public void Save(Checkpoint c)
   {
-    Persistence.CurrentRespawnPoint = c.Transform.Global.Position;
-    Persistence.CurrentRespawnScene = Core.Token.Anchor.GetCurrentAnchor().GetType().Name;
+    Data.CurrentRespawnScene = Core.Token.Anchor.GetCurrentAnchor().GetType().Name;
+    Data.CurrentRespawnPoint = c.Transform.Global.Position;
+  }
 
-    FileT.ToBinary(Persistence, System.IO.Path.Combine("Saved", "Persistence"));
+
+  public void Save(string scene, Vector2 pos)
+  {
+    Persistence.CurrentSpawnPoint = pos;
+    Persistence.CurrentSpawnScene = scene;
+
+    string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+    string myGameFolder = System.IO.Path.Combine(saveFolder, "Slumber");
+    System.IO.Directory.CreateDirectory(myGameFolder);
+
+    FileT.ToBinary(Persistence, System.IO.Path.Combine(myGameFolder, "Persistence"));
+    FileT.ToBinary(JangoPersistence, System.IO.Path.Combine(myGameFolder, "JangoPersistence"));
   }
 
   public void Load()
   {
-    FileT.FromBinary(Persistence, System.IO.Path.Combine("Saved", "Persistence"));
+    string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+    string myGameFolder = System.IO.Path.Combine(saveFolder, "Slumber");
+    System.IO.Directory.CreateDirectory(myGameFolder);
 
-    Transition(Persistence.CurrentRespawnScene, () =>
+    FileT.FromBinary(Persistence, System.IO.Path.Combine(myGameFolder, "Persistence"));
+    FileT.FromBinary(JangoPersistence, System.IO.Path.Combine(myGameFolder, "JangoPersistence"));
+    
+    Transition(Persistence.CurrentSpawnScene, () =>
     {
-      Player.Position = Persistence.CurrentRespawnPoint;
+      Player.Position = Persistence.CurrentSpawnPoint;
     });
   }
 
@@ -40,6 +64,7 @@ public class GameManager : Object
       var s = Core.Token.Anchor.GetCurrentAnchor() as Scene;
       s.EntranceGateID = targetID;
       Player.Position = s.SpawnPoints[targetID];
+      Player.Properties.AllowControl = false;
     });
   }
 
@@ -86,14 +111,34 @@ public class GameManager : Object
 
     canBeHazard = false;
 
-    Player.STM.ChangeState("SpikeDamageState");
+    Player.STM.ChangeState("TransitionState");
+
+    Core.Token.Get<PixelCamera>().Shake(TimeSpan.FromSeconds(0.05), 15, 10);
+
+    Player.Visible = false;
+    Player.Properties.CanTakeDamage = false;
+
+    Data.PlayerCurrentHealth -= 1;
+
+    Player.HealthIcons.Where(n => n.Frame == 0).LastOrDefault().Frame = 1;
+    Player.HealthIcons.RemoveAt(Player.HealthIcons.Count - 1);
+
+    Player.Properties.AllowControl = false;
 
     ScreenEffects.In();
     Await.Until(() => ScreenEffects.Transition.IsFinished, () =>
     {
-      Player.Position = Persistence.LastSafePoint;
+      Player.Position = Data.LastSafePoint;
+      Player.Properties.CanTakeDamage = true;
+      Player.Visible = true;
       canBeHazard = true;
       ScreenEffects.Out();
+      Await.Span(TimeSpan.FromSeconds(0.35f), () =>
+      {
+        Player.STM.ChangeState("IdleState");
+        Player.Properties.AllowControl = true;
+        canBeHazard = true;
+      });
     });
   }
 
@@ -103,11 +148,11 @@ public class GameManager : Object
     cam?.toggleShake = true;
     Await.Span(TimeSpan.FromSeconds(0.1f), () => cam?.toggleShake = false);
     Player.QueueFree();
-    Persistence.CurrentHealthPoints = 5;
+    Data.PlayerCurrentHealth = 5;
 
-    Transition(Persistence.CurrentRespawnScene, () =>
+    Transition(Data.CurrentRespawnScene, () =>
     {
-      Player.Position = Persistence.CurrentRespawnPoint;
+      Player.Position = Data.CurrentRespawnPoint;
     });
 
   }

@@ -2,7 +2,9 @@ namespace Slumber;
 
 public class Checkpoint : Node2D
 {
-  public AnimatedSprite2D Sprite { get; set; }
+
+  public AnimatedSprite2D Explo { get; set; }
+  public Sprite2D Sprite { get; set; }
 
   public Area2D Area { get; set; }
 
@@ -12,23 +14,41 @@ public class Checkpoint : Node2D
 
   public override void EnterTree()
   {
-    var atlas = AsepriteLoader.LoadAnimations(
-        new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/BONFIRE"), new Rectangle(0, 0, 864, 48)),
-        PathTools.Combine("Raw/Raw/BONFIRE.json")
+    var atlas = AsepriteLoader.LoadAnimation(
+        new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Explosion"), new Rectangle(0, 0, 1148, 141)),
+        new Extent(164, 141)
     );
 
-    Sprite = new AnimatedSprite2D().Set(n =>
+    Sprite = new Sprite2D().Set(n =>
     {
-      n.Atlas = atlas;
+      n.Origin = Vector2.Zero;
+      n.Texture = new TextureRegion(Core.Resource.Load<Texture2D>("Maps/Atlas"), new Rectangle(512, 336, 64, 32));
+      n.HFrames = 2;
+      n.Frame = 0;
       n.SetParent(this);
     });
+
+    Explo = new AnimatedSprite2D().Set(n =>
+    {
+      n.Atlas = atlas;
+      n.Position = new Vector2(20, -30);
+      n.SetParent(this);
+    });
+
+    if (Main.GameManager.JangoPersistence.CheckpointTriggered == this.Name)
+    {
+      Lit = true;
+      Sprite.Frame = 1;
+      Explo.Visible = false;
+      Main.GameManager.Save(this);
+    }
 
     Area = new Area2D().Set(n =>
     {
       n.AddChild(new CollisionShape2D().Set(c =>
       {
-        c.Position = new Vector2(-20, -15);
-        c.Shape = new RectangleShape2D(40, 38);
+        c.Position = new Vector2(0, 0);
+        c.Shape = new RectangleShape2D(30, 32);
       }));
       n.SetParent(this);
     });
@@ -41,12 +61,7 @@ public class Checkpoint : Node2D
 
   public override void Process(float delta)
   {
-    if (Lit)
-      Sprite.PlayAnimation("Lit");
-    else
-      Sprite.PlayAnimation("UnLit");
-
-    if (Area.GetAnyBody() is Player p)
+    if (Area.GetAnyBody() is Player p && !Lit)
     {
       Light();
     }
@@ -54,7 +69,12 @@ public class Checkpoint : Node2D
   
   public void Light()
   {
+    Core.Token.Get<PixelCamera>().Shake(TimeSpan.FromSeconds(0.1f));
     Lit = true;
+    Main.GameManager.JangoPersistence.CheckpointTriggered = this.Name;
+    Sprite.Frame = 1;
+    Explo.PlayAnimation("Main", false);
+    Await.Until(() => Explo.IsFinished, () => Explo.Visible = false);
     Main.GameManager.Save(this);
   }
 

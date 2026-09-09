@@ -16,6 +16,12 @@ public class PropTest
   public float Pi = 3.14F;
   public string Name = "Alice";
   public Vector2 Pos = new Vector2(10, 20);
+  public Dictionary<string, bool> Discovered = new Dictionary<string, bool> 
+  {
+    {"Gardens", true},
+    {"Caverns", false},
+    {"Krongo", true}
+  };
 }
 
 public class Test : Scene
@@ -41,13 +47,23 @@ public class Test : Scene
     Props.Pi = 3.2F;
     Props.Name = "Greg";
     Props.Pos = new Vector2(15, 25);
+    Props.Discovered = new Dictionary<string, bool>
+    {
+      {"Yrngo", true},
+      {"Kringle", false},
+      {"Urno", false}
+    };
     
     Console.WriteLine("[BEFORE LOAD]");
-    Console.WriteLine($"Alive: {Props.Alive}, Health: {Props.Health}, Pi: {Props.Pi}, Name: {Props.Name}, Pos: {Props.Pos.ToString()}");
-    
+    Console.WriteLine($"Alive: {Props.Alive}, Health: {Props.Health}, Pi: {Props.Pi}, Name: {Props.Name}, Pos: {Props.Pos.ToString()}, Discovered: ");
+    foreach (var entry in Props.Discovered)
+      Console.WriteLine(entry.ToString());
+
     FileT.FromBinary(Props, "Saved/Test");
     Console.WriteLine("[AFTER LOAD]");
     Console.WriteLine($"Alive: {Props.Alive}, Health: {Props.Health}, Pi: {Props.Pi}, Name: {Props.Name}, Pos: {Props.Pos.ToString()}");
+    foreach (var entry in Props.Discovered)
+      Console.WriteLine(entry.ToString());
 
     new ColorRect().Set(n =>
     {

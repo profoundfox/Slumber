@@ -3,9 +3,9 @@ namespace Slumber;
 
 public class FloorAttackState : State
 {
-  Point Axis; 
-
   Player p => Core.Token.Get<Player>();
+
+  bool pushedBack;
 
   public override void OnEnter()
   {
@@ -23,6 +23,7 @@ public class FloorAttackState : State
     {
       p.AttackArea.Get<CollisionShape2D>().Disabled = true;
       p.Properties.IsAttacking = false;
+      pushedBack = false;
 
       if (p.Properties.AttackBuffer)
       {
@@ -56,7 +57,15 @@ public class FloorAttackState : State
 
   public override void Physics(float delta)
   {
-    p.HandleMovementInput();
+    p.Properties.PlayerAxis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp").ToVector2();
+
+    if (p.AttackArea.IsInsideAnyBody() && !pushedBack)
+    {
+      p.Velocity.X = -500;
+      pushedBack = true;
+    }
+    
+    //p.HandleMovementInput();
     p.HandleDeceleration(delta);
     p.ApplyGravity(delta);
     p.HandleCoyoteTime();

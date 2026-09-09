@@ -14,7 +14,8 @@ public class Gardens3 : Scene
     base.EnterTree();
 
     var root = new Node2D()
-      .Set("Position", new Vector2(0, -115));
+      .Set("Position", new Vector2(0, -115))
+      .Set(n => n.Visible = true);
 
     Player = new Player();
     
@@ -73,7 +74,7 @@ public class Gardens3 : Scene
     
     new CanvasAnchor().Set(n =>
     {
-      n.BackBufferColor = new Color(13, 22, 24);
+      n.BackBufferColor = new Color(182, 188, 192);
       n.AmbientColor = Color.White;
     });
     

@@ -14,7 +14,8 @@ public class Gardens5 : Scene
     base.EnterTree();
 
     var root = new Node2D()
-      .Set("Position", new Vector2(0, -50));
+      .Set("Position", new Vector2(0, -50))
+      .Set(n => n.Visible = true);
 
     var playerPos = new Vector2(184, -16);
     var playerDir = 1;
@@ -37,7 +38,7 @@ public class Gardens5 : Scene
       n.Depth = -8;
       n.MotionScale = new Vector2(0.2f, 0f);
       n.RepeatSize = new Extent(640, 0);
-      n.RepeatTimes = 4;
+      n.RepeatTimes = 8;
       n.SetParent(root);
     });
 
@@ -46,7 +47,7 @@ public class Gardens5 : Scene
       n.Texture = new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Background/Gardens-Layer-2"), new Rectangle(0, 0, 640, 360));
       n.Depth = -9;
       n.MotionScale = new Vector2(0.3f, 0f);
-      n.RepeatTimes = 4;
+      n.RepeatTimes = 8;
       n.RepeatSize = new Extent(640, 0);
       n.SetParent(root);
     });
@@ -56,7 +57,7 @@ public class Gardens5 : Scene
       n.Texture = new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Background/Gardens-Layer-3"), new Rectangle(0, 0, 640, 609));
       n.Depth = -10;
       n.MotionScale = new Vector2(0.4f, 0f);
-      n.RepeatTimes = 4;
+      n.RepeatTimes = 8;
       n.RepeatSize = new Extent(640, 0);
       n.Position = new Vector2(0, -125);
       n.SetParent(root);
@@ -74,7 +75,7 @@ public class Gardens5 : Scene
     
     new CanvasAnchor().Set(n =>
     {
-      n.BackBufferColor = new Color(13, 22, 24);
+      n.BackBufferColor = new Color(182, 188, 192);
       n.AmbientColor = Color.White;
     });
     

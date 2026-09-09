@@ -19,18 +19,6 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/HealthIcon.png
 
-#begin Graphics/CatacombBG.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Graphics/CatacombBG.png
-
 #begin Graphics/Background/Gardens-Layer-1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -420,18 +408,6 @@
 #begin Fonts/RainHearts.fnt
 /copy:Fonts/RainHearts.fnt
 
-#begin Graphics/Bed.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Graphics/Bed.png
-
 #begin Graphics/BONFIRE.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -471,7 +447,13 @@
 #begin Maps/Gardens/gardens-9.tmx
 /copy:Maps/Gardens/gardens-9.tmx
 
-#begin Graphics/DPadUp.png
+#begin Fonts/RainHeartsSource.png
+/copy:Fonts/RainHeartsSource.png
+
+#begin Maps/Gardens/flat-gardens-test.tmx
+/copy:Maps/Gardens/flat-gardens-test.tmx
+
+#begin Graphics/Atlas/InputIcons.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -481,7 +463,31 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Graphics/DPadUp.png
+/build:Graphics/Atlas/InputIcons.png
 
-#begin Fonts/RainHeartsSource.png
-/copy:Fonts/RainHeartsSource.png
+#begin Graphics/Atlas/InputIconsWhite.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/Atlas/InputIconsWhite.png
+
+#begin Maps/Gardens/gardens-10.tmx
+/copy:Maps/Gardens/gardens-10.tmx
+
+#begin Graphics/Explosion.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/Explosion.png

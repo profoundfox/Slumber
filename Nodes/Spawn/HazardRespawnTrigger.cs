@@ -8,7 +8,7 @@ public class HazardRespawnTrigger : Area2D
     {
       var respawnPoint = new Vector2(Transform.Global.Position.X + (Get<CollisionShape2D>().Width / 2), Transform.Global.Position.Y);
 
-      Main.GameManager.Persistence.LastSafePoint = respawnPoint;
+      Main.GameManager.Data.LastSafePoint = respawnPoint;
     }
   }
 

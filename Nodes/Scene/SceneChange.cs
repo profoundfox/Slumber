@@ -11,8 +11,10 @@ public class SceneChange : Area2D
 
   public bool Trigger;
 
-  public override void EnterTree()
+  public override void _EnterTree()
   {
+    base._EnterTree();
+
     EnterText = new Sprite2D().Set(n =>
     {
       n.Texture = new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Interact"), new Rectangle(0, 0, 48, 16));
@@ -21,21 +23,28 @@ public class SceneChange : Area2D
     });
   }
 
-  public override void Process(float delta)
+  public override void _Process(float delta)
   {
+    base._Process(delta);
+
     if (GetAnyBody() is Player p)
     {
       if (Trigger)
         EnterText.Visible = false;
       if (Trigger && !Core.Input.IsActionJustPressed("Interact"))
         return;
-
-      p.QueueFree();
-      Main.GameManager.Change(TargetSceneName, TargetGateID);
+      
+      OnSceneChange(p);
     }
 
     EnterText.Visible = false;
 
+  }
+
+  public virtual void OnSceneChange(Player p)
+  {
+    p.QueueFree();
+    Main.GameManager.Change(TargetSceneName, TargetGateID);
   }
 }
 

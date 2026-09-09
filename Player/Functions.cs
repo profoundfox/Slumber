@@ -17,7 +17,7 @@ public partial class Player : KinematicBody2D
   {
     Properties.IsDashing = true;
 
-    Velocity.X = Properties.DashVelocity * Main.GameManager.Persistence.PlayerViewDirection;
+    Velocity.X = Properties.DashVelocity * Main.GameManager.Data.PlayerViewDirection;
     Velocity.Y = 0;
 
     Await.Span(Properties.DashDuration, () =>
@@ -42,12 +42,12 @@ public partial class Player : KinematicBody2D
 
   public void FlipSprite()
   {
-    if (Main.GameManager.Persistence.PlayerViewDirection > 0)
+    if (Main.GameManager.Data.PlayerViewDirection > 0)
     {
       Sprite.SpriteEffects = SpriteEffects.None;
       AttackArea.Position = new Vector2(40, 5);
     }
-    else if (Main.GameManager.Persistence.PlayerViewDirection < 0)
+    else if (Main.GameManager.Data.PlayerViewDirection < 0)
     {
       Sprite.SpriteEffects = SpriteEffects.FlipHorizontally;
       AttackArea.Position = new Vector2(-30, 5);
@@ -136,7 +136,6 @@ public partial class Player : KinematicBody2D
 
   public void HandleWallSlide()
   {
-
     if (!Properties.WallSlideTriggered)
       return;
 
@@ -147,9 +146,14 @@ public partial class Player : KinematicBody2D
       Velocity.Y + Properties.WallSlideGravity,
       Properties.WallSlideGravity
     );
+  }
 
-    if (Core.Input.IsActionJustPressed("Jump"))
-      WallJump();
+  public void HandleWallJump()
+  {
+    if (!IsOnWall || IsOnFloor)
+      Properties.WallSlideTriggered = false;
+    
+
   }
 
   public void WallJump()
@@ -157,9 +161,9 @@ public partial class Player : KinematicBody2D
     Properties.AllowControl = false;
     Await.Span(TimeSpan.FromSeconds(0.06f), () => Properties.AllowControl = true);
 
-    if (Main.GameManager.Persistence.PlayerViewDirection == 1)
+    if (Main.GameManager.Data.PlayerViewDirection == 1)
       Velocity.X = -Properties.WallJumpHorizontalSpeed;
-    else if (Main.GameManager.Persistence.PlayerViewDirection == -1)
+    else if (Main.GameManager.Data.PlayerViewDirection == -1)
       Velocity.X = Properties.WallJumpHorizontalSpeed;
 
     Velocity.Y = -Properties.WallJumpVerticalSpeed;
@@ -176,7 +180,7 @@ public partial class Player : KinematicBody2D
 
   public void HandleDamage()
   {
-    if (Main.GameManager.Persistence.CurrentHealthPoints <= 0)
+    if (Main.GameManager.Data.PlayerCurrentHealth <= 0)
     {
       Kill();
     }
@@ -210,7 +214,7 @@ public partial class Player : KinematicBody2D
     Sprite.Shader.Parameters["enabled"].SetValue(1);
     Properties.CanTakeDamage = false;
 
-    Main.GameManager.Persistence.CurrentHealthPoints -= damage;
+    Main.GameManager.Data.PlayerCurrentHealth -= damage;
 
     HealthIcons.Where(n => n.Frame == 0).LastOrDefault().Frame = 1;
     HealthIcons.RemoveAt(HealthIcons.Count - 1);

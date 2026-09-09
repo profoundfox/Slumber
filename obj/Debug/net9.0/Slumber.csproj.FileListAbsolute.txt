@@ -11,7 +11,6 @@
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Background/Gardens-Layer-3.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Background/HeightsBG.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Background/HeightsBGNoMain.xnb
-/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/CatacombBG.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/HealthIcon.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Shader/WhiteEffect.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Atlas.tsx
@@ -111,11 +110,14 @@
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/TextCopy.dll
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Fonts/RainHearts.fnt
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Fonts/RainHearts.png
-/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Bed.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/BONFIRE.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Raw/Raw/BONFIRE.json
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Foreground/mist.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Interact.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Gardens/gardens-9.tmx
-/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/DPadUp.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Fonts/RainHeartsSource.png
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Gardens/flat-gardens-test.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Atlas/InputIcons.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Atlas/InputIconsWhite.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Gardens/gardens-10.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Explosion.xnb

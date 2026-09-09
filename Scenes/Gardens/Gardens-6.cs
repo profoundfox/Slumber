@@ -15,7 +15,8 @@ public class Gardens6 : Scene
     base.EnterTree();
 
     var root = new Node2D()
-      .Set("Position", new Vector2(0, -150));
+      .Set("Position", new Vector2(0, -150))
+      .Set(n => n.Visible = true);
     
     var playerPos = new Vector2(-48, -16);
     var playerDir = 1;

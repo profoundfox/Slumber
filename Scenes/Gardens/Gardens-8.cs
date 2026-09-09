@@ -15,7 +15,8 @@ public class Gardens8 : Scene
     base.EnterTree();
 
     var root = new Node2D()
-      .Set("Position", new Vector2(0, -100));
+      .Set("Position", new Vector2(0, -100))
+      .Set(n => n.Visible = true);
     
     var playerPos = new Vector2(-128, 0);
     var playerDir = 1;
@@ -65,7 +66,8 @@ public class Gardens8 : Scene
 
     new Checkpoint().Set(n =>
     {
-      n.Position = new Vector2(151, -38);
+      n.Position = new Vector2(144, -48);
+      n.Name = "Gardens8Checkpnt";
     });
 
     var loader = Loader.Default();
@@ -79,7 +81,7 @@ public class Gardens8 : Scene
     
     new CanvasAnchor().Set(n =>
     {
-      n.BackBufferColor = new Color(13, 22, 24);
+      n.BackBufferColor = new Color(182, 188, 192);
       n.AmbientColor = Color.White;
     });
     

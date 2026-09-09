@@ -34,7 +34,6 @@ public class ScreenEffects : Node
 
   public void Out()
   {
-    Console.WriteLine("Yes");
     Transition.PlayAnimation("Out");
   }
 }

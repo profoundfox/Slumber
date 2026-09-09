@@ -287,3 +287,6 @@
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/SharpCompress.dll
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/TextCopy.dll
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/libcimgui.dylib
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Atlas/InputIcons.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Atlas/InputIconsWhite.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Gardens/flat-gardens-test.tmx

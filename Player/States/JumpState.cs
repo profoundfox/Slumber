@@ -29,6 +29,8 @@ public class JumpState : BaseAirState
   public override void Physics(float delta)
   {
     base.Physics(delta);
+    
+    p.Properties.PlayerAxis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp").ToVector2();
 
     HandleJump();
   }

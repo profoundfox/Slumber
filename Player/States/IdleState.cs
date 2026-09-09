@@ -2,8 +2,6 @@ namespace Slumber;
 
 public class IdleState : State
 {
-  Point Axis; 
-
   Player p => Core.Token.Get<Player>();
 
   public override void OnEnter()
@@ -20,7 +18,7 @@ public class IdleState : State
   {
     p.Sprite.PlayAnimation("Idle");
 
-    if (Axis.X != 0) 
+    if (p.Properties.PlayerAxis.X != 0) 
       Transition?.Invoke("RunState");
 
     if (Core.Input.IsActionJustPressed("Jump") || p.Properties.JumpBuffered)
@@ -35,7 +33,7 @@ public class IdleState : State
 
   public override void Physics(float delta)
   {
-    Axis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp");
+    p.Properties.PlayerAxis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp").ToVector2();
 
     p.HandleDeceleration(delta);
     p.HandleCoyoteTime();

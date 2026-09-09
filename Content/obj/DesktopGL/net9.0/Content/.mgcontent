@@ -5,7 +5,6 @@
   <Config />
   <SourceFiles>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/HealthIcon.png</File>
-    <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/CatacombBG.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/Gardens-Layer-1.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/HeightsBG.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/Gardens-Layer-3.png</File>
@@ -36,11 +35,12 @@
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/Gardens/Gardens-Layer-2.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/Gardens-Layer-0.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Transition.png</File>
-    <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Bed.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/BONFIRE.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Foreground/mist.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Interact.png</File>
-    <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/DPadUp.png</File>
+    <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/InputIcons.png</File>
+    <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/InputIconsWhite.png</File>
+    <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Explosion.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

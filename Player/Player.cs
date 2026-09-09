@@ -65,7 +65,7 @@ namespace Slumber
       {
         n.AddChild(Core.Token.Create<CollisionShape2D>().Set(c =>
           {
-            c.Shape = new CircleShape2D(32);
+            c.Shape = new CircleShape2D(16);
             c.Disabled = true;
           }));
         n.SetParent(this);
@@ -87,11 +87,13 @@ namespace Slumber
       {
         n.SetParent(this);
         n.Shape = new RayCastShape2D(new Vector2(0, 25));
+        //n.Disabled = true;
         n.Position = new Vector2(0, 10);
       });
 
       AddHealthIcons();
 
+      var transitionState = new TransitionState();
       var idleState = new IdleState();
       var runState = new RunState();
       var fallState = new FallState();
@@ -100,10 +102,10 @@ namespace Slumber
       var wallSlideState = new WallSlideState();
       var floorAttackState = new FloorAttackState();
       var nothingState = new NothingState();
-      var spikeDamageState = new SpikeDamageState();
 
       STM = new StateMachine().Set(n =>
       {
+        n.AddChild(transitionState);
         n.AddChild(idleState);
         n.AddChild(runState);
         n.AddChild(fallState);
@@ -112,12 +114,18 @@ namespace Slumber
         n.AddChild(wallSlideState);
         n.AddChild(floorAttackState);
         n.AddChild(nothingState);
-        n.AddChild(spikeDamageState);
-        n.Initial = idleState;
+        n.Initial = transitionState;
         n.SetParent(this);
       });
 
       AddMask(1);
+
+
+      Await.Span(TimeSpan.FromSeconds(0.35f), () => 
+      {
+        STM.ChangeState("IdleState");
+        Properties.AllowControl = true;
+      });
     }
 
     public void AddHealthIcons()
@@ -148,7 +156,7 @@ namespace Slumber
         HealthIcons.Add(s);
       }
       
-      for (int i = 0; i < Main.GameManager.Persistence.CurrentHealthPoints; i++)
+      for (int i = 0; i < Main.GameManager.Data.PlayerCurrentHealth; i++)
       {
         var icon = HealthIcons[i];
         icon.Frame = 0;
@@ -159,8 +167,7 @@ namespace Slumber
     {
       base.PhysicsUpdate(delta);
 
-      Properties.PlayerAxis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp").ToVector2();
-      Main.GameManager.Persistence.PlayerViewDirection = (int)Properties.PlayerAxis.X != 0 ? (int)Properties.PlayerAxis.X : Main.GameManager.Persistence.PlayerViewDirection;
+      Main.GameManager.Data.PlayerViewDirection = (int)Properties.PlayerAxis.X != 0 ? (int)Properties.PlayerAxis.X : Main.GameManager.Data.PlayerViewDirection;
 
       MoveAndSlide(delta);
 

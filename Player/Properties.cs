@@ -6,7 +6,7 @@ public record struct PlayerProperties
   public float Acceleration { get; set; } = 3500f;
   public float Deceleration  { get; set; } = 2800f;
 
-  public float BaseGravity { get; set; } = 950f;
+  public float BaseGravity { get; set; } = 1300f;
   public float FallGravity { get; set; } = 1500f;
 
   public float CurrentTerminalVelocity { get; set; }
@@ -14,11 +14,11 @@ public record struct PlayerProperties
   public float SecondaryTerminalVelocity { get; set; } = 6400f;
   public bool ThresholdReached { get; set; }
 
-  public float JumpForce { get; set; } = -360;
+  public float JumpForce { get; set; } = -410;
 
-  public float WallSlideGravity { get; set; } = 20f;
+  public float WallSlideGravity { get; set; } = 70f;
   public float WallJumpHorizontalSpeed { get; set; } = 200f;
-  public float WallJumpVerticalSpeed { get; set; } = 300f;
+  public float WallJumpVerticalSpeed { get; set; } = 400f;
 
   public float DashVelocity { get; set; } = 300f;
 
@@ -38,6 +38,7 @@ public record struct PlayerProperties
 
   public bool JumpReleased { get; set; } = false;
   public bool WallSlideTriggered = false;
+  public bool WallTrigger = false;
 
   public bool JumpBuffered { get; set; } = false;
   public bool CanCoyoteJump { get; set; } = false;

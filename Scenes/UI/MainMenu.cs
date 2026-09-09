@@ -23,9 +23,6 @@ public class MainMenu : Scene
   {
     base.EnterTree();
 
-    Core.Prefs.Graphics.MouseVisible = true;
-    Core.Prefs.Apply();
-
     Core.Time.TimeScale = 1f; 
 
     BuildUI();
@@ -56,16 +53,18 @@ public class MainMenu : Scene
     
     void Check()
     {
+      
+      string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+      string myGameFolder = System.IO.Path.Combine(saveFolder, "Slumber");
+      System.IO.Directory.CreateDirectory(myGameFolder);
 
-      if (!File.Exists(Path.Combine("Saved", "Persistence")))
+      if (!File.Exists(Path.Combine(myGameFolder, "Persistence")))
       {
         startBtn.Text = "Start";
         startBtn.Click += (sender, args) =>
         {
           Main.GameManager.Change("Caverns1", "door_1");
           MainPanel.RemoveFromRoot();
-          Core.Prefs.Graphics.MouseVisible = false;
-          Core.Prefs.Apply();
         };
       }
       else
@@ -75,8 +74,6 @@ public class MainMenu : Scene
         {
           Main.GameManager.Load();
           MainPanel.RemoveFromRoot();
-          Core.Prefs.Graphics.MouseVisible = false;
-          Core.Prefs.Apply();
         };
       }
     }
@@ -160,8 +157,18 @@ public class MainMenu : Scene
     dltBtn.Text = "Delete Save";
     dltBtn.Click += (sender, args) =>
     {
-      File.Delete(Path.Combine("Saved", "Persistence"));
-      Check();
+
+      string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+      string myGameFolder = System.IO.Path.Combine(saveFolder, "Slumber");
+      System.IO.Directory.CreateDirectory(myGameFolder);
+
+      File.Delete(Path.Combine(myGameFolder, "Persistence"));
+      File.Delete(Path.Combine(myGameFolder, "JangoPersistence"));
+
+      MainPanel.RemoveFromRoot();
+      Settings.RemoveFromRoot();
+      Main.GameManager.ScreenEffects.In();
+      Main.GameManager.Transition("MainMenu", () => Main.GameManager.ScreenEffects.Out());
     };
 
     var backBtn = new CustomButton();

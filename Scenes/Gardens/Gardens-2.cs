@@ -15,7 +15,8 @@ public class Gardens2 : Scene
     base.EnterTree();
 
     var root = new Node2D()
-      .Set("Position", new Vector2(0, -115));
+      .Set("Position", new Vector2(0, -115))
+      .Set(n => n.Visible = true);
     
     var playerPos = new Vector2(-176, 16);
     var playerDir = 1;
@@ -23,14 +24,14 @@ public class Gardens2 : Scene
 
     Player = new Player();
     
-    var rect = new Rectangle(-320, -464, 784, 512);
+    var rect = new Rectangle(-320, -480, 784, 544);
 
     new PixelCamera()
       .Set(n => n.Weight = 0.3f)
       .Set(n => n.Limit = rect)
       .Set(n => n.Deadzone = new Extent(30, 0))
       .Set(n => n.OffsetSmoothing = true)
-      .Set(n => n.Smoothing = true)
+      .Set(n => n.Smoothing = false)
       .Set(n => n.Target = Player);
 
     new Parallax2D().Set(n =>
@@ -75,7 +76,7 @@ public class Gardens2 : Scene
     
     new CanvasAnchor().Set(n =>
     {
-      n.BackBufferColor = new Color(13, 22, 24);
+      n.BackBufferColor = new Color(182, 188, 192);
       n.AmbientColor = Color.White;
     });
     

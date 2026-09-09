@@ -3,7 +3,6 @@ namespace Slumber;
 public class FallState : BaseAirState
 {
   Player p => Core.Token.Get<Player>();
-  Point Axis;
 
   public override void OnEnter()
   {
@@ -18,6 +17,8 @@ public class FallState : BaseAirState
   public override void Physics(float delta)
   {
     base.Physics(delta);
+
+    p.Properties.PlayerAxis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp").ToVector2();
 
     if (Core.Input.IsActionJustPressed("Jump"))
     {
@@ -38,7 +39,7 @@ public class FallState : BaseAirState
     p.Sprite.PlayAnimation("Fall");
 
     if (p.IsOnFloor)
-      Transition?.Invoke("LandingState");
+      Transition?.Invoke("IdleState");
 
     if (p.CanWall())
       Transition?.Invoke("WallSlideState");

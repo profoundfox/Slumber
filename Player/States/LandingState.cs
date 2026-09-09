@@ -6,8 +6,6 @@ public class LandingState : State
 
   Vector2 enterVel;
 
-  Point Axis;
-
   public override void OnEnter()
   {
     base.OnEnter();
@@ -43,6 +41,8 @@ public class LandingState : State
   public override void Physics(float delta)
   {
     base.PhysicsUpdate(delta);
+
+    p.Properties.PlayerAxis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp").ToVector2();
 
     p.HandleCoyoteTime();
   }

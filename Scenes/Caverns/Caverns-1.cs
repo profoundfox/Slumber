@@ -22,11 +22,6 @@ public class Caverns1 : Scene
     var playerPos = new Vector2(104, -24);
     var playerDir = -1;
 
-    new Checkpoint().Set(n =>
-    {
-      n.Position = new Vector2(111, -23);
-    });
-
     Player = new Player();
 
     var rect = new Rectangle(-280, -232, 640, 360);
@@ -56,6 +51,15 @@ public class Caverns1 : Scene
     
     var t = DotTiledBridge.Load(mapPath, loader);
 
+
+      string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+      string myGameFolder = System.IO.Path.Combine(saveFolder, "Slumber");
+      System.IO.Directory.CreateDirectory(myGameFolder);
+
+      if (!File.Exists(Path.Combine(myGameFolder, "Persistence")))
+      {
+        Main.GameManager.Save(this.GetType().Name, SpawnPoints.FirstOrDefault().Value);
+      }
   }
 
   public override void ExitTree()
