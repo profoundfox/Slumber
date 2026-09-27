@@ -25,14 +25,6 @@ public class Gardens6 : Scene
 
     var rect = new Rectangle(-304, -368, 640, 416);
 
-    new PixelCamera()
-      .Set(n => n.Weight = 0.3f)
-      .Set(n => n.Limit = rect)
-      .Set(n => n.Deadzone = new Extent(30, 0))
-      .Set(n => n.OffsetSmoothing = true)
-      .Set(n => n.Smoothing = true)
-      .Set(n => n.Target = Player);
-
     new Parallax2D().Set(n =>
     {
       n.Texture = new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Background/Gardens-Layer-1"), new Rectangle(0, 0, 640, 360));
@@ -79,7 +71,15 @@ public class Gardens6 : Scene
       n.AmbientColor = Color.White;
     });
     
-    var t = DotTiledBridge.Load(mapPath, loader);
+    var t = DotTiledBridge.Load(mapPath, this, loader);
+
+    new PixelCamera()
+      .Set(n => n.Weight = 0.3f)
+      .Set(n => n.Limit = CameraRect)
+      .Set(n => n.Deadzone = new Extent(30, 0))
+      .Set(n => n.OffsetSmoothing = true)
+      .Set(n => n.Smoothing = true)
+      .Set(n => n.Target = Player);
   }
 
   public override void ExitTree()

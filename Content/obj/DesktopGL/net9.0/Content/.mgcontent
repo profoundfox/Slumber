@@ -24,7 +24,6 @@
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/lan.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Foreground/arches.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/GreenBricks.png</File>
-    <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/Heights/Gradiant.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/Heights/Mountain.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/Heights/Tree4.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/Heights/Tree2.png</File>
@@ -41,8 +40,11 @@
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/InputIcons.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/InputIconsWhite.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Explosion.png</File>
+    <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/AnimationAtlas.png</File>
+    <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/Heights/Gradient.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

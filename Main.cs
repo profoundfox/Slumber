@@ -56,17 +56,20 @@ namespace Slumber
       Input.AddBind("Pause", new InputAction(Keys.Escape), new InputAction(Buttons.Start));
       Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));
       
-      Prefs.Graphics.Fullscreen = true;
-      #if DEBUG
       Prefs.Graphics.Fullscreen = false;
+      Graphics.SynchronizeWithVerticalRetrace = true;
+      Graphics.HardwareModeSwitch = true;
+      IsFixedTimeStep = true;
+
+      #if DEBUG
+      IsFixedTimeStep = true;
+      Graphics.SynchronizeWithVerticalRetrace = false;
+      Prefs.Graphics.Fullscreen = true;
       #endif
 
       Prefs.General.ShowCollision = false;
+      Prefs.Graphics.MouseVisible = false;
 
-      Prefs.Graphics.MouseVisible = true;
-
-      IsFixedTimeStep = true;
-      Graphics.SynchronizeWithVerticalRetrace = false;
 
       ExitOnEsc = false;
 
@@ -92,6 +95,8 @@ namespace Slumber
       GumUI.Update(gameTime);
 
       GumUI.Root.HasEvents = false;
+
+      Console.WriteLine(gameTime.ElapsedGameTime.TotalSeconds);
 
       //Mouse.SetPosition(0, 0);
     }

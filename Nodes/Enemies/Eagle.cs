@@ -26,7 +26,7 @@ public class Eagle : Node2D
     });
 
     var animations = AsepriteLoader.LoadAnimations(
-        new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Atlas/EagleAtlas"), new Rectangle(0, 0, 2080, 144)),
+        new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Atlas/AnimationAtlas"), new Rectangle(0, 256, 2080, 144)),
         PathTools.Combine("Raw/Raw/Eagle.json")
     );
 

@@ -8,13 +8,13 @@ namespace Slumber;
 
 public static class DotTiledBridge
 {
-  public static List<Node> Load(string path, Loader loader)
+  public static List<Node> Load(string path, Scene scene, Loader loader)
   {
     var map = loader.LoadMap(path);
 
     var nodes = new List<Node>();
 
-    var objects = HandleObjects(map, path);
+    var objects = HandleObjects(map, scene, path);
     var maps = map.Bridge(path);
 
     nodes.AddRange(objects);
@@ -23,7 +23,7 @@ public static class DotTiledBridge
     return nodes;
   }
 
-  public static List<CollisionNode2D> HandleObjects(this Map map, string path)
+  public static List<CollisionNode2D> HandleObjects(this Map map, Scene scene, string path)
   {
     var nodes = new List<CollisionNode2D>();
     var (tileset, firstGid) = ResolveTileset(map, path);
@@ -42,16 +42,20 @@ public static class DotTiledBridge
             uint gid = tile.GID;
             int localId = (int)(gid - firstGid);
 
-            var sprite = new Sprite2D().Set(n =>
-            {
-              n.Texture = tileset.GetTile(localId);
-              n.Position = new Vector2(tile.X, tile.Y);
-              Console.WriteLine("Yes");
-            });
-
             if (obj.Type == "=")
             {
-              
+              new Key().Set(n =>
+              {
+                n.Area = new Area2D().Set(a => 
+                {
+                  a.AddChild(new CollisionShape2D().Set(c => c.Shape = new RectangleShape2D((int)tile.Width, (int)tile.Height)));
+                });
+                n.Sprite = new Sprite2D().Set(n =>
+                {
+                  n.Texture = tileset.GetTile(localId);
+                });
+                n.Position = new Vector2(tile.X, tile.Y);
+              });
             }
 
           }
@@ -110,6 +114,14 @@ public static class DotTiledBridge
                 n.TargetGateID = target != null ? target.Value : String.Empty;
                 n.Trigger = trigger != null ? trigger.Value : false;
               });
+            }
+
+            if (obj.Type == ":")
+            {
+              scene.CameraRect = new Rectangle
+              (
+                (int)obj.X, (int)obj.Y, (int)obj.Width, (int)obj.Height
+              );
             }
           }
         }

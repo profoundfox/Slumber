@@ -1,12 +1,12 @@
 {
-    "activeFile": "Gardens/gardens-8.tmx",
+    "activeFile": "Gardens/gardens-2-2.tmx",
     "expandedProjectPaths": [
-        "Green",
-        ".",
-        "Termplates",
-        "Catacombs",
+        "Heights",
         "Gardens",
-        "Caverns"
+        "Green",
+        "Catacombs",
+        "Termplates",
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -14,7 +14,7 @@
             "scaleInDock": 1
         },
         "Atlas.tsx": {
-            "scaleInDock": 1.5103,
+            "scaleInDock": 1.7152,
             "scaleInEditor": 0.7423
         },
         "Big/Big.tmx": {
@@ -79,19 +79,22 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 2.1145,
+            "scale": 0.6122,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 78.7420193899267,
-                "y": -14.18775124142823
+                "x": -0.8167265599477105,
+                "y": 0
             }
         },
         "Gardens/flat-gardens-test.tmx": {
-            "scale": 1.6958,
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 0.5627,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": -1058.2026182332822,
-                "y": -57.78983370680504
+                "x": -897.4586813577395,
+                "y": 0
             }
         },
         "Gardens/gardens-1.tmx": {
@@ -99,47 +102,67 @@
                 3,
                 2
             ],
-            "scale": 1.0255,
-            "selectedLayer": 5,
+            "scale": 0.8908,
+            "selectedLayer": 6,
             "viewCenter": {
-                "x": 128.2301316431009,
+                "x": 127.97485406376285,
                 "y": 0
             }
         },
         "Gardens/gardens-10.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
-            "scale": 0.6244,
+            "scale": 1.2576,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": -80.87764253683542,
-                "y": 28.827674567584893
+                "x": -58.84223918575066,
+                "y": -87.0706106870229
+            }
+        },
+        "Gardens/gardens-11.tmx": {
+            "expandedObjectLayers": [
+                2,
+                3
+            ],
+            "scale": 0.4793,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": -127.26893386188192,
+                "y": -128.31212184435628
+            }
+        },
+        "Gardens/gardens-2-2.tmx": {
+            "scale": 1.6114,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 94.9484919945389,
+                "y": 112.01439741839394
             }
         },
         "Gardens/gardens-2.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
-            "scale": 1.8118,
+            "scale": 0.7563,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": -171.92846892593002,
-                "y": -189.8664311734187
+                "x": 128.25598307549916,
+                "y": -255.8508528361761
             }
         },
         "Gardens/gardens-3.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
-            "scale": 1.3315,
-            "selectedLayer": 5,
+            "scale": 3.5097,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 164.8516710476906,
-                "y": 33.045437476530225
+                "x": 274.0975012109297,
+                "y": -224.23568966008492
             }
         },
         "Gardens/gardens-4.tmx": {
@@ -147,59 +170,75 @@
                 3,
                 2
             ],
-            "scale": 1.39,
-            "selectedLayer": 0,
+            "scale": 1.7737,
+            "selectedLayer": 6,
             "viewCenter": {
-                "x": 569.4244604316548,
-                "y": 38.12949640287769
+                "x": 383.94316964537404,
+                "y": 0
             }
         },
         "Gardens/gardens-5.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
-            "scale": 1.4898,
-            "selectedLayer": 5,
+            "scale": 0.5638,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 179.55430259095178,
-                "y": -8.054772452678208
+                "x": 383.1145796381695,
+                "y": -0.8868393047179097
             }
         },
         "Gardens/gardens-6.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
-            "scale": 1.4926,
+            "scale": 1.3638,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": -35.84349457322793,
-                "y": -129.9745410692751
+                "x": -34.46253116292712,
+                "y": -226.20618859070245
+            }
+        },
+        "Gardens/gardens-7 copy.tmx": {
+            "scale": 1.9747,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 224.33787410745938,
+                "y": -254.2158302526966
+            }
+        },
+        "Gardens/gardens-7-copy.tmx": {
+            "scale": 1.2799,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 179.7015391827486,
+                "y": -770.7633408860066
             }
         },
         "Gardens/gardens-7.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
-            "scale": 1.9056,
+            "scale": 1.6101,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 150.3463476070529,
-                "y": -226.1754827875735
+                "x": -395.6276007701385,
+                "y": -151.8539221166387
             }
         },
         "Gardens/gardens-8.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
             "scale": 1.1501,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 77.81932005912532,
-                "y": 0.8694896095991567
+                "x": 127.81497261107731,
+                "y": -0.4347448047995499
             }
         },
         "Gardens/gardens-9.tmx": {
@@ -207,11 +246,11 @@
                 3,
                 2
             ],
-            "scale": 1.3388,
-            "selectedLayer": 5,
+            "scale": 1.9129,
+            "selectedLayer": 6,
             "viewCenter": {
-                "x": 405.9605616970422,
-                "y": -17.926501344487605
+                "x": 380.05123111506094,
+                "y": -60.640911704741484
             }
         },
         "Gardens/gardens-test-1.tmx": {
@@ -248,6 +287,26 @@
                 "y": 0
             }
         },
+        "Heights/heights-1.tmx": {
+            "expandedObjectLayers": [
+                6,
+                5
+            ],
+            "scale": 1.9746,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": -152.94236807454675,
+                "y": -156.23417400992605
+            }
+        },
+        "Heights/heights-2.tmx": {
+            "scale": 1.9828,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 21.68650393383095,
+                "y": -35.051442404680245
+            }
+        },
         "Template.tmx": {
             "scale": 0.1489013671875,
             "selectedLayer": 0,
@@ -256,12 +315,28 @@
                 "y": -258.56041974094114
             }
         },
+        "Termplates/GardensTemplate.tmx": {
+            "scale": 32.775,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 7.99389778794813,
+                "y": 8.009153318077804
+            }
+        },
+        "Termplates/HeightsTemplate.tmx": {
+            "scale": 0.512109375,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 123.02059496567506,
+                "y": -524.3020594965676
+            }
+        },
         "Termplates/Template.tmx": {
             "scale": 0.8279,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 7.851189757217071,
-                "y": 7.2472520835850105
+                "x": 8.455127430849132,
+                "y": 81.53158594033096
             }
         },
         "Test/Test.tmx": {
@@ -285,31 +360,28 @@
     "map.tileHeight": 16,
     "map.tileWidth": 16,
     "openFiles": [
-        "Termplates/Template.tmx",
-        "Gardens/gardens-6.tmx",
-        "Caverns/caverns-1.tmx",
         "Gardens/gardens-5.tmx",
-        "Gardens/gardens-7.tmx",
+        "Gardens/gardens-2.tmx",
+        "Gardens/gardens-11.tmx",
         "Gardens/gardens-8.tmx",
-        "Gardens/gardens-9.tmx",
-        "Gardens/gardens-10.tmx",
-        "Gardens/gardens-4.tmx"
+        "Termplates/GardensTemplate.tmx",
+        "Gardens/gardens-2-2.tmx"
     ],
     "project": "Slumber.tiled-project",
-    "property.type": "bool",
+    "property.type": "string",
     "recentFiles": [
-        "Gardens/gardens-7.tmx",
-        "Termplates/Template.tmx",
-        "Gardens/gardens-6.tmx",
-        "Caverns/caverns-1.tmx",
         "Gardens/gardens-5.tmx",
-        "Gardens/gardens-4.tmx",
-        "Gardens/gardens-10.tmx",
-        "Gardens/gardens-9.tmx",
+        "Gardens/gardens-2.tmx",
+        "Gardens/gardens-11.tmx",
         "Gardens/gardens-8.tmx",
-        "Gardens/gardens-1.tmx",
-        "Gardens/gardens-3.tmx",
-        "Gardens/gardens-2.tmx"
+        "Termplates/GardensTemplate.tmx",
+        "Gardens/gardens-2-2.tmx",
+        "Heights/heights-1.tmx",
+        "Gardens/gardens-7.tmx",
+        "Termplates/HeightsTemplate.tmx",
+        "Heights/heights-2.tmx",
+        "Gardens/gardens-6.tmx",
+        "Gardens/gardens-7-copy.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

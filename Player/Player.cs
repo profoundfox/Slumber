@@ -4,7 +4,7 @@ using System.Net.Mail;
 
 namespace Slumber
 {
-  public partial class Player : KinematicBody2D
+  public partial class Player : CharacterBody2D
   {
     #region Components
     
@@ -45,7 +45,7 @@ namespace Slumber
       });
 
       var animations = AsepriteLoader.LoadAnimations(
-          new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Atlas/PlayerAnimation"), new Rectangle(0, 0, 13056, 256)),
+          new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Atlas/AnimationAtlas"), new Rectangle(0, 0, 13056, 256)),
           PathTools.Combine("Raw/Raw/PlayerAnimation.json")
       );
 
@@ -86,9 +86,9 @@ namespace Slumber
       GroundCheck = new Raycast2D().Set(n =>
       {
         n.SetParent(this);
-        n.Shape = new RayCastShape2D(new Vector2(0, 25));
+        n.Shape = new RayCastShape2D(new Vector2(0, 5));
         //n.Disabled = true;
-        n.Position = new Vector2(0, 10);
+        n.Position = new Vector2(0, 25);
       });
 
       AddHealthIcons();

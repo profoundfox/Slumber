@@ -18,6 +18,8 @@ public class Scene : Anchor,
 
   public Vector2 SpawnPosition { get; set; }
 
+  public Rectangle CameraRect { get; set; }
+
   public Scene()
   {
     _Ready();

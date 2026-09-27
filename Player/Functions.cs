@@ -2,7 +2,7 @@ using System.Linq;
 
 namespace Slumber;
 
-public partial class Player : KinematicBody2D
+public partial class Player : CharacterBody2D
 {
   public void HandleDash()
   {

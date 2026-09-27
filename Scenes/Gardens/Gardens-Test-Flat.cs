@@ -23,14 +23,6 @@ public class GardensFlatTest : Scene
 
     var rect = new Rectangle(-2008, -248, 2264, 408);
 
-    new PixelCamera()
-      .Set(n => n.Weight = 0.3f)
-      .Set(n => n.Limit = rect)
-      .Set(n => n.Deadzone = new Extent(30, 0))
-      .Set(n => n.OffsetSmoothing = true)
-      .Set(n => n.Smoothing = true)
-      .Set(n => n.Target = Player);
-
 
     var loader = Loader.Default();
     var mapPath = Path.Combine(
@@ -47,7 +39,15 @@ public class GardensFlatTest : Scene
       n.AmbientColor = Color.White;
     });
     
-    var t = DotTiledBridge.Load(mapPath, loader);
+    var t = DotTiledBridge.Load(mapPath, this, loader);
+
+    new PixelCamera()
+      .Set(n => n.Weight = 0.3f)
+      .Set(n => n.Limit = CameraRect)
+      .Set(n => n.Deadzone = new Extent(30, 0))
+      .Set(n => n.OffsetSmoothing = true)
+      .Set(n => n.Smoothing = true)
+      .Set(n => n.Target = Player);
   }
 
   public override void ExitTree()

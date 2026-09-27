@@ -892,7 +892,7 @@
   <object id="118" name="door_1" type="+" x="24" y="-16">
    <point/>
   </object>
-  <object id="124" x="-48" y="-192" width="960" height="288"/>
+  <object id="124" type=":" x="-48" y="-192" width="960" height="288"/>
   <object id="125" type="_" x="0" y="-16" width="80" height="16"/>
   <object id="128" type="_" x="272" y="-16" width="96" height="16"/>
   <object id="132" name="door_2" type="+" x="808" y="16">
@@ -946,17 +946,17 @@
   <object id="116" x="880" y="-112" width="16" height="144"/>
   <object id="145" x="112" y="32" width="16" height="8">
    <properties>
-    <property name="one_way" type="bool" value="true"/>
+    <property name="one_way" type="bool" value="false"/>
    </properties>
   </object>
   <object id="146" x="144" y="16" width="64" height="8">
    <properties>
-    <property name="one_way" type="bool" value="true"/>
+    <property name="one_way" type="bool" value="false"/>
    </properties>
   </object>
   <object id="147" x="224" y="32" width="16" height="8">
    <properties>
-    <property name="one_way" type="bool" value="true"/>
+    <property name="one_way" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>

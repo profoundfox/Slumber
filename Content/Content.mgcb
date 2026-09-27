@@ -243,18 +243,6 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/Atlas/GreenBricks.png
 
-#begin Graphics/Background/Heights/Gradiant.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Graphics/Background/Heights/Gradiant.png
-
 #begin Graphics/Background/Heights/Mountain.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -365,9 +353,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Graphics/Background/Gardens-Layer-0.png
-
-#begin Maps/Termplates/Template.tmx
-/copy:Maps/Termplates/Template.tmx
 
 #begin Maps/Gardens/gardens-3.tmx
 /copy:Maps/Gardens/gardens-3.tmx
@@ -491,3 +476,48 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Graphics/Explosion.png
+
+#begin Maps/Gardens/gardens-7-copy.tmx
+/copy:Maps/Gardens/gardens-7-copy.tmx
+
+#begin Graphics/Atlas/AnimationAtlas.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/Atlas/AnimationAtlas.png
+
+#begin Maps/Termplates/HeightsTemplate.tmx
+/copy:Maps/Termplates/HeightsTemplate.tmx
+
+#begin Maps/Termplates/GardensTemplate.tmx
+/copy:Maps/Termplates/GardensTemplate.tmx
+
+#begin Maps/Heights/heights-1.tmx
+/copy:Maps/Heights/heights-1.tmx
+
+#begin Graphics/Background/Heights/Gradient.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/Background/Heights/Gradient.png
+
+#begin Maps/Heights/heights-2.tmx
+/copy:Maps/Heights/heights-2.tmx
+
+#begin Maps/Gardens/gardens-11.tmx
+/copy:Maps/Gardens/gardens-11.tmx
+
+#begin Maps/Gardens/gardens-2-2.tmx
+/copy:Maps/Gardens/gardens-2-2.tmx

@@ -40,4 +40,15 @@
       <ProjectReference Include="../MonoTile/MonoTile.csproj" />
       <ProjectReference Include="../Opal/Opal.csproj" />
     </ItemGroup>
+    <!-- Forces 'dotnet run' to build and invoke the native macOS entrypoint -->
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+        <OutputType>Exe</OutputType>
+        <EnableConfigurationBindingGenerator>true</EnableConfigurationBindingGenerator>
+        <!-- Triggers native assembly wrapping on build -->
+        <UseAppHost>true</UseAppHost>
+    </PropertyGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+        <None Include="Info.plist" Link="Info.plist" CopyToOutputDirectory="Never" />
+    </ItemGroup>
   </Project>

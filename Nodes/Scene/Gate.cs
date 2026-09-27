@@ -37,12 +37,16 @@ public class Gate : SceneChange
   {
     base._Process(delta);
 
-    if (GetAnyBody() is Player p)
+    if (Main.GameManager.Persistence.Items.TryGetValue("key", out int count) && count > 0)
     {
-      if (Core.Input.Keyboard.WasKeyJustPressed(Keys.W))
+      if (GetAnyBody() is Player p)
       {
-        Open = true;
-        Main.GameManager.JangoPersistence.GatesOpen[this.Name] = Open;
+
+        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.W))
+        {
+          Open = true;
+          Main.GameManager.JangoPersistence.GatesOpen[this.Name] = Open;
+        }
       }
     }
 

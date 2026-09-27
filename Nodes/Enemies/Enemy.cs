@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Slumber;
 
-public class Enemy : KinematicBody2D
+public class Enemy : CharacterBody2D
 {
   public AnimatedSprite2D Sprite;
   public Area2D TakeDamageArea;
@@ -35,7 +35,7 @@ public class Enemy : KinematicBody2D
   {
     base.EnterTree();
 
-    MainTexture = new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Atlas/grassspidersheet"), new Rectangle(0, 0, 64, 16));
+    MainTexture = new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Atlas/AnimationAtlas"), new Rectangle(0, 400, 64, 16));
 
     var animations = AsepriteLoader.LoadAnimations
     (

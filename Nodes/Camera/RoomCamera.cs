@@ -39,7 +39,7 @@ namespace Slumber
     {
       base.EnterTree();
 
-      if (TargetNode is KinematicBody2D)
+      if (TargetNode is CharacterBody2D)
       {
         ScreenEffectsStarted += LockBody;
         ScreenEffectsEnded += UnlockBody;

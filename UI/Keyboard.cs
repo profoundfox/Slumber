@@ -1,3 +1,5 @@
+#nullable enable
+
 using System.Collections.Generic;
 using Gum.Converters;
 using Gum.Forms.Controls;
@@ -20,6 +22,10 @@ public class Keyboard : StackPanel
 
     var lookUpTable = new Dictionary<string, Rectangle>
     {
+      { "Key.Left", new Rectangle(528, 64, 16, 16)},
+      { "Key.Right", new Rectangle(496, 64, 16, 16)},
+      { "Key.Up", new Rectangle(480, 64, 16, 16)},
+      { "Key.Down", new Rectangle(512, 64, 16, 16)},
       { "Key.A", new Rectangle(288, 176, 16, 16) },
       { "Key.D", new Rectangle(320, 176, 16, 16) },
       { "Key.S", new Rectangle(304, 176, 16, 16) },
@@ -81,6 +87,11 @@ public class Keyboard : StackPanel
       var button = new TextAndPluralSpriteButton(bind.Key, bindIcons.GetAllRegions());
       button.Y = 5;
 
+      button.Click += (sender, args) =>
+      {
+
+      };
+
       kbvBox.AddChild(button);
     }
 
@@ -94,6 +105,11 @@ public class Keyboard : StackPanel
     {
       Core.Quit();
     };
+
+  }
+
+  public void OnChangeClick(object? sender, EventArgs args)
+  {
 
   }
 }

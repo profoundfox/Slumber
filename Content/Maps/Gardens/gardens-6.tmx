@@ -814,7 +814,7 @@
   <object id="76" name="door_1" type="+" x="-48" y="-16">
    <point/>
   </object>
-  <object id="104" x="-304" y="-368" width="640" height="416"/>
+  <object id="104" type=":" x="-304" y="-368" width="640" height="416"/>
   <object id="124" name="@" x="-16" y="48" width="48" height="16">
    <properties>
     <property name="scene" value="Gardens5"/>

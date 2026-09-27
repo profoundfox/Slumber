@@ -26,14 +26,6 @@ public class Caverns1 : Scene
 
     var rect = new Rectangle(-280, -232, 640, 360);
 
-    new PixelCamera()
-      .Set(n => n.Weight = 0.3f)
-      .Set(n => n.Limit = rect)
-      .Set(n => n.Deadzone = new Extent(30, 30))
-      .Set(n => n.OffsetSmoothing = true)
-      .Set(n => n.Smoothing = true)
-      .Set(n => n.Target = Player);
-
     var loader = Loader.Default();
     var mapPath = Path.Combine(
         AppContext.BaseDirectory,
@@ -49,17 +41,25 @@ public class Caverns1 : Scene
       //n.AmbientColor = Color.Gray;
     });
     
-    var t = DotTiledBridge.Load(mapPath, loader);
+    var t = DotTiledBridge.Load(mapPath, this, loader);
+
+    new PixelCamera()
+      .Set(n => n.Weight = 0.3f)
+      .Set(n => n.Limit = CameraRect)
+      .Set(n => n.Deadzone = new Extent(30, 30))
+      .Set(n => n.OffsetSmoothing = true)
+      .Set(n => n.Smoothing = true)
+      .Set(n => n.Target = Player);
 
 
-      string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-      string myGameFolder = System.IO.Path.Combine(saveFolder, "Slumber");
-      System.IO.Directory.CreateDirectory(myGameFolder);
+    string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+    string myGameFolder = System.IO.Path.Combine(saveFolder, "Slumber");
+    System.IO.Directory.CreateDirectory(myGameFolder);
 
-      if (!File.Exists(Path.Combine(myGameFolder, "Persistence")))
-      {
-        Main.GameManager.Save(this.GetType().Name, SpawnPoints.FirstOrDefault().Value);
-      }
+    if (!File.Exists(Path.Combine(myGameFolder, "Persistence")))
+    {
+      Main.GameManager.Save(this.GetType().Name, SpawnPoints.FirstOrDefault().Value);
+    }
   }
 
   public override void ExitTree()

@@ -16,23 +16,15 @@ public class Gardens7 : Scene
     base.EnterTree();
 
     var root = new Node2D()
-      .Set("Position", new Vector2(0, -150))
+      .Set("Position", new Vector2(0, -250))
       .Set(n => n.Visible = true);
     
-    var playerPos = new Vector2(168, -240);
+    var playerPos = new Vector2(168, -300);
     var playerDir = 1;
 
     Player = new Player();
 
     var rect = new Rectangle(-704, -440, 960, 360);
-
-    new PixelCamera()
-      .Set(n => n.Weight = 0.3f)
-      .Set(n => n.Limit = rect)
-      .Set(n => n.Deadzone = new Extent(30, 0))
-      .Set(n => n.OffsetSmoothing = true)
-      .Set(n => n.Smoothing = true)
-      .Set(n => n.Target = Player);
 
     new Parallax2D().Set(n =>
     {
@@ -86,7 +78,15 @@ public class Gardens7 : Scene
       n.AmbientColor = Color.White;
     });
     
-    var t = DotTiledBridge.Load(mapPath, loader);
+    var t = DotTiledBridge.Load(mapPath, this, loader);
+
+    new PixelCamera()
+      .Set(n => n.Weight = 0.3f)
+      .Set(n => n.Limit = CameraRect)
+      .Set(n => n.Deadzone = new Extent(30, 0))
+      .Set(n => n.OffsetSmoothing = true)
+      .Set(n => n.Smoothing = true)
+      .Set(n => n.Target = Player);
   }
 
   public override void ExitTree()

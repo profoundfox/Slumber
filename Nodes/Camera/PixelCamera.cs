@@ -27,7 +27,7 @@ public class PixelCamera : Camera2D
   private float shakeStrength;
 
   [Export]
-  public KinematicBody2D Target { get; set; }
+  public CharacterBody2D Target { get; set; }
 
   [Export]
   public bool FollowX { get; set; } = true;

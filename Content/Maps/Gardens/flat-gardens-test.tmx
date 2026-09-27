@@ -666,7 +666,7 @@
   </data>
  </layer>
  <objectgroup id="3" name="Node">
-  <object id="71" x="-2008" y="-248" width="2264" height="408"/>
+  <object id="71" type=":" x="-2008" y="-248" width="2264" height="408"/>
   <object id="72" name="door_0" type="+" x="-984" y="-16">
    <point/>
   </object>

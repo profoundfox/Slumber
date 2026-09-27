@@ -11,7 +11,6 @@
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Gardens-Layer-3.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/HeightsBG.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/HeightsBGNoMain.xnb
-/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/CatacombBG.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/HealthIcon.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Shader/WhiteEffect.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Atlas.tsx
@@ -243,15 +242,12 @@
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Gardens/Gardens-Layer-1.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Gardens/Gardens-Layer-2.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Gardens/Gardens-Layer-3.xnb
-/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Heights/Gradiant.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Heights/Mountain.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Heights/Tree1.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Heights/Tree2.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Heights/Tree3.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Heights/Tree4.xnb
-/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Bed.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/BONFIRE.xnb
-/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/DPadUp.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Foreground/arches.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Foreground/mist.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Interact.xnb
@@ -290,3 +286,15 @@
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Atlas/InputIcons.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Atlas/InputIconsWhite.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Gardens/flat-gardens-test.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Explosion.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Gardens/gardens-10.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Gardens/gardens-7 copy.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Gardens/gardens-7-copy.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Atlas/AnimationAtlas.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Background/Heights/Gradient.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Gardens/gardens-11.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Gardens/gardens-2-2.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Heights/heights-1.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Heights/heights-2.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Termplates/GardensTemplate.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Maps/Termplates/HeightsTemplate.tmx

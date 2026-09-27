@@ -135,7 +135,7 @@ public class MainMenu : Scene
     keybBtn.Text = "Keyboard";
     keybBtn.Click += (sender, args) =>
     {
-      Keyboard.IsVisible = true;
+      //Keyboard.IsVisible = true;
       //Settings.IsVisible = false;
     };
 
@@ -184,9 +184,9 @@ public class MainMenu : Scene
       startBtn.IsFocused = true;
     };
 
-    Keyboard = new Keyboard();
-    Keyboard.IsVisible = false;
-    Settings.AddChild(Keyboard);
+    //Keyboard = new Keyboard();
+    //Keyboard.IsVisible = false;
+    //Settings.AddChild(Keyboard);
   }
 
 

@@ -918,8 +918,8 @@
 </chunk>
   </data>
  </layer>
- <objectgroup id="3" name="Node">
-  <object id="71" x="-640" y="-208" width="880" height="360" visible="0"/>
+ <objectgroup id="3" name="Node" visible="0">
+  <object id="71" type=":" x="-640" y="-208" width="880" height="360"/>
   <object id="117" name="*" x="-208" y="8" width="16" height="40"/>
   <object id="118" name="*" x="-192" y="32" width="16" height="16"/>
   <object id="120" name="*" x="-184" y="24" width="64" height="8"/>
@@ -943,7 +943,7 @@
   </object>
   <object id="139" name="*" x="96" y="144" width="288" height="16"/>
  </objectgroup>
- <objectgroup id="2" name="Collision">
+ <objectgroup id="2" name="Collision" visible="0">
   <properties>
    <property name="collision" type="bool" value="true"/>
   </properties>
