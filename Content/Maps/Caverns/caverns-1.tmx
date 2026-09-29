@@ -454,7 +454,7 @@
    <point/>
   </object>
   <object id="6" type=":" x="-280" y="-232" width="640" height="360"/>
-  <object id="7" name="@" x="8" y="-48" width="16" height="40">
+  <object id="7" name="@" x="0" y="-48" width="32" height="48">
    <properties>
     <property name="scene" value="Gardens1"/>
     <property name="target" value="door_1"/>

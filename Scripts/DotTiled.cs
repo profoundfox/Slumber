@@ -70,8 +70,17 @@ public static class DotTiledBridge
             if (obj.Type == "+")
             {
               var s = Core.Token.Anchor.GetCurrentAnchor() as Scene;
+              
+              bool? conti = null;
 
-              s.SpawnPoints.Add(obj.Name, new Vector2(obj.X, obj.Y));
+              if (obj.TryGetProperty("conti", out BoolProperty contiProp))
+                conti = contiProp.Value;
+
+              s.SpawnPoints.Add(obj.Name, new SpawnPointInfo()
+              {
+                Position = new Vector2(obj.X, obj.Y),
+                Contingent = conti
+              });
             }
           }
 

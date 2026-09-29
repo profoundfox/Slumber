@@ -131,6 +131,7 @@ public partial class Player : CharacterBody2D
 
   public bool CanWall()
   {
+    return false;
     return Properties.PlayerAxis.X != 0 && IsOnWall && Velocity.Y > 0;
   }
 

@@ -130,3 +130,5 @@
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Heights/heights-2.tmx
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Gardens/gardens-11.tmx
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Gardens/gardens-2-2.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Gardens/gardens-2-.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Gardens/gardens-12.tmx

@@ -1,4 +1,7 @@
+
+
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Slumber;
 
@@ -63,7 +66,18 @@ public class GameManager : Object
     {
       var s = Core.Token.Anchor.GetCurrentAnchor() as Scene;
       s.EntranceGateID = targetID;
-      Player.Position = s.SpawnPoints[targetID];
+      int playerDir = Data.PlayerViewDirection;
+      if (s.SpawnPoints.TryGetValue($"{targetID}_right", out var rightInfo) && 
+          s.SpawnPoints.TryGetValue($"{targetID}_left", out var leftInfo))
+      {
+        Console.WriteLine("Yes");
+        if (playerDir == 1)
+          Player.Position = rightInfo.Position;
+        else if (playerDir == -1)
+          Player.Position = leftInfo.Position;
+      }
+      else
+        Player.Position = s.SpawnPoints[targetID].Position;
       Player.Properties.AllowControl = false;
     });
   }

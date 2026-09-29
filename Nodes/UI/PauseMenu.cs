@@ -42,15 +42,6 @@ public class PauseMenu : Node2D
     var loadBtn = new CustomButton();
     MainPanel.AddChild(loadBtn);
 
-    loadBtn.Y = 5;
-
-    loadBtn.Text = "Load";
-    loadBtn.Click += (sender, args) =>
-    {
-      CloseMenu();
-      Main.GameManager.Load();
-    };
-
     var exitBtn = new CustomButton();
     MainPanel.AddChild(exitBtn);
 
@@ -62,7 +53,6 @@ public class PauseMenu : Node2D
       CloseMenu();
       Main.GameManager.Transition("MainMenu", () => {});
     };
-
 
     Settings = new StackPanel();
     Settings.AddToRoot();

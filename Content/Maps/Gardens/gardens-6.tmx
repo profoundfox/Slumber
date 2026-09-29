@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="1" nextlayerid="9" nextobjectid="142">
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="1" nextlayerid="9" nextobjectid="143">
  <tileset firstgid="1" source="../Atlas.tsx"/>
  <layer id="1" name="Main" width="30" height="20">
   <properties>
@@ -811,7 +811,7 @@
   </data>
  </layer>
  <objectgroup id="3" name="Node">
-  <object id="76" name="door_1" type="+" x="-48" y="-16">
+  <object id="76" name="door_1_left" type="+" x="-48" y="-16">
    <point/>
   </object>
   <object id="104" type=":" x="-304" y="-368" width="640" height="416"/>
@@ -848,6 +848,9 @@
   <object id="139" type="_" x="-96" y="-16" width="80" height="16"/>
   <object id="140" type="_" x="-176" y="-160" width="80" height="16"/>
   <object id="141" type="_" x="112" y="-160" width="80" height="16"/>
+  <object id="142" name="door_1_right" type="+" x="64" y="-16">
+   <point/>
+  </object>
  </objectgroup>
  <objectgroup id="2" name="Collision">
   <properties>

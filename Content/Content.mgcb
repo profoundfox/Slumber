@@ -519,5 +519,8 @@
 #begin Maps/Gardens/gardens-11.tmx
 /copy:Maps/Gardens/gardens-11.tmx
 
-#begin Maps/Gardens/gardens-2-2.tmx
-/copy:Maps/Gardens/gardens-2-2.tmx
+#begin Maps/Gardens/gardens-2-.tmx
+/copy:Maps/Gardens/gardens-2-.tmx
+
+#begin Maps/Gardens/gardens-12.tmx
+/copy:Maps/Gardens/gardens-12.tmx

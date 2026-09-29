@@ -58,7 +58,7 @@ public class Caverns1 : Scene
 
     if (!File.Exists(Path.Combine(myGameFolder, "Persistence")))
     {
-      Main.GameManager.Save(this.GetType().Name, SpawnPoints.FirstOrDefault().Value);
+      Main.GameManager.Save(this.GetType().Name, SpawnPoints.FirstOrDefault().Value.Position);
     }
   }
 

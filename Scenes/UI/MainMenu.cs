@@ -92,6 +92,8 @@ public class MainMenu : Scene
       Settings.IsVisible = true;
       Settings.Children.FirstOrDefault()?.IsFocused = true; 
     };
+
+    setBtn.IsEnabled = false;
     
     var exitBtn = new CustomButton();
     MainPanel.AddChild(exitBtn);

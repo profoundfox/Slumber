@@ -12,11 +12,9 @@ public class Scene : Anchor,
   ICall, 
   IExitTree
 {
-  public Dictionary<string, Vector2> SpawnPoints { get; set; } = new();
+  public Dictionary<string, SpawnPointInfo> SpawnPoints { get; set; } = new();
 
   public string EntranceGateID { get; set; }
-
-  public Vector2 SpawnPosition { get; set; }
 
   public Rectangle CameraRect { get; set; }
 
@@ -42,5 +40,8 @@ public class Scene : Anchor,
   public virtual void Submit(Canvas2D canvas) { }
 
   public virtual void _ExitTree() { }
-  public virtual void ExitTree() { }
+  public virtual void ExitTree()
+  {
+    SpawnPoints.Clear();
+  }
 }
