@@ -70,11 +70,17 @@ public class GameManager : Object
       if (s.SpawnPoints.TryGetValue($"{targetID}_right", out var rightInfo) && 
           s.SpawnPoints.TryGetValue($"{targetID}_left", out var leftInfo))
       {
-        Console.WriteLine("Yes");
+        if (false)
+        {
+          if (playerDir == 1)
+            Player.Position = rightInfo.Position;
+          else if (playerDir == -1)
+            Player.Position = leftInfo.Position;
+        }
         if (playerDir == 1)
-          Player.Position = rightInfo.Position;
+          Player.EntranceJump(rightInfo.Position, playerDir);
         else if (playerDir == -1)
-          Player.Position = leftInfo.Position;
+          Player.EntranceJump(leftInfo.Position, playerDir);
       }
       else
         Player.Position = s.SpawnPoints[targetID].Position;

@@ -28,6 +28,15 @@ public partial class Player : CharacterBody2D
     });
   }
 
+  public void EntranceJump(Vector2 target, int direction)
+  {
+    STM.ChangeState("NothingState");
+
+    Velocity = new Vector2(10, -100);
+
+    Await.Span(TimeSpan.FromSeconds(0.1f), () => STM.ChangeState("IdleState"));
+  }
+
   public void HandleMovementInput()
   {
     if (!Properties.AllowControl || Properties.IsDashing)

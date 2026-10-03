@@ -1,12 +1,13 @@
 {
-    "activeFile": "Gardens/gardens-2.tmx",
+    "activeFile": "Gardens/gardens-5.tmx",
     "expandedProjectPaths": [
-        "Termplates",
         "Heights",
         "Gardens",
-        "Green",
         "Catacombs",
-        "."
+        "Green",
+        "Termplates",
+        ".",
+        "Caverns"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -126,11 +127,11 @@
                 3,
                 2
             ],
-            "scale": 1.1148,
+            "scale": 2.5495,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": -29.601722282023673,
-                "y": -206.76354503049873
+                "x": -127.86820945283387,
+                "y": -128.06432633849775
             }
         },
         "Gardens/gardens-12.tmx": {
@@ -141,8 +142,8 @@
             "scale": 1.4892,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 35.58957829707225,
-                "y": -166.86811710985765
+                "x": 0,
+                "y": -127.92103142626914
             }
         },
         "Gardens/gardens-2-.tmx": {
@@ -206,11 +207,11 @@
                 3,
                 2
             ],
-            "scale": 2.5378,
+            "scale": 1.0605,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 816.0611553313895,
-                "y": -33.29655607218851
+                "x": 76.37906647807637,
+                "y": 34.417727487034426
             }
         },
         "Gardens/gardens-6.tmx": {
@@ -218,11 +219,11 @@
                 3,
                 2
             ],
-            "scale": 2.2984,
+            "scale": 0.6701,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": -201.87956839540547,
-                "y": -194.26557605290634
+                "x": 0,
+                "y": -127.59289658259962
             }
         },
         "Gardens/gardens-7 copy.tmx": {
@@ -234,11 +235,11 @@
             }
         },
         "Gardens/gardens-7-copy.tmx": {
-            "scale": 2.491,
+            "scale": 1.4866,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 130.46969088719388,
-                "y": -217.38257727820152
+                "x": -256.28951970940403,
+                "y": -383.7616036593569
             }
         },
         "Gardens/gardens-7.tmx": {
@@ -246,11 +247,11 @@
                 3,
                 2
             ],
-            "scale": 2.0507,
-            "selectedLayer": 5,
+            "scale": 1.0802,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 105.81752572292388,
-                "y": -193.83625103623152
+                "x": -256.43399370486947,
+                "y": -383.7252360673949
             }
         },
         "Gardens/gardens-8.tmx": {
@@ -384,25 +385,28 @@
     "map.tileHeight": 16,
     "map.tileWidth": 16,
     "openFiles": [
+        "Gardens/gardens-5.tmx",
+        "Gardens/gardens-6.tmx",
+        "Gardens/gardens-7-copy.tmx",
+        "Gardens/gardens-7.tmx",
         "Gardens/gardens-12.tmx",
-        "Gardens/gardens-11.tmx",
-        "Gardens/gardens-2.tmx"
+        "Gardens/gardens-11.tmx"
     ],
     "project": "Slumber.tiled-project",
-    "property.type": "int",
+    "property.type": "string",
     "recentFiles": [
+        "Gardens/gardens-11.tmx",
+        "Gardens/gardens-12.tmx",
+        "Gardens/gardens-7.tmx",
+        "Gardens/gardens-7-copy.tmx",
+        "Gardens/gardens-6.tmx",
+        "Gardens/gardens-5.tmx",
         "Gardens/gardens-10.tmx",
         "Gardens/gardens-2.tmx",
         "Gardens/gardens-1.tmx",
         "Caverns/caverns-1.tmx",
-        "Gardens/gardens-6.tmx",
-        "Gardens/gardens-5.tmx",
         "Gardens/gardens-4.tmx",
-        "Gardens/gardens-3.tmx",
-        "Gardens/gardens-12.tmx",
-        "Gardens/gardens-11.tmx",
-        "Gardens/gardens-9.tmx",
-        "Gardens/gardens-2-.tmx"
+        "Gardens/gardens-3.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
