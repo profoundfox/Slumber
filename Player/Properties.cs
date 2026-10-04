@@ -22,7 +22,7 @@ public record struct PlayerProperties
 
   public float DashVelocity { get; set; } = 300f;
 
-  public TimeSpan CoyoteTime { get; set; } = TimeSpan.FromSeconds(0.6f);
+  public TimeSpan CoyoteTime { get; set; } = TimeSpan.FromSeconds(0.2f);
   public TimeSpan JumpBufferTime { get; set; } = TimeSpan.FromSeconds(0.2f);
   public TimeSpan AttackBufferTime { get; set; } = TimeSpan.FromSeconds(0.08f);
   public TimeSpan DashDuration = TimeSpan.FromSeconds(0.2f);

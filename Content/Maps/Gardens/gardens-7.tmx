@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="1" nextlayerid="9" nextobjectid="438">
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="1" nextlayerid="9" nextobjectid="440">
  <tileset firstgid="1" source="../Atlas.tsx"/>
  <layer id="1" name="Main" width="30" height="20">
   <properties>
@@ -901,7 +901,10 @@
   </data>
  </layer>
  <objectgroup id="3" name="Node">
-  <object id="101" name="door_1" type="+" x="232" y="-224">
+  <object id="101" name="door_1" type="+" x="240" y="-224">
+   <properties>
+    <property name="dir" value="a"/>
+   </properties>
    <point/>
   </object>
   <object id="102" type=":" x="-704" y="-440" width="960" height="360" visible="0"/>
@@ -1141,7 +1144,7 @@
   </object>
   <object id="181" x="16" y="-256" width="80" height="8">
    <properties>
-    <property name="one_way" type="bool" value="false"/>
+    <property name="one_way" type="bool" value="true"/>
    </properties>
   </object>
   <object id="182" x="-48" y="-224" width="16" height="8">
@@ -1191,12 +1194,12 @@
   </object>
   <object id="394" x="128" y="-240" width="16" height="8">
    <properties>
-    <property name="one_way" type="bool" value="false"/>
+    <property name="one_way" type="bool" value="true"/>
    </properties>
   </object>
   <object id="395" x="64" y="-208" width="48" height="8">
    <properties>
-    <property name="one_way" type="bool" value="false"/>
+    <property name="one_way" type="bool" value="true"/>
    </properties>
   </object>
   <object id="426" x="-496" y="-368" width="16" height="16">
@@ -1205,5 +1208,6 @@
    </properties>
   </object>
   <object id="437" x="-608" y="-256" width="48" height="16"/>
+  <object id="439" x="16" y="-48" width="48" height="16"/>
  </objectgroup>
 </map>

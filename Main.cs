@@ -64,12 +64,11 @@ namespace Slumber
       #if DEBUG
       IsFixedTimeStep = true;
       Graphics.SynchronizeWithVerticalRetrace = false;
-      Prefs.Graphics.Fullscreen = true;
+      Prefs.Graphics.Fullscreen = false;
       #endif
 
       Prefs.General.ShowCollision = false;
       Prefs.Graphics.MouseVisible = false;
-
 
       ExitOnEsc = false;
 
@@ -95,10 +94,9 @@ namespace Slumber
       GumUI.Update(gameTime);
 
       GumUI.Root.HasEvents = false;
-
-      Console.WriteLine(gameTime.ElapsedGameTime.TotalSeconds);
-
-      //Mouse.SetPosition(0, 0);
+      #if DEBUG
+      Mouse.SetPosition(0, 0);
+      #endif
     }
 
     bool showCollision;
@@ -108,6 +106,9 @@ namespace Slumber
     float fallGrav;
     float movSpe;
     float jmpFrc;
+
+    float xImpulse;
+    float yImpulse;
 
     bool init;
 
@@ -151,6 +152,13 @@ namespace Slumber
       ImGui.Text($"Term: {MathF.Round(player.Properties.CurrentTerminalVelocity / 100f) * 100f}");
       ImGui.Text($"State: {player.Get<StateMachine>()?.Current}");
       ImGui.Text($"Count: {Core.Token.GetAll<Player>().Count}");
+
+      ImGui.InputFloat("XImpulse", ref xImpulse);
+      ImGui.InputFloat("YImpulse", ref yImpulse);
+      if (ImGui.Button("Impulse!")) 
+      {
+          player.Velocity = new Vector2(xImpulse, yImpulse);
+      }
 
       ImGui.PushItemWidth(150);
 

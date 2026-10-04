@@ -22,7 +22,6 @@ public class TransitionState : State
 
   public override void Physics(float delta)
   {
-    p.Velocity.X = 0;
     p.ApplyGravity(delta);
   }
 }

@@ -39,9 +39,6 @@ public class PauseMenu : Node2D
 
     startBtn.IsFocused = true;
 
-    var loadBtn = new CustomButton();
-    MainPanel.AddChild(loadBtn);
-
     var exitBtn = new CustomButton();
     MainPanel.AddChild(exitBtn);
 

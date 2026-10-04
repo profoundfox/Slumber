@@ -114,13 +114,14 @@ namespace Slumber
         n.AddChild(wallSlideState);
         n.AddChild(floorAttackState);
         n.AddChild(nothingState);
-        n.Initial = transitionState;
+        n.Initial = idleState;
         n.SetParent(this);
       });
 
       AddMask(1);
 
-
+      
+      return;
       Await.Span(TimeSpan.FromSeconds(0.35f), () => 
       {
         STM.ChangeState("IdleState");

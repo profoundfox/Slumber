@@ -918,7 +918,7 @@
 </chunk>
   </data>
  </layer>
- <objectgroup id="3" name="Node" visible="0">
+ <objectgroup id="3" name="Node">
   <object id="71" type=":" x="-640" y="-208" width="880" height="360"/>
   <object id="117" name="*" x="-208" y="8" width="16" height="40"/>
   <object id="118" name="*" x="-192" y="32" width="16" height="16"/>
@@ -939,6 +939,9 @@
   <object id="135" type="_" x="24" y="-16" width="136" height="16"/>
   <object id="136" type="_" x="-256" y="-16" width="48" height="16"/>
   <object id="137" name="door_0" type="+" x="16" y="-24">
+   <properties>
+    <property name="dir" value="_"/>
+   </properties>
    <point/>
   </object>
   <object id="139" name="*" x="96" y="144" width="288" height="16"/>

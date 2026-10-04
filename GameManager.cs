@@ -66,25 +66,35 @@ public class GameManager : Object
     {
       var s = Core.Token.Anchor.GetCurrentAnchor() as Scene;
       s.EntranceGateID = targetID;
-      int playerDir = Data.PlayerViewDirection;
-      if (s.SpawnPoints.TryGetValue($"{targetID}_right", out var rightInfo) && 
-          s.SpawnPoints.TryGetValue($"{targetID}_left", out var leftInfo))
+
+      var pointInfo = s.SpawnPoints[targetID];
+
+      Player.Position = pointInfo.Position;
+      Player.STM.ChangeState("NothingState");
+
+      Await.Span(TimeSpan.FromSeconds(0.24f), () =>
       {
-        if (false)
+        Player.STM.ChangeState("TransitionState");
+        bool isUpward = pointInfo.Direction == new Vector2(0, -1);
+        Vector2 dir = pointInfo.Direction;
+        
+        Player.Velocity = dir * 50;
+
+        if (isUpward)
         {
-          if (playerDir == 1)
-            Player.Position = rightInfo.Position;
-          else if (playerDir == -1)
-            Player.Position = leftInfo.Position;
+          Player.Position += new Vector2(0, -20);
+          float x = 300;
+          if (Data.PlayerViewDirection == -1)
+            x = 350;
+          Player.Velocity = new Vector2(x * Data.PlayerViewDirection, 200 * dir.Y);
         }
-        if (playerDir == 1)
-          Player.EntranceJump(rightInfo.Position, playerDir);
-        else if (playerDir == -1)
-          Player.EntranceJump(leftInfo.Position, playerDir);
-      }
-      else
-        Player.Position = s.SpawnPoints[targetID].Position;
-      Player.Properties.AllowControl = false;
+
+        Await.Span(TimeSpan.FromSeconds(0.1f), () =>
+        {
+          Player.STM.ChangeState("IdleState");
+        });
+      });
+
     });
   }
 

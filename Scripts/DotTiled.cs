@@ -70,16 +70,27 @@ public static class DotTiledBridge
             if (obj.Type == "+")
             {
               var s = Core.Token.Anchor.GetCurrentAnchor() as Scene;
+
+              Vector2 dir = Vector2.Zero;
               
-              bool? conti = null;
-
-              if (obj.TryGetProperty("conti", out BoolProperty contiProp))
-                conti = contiProp.Value;
-
+              if (obj.TryGetProperty("dir", out StringProperty dirStringProp))
+              {
+                if (dirStringProp.Value == "w")
+                  dir = -Vector2.UnitY;
+                if (dirStringProp.Value == "s")
+                  dir = Vector2.UnitY;
+                if (dirStringProp.Value == "a")
+                  dir = -Vector2.UnitX;
+                if (dirStringProp.Value == "d")
+                  dir = Vector2.UnitX;
+                if (dirStringProp.Value == "_")
+                  dir = Vector2.Zero;
+              }
+              
               s.SpawnPoints.Add(obj.Name, new SpawnPointInfo()
               {
                 Position = new Vector2(obj.X, obj.Y),
-                Contingent = conti
+                Direction = dir
               });
             }
           }

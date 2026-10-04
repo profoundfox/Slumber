@@ -3,6 +3,8 @@ namespace Slumber;
 
 public class NothingState : State
 {
+  Player p => Core.Token.Get<Player>();
+
   public override void OnEnter()
   {
     base.OnEnter();

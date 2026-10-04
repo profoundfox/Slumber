@@ -864,7 +864,10 @@
   </data>
  </layer>
  <objectgroup id="3" name="Node">
-  <object id="113" name="door_1" type="+" x="-128" y="0">
+  <object id="113" name="door_1" type="+" x="-144" y="0">
+   <properties>
+    <property name="dir" value="d"/>
+   </properties>
    <point/>
   </object>
   <object id="114" type=":" x="-159" y="-192" width="640" height="272"/>

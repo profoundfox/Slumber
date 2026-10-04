@@ -692,9 +692,15 @@
    </properties>
   </object>
   <object id="95" name="door_2" type="+" x="352" y="-160">
+   <properties>
+    <property name="dir" value="_"/>
+   </properties>
    <point/>
   </object>
-  <object id="96" name="door_1" type="+" x="16" y="24">
+  <object id="96" name="door_1" type="+" x="16" y="36">
+   <properties>
+    <property name="dir" value="d"/>
+   </properties>
    <point/>
   </object>
   <object id="98" name="@" x="0" y="0" width="32" height="48">

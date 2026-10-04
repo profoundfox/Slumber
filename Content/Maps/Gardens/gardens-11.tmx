@@ -711,7 +711,10 @@
     <property name="target" value="door_3"/>
    </properties>
   </object>
-  <object id="97" name="door_1" type="+" x="132" y="-16">
+  <object id="97" name="door_1" type="+" x="144" y="-16">
+   <properties>
+    <property name="dir" value="a"/>
+   </properties>
    <point/>
   </object>
   <object id="102" type="_" x="-16" y="0" width="112" height="16"/>
@@ -754,7 +757,10 @@
     <property name="target" value="door_1"/>
    </properties>
   </object>
-  <object id="143" name="door_2" type="+" x="-152" y="-352">
+  <object id="143" name="door_2" type="+" x="-160" y="-360">
+   <properties>
+    <property name="dir" value="s"/>
+   </properties>
    <point/>
   </object>
  </objectgroup>

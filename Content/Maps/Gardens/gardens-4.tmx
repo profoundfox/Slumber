@@ -1097,9 +1097,12 @@
 </chunk>
   </data>
  </layer>
- <objectgroup id="3" name="Node" visible="0">
+ <objectgroup id="3" name="Node">
   <object id="81" type=":" x="-32" y="-320" width="880" height="456"/>
-  <object id="82" name="door_1" type="+" x="0" y="64">
+  <object id="82" name="door_1" type="+" x="-16" y="64">
+   <properties>
+    <property name="dir" value="d"/>
+   </properties>
    <point/>
   </object>
   <object id="85" name="@" x="-48" y="8" width="16" height="64">
@@ -1111,13 +1114,16 @@
   <object id="86" name="enemy" x="112" y="112">
    <point/>
   </object>
-  <object id="87" name="@" x="864" y="8" width="16" height="64">
+  <object id="87" name="@" x="848" y="8" width="16" height="64">
    <properties>
     <property name="scene" value="Gardens5"/>
     <property name="target" value="door_1"/>
    </properties>
   </object>
-  <object id="88" name="door_2" type="+" x="816" y="64">
+  <object id="88" name="door_2" type="+" x="832" y="64">
+   <properties>
+    <property name="dir" value="a"/>
+   </properties>
    <point/>
   </object>
  </objectgroup>
