@@ -1,13 +1,13 @@
 {
-    "activeFile": "Gardens/gardens-7.tmx",
+    "activeFile": "Heights/heights-1.tmx",
     "expandedProjectPaths": [
+        "Termplates",
+        "Catacombs",
         ".",
         "Green",
-        "Caverns",
-        "Heights",
-        "Termplates",
         "Gardens",
-        "Catacombs"
+        "Heights",
+        "Caverns"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -204,26 +204,26 @@
         },
         "Gardens/gardens-5.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
             "scale": 1.0818,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 760.7690885561101,
-                "y": -6.932889628397106
+                "x": 383.61989277130704,
+                "y": -0.46219264189312526
             }
         },
         "Gardens/gardens-6.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
             "scale": 2.1001,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 13.332698442931274,
-                "y": 41.664682634160286
+                "x": 35.23641731346126,
+                "y": -110.23284605494976
             }
         },
         "Gardens/gardens-7 copy.tmx": {
@@ -244,14 +244,14 @@
         },
         "Gardens/gardens-7.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
             "scale": 1.5301,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": -494.7389059538592,
-                "y": -296.38585713352074
+                "x": -256.19240572511603,
+                "y": -383.96183255996345
             }
         },
         "Gardens/gardens-8.tmx": {
@@ -314,22 +314,22 @@
         },
         "Heights/heights-1.tmx": {
             "expandedObjectLayers": [
-                6,
-                5
+                5,
+                6
             ],
-            "scale": 1.9746,
-            "selectedLayer": 1,
+            "scale": 0.3098,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": -152.94236807454675,
-                "y": -156.23417400992605
+                "x": 622.9825693996125,
+                "y": -350.2259522272434
             }
         },
         "Heights/heights-2.tmx": {
-            "scale": 1.9828,
+            "scale": 5.5649,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 21.68650393383095,
-                "y": -35.051442404680245
+                "x": -10.063073909683908,
+                "y": 47.17065895164333
             }
         },
         "Template.tmx": {
@@ -344,16 +344,16 @@
             "scale": 4.3998,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 42.04736578935407,
-                "y": -18.52356925314787
+                "x": 7.9549070412291485,
+                "y": 8.068548570389567
             }
         },
         "Termplates/HeightsTemplate.tmx": {
-            "scale": 0.512109375,
+            "scale": 0.3214,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 123.02059496567506,
-                "y": -524.3020594965676
+                "x": 9.334163036714472,
+                "y": 7.778469197261984
             }
         },
         "Termplates/Template.tmx": {
@@ -386,23 +386,27 @@
     "map.tileWidth": 16,
     "openFiles": [
         "Gardens/gardens-5.tmx",
-        "Gardens/gardens-7.tmx"
+        "Gardens/gardens-7.tmx",
+        "Termplates/GardensTemplate.tmx",
+        "Termplates/HeightsTemplate.tmx",
+        "Heights/heights-1.tmx",
+        "Heights/heights-2.tmx"
     ],
     "project": "Slumber.tiled-project",
     "property.type": "string",
     "recentFiles": [
         "Gardens/gardens-5.tmx",
         "Gardens/gardens-7.tmx",
+        "Termplates/GardensTemplate.tmx",
+        "Termplates/HeightsTemplate.tmx",
+        "Heights/heights-2.tmx",
+        "Heights/heights-1.tmx",
         "Gardens/gardens-1.tmx",
         "Gardens/gardens-2-.tmx",
         "Gardens/gardens-3.tmx",
         "Gardens/gardens-2.tmx",
         "Gardens/gardens-6.tmx",
-        "Gardens/gardens-10.tmx",
-        "Gardens/gardens-11.tmx",
-        "Gardens/gardens-9.tmx",
-        "Gardens/gardens-8.tmx",
-        "Gardens/gardens-7-copy.tmx"
+        "Gardens/gardens-10.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

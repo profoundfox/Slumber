@@ -132,3 +132,6 @@
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Gardens/gardens-2-2.tmx
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Gardens/gardens-2-.tmx
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Maps/Gardens/gardens-12.tmx
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Audio/Music/gardens2radiomixed.ogg
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Audio/Music/gardens2radiomixed.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Audio/SFX/takeDamage.xnb

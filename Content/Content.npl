@@ -43,7 +43,23 @@
                 "TextureFormat": "Color"
             }
         },
-        
+
+        "sound_effects": {
+            "path": "Audio/*.wav",
+            "recursive": "True",
+            "action": "build",
+            "importer": "WavImporter",
+            "processor": "SoundEffectProcessor"
+        },
+
+        "song_mp3": {
+            "path": "Audio/*.mp3",
+            "recursive": "True",
+            "action": "build",
+            "importer": "Mp3Importer",
+            "processor": "SongProcessor"
+        },
+
         "maps_tsx": {
             "path": "Maps/*.tsx",
             "recursive": true,

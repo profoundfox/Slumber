@@ -7,7 +7,7 @@ public class Persistence : Object
   public Vector2 CurrentSpawnPoint { get; set; }
   public string CurrentSpawnScene { get; set; }
 
-  public int MaxHealthPoints { get; set; } = 5;
+  public int MaxHealthPoints { get; set; } = 7;
   
   public string CurrentBonfireId { get; set; }
 

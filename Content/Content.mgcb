@@ -524,3 +524,13 @@
 
 #begin Maps/Gardens/gardens-12.tmx
 /copy:Maps/Gardens/gardens-12.tmx
+
+#begin Audio/Music/gardens2radiomixed.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/build:Audio/Music/gardens2radiomixed.mp3
+
+#begin Audio/SFX/takeDamage.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Audio/SFX/takeDamage.wav

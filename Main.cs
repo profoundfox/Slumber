@@ -17,6 +17,8 @@ namespace Slumber
 
     public static Gum.GumService GumUI => Gum.GumService.Default;
 
+    public static AudioManager AudioManager;
+
     protected override void Initialize()
     {
       base.Initialize();
@@ -40,6 +42,7 @@ namespace Slumber
       Token.Anchor.SetAnchor<MainMenu>();
 
       GameManager = new GameManager();
+      AudioManager = new AudioManager();
 
       Input.AddBind("MoveLeft", new InputAction(Keys.A), new InputAction(Buttons.LeftThumbstickLeft), new InputAction(Buttons.DPadLeft));
       Input.AddBind("MoveRight", new InputAction(Keys.D), new InputAction(Buttons.LeftThumbstickRight), new InputAction(Buttons.DPadRight));
@@ -56,7 +59,7 @@ namespace Slumber
       Input.AddBind("Pause", new InputAction(Keys.Escape), new InputAction(Buttons.Start));
       Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));
       
-      Prefs.Graphics.Fullscreen = true;
+      Prefs.Graphics.Fullscreen = false;
       Graphics.SynchronizeWithVerticalRetrace = true;
       Graphics.HardwareModeSwitch = true;
       IsFixedTimeStep = true;
@@ -68,7 +71,7 @@ namespace Slumber
       #endif
 
       Prefs.General.ShowCollision = false;
-      Prefs.Graphics.MouseVisible = false;
+      Prefs.Graphics.MouseVisible = true;
 
       ExitOnEsc = false;
 
@@ -94,9 +97,13 @@ namespace Slumber
       GumUI.Update(gameTime);
 
       GumUI.Root.HasEvents = false;
-      #if DEBUG
+      #if !DEBUG 
       Mouse.SetPosition(0, 0);
       #endif
+
+      AudioManager.Update(gameTime);
+      
+      Console.WriteLine(GameManager.Persistence.CurrentSpawnScene);
     }
 
     bool showCollision;
@@ -124,7 +131,7 @@ namespace Slumber
 
       var camera = Core.Token.Get<PixelCamera>();
 
-      var sumBool = true;
+      var sumBool = false;
 
       if (player == null || Graphics.IsFullScreen || sumBool)
         return;

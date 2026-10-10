@@ -24,6 +24,10 @@ namespace Slumber
 
     public StateMachine STM;
 
+    public SoundEffect TakeDamageSoundEffect;
+
+    public ParticleEmitter2D Gore;
+
     #endregion
 
     public Player()
@@ -72,6 +76,8 @@ namespace Slumber
         n.Name = "AttackArea";
       });
 
+      TakeDamageSoundEffect = Core.Instance.Content.Load<SoundEffect>("Audio/SFX/takeDamage");
+
       var tC = c.Clone().Set(n =>
       {
         n.Position = new Vector2(0, 4);
@@ -86,7 +92,7 @@ namespace Slumber
       GroundCheck = new Raycast2D().Set(n =>
       {
         n.SetParent(this);
-        n.Shape = new RayCastShape2D(new Vector2(0, 5));
+        n.Shape = new RayCastShape2D(new Vector2(0, 15));
         //n.Disabled = true;
         n.Position = new Vector2(0, 25);
       });

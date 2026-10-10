@@ -70,6 +70,7 @@ public class GameManager : Object
       var pointInfo = s.SpawnPoints[targetID];
 
       Player.Position = pointInfo.Position;
+      Vector2 startPosition = Player.Position;
       Player.STM.ChangeState("NothingState");
 
       Await.Span(TimeSpan.FromSeconds(0.24f), () =>
@@ -83,23 +84,18 @@ public class GameManager : Object
         if (isUpward)
         {
           Player.Position += new Vector2(0, -20);
-          float x = 300;
+          float x = 150;
           if (Data.PlayerViewDirection == -1)
-            x = 350;
+            x += 50;
           Player.Velocity = new Vector2(x * Data.PlayerViewDirection, 200 * dir.Y);
         }
-
-        Await.Span(TimeSpan.FromSeconds(0.1f), () =>
-        {
-          Player.STM.ChangeState("IdleState");
-        });
       });
-
     });
   }
 
   public void Transition(string targetScene, Action onNewScene)
   {
+    Console.WriteLine(targetScene);
     ScreenEffects.In();
     Await.Until(() => ScreenEffects.Transition.IsFinished, () =>
     {
@@ -144,6 +140,7 @@ public class GameManager : Object
     Player.STM.ChangeState("TransitionState");
 
     Core.Token.Get<PixelCamera>().Shake(TimeSpan.FromSeconds(0.05), 15, 10);
+    Player.TakeDamageSoundEffect.Play();
 
     Player.Visible = false;
     Player.Properties.CanTakeDamage = false;
@@ -178,7 +175,7 @@ public class GameManager : Object
     cam?.toggleShake = true;
     Await.Span(TimeSpan.FromSeconds(0.1f), () => cam?.toggleShake = false);
     Player.QueueFree();
-    Data.PlayerCurrentHealth = 5;
+    Data.PlayerCurrentHealth = Persistence.MaxHealthPoints;
 
     Transition(Data.CurrentRespawnScene, () =>
     {

@@ -224,6 +224,8 @@ public partial class Player : CharacterBody2D
 
   public void TakeDamage(int damage, int dir)
   {
+    TakeDamageSoundEffect.Play();
+
     Sprite.Shader.Parameters["enabled"].SetValue(1);
     Properties.CanTakeDamage = false;
 

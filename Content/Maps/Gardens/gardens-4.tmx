@@ -1173,7 +1173,7 @@
   <object id="127" x="672" y="-224" width="16" height="96"/>
   <object id="128" x="640" y="-128" width="48" height="16"/>
   <object id="129" x="640" y="-112" width="16" height="32"/>
-  <object id="130" x="320" y="80" width="96" height="8">
+  <object id="130" x="320" y="80" width="96" height="10">
    <properties>
     <property name="one_way" type="bool" value="true"/>
    </properties>

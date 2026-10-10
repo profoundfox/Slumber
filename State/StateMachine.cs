@@ -50,8 +50,6 @@ public void ChangeState(string newStateName)
     if (newState == null)
       return;
 
-    Console.WriteLine(newStateName);
-
     Current?.OnExit();
 
     Current = newState;

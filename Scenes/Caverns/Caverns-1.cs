@@ -57,9 +57,7 @@ public class Caverns1 : Scene
     System.IO.Directory.CreateDirectory(myGameFolder);
 
     if (!File.Exists(Path.Combine(myGameFolder, "Persistence")))
-    {
-      Main.GameManager.Save(this.GetType().Name, SpawnPoints.FirstOrDefault().Value.Position);
-    }
+      Main.GameManager.Save("Caverns1", SpawnPoints.FirstOrDefault().Value.Position);
   }
 
   public override void ExitTree()

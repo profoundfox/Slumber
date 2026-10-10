@@ -15,6 +15,7 @@ namespace Slumber;
 
 public class MainMenu : Scene
 {
+  public Grid Root;
   public StackPanel MainPanel;
   public StackPanel Settings;
   public Keyboard Keyboard;
@@ -35,14 +36,25 @@ public class MainMenu : Scene
 
   public void BuildUI()
   {
-    MainPanel = new StackPanel();
-    MainPanel.AddToRoot();
     
-    MainPanel.XUnits = GeneralUnitType.PixelsFromMiddle;
-    MainPanel.XOrigin = HorizontalAlignment.Center;
+    Root = new Grid(); 
+    Root.AddToRoot();
+
+    Root.Height = 640;
+    Root.Width = 360;
+
+    Root.Y = -360;
+
+    MainPanel = new StackPanel();
+    Root.AddChild(MainPanel, 1, 1);
+    
+    MainPanel.XUnits = GeneralUnitType.PixelsFromSmall;
+    MainPanel.XOrigin = HorizontalAlignment.Left;
     
     MainPanel.YUnits = GeneralUnitType.PixelsFromMiddle;
     MainPanel.YOrigin = VerticalAlignment.Center;
+
+    MainPanel.X = 200;
 
     var startBtn = new CustomButton();
     MainPanel.AddChild(startBtn);
@@ -78,6 +90,7 @@ public class MainMenu : Scene
       }
     }
 
+
     startBtn.IsFocused = true;
 
     var setBtn = new CustomButton();
@@ -88,12 +101,13 @@ public class MainMenu : Scene
     setBtn.Text = "Settings";
     setBtn.Click += (sender, args) =>
     {
-      MainPanel.IsVisible = false;
+      MainPanel.Disable();
+      Settings.Enable();
       Settings.IsVisible = true;
       Settings.Children.FirstOrDefault()?.IsFocused = true; 
     };
 
-    setBtn.IsEnabled = false;
+    //setBtn.IsEnabled = false;
     
     var exitBtn = new CustomButton();
     MainPanel.AddChild(exitBtn);
@@ -108,14 +122,18 @@ public class MainMenu : Scene
       Await.Until(() => Main.GameManager.ScreenEffects.Transition.IsFinished, () => Core.Quit());
     };
 
-    Settings = new StackPanel();
-    Settings.AddToRoot();
+    #region Settings
 
-    Settings.XUnits = GeneralUnitType.PixelsFromMiddle;
-    Settings.XOrigin = HorizontalAlignment.Center;
+    Settings = new StackPanel();
+    Root.AddChild(Settings, 1, 2);
+
+    Settings.XUnits = GeneralUnitType.PixelsFromSmall;
+    Settings.XOrigin = HorizontalAlignment.Left;
     
     Settings.YUnits = GeneralUnitType.PixelsFromMiddle;
     Settings.YOrigin = VerticalAlignment.Center;
+
+    Settings.X = 400;
 
     Settings.IsVisible = false;
 
@@ -137,8 +155,10 @@ public class MainMenu : Scene
     keybBtn.Text = "Keyboard";
     keybBtn.Click += (sender, args) =>
     {
-      //Keyboard.IsVisible = true;
-      //Settings.IsVisible = false;
+      Keyboard.IsVisible = true;
+      Settings.Disable();
+      Keyboard.Enable();
+      var firstChild = Keyboard.Children.OfType<CustomButton>().FirstOrDefault().IsFocused = true;
     };
 
     var audBtn = new CustomButton();
@@ -173,22 +193,35 @@ public class MainMenu : Scene
       Main.GameManager.Transition("MainMenu", () => Main.GameManager.ScreenEffects.Out());
     };
 
-    var backBtn = new CustomButton();
-    Settings.AddChild(backBtn);
 
-    backBtn.Y = 40;
+    Keyboard = new Keyboard();
+    Root.AddChild(Keyboard, 1, 3);
 
-    backBtn.Text = "Back";
-    backBtn.Click += (sender, args) =>
+    Keyboard.X = -100;
+    Keyboard.IsVisible = false;
+    #endregion
+  }
+
+  public void Back()
+  {
+    if (MainPanel.IsEnabled)
+      return;
+
+    else if (Keyboard.IsEnabled)
+    {
+      Keyboard.IsVisible = false;
+      Keyboard.Disable();
+      Settings.Enable();
+      Settings.Children.OfType<CustomButton>().Where(n => n.Text == "Keyboard").FirstOrDefault().IsFocused = true;
+    }
+
+    else if (Settings.IsEnabled)
     {
       Settings.IsVisible = false;
-      MainPanel.IsVisible = true;
-      startBtn.IsFocused = true;
-    };
-
-    //Keyboard = new Keyboard();
-    //Keyboard.IsVisible = false;
-    //Settings.AddChild(Keyboard);
+      Settings.Disable();
+      MainPanel.Enable();
+      MainPanel.Children.OfType<CustomButton>().Where(n => n.Text == "Settings").FirstOrDefault().IsFocused = true;
+    }
   }
 
 
@@ -205,6 +238,9 @@ public class MainMenu : Scene
   public override void Process(float delta)
   {
     base.Process(delta);
+
+    if (Core.Input.Keyboard.WasKeyJustPressed(Keys.X))
+      Back();
   }
 
   public override void Submit(Canvas2D canvas)

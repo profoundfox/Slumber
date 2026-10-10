@@ -42,8 +42,12 @@
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Explosion.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/AnimationAtlas.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Background/Heights/Gradient.png</File>
+    <File>/Users/nilslauvstad/Git/Slumber/Content/Audio/Music/gardens2radiomixed.mp3</File>
+    <File>/Users/nilslauvstad/Git/Slumber/Content/Audio/SFX/takeDamage.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

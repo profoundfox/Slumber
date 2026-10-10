@@ -72,6 +72,7 @@ public class CustomButton : Button
     enabledState.Apply = () =>
     {
       background.Color = new Color(0, 0, 0) * 0.6f;
+      text.Color = Color.White;
       borderContainer.Visible = false;
     };
 

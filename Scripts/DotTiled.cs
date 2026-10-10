@@ -171,7 +171,10 @@ public static class DotTiledBridge
           if (obj.TryGetProperty("one_way", out BoolProperty oneWay) && oneWay.Value == true)
           {
             foreach (var c in stat.CollisionShapes)
+            {
               c.OneWay = oneWay.Value;
+              c.Position -= new Vector2(0, 1);
+            }
           }
 
           nodes.Add(stat);
