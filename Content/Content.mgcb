@@ -534,3 +534,12 @@
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /build:Audio/SFX/takeDamage.wav
+
+#begin Fonts/Renogare.fnt
+/copy:Fonts/Renogare.fnt
+
+#begin Fonts/Renogare_0.png
+/copy:Fonts/Renogare_0.png
+
+#begin Fonts/Renogare_1.png
+/copy:Fonts/Renogare_1.png

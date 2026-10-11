@@ -3,6 +3,9 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/Users/nilslauvstad/Git/Slumber/Content/Audio/SFX/takeDamage.wav","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Audio/SFX/takeDamage.xnb","SoundEffectProcessor","SoundEffectContent",33290,33247,0.73049
 "/Users/nilslauvstad/Git/Slumber/Content/Fonts/RainHearts.fnt","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Fonts/RainHearts.fnt","CopyItem","File",11031,11031,0.00126
 "/Users/nilslauvstad/Git/Slumber/Content/Fonts/RainHeartsSource.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Fonts/RainHeartsSource.png","CopyItem","File",5250,5250,0.00012
+"/Users/nilslauvstad/Git/Slumber/Content/Fonts/Renogare_0.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Fonts/Renogare_0.png","CopyItem","File",22010,22010,0.000113
+"/Users/nilslauvstad/Git/Slumber/Content/Fonts/Renogare_1.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Fonts/Renogare_1.png","CopyItem","File",19016,19016,9.9E-05
+"/Users/nilslauvstad/Git/Slumber/Content/Fonts/Renogare.fnt","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Fonts/Renogare.fnt","CopyItem","File",332899,332899,0.000608
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/AnimationAtlas.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/Atlas/AnimationAtlas.xnb","TextureProcessor","Texture2DContent",101217,21725269,0.325156
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/EagleAtlas.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/Atlas/EagleAtlas.xnb","TextureProcessor","Texture2DContent",14923,1198165,0.014482
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/grassspidersheet.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/Atlas/grassspidersheet.xnb","TextureProcessor","Texture2DContent",842,4181,0.00176
@@ -56,7 +59,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/Users/nilslauvstad/Git/Slumber/Content/Maps/Gardens/gardens-6.tmx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Gardens/gardens-6.tmx","CopyItem","File",40521,40521,0.000207
 "/Users/nilslauvstad/Git/Slumber/Content/Maps/Gardens/gardens-7-copy.tmx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Gardens/gardens-7-copy.tmx","CopyItem","File",46860,46860,0.000763
 "/Users/nilslauvstad/Git/Slumber/Content/Maps/Gardens/gardens-7.tmx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Gardens/gardens-7.tmx","CopyItem","File",50883,50883,0.000679
-"/Users/nilslauvstad/Git/Slumber/Content/Maps/Gardens/gardens-8.tmx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Gardens/gardens-8.tmx","CopyItem","File",42868,42868,0.000228
+"/Users/nilslauvstad/Git/Slumber/Content/Maps/Gardens/gardens-8.tmx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Gardens/gardens-8.tmx","CopyItem","File",42868,42868,0.000992
 "/Users/nilslauvstad/Git/Slumber/Content/Maps/Gardens/gardens-9.tmx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Gardens/gardens-9.tmx","CopyItem","File",44354,44354,0.000209
 "/Users/nilslauvstad/Git/Slumber/Content/Maps/Heights/heights-1.tmx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Heights/heights-1.tmx","CopyItem","File",16587,16587,0.000856
 "/Users/nilslauvstad/Git/Slumber/Content/Maps/Heights/heights-2.tmx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Heights/heights-2.tmx","CopyItem","File",2064,2064,0.000246

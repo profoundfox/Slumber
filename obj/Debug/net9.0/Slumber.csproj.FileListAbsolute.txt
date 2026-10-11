@@ -135,3 +135,6 @@
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Audio/Music/gardens2radiomixed.ogg
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Audio/Music/gardens2radiomixed.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Audio/SFX/takeDamage.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Fonts/Renogare.fnt
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Fonts/Renogare_0.png
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Fonts/Renogare_1.png

@@ -20,7 +20,7 @@ public class CustomButton : Button
     TextRuntime text = buttonVisual.TextInstance;
 
     text.UseCustomFont = true;
-    text.CustomFontFile = "Fonts/RainHearts.fnt";
+    text.CustomFontFile = "Fonts/Renogare.fnt";
     text.FontScale = 1.0f;
     
     background.Color = new Color(0, 0, 0) * 0.6f;

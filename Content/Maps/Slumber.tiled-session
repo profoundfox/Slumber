@@ -192,14 +192,14 @@
         },
         "Gardens/gardens-4.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
-            "scale": 2.7697,
+            "scale": 1.724,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": -20.940896125934216,
-                "y": 104.52395566306821
+                "x": 404.29234338747096,
+                "y": -11.8909512761021
             }
         },
         "Gardens/gardens-5.tmx": {
