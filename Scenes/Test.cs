@@ -88,9 +88,10 @@ public class Test : Scene
 
     Transition.Detach();
     
-    var b = new Keyboard();
+    var b = new CustomButton();
     b.AddToRoot();
 
+    b.Text = "Start";
   }
 
   public override void ExitTree()

@@ -28,18 +28,9 @@ namespace Slumber
       GumUI.UseKeyboardDefaults();
       GumUI.UseGamepadDefaults();
 
-      FrameworkElement.TabKeyCombos.Add(new KeyCombo()
-      {
-          PushedKey = Gum.Forms.Input.Keys.Down
-      });
-      FrameworkElement.TabReverseKeyCombos.Add(new KeyCombo()
-      {
-          PushedKey = Gum.Forms.Input.Keys.Up
-      });
-
       ClassDB.Initialize(typeof(Main).Assembly);
 
-      Token.Anchor.SetAnchor<MainMenu>();
+      Token.Anchor.SetAnchor<TitleScreen>();
 
       GameManager = new GameManager();
       AudioManager = new AudioManager();

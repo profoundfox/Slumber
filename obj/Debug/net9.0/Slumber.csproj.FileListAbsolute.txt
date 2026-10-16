@@ -138,3 +138,7 @@
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Fonts/Renogare.fnt
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Fonts/Renogare_0.png
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Fonts/Renogare_1.png
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Atlas/InputIconsWhitePixel.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Atlas/Comet.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/MBG.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/SlumberLogo.xnb

@@ -4,14 +4,19 @@ using Gum.DataTypes.Variables;
 using Gum.Forms.Controls;
 using Gum.GueDeriving;
 using Gum.Wireframe;
+using RenderingLibrary.Graphics;
 
 namespace Slumber;
 
 public class CustomButton : Button
 {
+  public bool BorderEnabled { get; set; } = true;
+
   public CustomButton()
   {
-    var buttonVisual = (Gum.Forms.DefaultVisuals.V3.ButtonVisual)Visual; 
+    var buttonVisual = (Gum.Forms.DefaultVisuals.V3.ButtonVisual)Visual;
+
+    float offset = 20f;
     
     NineSliceRuntime background = buttonVisual.Background;
 
@@ -19,76 +24,71 @@ public class CustomButton : Button
 
     TextRuntime text = buttonVisual.TextInstance;
 
+    text.WidthUnits = DimensionUnitType.RelativeToChildren;
+    text.Width = 0;
+
+    buttonVisual.WidthUnits = DimensionUnitType.RelativeToChildren;
+    buttonVisual.Width = 10;
+
+    //XOrigin = HorizontalAlignment.Center;
+
     text.UseCustomFont = true;
-    text.CustomFontFile = "Fonts/Renogare.fnt";
-    text.FontScale = 1.0f;
+    text.CustomFontFile = "Fonts/RainHearts.fnt";
+    text.FontScale = 2.0f;
     
-    background.Color = new Color(0, 0, 0) * 0.6f;
+    background.Color = Color.White * 0f;
     text.Color = Color.White;
 
-    ContainerRuntime borderContainer = new ContainerRuntime();
-    borderContainer.WidthUnits = DimensionUnitType.RelativeToParent;
-    borderContainer.Width = 0;
-    borderContainer.HeightUnits = DimensionUnitType.RelativeToParent;
-    borderContainer.Height = 0;
-    borderContainer.HasEvents = false;
-    buttonVisual.Children.Add(borderContainer);
 
-    float borderWidth = 2.0f;
+    var focusThingy = new SpriteRuntime();
+    AddChild(focusThingy);
 
-    var top = CreateBorderLine();
-    top.WidthUnits = DimensionUnitType.RelativeToParent;
-    top.Width = 0;
-    top.Height = borderWidth;
-    top.Y = 0;
-    borderContainer.Children.Add(top);
+    focusThingy.FromRegion(new TextureRegion(Core.Resource.Load<Texture2D>("Maps/Atlas"), new Rectangle(416, 592, 8, 8)));
+    focusThingy.WidthUnits = DimensionUnitType.Absolute;
+    focusThingy.Width = focusThingy.SourceRectangle.Width * 4; 
+    focusThingy.HeightUnits = DimensionUnitType.Absolute;
+    focusThingy.Height = focusThingy.SourceRectangle.Height * 4;
 
-    var bottom = CreateBorderLine();
-    bottom.WidthUnits = DimensionUnitType.RelativeToParent;
-    bottom.Width = 0;
-    bottom.Height = borderWidth;
-    bottom.YUnits = GeneralUnitType.PixelsFromBaseline;
-    bottom.Y = 0;
-    borderContainer.Children.Add(bottom);
+    focusThingy.X = 10;
+    focusThingy.Y = 20;
 
-    var left = CreateBorderLine();
-    left.Width = borderWidth;
-    left.HeightUnits = DimensionUnitType.RelativeToParent;
-    left.Height = 0;
-    left.X = 0;
-    borderContainer.Children.Add(left);
-
-    var right = CreateBorderLine();
-    right.Width = borderWidth;
-    right.HeightUnits = DimensionUnitType.RelativeToParent;
-    right.Height = 0;
-    right.XUnits = GeneralUnitType.PixelsFromLarge;
-    right.X = 0;
-    borderContainer.Children.Add(right);
-
-    borderContainer.Visible = false;
+    focusThingy.Visible = false;
 
     StateSave enabledState = buttonVisual.States.Enabled;
     enabledState.Apply = () =>
     {
-      background.Color = new Color(0, 0, 0) * 0.6f;
+      background.Color = Color.White * 0f;
       text.Color = Color.White;
-      borderContainer.Visible = false;
+      text.X = 0;
+      focusThingy.Visible = false;
     };
 
     StateSave pushedState = buttonVisual.States.Pushed;
     pushedState.Apply = () =>
     {
-      background.Color = new Color(64, 64, 64) * 0.42f;
-      borderContainer.Visible = true;
+      background.Color = Color.White * 0f;
+      text.Color = ColorExtension.Hex("#b8c3d9");
+      text.X = offset;
+      focusThingy.Visible = true;
     };
 
     StateSave focusedState = buttonVisual.States.Focused;
     focusedState.Apply = () =>
     {
-      background.Color = new Color(0, 0, 0) * 0.6f;
-      borderContainer.Visible = true;
+      background.Color = Color.White * 0f;
+      text.Color = ColorExtension.Hex("#b8c3d9");
       IsFocused = true;
+      text.X = offset;
+      focusThingy.Visible = true;
+    };
+    
+    StateSave disabledState = buttonVisual.States.Disabled;
+    disabledState.Apply = () =>
+    {
+      background.Color = Color.White * 0f;
+      text.Color = Color.Gray * 0.42f;
+      text.X = 0;
+      focusThingy.Visible = false;
     };
 
     StateSave highlightedFocused = buttonVisual.States.HighlightedFocused;

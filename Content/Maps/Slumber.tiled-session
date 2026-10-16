@@ -1,13 +1,13 @@
 {
-    "activeFile": "Heights/heights-1.tmx",
+    "activeFile": "Gardens/gardens-8.tmx",
     "expandedProjectPaths": [
-        "Termplates",
+        "Caverns",
+        "Gardens",
         "Catacombs",
+        "Heights",
         ".",
         "Green",
-        "Gardens",
-        "Heights",
-        "Caverns"
+        "Termplates"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -256,14 +256,14 @@
         },
         "Gardens/gardens-8.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
-            "scale": 3.3269,
+            "scale": 1.297,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": -124.74074964681836,
-                "y": 3.7572514953861003
+                "x": -1670.7787201233618,
+                "y": -1043.562066306862
             }
         },
         "Gardens/gardens-9.tmx": {
@@ -390,7 +390,10 @@
         "Termplates/GardensTemplate.tmx",
         "Termplates/HeightsTemplate.tmx",
         "Heights/heights-1.tmx",
-        "Heights/heights-2.tmx"
+        "Heights/heights-2.tmx",
+        "Gardens/gardens-6.tmx",
+        "Gardens/gardens-4.tmx",
+        "Gardens/gardens-8.tmx"
     ],
     "project": "Slumber.tiled-project",
     "property.type": "string",
@@ -399,14 +402,14 @@
         "Gardens/gardens-7.tmx",
         "Termplates/GardensTemplate.tmx",
         "Termplates/HeightsTemplate.tmx",
-        "Heights/heights-2.tmx",
         "Heights/heights-1.tmx",
+        "Heights/heights-2.tmx",
+        "Gardens/gardens-6.tmx",
+        "Gardens/gardens-4.tmx",
+        "Gardens/gardens-8.tmx",
         "Gardens/gardens-1.tmx",
         "Gardens/gardens-2-.tmx",
-        "Gardens/gardens-3.tmx",
-        "Gardens/gardens-2.tmx",
-        "Gardens/gardens-6.tmx",
-        "Gardens/gardens-10.tmx"
+        "Gardens/gardens-3.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using DotTiled.Serialization;
 using Gum.Converters;
+using Gum.DataTypes;
 using Gum.DataTypes.Variables;
 using Gum.Forms.Controls;
 using Gum.Forms.DefaultVisuals;
@@ -53,6 +54,8 @@ public class MainMenu : Scene
     
     MainPanel.YUnits = GeneralUnitType.PixelsFromMiddle;
     MainPanel.YOrigin = VerticalAlignment.Center;
+
+    MainPanel.WidthUnits = DimensionUnitType.RelativeToChildren;
 
     MainPanel.X = 200;
 
@@ -132,6 +135,8 @@ public class MainMenu : Scene
     
     Settings.YUnits = GeneralUnitType.PixelsFromMiddle;
     Settings.YOrigin = VerticalAlignment.Center;
+
+    MainPanel.WidthUnits = DimensionUnitType.RelativeToChildren;
 
     Settings.X = 400;
 
