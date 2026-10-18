@@ -12,6 +12,10 @@ public class CustomButton : Button
 {
   public bool BorderEnabled { get; set; } = true;
 
+  public SpriteRuntime FocusThingy { get; set; }
+
+  public bool NormalDisabledFocus { get; set; } = true;
+
   public CustomButton()
   {
     var buttonVisual = (Gum.Forms.DefaultVisuals.V3.ButtonVisual)Visual;
@@ -40,19 +44,19 @@ public class CustomButton : Button
     text.Color = Color.White;
 
 
-    var focusThingy = new SpriteRuntime();
-    AddChild(focusThingy);
+    FocusThingy = new SpriteRuntime();
+    AddChild(FocusThingy);
 
-    focusThingy.FromRegion(new TextureRegion(Core.Resource.Load<Texture2D>("Maps/Atlas"), new Rectangle(416, 592, 8, 8)));
-    focusThingy.WidthUnits = DimensionUnitType.Absolute;
-    focusThingy.Width = focusThingy.SourceRectangle.Width * 4; 
-    focusThingy.HeightUnits = DimensionUnitType.Absolute;
-    focusThingy.Height = focusThingy.SourceRectangle.Height * 4;
+    FocusThingy.FromRegion(new TextureRegion(Core.Resource.Load<Texture2D>("Maps/Atlas"), new Rectangle(416, 592, 8, 8)));
+    FocusThingy.WidthUnits = DimensionUnitType.Absolute;
+    FocusThingy.Width = FocusThingy.SourceRectangle.Width * 4; 
+    FocusThingy.HeightUnits = DimensionUnitType.Absolute;
+    FocusThingy.Height = FocusThingy.SourceRectangle.Height * 4;
 
-    focusThingy.X = 10;
-    focusThingy.Y = 20;
+    FocusThingy.X = 10;
+    FocusThingy.Y = 20;
 
-    focusThingy.Visible = false;
+    FocusThingy.Visible = false;
 
     StateSave enabledState = buttonVisual.States.Enabled;
     enabledState.Apply = () =>
@@ -60,7 +64,7 @@ public class CustomButton : Button
       background.Color = Color.White * 0f;
       text.Color = Color.White;
       text.X = 0;
-      focusThingy.Visible = false;
+      FocusThingy.Visible = false;
     };
 
     StateSave pushedState = buttonVisual.States.Pushed;
@@ -69,33 +73,66 @@ public class CustomButton : Button
       background.Color = Color.White * 0f;
       text.Color = ColorExtension.Hex("#b8c3d9");
       text.X = offset;
-      focusThingy.Visible = true;
+      FocusThingy.Visible = true;
     };
 
-    StateSave focusedState = buttonVisual.States.Focused;
-    focusedState.Apply = () =>
+    StateSave FocusedState = buttonVisual.States.Focused;
+    FocusedState.Apply = () =>
     {
       background.Color = Color.White * 0f;
       text.Color = ColorExtension.Hex("#b8c3d9");
       IsFocused = true;
       text.X = offset;
-      focusThingy.Visible = true;
+      FocusThingy.Visible = true;
+    };
+
+    StateSave disabledFoucsState = buttonVisual.States.DisabledFocused;
+    disabledFoucsState.Apply = () =>
+    {
+      background.Color = Color.White * 0f;
+      text.Color = ColorExtension.Hex("#808796");
+      IsFocused = true;
+      text.X = offset;
+      FocusThingy.Visible = true;
+      FocusThingy.Color = ColorExtension.Hex("#808796");
+
     };
     
     StateSave disabledState = buttonVisual.States.Disabled;
     disabledState.Apply = () =>
     {
-      background.Color = Color.White * 0f;
-      text.Color = Color.Gray * 0.42f;
-      text.X = 0;
-      focusThingy.Visible = false;
+      if (NormalDisabledFocus)
+      {
+        background.Color = Color.White * 0f;
+        text.Color = ColorExtension.Hex("#969696");
+        text.X = 0;
+        FocusThingy.Visible = false;
+      }
+      else 
+      {
+        DisabledFocused();
+      }
     };
 
+
     StateSave highlightedFocused = buttonVisual.States.HighlightedFocused;
-    highlightedFocused.Apply = focusedState.Apply;
+    highlightedFocused.Apply = FocusedState.Apply;
 
     StateSave highlighted = buttonVisual.States.Highlighted;
-    highlighted.Apply = focusedState.Apply;
+    highlighted.Apply = FocusedState.Apply;
+
+  }
+
+  public void DisabledFocused()
+  {
+    var buttonVisual = (Gum.Forms.DefaultVisuals.V3.ButtonVisual)Visual;
+
+    buttonVisual.Background.Color = Color.White * 0f;
+    buttonVisual.TextInstance.Color = ColorExtension.Hex("#808796");
+    IsFocused = true;
+    buttonVisual.TextInstance.X = 20f;
+    FocusThingy.Visible = true;
+    FocusThingy.Color = ColorExtension.Hex("#808796");
   }
 
   public NineSliceRuntime CreateBorderLine()

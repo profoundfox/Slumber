@@ -31,7 +31,6 @@ public class GameManager : Object
     Data.CurrentRespawnPoint = c.Transform.Global.Position;
   }
 
-
   public void Save(string scene, Vector2 pos)
   {
     Persistence.CurrentSpawnPoint = pos;

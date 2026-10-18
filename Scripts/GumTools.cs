@@ -19,7 +19,7 @@ namespace Slumber
       return spriteRuntime;
     }
 
-    public static void Enable(this StackPanel panel)
+    public static void Enable(this Panel panel)
     {
       panel.IsEnabled = true;
       foreach (var child in panel.Children)
@@ -28,16 +28,15 @@ namespace Slumber
       }
     }
 
-    public static void Disable(this StackPanel panel)
+    public static void Disable(this Panel panel)
     {
       panel.IsEnabled = false;
       foreach (var child in panel.Children)
       {
 
-        child.IsFocused = false;
+        //child.IsFocused = false;
         child.IsEnabled = false;
       }
-
     }
   }
 }

@@ -20,17 +20,24 @@ public class TitleScreen : Scene
 {
   Grid Root;
   StackPanel MenuChooser;
+
+  Panel Settings;
+
   AnimatedSprite2D BG;
 
   CustomButton PlayBtn;
   CustomButton SetBtn;
   CustomButton QuitBtn;
 
+  CustomButtonSquare KeyBtn;
+
   public override void EnterTree()
   {
     base.EnterTree();
 
     Core.Time.TimeScale = 1f; 
+
+    Main.AudioManager.Play(Main.AudioManager.TitleScreen);
 
     BuildUI();
 
@@ -72,7 +79,6 @@ public class TitleScreen : Scene
     //MenuChooser.YUnits = GeneralUnitType.PixelsFromMiddle;
     MenuChooser.YOrigin = VerticalAlignment.Center;
 
-
     MenuChooser.X = 100;
     MenuChooser.Y = 209;
 
@@ -104,6 +110,7 @@ public class TitleScreen : Scene
         PlayBtn.Click += (sender, args) =>
         {
           Main.GameManager.Change("Caverns1", "door_1");
+          Main.AudioManager.FadeOut();
           Root.RemoveFromRoot();
         };
       }
@@ -113,6 +120,7 @@ public class TitleScreen : Scene
         PlayBtn.Click += (sender, args) =>
         {
           Main.GameManager.Load();
+          Main.AudioManager.FadeOut();
           Root.RemoveFromRoot();
         };
       }
@@ -120,7 +128,6 @@ public class TitleScreen : Scene
 
     PlayBtn.IsFocused = true;
     PlayBtn.X = -113;
-    //playBtn.Text = "Start";
 
     SetBtn = new CustomButton();
     MenuChooser.AddChild(SetBtn);
@@ -128,15 +135,82 @@ public class TitleScreen : Scene
     SetBtn.Text = "Settings";
     SetBtn.X = -113;
 
+    SetBtn.NormalDisabledFocus = false;
+
+    SetBtn.Click += (sender, args) =>
+    {
+      MenuChooser?.Disable();
+      Settings?.Enable();
+      Settings?.IsVisible = true;
+      KeyBtn.IsFocused = true;
+    };
+
     QuitBtn = new CustomButton();
     MenuChooser.AddChild(QuitBtn);
 
     QuitBtn.Text = "Quit";
     QuitBtn.X = -113;
+
+    QuitBtn.Click += (sender, args) =>
+    {
+      Root.RemoveFromRoot();
+      Main.GameManager.ScreenEffects.In();
+      Main.AudioManager.FadeOut();
+      Await.Until(() => Main.GameManager.ScreenEffects.Transition.IsFinished, () => Core.Quit());
+    };
+
+    Settings = new Panel();
+    Root.AddChild(Settings, 0, 1);
+
+    Settings.IsVisible = false;
+
+    Settings.X = 350;
+    Settings.Y = -50;
+
+    Settings.Width = 650;
+    Settings.Height = 400;
+
+    Settings.WidthUnits = DimensionUnitType.Absolute;
+    Settings.HeightUnits = DimensionUnitType.Absolute;
+    
+    var nineslice = new NineSliceRuntime();
+    Settings.AddChild(nineslice);
+
+    nineslice.Texture = Core.Resource.Load<Texture2D>("Graphics/Settings-9-Slice");
+    nineslice.WidthUnits = DimensionUnitType.RelativeToParent;
+    nineslice.HeightUnits = DimensionUnitType.RelativeToParent;
+
+    var setButCont = new StackPanel();
+    Settings.AddChild(setButCont);
+
+    setButCont.X = 30;
+    setButCont.Y = 30;
+
+    setButCont.WidthUnits = DimensionUnitType.RelativeToParent;
+    setButCont.HeightUnits = DimensionUnitType.RelativeToParent;
+
+    setButCont.Width = -90;
+    setButCont.Height = -60;
+
+    KeyBtn = new CustomButtonSquare();
+    setButCont.AddChild(KeyBtn);
+
+    KeyBtn.WidthUnits = DimensionUnitType.RelativeToParent;
+
+    KeyBtn.Text = "Keyboard";
   }
 
   public void Back()
   {
+    if (MenuChooser.IsEnabled)
+      return;
+    if (Settings.IsEnabled)
+    {
+      Settings.Disable();
+      Settings.IsVisible = false;
+      MenuChooser.Enable();
+      SetBtn.IsFocused = true;
+    }
   }
 
 
@@ -158,6 +232,7 @@ public class TitleScreen : Scene
       Back();
 
     BG.PlayAnimation("Main");
+
 
     bool upPressed = Core.Input.Keyboard.WasKeyJustPressed(Keys.Up);
     bool downPressed = Core.Input.Keyboard.WasKeyJustPressed(Keys.Down);

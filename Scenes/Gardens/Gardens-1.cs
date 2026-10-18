@@ -15,6 +15,11 @@ public class Gardens1 : Scene
   {
     base.EnterTree();
 
+    Console.WriteLine("Yw");
+
+    Main.AudioManager.Play(Main.AudioManager.Gardens);
+    Main.AudioManager.FadeIn();
+
     var root = new Node2D()
       .Set("Position", new Vector2(0, -100))
       .Set(n => n.Visible = true);

@@ -88,10 +88,12 @@ public class Test : Scene
 
     Transition.Detach();
     
-    var b = new CustomButton();
+    var b = new CustomButtonSquare();
     b.AddToRoot();
 
     b.Text = "Start";
+
+
   }
 
   public override void ExitTree()

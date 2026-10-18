@@ -142,3 +142,6 @@
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Atlas/Comet.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/MBG.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/SlumberLogo.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Settings-9-Slice.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Audio/Music/menuchords.ogg
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Audio/Music/menuchords.xnb

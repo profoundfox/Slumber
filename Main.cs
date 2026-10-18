@@ -93,8 +93,6 @@ namespace Slumber
       #endif
 
       AudioManager.Update(gameTime);
-      
-      Console.WriteLine(GameManager.Persistence.CurrentSpawnScene);
     }
 
     bool showCollision;

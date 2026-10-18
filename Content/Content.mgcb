@@ -591,3 +591,20 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Graphics/SlumberLogo.png
+
+#begin Graphics/Settings-9-Slice.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/Settings-9-Slice.png
+
+#begin Audio/Music/menuchords.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/build:Audio/Music/menuchords.mp3

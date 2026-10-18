@@ -1,5 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "/Users/nilslauvstad/Git/Slumber/Content/Audio/Music/gardens2radiomixed.mp3","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Audio/Music/gardens2radiomixed.xnb","SongProcessor","SongContent",4697912,136,2.181285
+"/Users/nilslauvstad/Git/Slumber/Content/Audio/Music/menuchords.mp3","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Audio/Music/menuchords.xnb","SongProcessor","SongContent",7284728,128,2.476994
 "/Users/nilslauvstad/Git/Slumber/Content/Audio/SFX/takeDamage.wav","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Audio/SFX/takeDamage.xnb","SoundEffectProcessor","SoundEffectContent",33290,33247,0.73049
 "/Users/nilslauvstad/Git/Slumber/Content/Fonts/RainHearts.fnt","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Fonts/RainHearts.fnt","CopyItem","File",11031,11031,0.000706
 "/Users/nilslauvstad/Git/Slumber/Content/Fonts/RainHeartsSource.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Fonts/RainHeartsSource.png","CopyItem","File",5250,5250,0.00012
@@ -43,10 +44,11 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/lan.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/lan.xnb","TextureProcessor","Texture2DContent",4803,409685,0.009837
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/light.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/light.xnb","TextureProcessor","Texture2DContent",779,36949,0.075647
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/MBG.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/MBG.xnb","TextureProcessor","Texture2DContent",11082,210997,0.084489
+"/Users/nilslauvstad/Git/Slumber/Content/Graphics/Settings-9-Slice.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/Settings-9-Slice.xnb","TextureProcessor","Texture2DContent",495,36949,0.074236
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/Shader/WhiteEffect.fx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/Shader/WhiteEffect.xnb","EffectProcessor","CompiledEffectContent",844,1063,14.115702
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/SlumberLogo.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/SlumberLogo.xnb","TextureProcessor","Texture2DContent",330,8533,0.083554
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/Transition.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/Transition.xnb","TextureProcessor","Texture2DContent",134,197,0.196612
-"/Users/nilslauvstad/Git/Slumber/Content/Maps/Atlas.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Atlas.xnb","TextureProcessor","Texture2DContent",131727,1867861,0.114623
+"/Users/nilslauvstad/Git/Slumber/Content/Maps/Atlas.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Atlas.xnb","TextureProcessor","Texture2DContent",131727,1867861,0.124986
 "/Users/nilslauvstad/Git/Slumber/Content/Maps/Atlas.tsx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Atlas.tsx","CopyItem","File",300,300,0.000423
 "/Users/nilslauvstad/Git/Slumber/Content/Maps/Caverns/caverns-1.tmx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Caverns/caverns-1.tmx","CopyItem","File",24010,24010,0.000455
 "/Users/nilslauvstad/Git/Slumber/Content/Maps/Gardens/flat-gardens-test.tmx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Maps/Gardens/flat-gardens-test.tmx","CopyItem","File",26489,26489,0.000178

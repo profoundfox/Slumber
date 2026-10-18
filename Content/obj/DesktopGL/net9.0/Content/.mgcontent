@@ -48,8 +48,12 @@
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Atlas/Comet.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/MBG.png</File>
     <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/SlumberLogo.png</File>
+    <File>/Users/nilslauvstad/Git/Slumber/Content/Graphics/Settings-9-Slice.png</File>
+    <File>/Users/nilslauvstad/Git/Slumber/Content/Audio/Music/menuchords.mp3</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

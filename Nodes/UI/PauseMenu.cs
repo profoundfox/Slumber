@@ -48,7 +48,7 @@ public class PauseMenu : Node2D
     exitBtn.Click += (sender, args) =>
     {
       CloseMenu();
-      Main.GameManager.Transition("MainMenu", () => {});
+      Main.GameManager.Transition("TitleScreen", () => {});
     };
 
     Settings = new StackPanel();
