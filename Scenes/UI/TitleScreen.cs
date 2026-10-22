@@ -164,10 +164,10 @@ public class TitleScreen : Scene
 
     Settings.IsVisible = false;
 
-    Settings.X = 350;
+    Settings.X = 300;
     Settings.Y = -50;
 
-    Settings.Width = 650;
+    Settings.Width = 700;
     Settings.Height = 400;
 
     Settings.WidthUnits = DimensionUnitType.Absolute;
@@ -183,13 +183,13 @@ public class TitleScreen : Scene
     var setButCont = new StackPanel();
     Settings.AddChild(setButCont);
 
-    setButCont.X = 30;
+    setButCont.X = 31;
     setButCont.Y = 30;
 
     setButCont.WidthUnits = DimensionUnitType.RelativeToParent;
     setButCont.HeightUnits = DimensionUnitType.RelativeToParent;
 
-    setButCont.Width = -90;
+    setButCont.Width = -91;
     setButCont.Height = -60;
 
     KeyBtn = new CustomButtonSquare();
@@ -198,6 +198,23 @@ public class TitleScreen : Scene
     KeyBtn.WidthUnits = DimensionUnitType.RelativeToParent;
 
     KeyBtn.Text = "Keyboard";
+
+    var controls = new StackPanel();
+    Settings.AddChild(controls);
+
+    controls.X = 31;
+    controls.Y = 30;
+
+    controls.WidthUnits = DimensionUnitType.RelativeToParent;
+    controls.HeightUnits = DimensionUnitType.RelativeToParent;
+
+    controls.Width = -91;
+    controls.Height = -60;
+
+    var row1 = new StackPanel();
+    controls.AddChild(row1);
+    row1.Orientation = Orientation.Horizontal;
+
   }
 
   public void Back()

@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using DotTiled.Serialization;
+using Gum.Converters;
+using Gum.DataTypes;
 using Gum.Forms.Controls;
+using Gum.Forms.DefaultVisuals.V3;
 using MonoTile;
+using RenderingLibrary.Graphics;
 
 namespace Slumber;
 
@@ -88,12 +92,8 @@ public class Test : Scene
 
     Transition.Detach();
     
-    var b = new CustomButtonSquare();
-    b.AddToRoot();
-
-    b.Text = "Start";
-
-
+    var keyboard = new Keyboard();
+    keyboard.AddToRoot();
   }
 
   public override void ExitTree()

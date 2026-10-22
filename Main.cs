@@ -30,7 +30,7 @@ namespace Slumber
 
       ClassDB.Initialize(typeof(Main).Assembly);
 
-      Token.Anchor.SetAnchor<TitleScreen>();
+      Token.Anchor.SetAnchor<Test>();
 
       GameManager = new GameManager();
       AudioManager = new AudioManager();

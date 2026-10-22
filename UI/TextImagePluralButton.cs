@@ -9,7 +9,7 @@ using RenderingLibrary.Graphics;
 
 namespace Slumber;
 
-public class TextAndPluralSpriteButton : CustomButton
+public class TextAndPluralSpriteButton : CustomButtonSquare
 {
   private Label leftLabel;
   private ContainerRuntime rightContainer;

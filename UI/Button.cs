@@ -84,6 +84,7 @@ public class CustomButton : Button
       IsFocused = true;
       text.X = offset;
       FocusThingy.Visible = true;
+      FocusThingy.Color = Color.White;
     };
 
     StateSave disabledFoucsState = buttonVisual.States.DisabledFocused;

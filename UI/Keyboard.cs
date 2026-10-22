@@ -2,23 +2,30 @@
 
 using System.Collections.Generic;
 using Gum.Converters;
+using Gum.DataTypes;
 using Gum.Forms.Controls;
 using RenderingLibrary.Graphics;
 
 namespace Slumber;
 
-public class Keyboard : StackPanel
+public class Keyboard : Node2D 
 {
+  public StackPanel Panel { get; set; }
+
+  public CustomButtonSquare CurrentRebindButton { get; set; }
+
+  public Dictionary<CustomButtonSquare, Inpu>
+
   public Keyboard()
   {
-    this.XUnits = GeneralUnitType.PixelsFromMiddle;
-    this.XOrigin = HorizontalAlignment.Center;
-    
-    this.YUnits = GeneralUnitType.PixelsFromMiddle;
-    this.YOrigin = VerticalAlignment.Center;
+    Panel = new StackPanel();
+    Panel.AddToRoot();
 
-    this.Height = 20;
-    this.Width = 20;
+    Panel.XUnits = GeneralUnitType.PixelsFromMiddle;
+    Panel.XOrigin = HorizontalAlignment.Center;
+    
+    Panel.YUnits = GeneralUnitType.PixelsFromMiddle;
+    Panel.YOrigin = VerticalAlignment.Center;
 
     var lookUpTable = new Dictionary<string, Rectangle>
     {
@@ -52,15 +59,6 @@ public class Keyboard : StackPanel
 
     var source = Core.Resource.Load<Texture2D>("Graphics/Atlas/InputIconsWhite");
 
-    var kbvBox = new StackPanel();
-    AddChild(kbvBox);
-
-    kbvBox.XUnits = GeneralUnitType.PixelsFromMiddle;
-    kbvBox.XOrigin = HorizontalAlignment.Center;
-    
-    kbvBox.YUnits = GeneralUnitType.PixelsFromMiddle;
-    kbvBox.YOrigin = VerticalAlignment.Center;
-
     foreach(var bind in Core.Input.Binds)
     {
       string valResult = "";
@@ -89,14 +87,14 @@ public class Keyboard : StackPanel
 
       button.Click += (sender, args) =>
       {
-
+        CurrentRebindButton = button;
       };
 
-      kbvBox.AddChild(button);
+      Panel.AddChild(button);
     }
 
     var resetBtn = new CustomButton();
-    AddChild(resetBtn);
+    Panel.AddChild(resetBtn);
 
     resetBtn.Y = 5;
 
@@ -105,11 +103,18 @@ public class Keyboard : StackPanel
     {
       Core.Quit();
     };
-
   }
 
-  public void OnChangeClick(object? sender, EventArgs args)
+  public override void Process(float delta)
   {
+    if (CurrentRebindButton != null)
+    {
+      var currentFirstReleasedKey = Core.Input.Keyboard.GetFirstKeyJustReleased();
 
+      //Core.Input.Keyboard.Lock();
+      
+
+    }
   }
+
 }
