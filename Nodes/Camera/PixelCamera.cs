@@ -109,7 +109,7 @@ public class PixelCamera : Camera2D
 		
 		Offset = randomOffset();
 
-    Point axis = Core.Input.GetAxis("CamLeft", "CamRight", "CamUp", "CamDown");
+    Point axis = Point.Zero;//Core.Input.GetAxis("CamLeft", "CamRight", "CamUp", "CamDown");
 
     if ((Target.Velocity.X != 0 || Target.Velocity.Y != 0) && axis.Y != 0)
       yLocked = true;

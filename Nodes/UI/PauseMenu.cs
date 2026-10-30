@@ -127,7 +127,9 @@ public class PauseMenu : Node2D
     
     MainPanel.IsVisible = Material.Global.Visible;
 
-    if (Core.Input.IsActionJustPressed("Pause"))
+    if (Main.PauseKey != null && Core.Input.Keyboard.WasJustPressed(Main.PauseKey.Value)
+        || Main.PauseButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.PauseButton.Value)
+        || Main.PauseMouse != null && Core.Input.Mouse.WasJustPressed(Main.PauseMouse.Value))
     {
       if (!Open)
       {

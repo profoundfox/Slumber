@@ -42,7 +42,7 @@ public class Gate : SceneChange
       if (GetAnyBody() is Player p)
       {
 
-        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.W))
+        if (Core.Input.Keyboard.WasJustPressed(Keys.W))
         {
           Open = true;
           Main.GameManager.JangoPersistence.GatesOpen[this.Name] = Open;

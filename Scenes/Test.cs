@@ -91,9 +91,18 @@ public class Test : Scene
     });
 
     Transition.Detach();
+
+    var stack = new StackPanel();
+    stack.AddToRoot();
     
-    var keyboard = new Keyboard();
-    keyboard.AddToRoot();
+    for (int i = 0; i < 3; i++)
+    {
+      var b = new CustomButton();
+      b.Text = "Button";
+
+      stack.AddChild(b);
+    }
+
   }
 
   public override void ExitTree()
@@ -110,9 +119,9 @@ public class Test : Scene
   {
     base.Process(delta);
 
-    if (Core.Input.Keyboard.WasKeyJustPressed(Keys.I))
+    if (Core.Input.Keyboard.WasJustPressed(Keys.I))
       Transition.PlayAnimation("In");
-    if (Core.Input.Keyboard.WasKeyJustPressed(Keys.O))
+    if (Core.Input.Keyboard.WasJustPressed(Keys.O))
       Transition.PlayAnimation("Out");
   }
 

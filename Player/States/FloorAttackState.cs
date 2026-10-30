@@ -16,7 +16,9 @@ public class FloorAttackState : State
 
   public override void Update(float delta)
   {
-    if (Core.Input.IsActionJustPressed("Attack"))
+    if (Main.AttackKey != null && Core.Input.Keyboard.WasJustPressed(Main.AttackKey.Value)
+        || Main.AttackButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.AttackButton.Value)
+        || Main.AttackMouse != null && Core.Input.Mouse.WasJustPressed(Main.AttackMouse.Value))
       BufferAttack();
 
     if (p.Sprite.IsFinished)
@@ -57,7 +59,8 @@ public class FloorAttackState : State
 
   public override void Physics(float delta)
   {
-    p.Properties.PlayerAxis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp").ToVector2();
+    if (Main.LeftKey != null && Main.RightKey != null && Main.DownKey != null && Main.UpKey != null)
+      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.LeftKey.Value, Main.RightKey.Value, Main.DownKey.Value, Main.UpKey.Value).ToVector2();
 
     if (p.AttackArea.IsInsideAnyBody() && !pushedBack)
     {

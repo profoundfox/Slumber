@@ -22,6 +22,8 @@ public class TitleScreen : Scene
   StackPanel MenuChooser;
 
   Panel Settings;
+  Panel SetButCont;
+  Panel Controls;
 
   AnimatedSprite2D BG;
 
@@ -30,6 +32,22 @@ public class TitleScreen : Scene
   CustomButton QuitBtn;
 
   CustomButtonSquare KeyBtn;
+
+  DubTextButton UpButton;
+  DubTextButton DownButton;
+  DubTextButton LeftButton;
+  DubTextButton RightButton;
+  DubTextButton JumpButton;
+  DubTextButton DashButton;
+  DubTextButton AttackButton;
+  DubTextButton InteractButton;
+
+  Keys KeyToRemap;
+  MouseButton MouseButtonToRemap;
+
+  bool NavigationLock;
+
+  Point beforeLockPos;
 
   public override void EnterTree()
   {
@@ -72,15 +90,15 @@ public class TitleScreen : Scene
 
     MenuChooser = new StackPanel();
     Root.AddChild(MenuChooser, 0, 0);
-
+    
     MenuChooser.XUnits = GeneralUnitType.PixelsFromSmall;
     MenuChooser.XOrigin = HorizontalAlignment.Left;
     
-    //MenuChooser.YUnits = GeneralUnitType.PixelsFromMiddle;
-    MenuChooser.YOrigin = VerticalAlignment.Center;
+    MenuChooser.YUnits = GeneralUnitType.PixelsFromSmall;
+    MenuChooser.YOrigin = VerticalAlignment.Top;
 
-    MenuChooser.X = 100;
-    MenuChooser.Y = 209;
+    MenuChooser.X = 407;
+    MenuChooser.Y = 60;
 
     var slumLogo = new SpriteRuntime();
     slumLogo.FromRegion(new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/SlumberLogo"), new Rectangle(0, 0, 96, 22)));
@@ -91,6 +109,8 @@ public class TitleScreen : Scene
     slumLogo.Height = slumLogo.SourceRectangle.Height * 4;
 
     slumLogo.XOrigin = HorizontalAlignment.Center;
+
+    slumLogo.X = 113;
 
     PlayBtn = new CustomButton();
     MenuChooser.AddChild(PlayBtn);
@@ -127,21 +147,20 @@ public class TitleScreen : Scene
     }
 
     PlayBtn.IsFocused = true;
-    PlayBtn.X = -113;
+    //PlayBtn.X = -113;
 
     SetBtn = new CustomButton();
     MenuChooser.AddChild(SetBtn);
     
     SetBtn.Text = "Settings";
-    SetBtn.X = -113;
-
-    SetBtn.NormalDisabledFocus = false;
+    //SetBtn.X = -113;
 
     SetBtn.Click += (sender, args) =>
     {
+      MenuChooser?.IsVisible = false;
       MenuChooser?.Disable();
-      Settings?.Enable();
       Settings?.IsVisible = true;
+      Settings?.Enable();
       KeyBtn.IsFocused = true;
     };
 
@@ -149,7 +168,7 @@ public class TitleScreen : Scene
     MenuChooser.AddChild(QuitBtn);
 
     QuitBtn.Text = "Quit";
-    QuitBtn.X = -113;
+    //QuitBtn.X = -113;
 
     QuitBtn.Click += (sender, args) =>
     {
@@ -164,11 +183,11 @@ public class TitleScreen : Scene
 
     Settings.IsVisible = false;
 
-    Settings.X = 300;
+    Settings.X = 50;
     Settings.Y = -50;
 
-    Settings.Width = 700;
-    Settings.Height = 400;
+    Settings.Width = 880;
+    Settings.Height = 520;
 
     Settings.WidthUnits = DimensionUnitType.Absolute;
     Settings.HeightUnits = DimensionUnitType.Absolute;
@@ -180,53 +199,188 @@ public class TitleScreen : Scene
     nineslice.WidthUnits = DimensionUnitType.RelativeToParent;
     nineslice.HeightUnits = DimensionUnitType.RelativeToParent;
 
-    var setButCont = new StackPanel();
-    Settings.AddChild(setButCont);
+    SetButCont = new StackPanel();
+    Settings.AddChild(SetButCont);
 
-    setButCont.X = 31;
-    setButCont.Y = 30;
+    SetButCont.X = 31;
+    SetButCont.Y = 30;
 
-    setButCont.WidthUnits = DimensionUnitType.RelativeToParent;
-    setButCont.HeightUnits = DimensionUnitType.RelativeToParent;
+    SetButCont.WidthUnits = DimensionUnitType.RelativeToParent;
+    SetButCont.HeightUnits = DimensionUnitType.RelativeToParent;
 
-    setButCont.Width = -91;
-    setButCont.Height = -60;
+    SetButCont.Width = -91;
+    SetButCont.Height = -60;
 
     KeyBtn = new CustomButtonSquare();
-    setButCont.AddChild(KeyBtn);
+    SetButCont.AddChild(KeyBtn);
+
+    KeyBtn.Click += (sender, args) =>
+    {
+      Controls?.IsVisible = true;
+      Controls?.Enable();
+      UpButton.IsFocused = true;
+      SetButCont?.IsVisible = false;
+      SetButCont?.Disable();
+    };
 
     KeyBtn.WidthUnits = DimensionUnitType.RelativeToParent;
 
     KeyBtn.Text = "Keyboard";
 
-    var controls = new StackPanel();
-    Settings.AddChild(controls);
+    Controls = new StackPanel();
+    Settings.AddChild(Controls);
 
-    controls.X = 31;
-    controls.Y = 30;
+    Controls.IsVisible = false;
+    Controls.Disable();
 
-    controls.WidthUnits = DimensionUnitType.RelativeToParent;
-    controls.HeightUnits = DimensionUnitType.RelativeToParent;
+    Controls.X = 31;
+    Controls.Y = 30;
 
-    controls.Width = -91;
-    controls.Height = -60;
+    Controls.WidthUnits = DimensionUnitType.RelativeToParent;
+    Controls.HeightUnits = DimensionUnitType.RelativeToParent;
+
+    Controls.Width = -91;
+    Controls.Height = -60;
 
     var row1 = new StackPanel();
-    controls.AddChild(row1);
+    Controls.AddChild(row1);
     row1.Orientation = Orientation.Horizontal;
+    
+    row1.Spacing = 100;
+    
+    UpButton = new DubTextButton("Up",$"{Main.UpKey}");
+    row1.AddChild(UpButton);
 
+    UpButton.Click += (sender, args) =>
+    {
+      Rebind(UpButton, k => Main.UpKey = k, null);
+    };
+
+    DownButton = new DubTextButton("Down", $"{Main.DownKey}");
+    row1.AddChild(DownButton);
+
+    DownButton.Click += (sender, args) =>
+    {
+      Rebind(DownButton, k => Main.DownKey = k, null);
+    };
+
+    DownButton.XUnits = GeneralUnitType.PixelsFromLarge;
+
+    var row2 = new StackPanel();
+    Controls.AddChild(row2);
+    row2.Orientation = Orientation.Horizontal;
+
+    row2.Spacing = 100;
+
+    LeftButton = new DubTextButton("Left", $"{Main.LeftKey}");
+    row2.AddChild(LeftButton);
+   
+    LeftButton.Click += (sender, args) =>
+    {
+      Rebind(LeftButton, k => Main.LeftKey = k, null);
+    };
+    
+    RightButton = new DubTextButton("Right", $"{Main.RightKey}");
+    row2.AddChild(RightButton);
+    
+    RightButton.Click += (sender, args) =>
+    {
+      Rebind(RightButton, k => Main.RightKey = k, null);
+    };
+    
+    var row3 = new StackPanel();
+    Controls.AddChild(row3);
+    row3.Orientation = Orientation.Horizontal;
+
+    row3.Spacing = 100;
+    
+    JumpButton = new DubTextButton("Jump", $"{Main.JumpKey.ToString()}");
+    row3.AddChild(JumpButton);
+    
+    JumpButton.Click += (sender, args) =>
+    {
+      Rebind(JumpButton, k => Main.JumpKey = k, k => Main.JumpMouse = k);
+    };
+    
+    DashButton = new DubTextButton("Dash", $"{Main.DashKey.ToString()}");
+    row3.AddChild(DashButton);
+    
+    DashButton.Click += (sender, args) =>
+    {
+      Rebind(DashButton, k => Main.DashKey = k, k => Main.DashMouse = k);
+    };
+    
+    var row4 = new StackPanel();
+    Controls.AddChild(row4);
+    row4.Orientation = Orientation.Horizontal;
+
+    row4.Spacing = 100;
+
+    AttackButton = new DubTextButton("Attack", $"{Main.AttackKey.ToString()}");
+    row4.AddChild(AttackButton);
+   
+    AttackButton.Click += (sender, args) =>
+    {
+      Rebind(AttackButton, k => Main.AttackKey = k, k => Main.AttackMouse = k);
+    };
+    
+    InteractButton = new DubTextButton("Interact", $"{Main.InteractKey.ToString()}");
+    row4.AddChild(InteractButton);
+
+    InteractButton.Click += (sender, args) =>
+    {
+      Rebind(InteractButton, k => Main.InteractKey = k, k => Main.InteractMouse = k);
+    };
+  }
+
+  public void Rebind(DubTextButton button, Action<Keys> setKey, Action<MouseButton> setMouseButton)
+  {
+    Await.Until(() => 
+    {
+      KeyToRemap = Core.Input.Keyboard.GetDown();
+      MouseButtonToRemap = Core.Input.Mouse.GetDown();
+      return KeyToRemap != Keys.None || MouseButtonToRemap != MouseButton.None;
+    }, () =>
+    {
+      NavigationLock = true;
+      if (KeyToRemap != Keys.None && setKey != null)
+      {
+        setKey(KeyToRemap);
+        button.RightLabel.Text = KeyToRemap.ToString();
+      }
+      else if (MouseButtonToRemap != MouseButton.None && setMouseButton != null)
+      {
+        setMouseButton(MouseButtonToRemap);
+        button.RightLabel.Text = MouseButtonToRemap.ToString();
+      }
+      NavigationLock = false;
+      KeyToRemap = Keys.None;
+      MouseButtonToRemap = MouseButton.None;
+    });
   }
 
   public void Back()
   {
-    if (MenuChooser.IsEnabled)
+    if (MenuChooser.IsVisible)
       return;
-    if (Settings.IsEnabled)
+
+    if (Controls.IsVisible)
     {
-      Settings.Disable();
+      Controls.IsVisible = false;
+      Controls.Disable();
+      SetButCont.IsVisible = true;
+      SetButCont.Enable();
+      KeyBtn.IsFocused = true;
+      return;
+    }
+    if (Settings.IsVisible)
+    {
       Settings.IsVisible = false;
+      Settings.Disable();
+      MenuChooser.IsVisible = true;
       MenuChooser.Enable();
       SetBtn.IsFocused = true;
+      return; 
     }
   }
 
@@ -241,20 +395,9 @@ public class TitleScreen : Scene
     base.PhysicsUpdate(delta);
   }
 
-  public override void Process(float delta)
+  public void Move(bool upPressed, bool downPressed, bool leftPressed, bool rightPressed)
   {
-    base.Process(delta);
-
-    if (Core.Input.Keyboard.WasKeyJustPressed(Keys.X))
-      Back();
-
-    BG.PlayAnimation("Main");
-
-
-    bool upPressed = Core.Input.Keyboard.WasKeyJustPressed(Keys.Up);
-    bool downPressed = Core.Input.Keyboard.WasKeyJustPressed(Keys.Down);
-
-    if (!upPressed && !downPressed)
+    if (!upPressed && !downPressed && !leftPressed && !rightPressed)
       return;
 
     switch (true)
@@ -273,7 +416,94 @@ public class TitleScreen : Scene
         if (upPressed)
           SetBtn.IsFocused = true;
         break;
+      case true when UpButton.IsFocused:
+        if (downPressed)
+          LeftButton.IsFocused = true;
+        if (rightPressed)
+          DownButton.IsFocused = true;
+        break;
+      case true when DownButton.IsFocused:
+        if (downPressed)
+          RightButton.IsFocused = true;
+        if (leftPressed)
+          LeftButton.IsFocused = true;
+        break;
+      case true when LeftButton.IsFocused:
+        if (upPressed)
+          UpButton.IsFocused = true;
+        if (downPressed)
+          JumpButton.IsFocused = true;
+        if (rightPressed)
+          RightButton.IsFocused = true;
+        break;
+      case true when RightButton.IsFocused:
+        if (upPressed)
+          DownButton.IsFocused = true;
+        if (downPressed)
+          DashButton.IsFocused = true;
+        if (leftPressed)
+          LeftButton.IsFocused = true;
+        break;
+      case true when JumpButton.IsFocused:
+        if (upPressed)
+          LeftButton.IsFocused = true;
+        if (downPressed)
+          AttackButton.IsFocused = true;
+        if (rightPressed)
+          DashButton.IsFocused = true;
+        break;
+      case true when DashButton.IsFocused:
+        if (upPressed)
+          RightButton.IsFocused = true;
+        if (downPressed)
+          InteractButton.IsFocused = true;
+        if (leftPressed)
+          JumpButton.IsFocused = true;
+        break;
+      case true when AttackButton.IsFocused:
+        if (upPressed)
+          JumpButton.IsFocused = true;
+        if (rightPressed)
+          InteractButton.IsFocused = true;
+        break;
+      case true when InteractButton.IsFocused:
+        if (upPressed)
+          DashButton.IsFocused = true;
+        if (leftPressed)
+          AttackButton.IsFocused = true;
+        break;
     }
+  }
+
+  public override void Process(float delta)
+  {
+    base.Process(delta);
+
+    BG.PlayAnimation("Main");
+
+    if (Main.CurrentInputType != InputType.Mouse)
+    {
+      Core.Instance.IsMouseVisible = false;
+      Core.Input.Mouse.SetPosition(0, 0);
+    }
+    if (Main.CurrentInputType == InputType.Mouse)
+    {
+      Core.Instance.IsMouseVisible = true;
+    }
+      
+    if (NavigationLock)
+      return;
+
+    if (Core.Input.Keyboard.WasJustPressed(Keys.X))
+      Back();
+
+    bool upPressed = Core.Input.Keyboard.WasJustPressed(Keys.Up);
+    bool downPressed = Core.Input.Keyboard.WasJustPressed(Keys.Down);
+    bool leftPressed = Core.Input.Keyboard.WasJustPressed(Keys.Left);
+    bool rightPressed = Core.Input.Keyboard.WasJustPressed(Keys.Right);
+
+    if (Main.CurrentInputType == InputType.Keyboard && Main.PreviousInputType == InputType.Keyboard)
+      Move(upPressed, downPressed, leftPressed, rightPressed);
   }
 
   public override void Submit(Canvas2D canvas)

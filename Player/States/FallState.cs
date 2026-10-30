@@ -18,9 +18,12 @@ public class FallState : BaseAirState
   {
     base.Physics(delta);
 
-    p.Properties.PlayerAxis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp").ToVector2();
+    if (Main.LeftKey != null && Main.RightKey != null && Main.DownKey != null && Main.UpKey != null)
+      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.LeftKey.Value, Main.RightKey.Value, Main.DownKey.Value, Main.UpKey.Value).ToVector2();
 
-    if (Core.Input.IsActionJustPressed("Jump"))
+    if (Main.JumpKey != null && Core.Input.Keyboard.WasJustPressed(Main.JumpKey.Value)
+        || Main.JumpMouse != null && Core.Input.Mouse.WasJustPressed(Main.JumpMouse.Value) 
+        || Main.JumpButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.JumpButton.Value))
     {
       if (p.Properties.CanCoyoteJump)
       {

@@ -30,7 +30,8 @@ public class JumpState : BaseAirState
   {
     base.Physics(delta);
     
-    p.Properties.PlayerAxis = Core.Input.GetAxis("MoveLeft", "MoveRight", "MoveDown", "MoveUp").ToVector2();
+    if (Main.LeftKey != null && Main.RightKey != null && Main.DownKey != null && Main.UpKey != null)
+      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.LeftKey.Value, Main.RightKey.Value, Main.DownKey.Value, Main.UpKey.Value).ToVector2();
 
     HandleJump();
   }
@@ -45,7 +46,9 @@ public class JumpState : BaseAirState
 
   public void HandleJump()
   {
-    if (!p.Properties.JumpReleased && !Core.Input.IsActionPressed("Jump") && p.Velocity.Y < 0)
+    if (!p.Properties.JumpReleased && !((Main.JumpKey != null && Core.Input.Keyboard.IsDown(Main.JumpKey.Value)
+        || Main.JumpButton != null && Core.Input.CurrentGamePad.IsDown(Main.JumpButton.Value)
+        || Main.JumpMouse != null && Core.Input.Mouse.IsDown(Main.JumpMouse.Value)) || p.Properties.JumpBuffered) && p.Velocity.Y < 0)
     {
       p.Velocity.Y /= 2f;
       p.Properties.JumpReleased = true;

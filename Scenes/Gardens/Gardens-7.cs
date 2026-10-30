@@ -105,7 +105,7 @@ public class Gardens7 : Scene
   {
     base.Process(delta);
 
-    if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Y))
+    if (Core.Input.Keyboard.WasJustPressed(Keys.Y))
       new Enemy().Set("Position", Core.Token.Get<Player>()?.Transform.Global.Position + offset);
 
   }

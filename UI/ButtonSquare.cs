@@ -12,6 +12,8 @@ public class CustomButtonSquare : Button
   public CustomButtonSquare()
   {
     var buttonVisual = (Gum.Forms.DefaultVisuals.V3.ButtonVisual)Visual; 
+
+    buttonVisual.FocusedIndicatorColor = Color.White * 0f;
     
     NineSliceRuntime background = buttonVisual.Background;
 
@@ -70,9 +72,11 @@ public class CustomButtonSquare : Button
 
     borderContainer.Visible = false;
 
+   
     StateSave enabledState = buttonVisual.States.Enabled;
     enabledState.Apply = () =>
     {
+      buttonVisual.FocusedIndicatorColor = Color.White * 0f;
       background.Color = new Color(0, 0, 0) * 0.6f;
       text.Color = Color.White;
       borderContainer.Visible = false;
@@ -81,23 +85,35 @@ public class CustomButtonSquare : Button
     StateSave pushedState = buttonVisual.States.Pushed;
     pushedState.Apply = () =>
     {
+      buttonVisual.FocusedIndicatorColor = Color.White * 0f;
       background.Color = new Color(64, 64, 64) * 0.42f;
       borderContainer.Visible = true;
+      text.Color = Color.White;
     };
 
     StateSave focusedState = buttonVisual.States.Focused;
     focusedState.Apply = () =>
     {
+      buttonVisual.FocusedIndicatorColor = Color.White * 0f;
       background.Color = new Color(0, 0, 0) * 0.6f;
       borderContainer.Visible = true;
+      text.Color = Color.White;
       IsFocused = true;
     };
 
     StateSave highlightedFocused = buttonVisual.States.HighlightedFocused;
     highlightedFocused.Apply = focusedState.Apply;
+    highlightedFocused.Apply += () =>
+    {
+      IsFocused = true;
+    };
 
     StateSave highlighted = buttonVisual.States.Highlighted;
     highlighted.Apply = focusedState.Apply;
+    highlighted.Apply += () =>
+    {
+      IsFocused = true;
+    };
   }
 
   public NineSliceRuntime CreateBorderLine()

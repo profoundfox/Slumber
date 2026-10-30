@@ -34,15 +34,12 @@ public class CustomButton : Button
     buttonVisual.WidthUnits = DimensionUnitType.RelativeToChildren;
     buttonVisual.Width = 10;
 
-    //XOrigin = HorizontalAlignment.Center;
-
     text.UseCustomFont = true;
     text.CustomFontFile = "Fonts/RainHearts.fnt";
     text.FontScale = 2.0f;
     
     background.Color = Color.White * 0f;
     text.Color = Color.White;
-
 
     FocusThingy = new SpriteRuntime();
     AddChild(FocusThingy);
@@ -76,8 +73,8 @@ public class CustomButton : Button
       FocusThingy.Visible = true;
     };
 
-    StateSave FocusedState = buttonVisual.States.Focused;
-    FocusedState.Apply = () =>
+    StateSave focusedState = buttonVisual.States.Focused;
+    focusedState.Apply = () =>
     {
       background.Color = Color.White * 0f;
       text.Color = ColorExtension.Hex("#b8c3d9");
@@ -96,7 +93,6 @@ public class CustomButton : Button
       text.X = offset;
       FocusThingy.Visible = true;
       FocusThingy.Color = ColorExtension.Hex("#808796");
-
     };
     
     StateSave disabledState = buttonVisual.States.Disabled;
@@ -117,11 +113,18 @@ public class CustomButton : Button
 
 
     StateSave highlightedFocused = buttonVisual.States.HighlightedFocused;
-    highlightedFocused.Apply = FocusedState.Apply;
+    highlightedFocused.Apply = focusedState.Apply;
+    highlightedFocused.Apply += () =>
+    {
+      IsFocused = true;
+    };
 
     StateSave highlighted = buttonVisual.States.Highlighted;
-    highlighted.Apply = FocusedState.Apply;
-
+    highlighted.Apply = focusedState.Apply;
+    highlighted.Apply += () =>
+    {
+      IsFocused = true;
+    };
   }
 
   public void DisabledFocused()

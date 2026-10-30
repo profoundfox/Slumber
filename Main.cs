@@ -9,6 +9,13 @@ using RenderingLibrary.Graphics;
 
 namespace Slumber
 {
+  public enum InputType
+  {
+    Keyboard,
+    Mouse,
+    Controller
+  }
+
   public class Main : Core
   {
     public Main() { }
@@ -18,6 +25,33 @@ namespace Slumber
     public static Gum.GumService GumUI => Gum.GumService.Default;
 
     public static AudioManager AudioManager;
+
+    public static Keys? LeftKey = Keys.A;
+    public static Buttons? LeftButton = Buttons.LeftThumbstickLeft;
+    public static Keys? RightKey = Keys.D;
+    public static Buttons? RightButton = Buttons.LeftThumbstickRight;
+    public static Keys? DownKey = Keys.S;
+    public static Buttons? DownButton = Buttons.LeftThumbstickDown;
+    public static Keys? UpKey = Keys.W;
+    public static Buttons? UpButton = Buttons.LeftThumbstickUp;
+    public static Keys? JumpKey = Keys.Space;
+    public static Buttons? JumpButton = Buttons.X;
+    public static MouseButton? JumpMouse = null;
+    public static Keys? DashKey = Keys.E;
+    public static Buttons? DashButton = Buttons.RightTrigger;
+    public static MouseButton? DashMouse = null;
+    public static Keys? InteractKey = Keys.W;
+    public static Buttons? InteractButton = Buttons.DPadUp;
+    public static MouseButton? InteractMouse = null;
+    public static Keys? AttackKey = Keys.K;
+    public static Buttons? AttackButton = Buttons.Y;
+    public static MouseButton? AttackMouse = MouseButton.Left;
+    public static Keys? PauseKey = Keys.Escape;
+    public static Buttons? PauseButton = Buttons.Start;
+    public static MouseButton? PauseMouse = null;
+
+    public static InputType CurrentInputType = InputType.Keyboard;
+    public static InputType PreviousInputType;
 
     protected override void Initialize()
     {
@@ -30,26 +64,11 @@ namespace Slumber
 
       ClassDB.Initialize(typeof(Main).Assembly);
 
-      Token.Anchor.SetAnchor<Test>();
+      Token.Anchor.SetAnchor<TitleScreen>();
 
       GameManager = new GameManager();
       AudioManager = new AudioManager();
 
-      Input.AddBind("MoveLeft", new InputAction(Keys.A), new InputAction(Buttons.LeftThumbstickLeft), new InputAction(Buttons.DPadLeft));
-      Input.AddBind("MoveRight", new InputAction(Keys.D), new InputAction(Buttons.LeftThumbstickRight), new InputAction(Buttons.DPadRight));
-      Input.AddBind("MoveDown", new InputAction(Keys.S), new InputAction(Buttons.LeftThumbstickDown), new InputAction(Buttons.DPadDown));
-      Input.AddBind("MoveUp", new InputAction(Keys.W), new InputAction(Buttons.LeftThumbstickUp), new InputAction(Buttons.DPadUp));
-
-      Input.AddBind("Jump", new InputAction(Keys.Space), new InputAction(Buttons.X));
-      Input.AddBind("Dash", new InputAction(Keys.E), new InputAction(Buttons.LeftShoulder));
-
-      Input.AddBind("Interact", new InputAction(Keys.W),new InputAction(Buttons.LeftThumbstickUp), new InputAction(Buttons.DPadUp));
-
-      Input.AddBind("Attack", new InputAction(Keys.K), new InputAction(Buttons.Y));
-
-      Input.AddBind("Pause", new InputAction(Keys.Escape), new InputAction(Buttons.Start));
-      Input.AddBind("Back", new InputAction(Keys.X), new InputAction(Buttons.B));
-      
       Prefs.Graphics.Fullscreen = false;
       Graphics.SynchronizeWithVerticalRetrace = true;
       Graphics.HardwareModeSwitch = true;
@@ -58,11 +77,10 @@ namespace Slumber
       #if DEBUG
       IsFixedTimeStep = true;
       Graphics.SynchronizeWithVerticalRetrace = false;
-      Prefs.Graphics.Fullscreen = false;
+      Prefs.Graphics.Fullscreen = true;
       #endif
 
       Prefs.General.ShowCollision = false;
-      Prefs.Graphics.MouseVisible = true;
 
       ExitOnEsc = false;
 
@@ -93,6 +111,15 @@ namespace Slumber
       #endif
 
       AudioManager.Update(gameTime);
+
+      PreviousInputType = CurrentInputType;
+
+      if (Core.Input.Keyboard.GetDown() != Keys.None)
+        CurrentInputType = InputType.Keyboard;
+      if (Core.Input.CurrentGamePad.GetDown() != Buttons.None)
+        CurrentInputType = InputType.Controller;
+      if (Core.Input.Mouse.GetDown() != MouseButton.None || Core.Input.Mouse.PositionDelta != Point.Zero)
+        CurrentInputType = InputType.Mouse;
     }
 
     bool showCollision;
