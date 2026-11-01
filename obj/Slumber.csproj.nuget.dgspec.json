@@ -216,7 +216,11 @@
             },
             "Gum.MonoGame": {
               "target": "Package",
-              "version": "[2026.8.3.1, )"
+              "version": "[2026.10.1.1, )"
+            },
+            "KernSmith.MonoGameGum": {
+              "target": "Package",
+              "version": "[2026.10.1.1, )"
             },
             "MonoGame.Content.Builder.Task": {
               "target": "Package",

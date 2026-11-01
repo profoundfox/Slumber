@@ -1,6 +1,3 @@
-
-
-
 using System.IO;
 using System.Linq;
 using DotTiled.Serialization;
@@ -12,6 +9,7 @@ using Gum.Forms.DefaultVisuals;
 using Gum.GueDeriving;
 using Gum.Wireframe;
 using MonoTile;
+using RenderingLibrary;
 using RenderingLibrary.Graphics;
 
 namespace Slumber;
@@ -20,16 +18,18 @@ public class TitleScreen : Scene
 {
   Grid Root;
   StackPanel MenuChooser;
+  StackPanel SettingsChooser;
 
   Panel Settings;
-  Panel SetButCont;
-  Panel Controls;
+  ContainerRuntime Controls;
 
   AnimatedSprite2D BG;
 
   CustomButton PlayBtn;
   CustomButton SetBtn;
   CustomButton QuitBtn;
+
+  CustomButton BindBtn;
 
   CustomButtonSquare KeyBtn;
 
@@ -46,6 +46,12 @@ public class TitleScreen : Scene
   MouseButton MouseButtonToRemap;
 
   bool NavigationLock;
+
+  bool ReadingInput;
+  DubTextButton CurrentInputButton;
+
+  Action<Keys> SetKey;
+  Action<MouseButton> SetMouseButton;
 
   Point beforeLockPos;
 
@@ -80,25 +86,22 @@ public class TitleScreen : Scene
   public void BuildUI()
   {
     Root = new Grid();
-    Root.AddToRoot();
+    Root.Visual.AttachManagersOnly(SystemManagers.Default);
 
     Root.Width = 640;
     Root.Height = 360;
-
-    Root.X = 180;
-    Root.Y = 180;
 
     MenuChooser = new StackPanel();
     Root.AddChild(MenuChooser, 0, 0);
     
     MenuChooser.XUnits = GeneralUnitType.PixelsFromSmall;
-    MenuChooser.XOrigin = HorizontalAlignment.Left;
+    MenuChooser.XOrigin = HorizontalAlignment.Center;
     
     MenuChooser.YUnits = GeneralUnitType.PixelsFromSmall;
     MenuChooser.YOrigin = VerticalAlignment.Top;
 
-    MenuChooser.X = 407;
-    MenuChooser.Y = 60;
+    MenuChooser.X = -360;
+    MenuChooser.Y = -180;
 
     var slumLogo = new SpriteRuntime();
     slumLogo.FromRegion(new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/SlumberLogo"), new Rectangle(0, 0, 96, 22)));
@@ -131,7 +134,7 @@ public class TitleScreen : Scene
         {
           Main.GameManager.Change("Caverns1", "door_1");
           Main.AudioManager.FadeOut();
-          Root.RemoveFromRoot();
+          Root.Visual.RemoveFromManagers();
         };
       }
       else
@@ -141,34 +144,32 @@ public class TitleScreen : Scene
         {
           Main.GameManager.Load();
           Main.AudioManager.FadeOut();
-          Root.RemoveFromRoot();
+          Root.Visual.RemoveFromManagers();
         };
       }
     }
 
     PlayBtn.IsFocused = true;
-    //PlayBtn.X = -113;
 
     SetBtn = new CustomButton();
     MenuChooser.AddChild(SetBtn);
     
     SetBtn.Text = "Settings";
-    //SetBtn.X = -113;
 
     SetBtn.Click += (sender, args) =>
     {
-      MenuChooser?.IsVisible = false;
       MenuChooser?.Disable();
       Settings?.IsVisible = true;
       Settings?.Enable();
       KeyBtn.IsFocused = true;
     };
 
+    SetBtn.NormalDisabledFocus = false;
+
     QuitBtn = new CustomButton();
     MenuChooser.AddChild(QuitBtn);
 
     QuitBtn.Text = "Quit";
-    //QuitBtn.X = -113;
 
     QuitBtn.Click += (sender, args) =>
     {
@@ -178,78 +179,111 @@ public class TitleScreen : Scene
       Await.Until(() => Main.GameManager.ScreenEffects.Transition.IsFinished, () => Core.Quit());
     };
 
+    SettingsChooser = new StackPanel();
+    Root.AddChild(SettingsChooser, 0, 1);
+
+    SettingsChooser.XUnits = GeneralUnitType.PixelsFromSmall;
+    SettingsChooser.XOrigin = HorizontalAlignment.Center;
+    
+    SettingsChooser.YUnits = GeneralUnitType.PixelsFromSmall;
+    SettingsChooser.YOrigin = VerticalAlignment.Top;
+
+    SettingsChooser.X = -90;
+    SettingsChooser.Y = -180;
+
+    SettingsChooser.IsVisible = false;
+
+    BindBtn = new CustomButton();
+    SettingsChooser.AddChild(BindBtn);
+
+    BindBtn.Text = "Keybinds";
+
     Settings = new Panel();
     Root.AddChild(Settings, 0, 1);
 
     Settings.IsVisible = false;
 
-    Settings.X = 50;
-    Settings.Y = -50;
+    Settings.Width = 640;
+    Settings.Height = 360;
 
-    Settings.Width = 880;
-    Settings.Height = 520;
+    Settings.XOrigin = HorizontalAlignment.Center;
+    Settings.XUnits = GeneralUnitType.PixelsFromSmall;
 
     Settings.WidthUnits = DimensionUnitType.Absolute;
     Settings.HeightUnits = DimensionUnitType.Absolute;
     
-    var nineslice = new NineSliceRuntime();
-    Settings.AddChild(nineslice);
+    var settingsBG = new NineSliceRuntime();
+    Settings.AddChild(settingsBG);
 
-    nineslice.Texture = Core.Resource.Load<Texture2D>("Graphics/Settings-9-Slice");
-    nineslice.WidthUnits = DimensionUnitType.RelativeToParent;
-    nineslice.HeightUnits = DimensionUnitType.RelativeToParent;
+    settingsBG.Texture = Core.Resource.Load<Texture2D>("Graphics/Settings-9-Slice");
+    settingsBG.WidthUnits = DimensionUnitType.RelativeToParent;
+    settingsBG.HeightUnits = DimensionUnitType.RelativeToParent;
 
-    SetButCont = new StackPanel();
-    Settings.AddChild(SetButCont);
+    settingsBG.X = -31;
+    settingsBG.Y = -31;
+    settingsBG.Width = 190;
 
-    SetButCont.X = 31;
-    SetButCont.Y = 30;
+    var setBtns = new StackPanel();
+    setBtns.WidthUnits = DimensionUnitType.RelativeToParent;
+    setBtns.WidthUnits = DimensionUnitType.RelativeToParent;
 
-    SetButCont.WidthUnits = DimensionUnitType.RelativeToParent;
-    SetButCont.HeightUnits = DimensionUnitType.RelativeToParent;
-
-    SetButCont.Width = -91;
-    SetButCont.Height = -60;
+    Settings.AddChild(setBtns);
 
     KeyBtn = new CustomButtonSquare();
-    SetButCont.AddChild(KeyBtn);
+    setBtns.AddChild(KeyBtn);
 
     KeyBtn.Click += (sender, args) =>
     {
-      Controls?.IsVisible = true;
+      Controls?.Visible = true;
       Controls?.Enable();
-      UpButton.IsFocused = true;
-      SetButCont?.IsVisible = false;
-      SetButCont?.Disable();
+      UpButton?.IsFocused = true;
+      Settings?.Disable();
+      Settings?.IsVisible = false;
     };
 
     KeyBtn.WidthUnits = DimensionUnitType.RelativeToParent;
 
     KeyBtn.Text = "Keyboard";
 
-    Controls = new StackPanel();
-    Settings.AddChild(Controls);
+    Controls = new ContainerRuntime();
+    Root.AddChild(Controls, 0, 2);
 
-    Controls.IsVisible = false;
+    Controls.Visible = false;
     Controls.Disable();
 
-    Controls.X = 31;
-    Controls.Y = 30;
+    Controls.WidthUnits = DimensionUnitType.Absolute;
+    Controls.HeightUnits = DimensionUnitType.Absolute;
 
-    Controls.WidthUnits = DimensionUnitType.RelativeToParent;
-    Controls.HeightUnits = DimensionUnitType.RelativeToParent;
+    Controls.Width = 370;
+    Controls.Height = 570;
 
-    Controls.Width = -91;
-    Controls.Height = -60;
-
-    var row1 = new StackPanel();
-    Controls.AddChild(row1);
-    row1.Orientation = Orientation.Horizontal;
+    Controls.XUnits = GeneralUnitType.PixelsFromSmall;
+    Controls.XOrigin = HorizontalAlignment.Center;
     
-    row1.Spacing = 100;
-    
+    Controls.YUnits = GeneralUnitType.PixelsFromSmall;
+    Controls.YOrigin = VerticalAlignment.Center;
+
+    Controls.X = 36;
+    Controls.Y = -36;
+   
+    var conteolsBG = new NineSliceRuntime();
+    Controls.AddChild(conteolsBG);
+
+    conteolsBG.Texture = Core.Resource.Load<Texture2D>("Graphics/Settings-9-Slice");
+    conteolsBG.WidthUnits = DimensionUnitType.RelativeToParent;
+    conteolsBG.HeightUnits = DimensionUnitType.RelativeToParent;
+
+    conteolsBG.X = -31;
+    conteolsBG.Y = -31;
+
+    var contBtns = new StackPanel();
+    Controls.AddChild(contBtns);
+    contBtns.WidthUnits = DimensionUnitType.RelativeToParent;
+    contBtns.WidthUnits = DimensionUnitType.RelativeToParent;
+
+
     UpButton = new DubTextButton("Up",$"{Main.UpKey}");
-    row1.AddChild(UpButton);
+    contBtns.AddChild(UpButton);
 
     UpButton.Click += (sender, args) =>
     {
@@ -257,23 +291,15 @@ public class TitleScreen : Scene
     };
 
     DownButton = new DubTextButton("Down", $"{Main.DownKey}");
-    row1.AddChild(DownButton);
+    contBtns.AddChild(DownButton);
 
     DownButton.Click += (sender, args) =>
     {
       Rebind(DownButton, k => Main.DownKey = k, null);
     };
 
-    DownButton.XUnits = GeneralUnitType.PixelsFromLarge;
-
-    var row2 = new StackPanel();
-    Controls.AddChild(row2);
-    row2.Orientation = Orientation.Horizontal;
-
-    row2.Spacing = 100;
-
     LeftButton = new DubTextButton("Left", $"{Main.LeftKey}");
-    row2.AddChild(LeftButton);
+    contBtns.AddChild(LeftButton);
    
     LeftButton.Click += (sender, args) =>
     {
@@ -281,21 +307,15 @@ public class TitleScreen : Scene
     };
     
     RightButton = new DubTextButton("Right", $"{Main.RightKey}");
-    row2.AddChild(RightButton);
+    contBtns.AddChild(RightButton);
     
     RightButton.Click += (sender, args) =>
     {
       Rebind(RightButton, k => Main.RightKey = k, null);
     };
     
-    var row3 = new StackPanel();
-    Controls.AddChild(row3);
-    row3.Orientation = Orientation.Horizontal;
-
-    row3.Spacing = 100;
-    
     JumpButton = new DubTextButton("Jump", $"{Main.JumpKey.ToString()}");
-    row3.AddChild(JumpButton);
+    contBtns.AddChild(JumpButton);
     
     JumpButton.Click += (sender, args) =>
     {
@@ -303,21 +323,15 @@ public class TitleScreen : Scene
     };
     
     DashButton = new DubTextButton("Dash", $"{Main.DashKey.ToString()}");
-    row3.AddChild(DashButton);
+    contBtns.AddChild(DashButton);
     
     DashButton.Click += (sender, args) =>
     {
       Rebind(DashButton, k => Main.DashKey = k, k => Main.DashMouse = k);
     };
-    
-    var row4 = new StackPanel();
-    Controls.AddChild(row4);
-    row4.Orientation = Orientation.Horizontal;
-
-    row4.Spacing = 100;
 
     AttackButton = new DubTextButton("Attack", $"{Main.AttackKey.ToString()}");
-    row4.AddChild(AttackButton);
+    contBtns.AddChild(AttackButton);
    
     AttackButton.Click += (sender, args) =>
     {
@@ -325,21 +339,29 @@ public class TitleScreen : Scene
     };
     
     InteractButton = new DubTextButton("Interact", $"{Main.InteractKey.ToString()}");
-    row4.AddChild(InteractButton);
+    contBtns.AddChild(InteractButton);
 
     InteractButton.Click += (sender, args) =>
     {
       Rebind(InteractButton, k => Main.InteractKey = k, k => Main.InteractMouse = k);
     };
+
   }
 
   public void Rebind(DubTextButton button, Action<Keys> setKey, Action<MouseButton> setMouseButton)
   {
+    ReadingInput = true;
+    CurrentInputButton = button;
+    SetKey = setKey;
+    SetMouseButton = setMouseButton;
+
+    return;
+
     Await.Until(() => 
     {
       KeyToRemap = Core.Input.Keyboard.GetDown();
       MouseButtonToRemap = Core.Input.Mouse.GetDown();
-      return KeyToRemap != Keys.None || MouseButtonToRemap != MouseButton.None;
+      return (KeyToRemap != Keys.None || MouseButtonToRemap != MouseButton.None);
     }, () =>
     {
       NavigationLock = true;
@@ -361,15 +383,15 @@ public class TitleScreen : Scene
 
   public void Back()
   {
-    if (MenuChooser.IsVisible)
+    if (MenuChooser.IsEnabled)
       return;
 
-    if (Controls.IsVisible)
+    if (Controls.Visible)
     {
-      Controls.IsVisible = false;
+      Controls.Visible = false;
       Controls.Disable();
-      SetButCont.IsVisible = true;
-      SetButCont.Enable();
+      Settings.IsVisible = true;
+      Settings.Enable();
       KeyBtn.IsFocused = true;
       return;
     }
@@ -377,7 +399,6 @@ public class TitleScreen : Scene
     {
       Settings.IsVisible = false;
       Settings.Disable();
-      MenuChooser.IsVisible = true;
       MenuChooser.Enable();
       SetBtn.IsFocused = true;
       return; 
@@ -418,58 +439,46 @@ public class TitleScreen : Scene
         break;
       case true when UpButton.IsFocused:
         if (downPressed)
-          LeftButton.IsFocused = true;
-        if (rightPressed)
           DownButton.IsFocused = true;
         break;
       case true when DownButton.IsFocused:
+        if (upPressed)
+          UpButton.IsFocused = true;
         if (downPressed)
-          RightButton.IsFocused = true;
-        if (leftPressed)
           LeftButton.IsFocused = true;
         break;
       case true when LeftButton.IsFocused:
         if (upPressed)
-          UpButton.IsFocused = true;
+          DownButton.IsFocused = true;
         if (downPressed)
-          JumpButton.IsFocused = true;
-        if (rightPressed)
           RightButton.IsFocused = true;
         break;
       case true when RightButton.IsFocused:
         if (upPressed)
-          DownButton.IsFocused = true;
-        if (downPressed)
-          DashButton.IsFocused = true;
-        if (leftPressed)
           LeftButton.IsFocused = true;
+        if (downPressed)
+          JumpButton.IsFocused = true;
         break;
       case true when JumpButton.IsFocused:
         if (upPressed)
-          LeftButton.IsFocused = true;
+          RightButton.IsFocused = true;
         if (downPressed)
-          AttackButton.IsFocused = true;
-        if (rightPressed)
           DashButton.IsFocused = true;
         break;
       case true when DashButton.IsFocused:
         if (upPressed)
-          RightButton.IsFocused = true;
-        if (downPressed)
-          InteractButton.IsFocused = true;
-        if (leftPressed)
           JumpButton.IsFocused = true;
+        if (downPressed)
+          AttackButton.IsFocused = true;
         break;
       case true when AttackButton.IsFocused:
         if (upPressed)
-          JumpButton.IsFocused = true;
-        if (rightPressed)
+          DashButton.IsFocused = true;
+        if (downPressed)
           InteractButton.IsFocused = true;
         break;
       case true when InteractButton.IsFocused:
         if (upPressed)
-          DashButton.IsFocused = true;
-        if (leftPressed)
           AttackButton.IsFocused = true;
         break;
     }
@@ -481,15 +490,39 @@ public class TitleScreen : Scene
 
     BG.PlayAnimation("Main");
 
-    if (Main.CurrentInputType != InputType.Mouse)
+
+    void ReadInput()
     {
-      Core.Instance.IsMouseVisible = false;
-      Core.Input.Mouse.SetPosition(0, 0);
+      NavigationLock = true;
+
+      KeyToRemap = Core.Input.Keyboard.GetDown();
+      MouseButtonToRemap = Core.Input.Mouse.GetDown();
+
+      if (KeyToRemap == Keys.None && MouseButtonToRemap == MouseButton.None)
+        return;
+
+      if (KeyToRemap != Keys.None && SetKey != null)
+      {
+        SetKey(KeyToRemap);
+        CurrentInputButton.RightLabel.Text = KeyToRemap.ToString();
+      }
+      else if (MouseButtonToRemap != MouseButton.None && SetMouseButton != null)
+      {
+        SetMouseButton(MouseButtonToRemap);
+        CurrentInputButton.RightLabel.Text = MouseButtonToRemap.ToString();
+      }
+
+      NavigationLock = false;
+      
+      KeyToRemap = Keys.None;
+      MouseButtonToRemap = MouseButton.None;
+
+      SetKey = null;
+      SetMouseButton = null;
     }
-    if (Main.CurrentInputType == InputType.Mouse)
-    {
-      Core.Instance.IsMouseVisible = true;
-    }
+
+    if (ReadingInput)
+      ReadInput();
       
     if (NavigationLock)
       return;
@@ -509,5 +542,7 @@ public class TitleScreen : Scene
   public override void Submit(Canvas2D canvas)
   {
     base.Submit(canvas);
+
+    Main.GumManager.Submit(Root.Visual);
   }
 }

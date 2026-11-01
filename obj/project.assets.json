@@ -44,7 +44,7 @@
           }
         }
       },
-      "FlatRedBall.GumCommon/2026.8.3.1": {
+      "FlatRedBall.GumCommon/2026.10.1.1": {
         "type": "package",
         "dependencies": {
           "BrotliSharpLib": "0.3.3",
@@ -88,10 +88,45 @@
           }
         }
       },
-      "Gum.MonoGame/2026.8.3.1": {
+      "FreeTypeSharp/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/FreeTypeSharp.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/FreeTypeSharp.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libfreetype.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx/native/libfreetype.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win-arm64/native/freetype.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/freetype.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/freetype.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "Gum.MonoGame/2026.10.1.1": {
         "type": "package",
         "dependencies": {
-          "FlatRedBall.GumCommon": "2026.8.3.1",
+          "FlatRedBall.GumCommon": "2026.10.1.1",
           "TextCopy": "6.2.1"
         },
         "compile": {
@@ -103,6 +138,9 @@
           "lib/net8.0/MonoGameGum.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/Gum.MonoGame.targets": {}
         }
       },
       "ImGui.NET/1.91.6.1": {
@@ -142,6 +180,76 @@
           "runtimes/win-x86/native/cimgui.dll": {
             "assetType": "native",
             "rid": "win-x86"
+          }
+        }
+      },
+      "KernSmith/0.21.0": {
+        "type": "package",
+        "dependencies": {
+          "StbImageSharp": "2.30.15",
+          "StbImageWriteSharp": "1.16.7"
+        },
+        "compile": {
+          "lib/net8.0/KernSmith.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/KernSmith.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "KernSmith.GumCommon/2026.10.1.1": {
+        "type": "package",
+        "dependencies": {
+          "FlatRedBall.GumCommon": "2026.10.1.1",
+          "KernSmith": "0.21.0",
+          "KernSmith.Rasterizers.FreeType": "0.21.0"
+        },
+        "compile": {
+          "lib/net8.0/KernSmith.GumCommon.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/KernSmith.GumCommon.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "KernSmith.MonoGameGum/2026.10.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Gum.MonoGame": "2026.10.1.1",
+          "KernSmith.GumCommon": "2026.10.1.1",
+          "MonoGame.Framework.DesktopGL": "3.8.4.1"
+        },
+        "compile": {
+          "lib/net8.0/KernSmith.MonoGameGum.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/KernSmith.MonoGameGum.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "KernSmith.Rasterizers.FreeType/0.21.0": {
+        "type": "package",
+        "dependencies": {
+          "FreeTypeSharp": "3.1.0",
+          "KernSmith": "0.21.0"
+        },
+        "compile": {
+          "lib/net8.0/KernSmith.Rasterizers.FreeType.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/KernSmith.Rasterizers.FreeType.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -294,6 +402,24 @@
         },
         "runtime": {
           "lib/net9.0/SharpCompress.dll": {}
+        }
+      },
+      "StbImageSharp/2.30.15": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/StbImageSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/StbImageSharp.dll": {}
+        }
+      },
+      "StbImageWriteSharp/1.16.7": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/StbImageWriteSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/StbImageWriteSharp.dll": {}
         }
       },
       "System.Buffers/4.5.1": {
@@ -467,17 +593,19 @@
         "lib/net8.0/DotTiled.xml"
       ]
     },
-    "FlatRedBall.GumCommon/2026.8.3.1": {
-      "sha512": "xBVPBH84EfEKoEtNfiidgJcqkbByy7XZ7OiuuLjOyvAYyhHx0YsmOd/gBmLCo9rv98y7+YWCmyC9p2DO3xa/7w==",
+    "FlatRedBall.GumCommon/2026.10.1.1": {
+      "sha512": "BNjbYjLEHpGjpF9RGBaYb7yjhfynWPb/VtpYqxMT8eVk2+vFIe7sxcnI+GiIoJlBPn5VaDRVL1CVsv7M35acJg==",
       "type": "package",
-      "path": "flatredball.gumcommon/2026.8.3.1",
+      "path": "flatredball.gumcommon/2026.10.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "flatredball.gumcommon.2026.8.3.1.nupkg.sha512",
+        "flatredball.gumcommon.2026.10.1.1.nupkg.sha512",
         "flatredball.gumcommon.nuspec",
         "lib/net8.0/GumCommon.dll",
-        "lib/net8.0/GumCommon.xml"
+        "lib/net8.0/GumCommon.xml",
+        "lib/netstandard2.1/GumCommon.dll",
+        "lib/netstandard2.1/GumCommon.xml"
       ]
     },
     "FlatRedBall.InterpolationCore/2025.4.22.1": {
@@ -495,15 +623,56 @@
         "lib/netstandard2.0/FlatRedBall.InterpolationCore.xml"
       ]
     },
-    "Gum.MonoGame/2026.8.3.1": {
-      "sha512": "oaAKq93MixUEEerIYJfINf7mDzhdpJQmxBtqCcjSgr08sMW14o1Tstqt/VidauNal96d9DDRzP+ekHBv0FJB5g==",
+    "FreeTypeSharp/3.1.0": {
+      "sha512": "w0pPUztBFVokuvML8G55SM1HeycyzQQqC/NV3rWdyGOPi/rtVm1vE6UAQ7v4VYzVWoP59KM8O56qH89zJY5T+g==",
       "type": "package",
-      "path": "gum.monogame/2026.8.3.1",
+      "path": "freetypesharp/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "freetypesharp.3.1.0.nupkg.sha512",
+        "freetypesharp.nuspec",
+        "lib/net9.0-android35.0/FreeTypeSharp.aar",
+        "lib/net9.0-android35.0/FreeTypeSharp.dll",
+        "lib/net9.0-android35.0/FreeTypeSharp.pdb",
+        "lib/net9.0-android35.0/FreeTypeSharp.xml",
+        "lib/net9.0-ios18.0/FreeTypeSharp.dll",
+        "lib/net9.0-ios18.0/FreeTypeSharp.pdb",
+        "lib/net9.0-ios18.0/FreeTypeSharp.resources/FreeType2.xcframework/Info.plist",
+        "lib/net9.0-ios18.0/FreeTypeSharp.resources/FreeType2.xcframework/ios-arm64-simulator/libfreetype.a",
+        "lib/net9.0-ios18.0/FreeTypeSharp.resources/FreeType2.xcframework/ios-arm64/libfreetype.a",
+        "lib/net9.0-ios18.0/FreeTypeSharp.resources/manifest",
+        "lib/net9.0-tvos18.0/FreeTypeSharp.dll",
+        "lib/net9.0-tvos18.0/FreeTypeSharp.pdb",
+        "lib/net9.0-tvos18.0/FreeTypeSharp.resources/FreeType2.xcframework/Info.plist",
+        "lib/net9.0-tvos18.0/FreeTypeSharp.resources/FreeType2.xcframework/tvos-arm64-simulator/libfreetype.a",
+        "lib/net9.0-tvos18.0/FreeTypeSharp.resources/FreeType2.xcframework/tvos-arm64/libfreetype.a",
+        "lib/net9.0-tvos18.0/FreeTypeSharp.resources/manifest",
+        "lib/net9.0/FreeTypeSharp.dll",
+        "lib/net9.0/FreeTypeSharp.pdb",
+        "lib/netcoreapp3.1/FreeTypeSharp.dll",
+        "lib/netcoreapp3.1/FreeTypeSharp.pdb",
+        "lib/netstandard2.0/FreeTypeSharp.dll",
+        "lib/netstandard2.0/FreeTypeSharp.pdb",
+        "runtimes/linux-x64/native/libfreetype.so",
+        "runtimes/osx/native/libfreetype.dylib",
+        "runtimes/win-arm64/native/freetype.dll",
+        "runtimes/win-x64/native/freetype.dll",
+        "runtimes/win-x86/native/freetype.dll"
+      ]
+    },
+    "Gum.MonoGame/2026.10.1.1": {
+      "sha512": "Bqj3/pHACdz4TaYJ016713rTX6Xgclt4uxsUIa0QCI/OLjcf7o7geMWlzoiEEDs7Z43Y90RPaEeCoNkZBMTbdw==",
+      "type": "package",
+      "path": "gum.monogame/2026.10.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "analyzers/dotnet/cs/Gum.Analyzers.dll",
-        "gum.monogame.2026.8.3.1.nupkg.sha512",
+        "buildTransitive/AssemblyNameCollisionGuard.targets",
+        "buildTransitive/Gum.MonoGame.targets",
+        "gum.monogame.2026.10.1.1.nupkg.sha512",
         "gum.monogame.nuspec",
         "lib/net8.0/MonoGameGum.dll",
         "lib/net8.0/MonoGameGum.xml",
@@ -534,6 +703,69 @@
         "runtimes/win-arm64/native/cimgui.dll",
         "runtimes/win-x64/native/cimgui.dll",
         "runtimes/win-x86/native/cimgui.dll"
+      ]
+    },
+    "KernSmith/0.21.0": {
+      "sha512": "LvKHG9KaBXUC5DVqAiKlTPs7Wp+tXnMTuwYUdCDKqauu5OcBsPpHQLYrKX1UuC8GjYGADCjRbkwlmpBDCie2ng==",
+      "type": "package",
+      "path": "kernsmith/0.21.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "THIRD-PARTY-NOTICES.md",
+        "icon.png",
+        "kernsmith.0.21.0.nupkg.sha512",
+        "kernsmith.nuspec",
+        "lib/net10.0/KernSmith.dll",
+        "lib/net10.0/KernSmith.xml",
+        "lib/net8.0/KernSmith.dll",
+        "lib/net8.0/KernSmith.xml"
+      ]
+    },
+    "KernSmith.GumCommon/2026.10.1.1": {
+      "sha512": "rqKRG8HoniULmyGTEbFEp9QPUHIeF1V+OweXw83vlQ5N/77uMteyDAzHYn9MR7E/d37MUEUwN+DdYBwaEePPPA==",
+      "type": "package",
+      "path": "kernsmith.gumcommon/2026.10.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "kernsmith.gumcommon.2026.10.1.1.nupkg.sha512",
+        "kernsmith.gumcommon.nuspec",
+        "lib/net8.0/KernSmith.GumCommon.dll",
+        "lib/net8.0/KernSmith.GumCommon.xml"
+      ]
+    },
+    "KernSmith.MonoGameGum/2026.10.1.1": {
+      "sha512": "dWH+addnHutAK14bPdo7oXviMNw71ogc2MRZxQBn0I4gVk4pcQ6K5eL7ogf0r+Qe8E+DBG4kTaVTVnmJybhhWg==",
+      "type": "package",
+      "path": "kernsmith.monogamegum/2026.10.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "kernsmith.monogamegum.2026.10.1.1.nupkg.sha512",
+        "kernsmith.monogamegum.nuspec",
+        "lib/net8.0/KernSmith.MonoGameGum.dll",
+        "lib/net8.0/KernSmith.MonoGameGum.xml"
+      ]
+    },
+    "KernSmith.Rasterizers.FreeType/0.21.0": {
+      "sha512": "5O7p21LhHxrOwBXsYhaZfRHEfb4Eg0Jn24a3zj1ryCQPzkQ2ix7h+7zvibftJKXgC3xdPjyJ+57weeOalrxAEQ==",
+      "type": "package",
+      "path": "kernsmith.rasterizers.freetype/0.21.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "THIRD-PARTY-NOTICES.md",
+        "kernsmith.rasterizers.freetype.0.21.0.nupkg.sha512",
+        "kernsmith.rasterizers.freetype.nuspec",
+        "lib/net10.0/KernSmith.Rasterizers.FreeType.dll",
+        "lib/net10.0/KernSmith.Rasterizers.FreeType.xml",
+        "lib/net8.0/KernSmith.Rasterizers.FreeType.dll",
+        "lib/net8.0/KernSmith.Rasterizers.FreeType.xml"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -764,6 +996,31 @@
         "sharpcompress.nuspec"
       ]
     },
+    "StbImageSharp/2.30.15": {
+      "sha512": "7QqbupVhz2kcFUPTgMw4iHR9rYDHGundzzee19Mwmd1typ2Lnv8EVJcLJxlkeBM2+4ex0NwsMtdbGSJctp1XCQ==",
+      "type": "package",
+      "path": "stbimagesharp/2.30.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net471/StbImageSharp.dll",
+        "lib/netstandard2.0/StbImageSharp.dll",
+        "stbimagesharp.2.30.15.nupkg.sha512",
+        "stbimagesharp.nuspec"
+      ]
+    },
+    "StbImageWriteSharp/1.16.7": {
+      "sha512": "NF9kOxi0iS9VunklnRKgOpAWC2knCGKRjdy7RT6XAqYNyb7LQfyPHPdl4l1fJw7TFYKrGQzQOmK1XpBONC2MoA==",
+      "type": "package",
+      "path": "stbimagewritesharp/1.16.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/StbImageWriteSharp.dll",
+        "stbimagewritesharp.1.16.7.nupkg.sha512",
+        "stbimagewritesharp.nuspec"
+      ]
+    },
     "System.Buffers/4.5.1": {
       "sha512": "Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
       "type": "package",
@@ -989,7 +1246,8 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "DotTiled >= 1.0.0",
-      "Gum.MonoGame >= 2026.8.3.1",
+      "Gum.MonoGame >= 2026.10.1.1",
+      "KernSmith.MonoGameGum >= 2026.10.1.1",
       "MonoGame.Content.Builder.Task >= 3.8.4.1",
       "MonoGame.Framework.DesktopGL >= 3.8.4.1",
       "MonoTile >= 1.0.0",
@@ -1054,7 +1312,11 @@
           },
           "Gum.MonoGame": {
             "target": "Package",
-            "version": "[2026.8.3.1, )"
+            "version": "[2026.10.1.1, )"
+          },
+          "KernSmith.MonoGameGum": {
+            "target": "Package",
+            "version": "[2026.10.1.1, )"
           },
           "MonoGame.Content.Builder.Task": {
             "target": "Package",

@@ -25,6 +25,7 @@ namespace Slumber
     public static Gum.GumService GumUI => Gum.GumService.Default;
 
     public static AudioManager AudioManager;
+    public static GumManager GumManager;
 
     public static Keys? LeftKey = Keys.A;
     public static Buttons? LeftButton = Buttons.LeftThumbstickLeft;
@@ -64,10 +65,12 @@ namespace Slumber
 
       ClassDB.Initialize(typeof(Main).Assembly);
 
-      Token.Anchor.SetAnchor<TitleScreen>();
-
       GameManager = new GameManager();
       AudioManager = new AudioManager();
+      GumManager = new GumManager();
+      GumManager.Initialize();
+
+      Token.Anchor.SetAnchor<TitleScreen>();
 
       Prefs.Graphics.Fullscreen = false;
       Graphics.SynchronizeWithVerticalRetrace = true;
@@ -77,7 +80,7 @@ namespace Slumber
       #if DEBUG
       IsFixedTimeStep = true;
       Graphics.SynchronizeWithVerticalRetrace = false;
-      Prefs.Graphics.Fullscreen = true;
+      Prefs.Graphics.Fullscreen = false;
       #endif
 
       Prefs.General.ShowCollision = false;
@@ -104,8 +107,8 @@ namespace Slumber
       base.Update(gameTime);
 
       GumUI.Update(gameTime);
+      GumManager.Update(gameTime);
 
-      GumUI.Root.HasEvents = false;
       #if !DEBUG 
       Mouse.SetPosition(0, 0);
       #endif
@@ -139,7 +142,8 @@ namespace Slumber
     {
       base.Draw(gameTime);
       
-      GumUI.Draw();
+      //GumUI.Draw();
+      GumManager.Draw(gameTime);
 
       #if DEBUG
 

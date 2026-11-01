@@ -9,7 +9,8 @@
       "Slumber/1.0.0": {
         "dependencies": {
           "DotTiled": "1.0.0",
-          "Gum.MonoGame": "2026.8.3.1",
+          "Gum.MonoGame": "2026.10.1.1",
+          "KernSmith.MonoGameGum": "2026.10.1.1",
           "MonoGame.Framework.DesktopGL": "3.8.4.1",
           "MonoTile": "1.0.0",
           "Opal": "1.0.0"
@@ -42,7 +43,7 @@
           }
         }
       },
-      "FlatRedBall.GumCommon/2026.8.3.1": {
+      "FlatRedBall.GumCommon/2026.10.1.1": {
         "dependencies": {
           "BrotliSharpLib": "0.3.3",
           "CsvHelper": "33.1.0",
@@ -51,8 +52,8 @@
         },
         "runtime": {
           "lib/net8.0/GumCommon.dll": {
-            "assemblyVersion": "2026.8.3.1",
-            "fileVersion": "2026.8.3.1"
+            "assemblyVersion": "2026.10.1.1",
+            "fileVersion": "2026.10.1.1"
           }
         }
       },
@@ -64,15 +65,50 @@
           }
         }
       },
-      "Gum.MonoGame/2026.8.3.1": {
+      "FreeTypeSharp/3.1.0": {
+        "runtime": {
+          "lib/net9.0/FreeTypeSharp.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libfreetype.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/libfreetype.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/freetype.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/freetype.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/freetype.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Gum.MonoGame/2026.10.1.1": {
         "dependencies": {
-          "FlatRedBall.GumCommon": "2026.8.3.1",
+          "FlatRedBall.GumCommon": "2026.10.1.1",
           "TextCopy": "6.2.1"
         },
         "runtime": {
           "lib/net8.0/MonoGameGum.dll": {
-            "assemblyVersion": "2026.8.3.1",
-            "fileVersion": "2026.8.3.1"
+            "assemblyVersion": "2026.10.1.1",
+            "fileVersion": "2026.10.1.1"
           }
         }
       },
@@ -108,6 +144,56 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "KernSmith/0.21.0": {
+        "dependencies": {
+          "StbImageSharp": "2.30.15",
+          "StbImageWriteSharp": "1.16.7"
+        },
+        "runtime": {
+          "lib/net8.0/KernSmith.dll": {
+            "assemblyVersion": "0.21.0.0",
+            "fileVersion": "0.21.0.0"
+          }
+        }
+      },
+      "KernSmith.GumCommon/2026.10.1.1": {
+        "dependencies": {
+          "FlatRedBall.GumCommon": "2026.10.1.1",
+          "KernSmith": "0.21.0",
+          "KernSmith.Rasterizers.FreeType": "0.21.0"
+        },
+        "runtime": {
+          "lib/net8.0/KernSmith.GumCommon.dll": {
+            "assemblyVersion": "2026.10.1.1",
+            "fileVersion": "2026.10.1.1"
+          }
+        }
+      },
+      "KernSmith.MonoGameGum/2026.10.1.1": {
+        "dependencies": {
+          "Gum.MonoGame": "2026.10.1.1",
+          "KernSmith.GumCommon": "2026.10.1.1",
+          "MonoGame.Framework.DesktopGL": "3.8.4.1"
+        },
+        "runtime": {
+          "lib/net8.0/KernSmith.MonoGameGum.dll": {
+            "assemblyVersion": "2026.10.1.1",
+            "fileVersion": "2026.10.1.1"
+          }
+        }
+      },
+      "KernSmith.Rasterizers.FreeType/0.21.0": {
+        "dependencies": {
+          "FreeTypeSharp": "3.1.0",
+          "KernSmith": "0.21.0"
+        },
+        "runtime": {
+          "lib/net8.0/KernSmith.Rasterizers.FreeType.dll": {
+            "assemblyVersion": "0.21.0.0",
+            "fileVersion": "0.21.0.0"
           }
         }
       },
@@ -226,6 +312,22 @@
           }
         }
       },
+      "StbImageSharp/2.30.15": {
+        "runtime": {
+          "lib/netstandard2.0/StbImageSharp.dll": {
+            "assemblyVersion": "2.30.15.0",
+            "fileVersion": "2.30.15.0"
+          }
+        }
+      },
+      "StbImageWriteSharp/1.16.7": {
+        "runtime": {
+          "lib/netstandard2.0/StbImageWriteSharp.dll": {
+            "assemblyVersion": "1.16.7.0",
+            "fileVersion": "1.16.7.0"
+          }
+        }
+      },
       "TextCopy/6.2.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
@@ -285,12 +387,12 @@
       "path": "dottiled/1.0.0",
       "hashPath": "dottiled.1.0.0.nupkg.sha512"
     },
-    "FlatRedBall.GumCommon/2026.8.3.1": {
+    "FlatRedBall.GumCommon/2026.10.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xBVPBH84EfEKoEtNfiidgJcqkbByy7XZ7OiuuLjOyvAYyhHx0YsmOd/gBmLCo9rv98y7+YWCmyC9p2DO3xa/7w==",
-      "path": "flatredball.gumcommon/2026.8.3.1",
-      "hashPath": "flatredball.gumcommon.2026.8.3.1.nupkg.sha512"
+      "sha512": "sha512-BNjbYjLEHpGjpF9RGBaYb7yjhfynWPb/VtpYqxMT8eVk2+vFIe7sxcnI+GiIoJlBPn5VaDRVL1CVsv7M35acJg==",
+      "path": "flatredball.gumcommon/2026.10.1.1",
+      "hashPath": "flatredball.gumcommon.2026.10.1.1.nupkg.sha512"
     },
     "FlatRedBall.InterpolationCore/2025.4.22.1": {
       "type": "package",
@@ -299,12 +401,19 @@
       "path": "flatredball.interpolationcore/2025.4.22.1",
       "hashPath": "flatredball.interpolationcore.2025.4.22.1.nupkg.sha512"
     },
-    "Gum.MonoGame/2026.8.3.1": {
+    "FreeTypeSharp/3.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oaAKq93MixUEEerIYJfINf7mDzhdpJQmxBtqCcjSgr08sMW14o1Tstqt/VidauNal96d9DDRzP+ekHBv0FJB5g==",
-      "path": "gum.monogame/2026.8.3.1",
-      "hashPath": "gum.monogame.2026.8.3.1.nupkg.sha512"
+      "sha512": "sha512-w0pPUztBFVokuvML8G55SM1HeycyzQQqC/NV3rWdyGOPi/rtVm1vE6UAQ7v4VYzVWoP59KM8O56qH89zJY5T+g==",
+      "path": "freetypesharp/3.1.0",
+      "hashPath": "freetypesharp.3.1.0.nupkg.sha512"
+    },
+    "Gum.MonoGame/2026.10.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Bqj3/pHACdz4TaYJ016713rTX6Xgclt4uxsUIa0QCI/OLjcf7o7geMWlzoiEEDs7Z43Y90RPaEeCoNkZBMTbdw==",
+      "path": "gum.monogame/2026.10.1.1",
+      "hashPath": "gum.monogame.2026.10.1.1.nupkg.sha512"
     },
     "ImGui.NET/1.91.6.1": {
       "type": "package",
@@ -312,6 +421,34 @@
       "sha512": "sha512-Ph3j8pO6UM28PPJWP+5LEJSPVPkd8ivpVS8tRyY9b0IHn1HDIrMZ2o/FdiXaYW6YhNxMHmbevw6Jcfs+IDKi0Q==",
       "path": "imgui.net/1.91.6.1",
       "hashPath": "imgui.net.1.91.6.1.nupkg.sha512"
+    },
+    "KernSmith/0.21.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LvKHG9KaBXUC5DVqAiKlTPs7Wp+tXnMTuwYUdCDKqauu5OcBsPpHQLYrKX1UuC8GjYGADCjRbkwlmpBDCie2ng==",
+      "path": "kernsmith/0.21.0",
+      "hashPath": "kernsmith.0.21.0.nupkg.sha512"
+    },
+    "KernSmith.GumCommon/2026.10.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rqKRG8HoniULmyGTEbFEp9QPUHIeF1V+OweXw83vlQ5N/77uMteyDAzHYn9MR7E/d37MUEUwN+DdYBwaEePPPA==",
+      "path": "kernsmith.gumcommon/2026.10.1.1",
+      "hashPath": "kernsmith.gumcommon.2026.10.1.1.nupkg.sha512"
+    },
+    "KernSmith.MonoGameGum/2026.10.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dWH+addnHutAK14bPdo7oXviMNw71ogc2MRZxQBn0I4gVk4pcQ6K5eL7ogf0r+Qe8E+DBG4kTaVTVnmJybhhWg==",
+      "path": "kernsmith.monogamegum/2026.10.1.1",
+      "hashPath": "kernsmith.monogamegum.2026.10.1.1.nupkg.sha512"
+    },
+    "KernSmith.Rasterizers.FreeType/0.21.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5O7p21LhHxrOwBXsYhaZfRHEfb4Eg0Jn24a3zj1ryCQPzkQ2ix7h+7zvibftJKXgC3xdPjyJ+57weeOalrxAEQ==",
+      "path": "kernsmith.rasterizers.freetype/0.21.0",
+      "hashPath": "kernsmith.rasterizers.freetype.0.21.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
       "type": "package",
@@ -354,6 +491,20 @@
       "sha512": "sha512-6k0Sa9gf85Sz9Npy7jnn5UPerejrAa3FxU9Gq5T6PwFWHUhUIdF903TjPiJtrYjXFJsXbnccaWSNMHzEg27DwQ==",
       "path": "sharpcompress/0.48.0",
       "hashPath": "sharpcompress.0.48.0.nupkg.sha512"
+    },
+    "StbImageSharp/2.30.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7QqbupVhz2kcFUPTgMw4iHR9rYDHGundzzee19Mwmd1typ2Lnv8EVJcLJxlkeBM2+4ex0NwsMtdbGSJctp1XCQ==",
+      "path": "stbimagesharp/2.30.15",
+      "hashPath": "stbimagesharp.2.30.15.nupkg.sha512"
+    },
+    "StbImageWriteSharp/1.16.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NF9kOxi0iS9VunklnRKgOpAWC2knCGKRjdy7RT6XAqYNyb7LQfyPHPdl4l1fJw7TFYKrGQzQOmK1XpBONC2MoA==",
+      "path": "stbimagewritesharp/1.16.7",
+      "hashPath": "stbimagewritesharp.1.16.7.nupkg.sha512"
     },
     "TextCopy/6.2.1": {
       "type": "package",

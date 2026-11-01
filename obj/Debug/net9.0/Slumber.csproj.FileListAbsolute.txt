@@ -145,3 +145,15 @@
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Graphics/Settings-9-Slice.xnb
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Audio/Music/menuchords.ogg
 /Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/Content/Audio/Music/menuchords.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/FreeTypeSharp.dll
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/KernSmith.dll
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/KernSmith.GumCommon.dll
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/KernSmith.MonoGameGum.dll
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/KernSmith.Rasterizers.FreeType.dll
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/StbImageSharp.dll
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/StbImageWriteSharp.dll
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/runtimes/linux-x64/native/libfreetype.so
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/runtimes/osx/native/libfreetype.dylib
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/runtimes/win-arm64/native/freetype.dll
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/runtimes/win-x64/native/freetype.dll
+/Users/nilslauvstad/Git/Slumber/bin/Debug/net9.0/runtimes/win-x86/native/freetype.dll

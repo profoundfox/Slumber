@@ -3,6 +3,7 @@ using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Forms.Controls;
 using Gum.GueDeriving;
+using Gum.Wireframe;
 using RenderingLibrary.Graphics;
 
 namespace Slumber
@@ -36,6 +37,28 @@ namespace Slumber
 
         //child.IsFocused = false;
         child.IsEnabled = false;
+      }
+    }
+  
+    public static void Enable(this ContainerRuntime container)
+    {
+      container.IsEnabled = true;
+      foreach (var child in container.Children)
+      {
+        if (child is InteractiveGue interactiveGue)
+          if (interactiveGue.FormsControlAsObject is FrameworkElement fe)
+            fe.IsEnabled = true;
+      }
+    }
+
+    public static void Disable(this ContainerRuntime container)
+    {
+      container.IsEnabled = false;
+      foreach (var child in container.Children)
+      {
+        if (child is InteractiveGue interactiveGue)
+          if (interactiveGue.FormsControlAsObject is FrameworkElement fe)
+            fe.IsEnabled = false;
       }
     }
   }
