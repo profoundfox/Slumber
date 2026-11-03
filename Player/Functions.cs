@@ -9,9 +9,9 @@ public partial class Player : CharacterBody2D
     if (!Properties.CanDash)
       return;
 
-    if (Main.DashKey != null && Core.Input.Keyboard.WasJustPressed(Main.DashKey.Value)
-        || Main.DashButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.DashButton.Value)
-        || Main.DashMouse != null && Core.Input.Mouse.WasJustPressed(Main.DashMouse.Value))
+    if (Main.Binds.DashKey != null && Core.Input.Keyboard.WasJustPressed(Main.Binds.DashKey.Value)
+        || Main.Binds.DashButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.DashButton.Value)
+        || Main.Binds.DashMouse != null && Core.Input.Mouse.WasJustPressed(Main.Binds.DashMouse.Value))
       Dash();
   }
 
@@ -253,9 +253,9 @@ public partial class Player : CharacterBody2D
 
   public void HandleAttack()
   {
-    if (Main.AttackKey != null && Core.Input.Keyboard.WasJustPressed(Main.AttackKey.Value)
-        || Main.AttackButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.AttackButton.Value)
-        || Main.AttackMouse != null && Core.Input.Mouse.WasJustPressed(Main.AttackMouse.Value))
+    if (Main.Binds.AttackKey != null && Core.Input.Keyboard.WasJustPressed(Main.Binds.AttackKey.Value)
+        || Main.Binds.AttackButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.AttackButton.Value)
+        || Main.Binds.AttackMouse != null && Core.Input.Mouse.WasJustPressed(Main.Binds.AttackMouse.Value))
     {
       if (!Properties.IsAttacking)
       {

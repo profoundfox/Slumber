@@ -31,9 +31,9 @@ public class SceneChange : Area2D
     {
       if (Trigger)
         EnterText.Visible = false;
-      if (Trigger && !(Main.InteractKey != null && Core.Input.Keyboard.WasJustPressed(Main.InteractKey.Value)
-            || Main.InteractButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.InteractButton.Value)
-            || Main.InteractMouse != null && Core.Input.Mouse.WasJustPressed(Main.InteractMouse.Value)))
+      if (Trigger && !(Main.Binds.InteractKey != null && Core.Input.Keyboard.WasJustPressed(Main.Binds.InteractKey.Value)
+            || Main.Binds.InteractButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.InteractButton.Value)
+            || Main.Binds.InteractMouse != null && Core.Input.Mouse.WasJustPressed(Main.Binds.InteractMouse.Value)))
         return;
       
       OnSceneChange(p);

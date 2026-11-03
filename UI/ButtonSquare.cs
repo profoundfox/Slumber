@@ -70,16 +70,24 @@ public class CustomButtonSquare : Button
     right.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Right;
     borderContainer.Children.Add(right);
 
-    borderContainer.Visible = false;
+    borderContainer.Visible = true;
 
+    void SetBorderColour(Color color)
+    {
+      top.Color = color;
+      bottom.Color = color;
+      left.Color = color;
+      right.Color = color;
+    }
    
     StateSave enabledState = buttonVisual.States.Enabled;
     enabledState.Apply = () =>
     {
       buttonVisual.FocusedIndicatorColor = Color.White * 0f;
       background.Color = new Color(0, 0, 0) * 0.6f;
+      SetBorderColour(new Color(0, 0, 66, 255));
       text.Color = Color.White;
-      borderContainer.Visible = false;
+      borderContainer.Visible = true;
     };
 
     StateSave pushedState = buttonVisual.States.Pushed;
@@ -87,6 +95,7 @@ public class CustomButtonSquare : Button
     {
       buttonVisual.FocusedIndicatorColor = Color.White * 0f;
       background.Color = new Color(64, 64, 64) * 0.42f;
+      SetBorderColour(ColorExtension.Hex("#cbdbfc"));
       borderContainer.Visible = true;
       text.Color = Color.White;
     };
@@ -96,6 +105,7 @@ public class CustomButtonSquare : Button
     {
       buttonVisual.FocusedIndicatorColor = Color.White * 0f;
       background.Color = new Color(0, 0, 0) * 0.6f;
+      SetBorderColour(ColorExtension.Hex("#cbdbfc"));
       borderContainer.Visible = true;
       text.Color = Color.White;
       IsFocused = true;

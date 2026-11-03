@@ -40,7 +40,7 @@ public class TitleScreen : Scene
   DubTextButton JumpButton;
   DubTextButton DashButton;
   DubTextButton AttackButton;
-  DubTextButton InteractButton;
+  CustomButton ResetButton;
 
   Keys KeyToRemap;
   MouseButton MouseButtonToRemap;
@@ -54,6 +54,7 @@ public class TitleScreen : Scene
   Action<MouseButton> SetMouseButton;
 
   Point beforeLockPos;
+  bool inputThresh;
 
   public override void EnterTree()
   {
@@ -90,6 +91,8 @@ public class TitleScreen : Scene
 
     Root.Width = 640;
     Root.Height = 360;
+
+    //Root.X = -50;
 
     MenuChooser = new StackPanel();
     Root.AddChild(MenuChooser, 0, 0);
@@ -134,7 +137,6 @@ public class TitleScreen : Scene
         {
           Main.GameManager.Change("Caverns1", "door_1");
           Main.AudioManager.FadeOut();
-          Root.Visual.RemoveFromManagers();
         };
       }
       else
@@ -144,10 +146,16 @@ public class TitleScreen : Scene
         {
           Main.GameManager.Load();
           Main.AudioManager.FadeOut();
-          Root.Visual.RemoveFromManagers();
         };
       }
     }
+
+
+    PlayBtn.Click += (sender, args) =>
+    {
+      Root.IsVisible = false;
+      PlayBtn.IsFocused = false;
+    };
 
     PlayBtn.IsFocused = true;
 
@@ -159,9 +167,9 @@ public class TitleScreen : Scene
     SetBtn.Click += (sender, args) =>
     {
       MenuChooser?.Disable();
-      Settings?.IsVisible = true;
-      Settings?.Enable();
-      KeyBtn.IsFocused = true;
+      SettingsChooser?.IsVisible = true;
+      SettingsChooser?.Enable();
+      BindBtn.IsFocused = true;
     };
 
     SetBtn.NormalDisabledFocus = false;
@@ -188,7 +196,7 @@ public class TitleScreen : Scene
     SettingsChooser.YUnits = GeneralUnitType.PixelsFromSmall;
     SettingsChooser.YOrigin = VerticalAlignment.Top;
 
-    SettingsChooser.X = -90;
+    SettingsChooser.X = -80;
     SettingsChooser.Y = -180;
 
     SettingsChooser.IsVisible = false;
@@ -196,7 +204,16 @@ public class TitleScreen : Scene
     BindBtn = new CustomButton();
     SettingsChooser.AddChild(BindBtn);
 
+    BindBtn.Click += (sender, args) =>
+    {
+      Controls?.Visible = true;
+      Controls?.Enable();
+      UpButton?.IsFocused = true;
+      SettingsChooser?.Disable();
+    };
     BindBtn.Text = "Keybinds";
+
+    BindBtn.NormalDisabledFocus = false;
 
     Settings = new Panel();
     Root.AddChild(Settings, 0, 1);
@@ -263,7 +280,7 @@ public class TitleScreen : Scene
     Controls.YUnits = GeneralUnitType.PixelsFromSmall;
     Controls.YOrigin = VerticalAlignment.Center;
 
-    Controls.X = 36;
+    Controls.X = 310;
     Controls.Y = -36;
    
     var conteolsBG = new NineSliceRuntime();
@@ -281,104 +298,107 @@ public class TitleScreen : Scene
     contBtns.WidthUnits = DimensionUnitType.RelativeToParent;
     contBtns.WidthUnits = DimensionUnitType.RelativeToParent;
 
-
-    UpButton = new DubTextButton("Up",$"{Main.UpKey}");
+    UpButton = new DubTextButton("Up",$"{Main.Binds.UpKey}");
     contBtns.AddChild(UpButton);
 
     UpButton.Click += (sender, args) =>
     {
-      Rebind(UpButton, k => Main.UpKey = k, null);
+      Rebind(UpButton, k => Main.Binds.UpKey = k, null);
     };
 
-    DownButton = new DubTextButton("Down", $"{Main.DownKey}");
+    DownButton = new DubTextButton("Down", $"{Main.Binds.DownKey}");
     contBtns.AddChild(DownButton);
 
     DownButton.Click += (sender, args) =>
     {
-      Rebind(DownButton, k => Main.DownKey = k, null);
+      Rebind(DownButton, k => Main.Binds.DownKey = k, null);
     };
 
-    LeftButton = new DubTextButton("Left", $"{Main.LeftKey}");
+    LeftButton = new DubTextButton("Left", $"{Main.Binds.LeftKey}");
     contBtns.AddChild(LeftButton);
    
     LeftButton.Click += (sender, args) =>
     {
-      Rebind(LeftButton, k => Main.LeftKey = k, null);
+      Rebind(LeftButton, k => Main.Binds.LeftKey = k, null);
     };
     
-    RightButton = new DubTextButton("Right", $"{Main.RightKey}");
+    RightButton = new DubTextButton("Right", $"{Main.Binds.RightKey}");
     contBtns.AddChild(RightButton);
     
     RightButton.Click += (sender, args) =>
     {
-      Rebind(RightButton, k => Main.RightKey = k, null);
+      Rebind(RightButton, k => Main.Binds.RightKey = k, null);
     };
     
-    JumpButton = new DubTextButton("Jump", $"{Main.JumpKey.ToString()}");
+    JumpButton = new DubTextButton("Jump", $"{Main.Binds.JumpKey.ToString()}");
     contBtns.AddChild(JumpButton);
     
     JumpButton.Click += (sender, args) =>
     {
-      Rebind(JumpButton, k => Main.JumpKey = k, k => Main.JumpMouse = k);
+      Rebind(JumpButton, k => Main.Binds.JumpKey = k, k => Main.Binds.JumpMouse = k);
     };
     
-    DashButton = new DubTextButton("Dash", $"{Main.DashKey.ToString()}");
+    DashButton = new DubTextButton("Dash", $"{Main.Binds.DashKey.ToString()}");
     contBtns.AddChild(DashButton);
     
     DashButton.Click += (sender, args) =>
     {
-      Rebind(DashButton, k => Main.DashKey = k, k => Main.DashMouse = k);
+      Rebind(DashButton, k => Main.Binds.DashKey = k, k => Main.Binds.DashMouse = k);
     };
 
-    AttackButton = new DubTextButton("Attack", $"{Main.AttackKey.ToString()}");
+    AttackButton = new DubTextButton("Attack", $"{Main.Binds.AttackKey.ToString()}");
     contBtns.AddChild(AttackButton);
    
     AttackButton.Click += (sender, args) =>
     {
-      Rebind(AttackButton, k => Main.AttackKey = k, k => Main.AttackMouse = k);
+      Rebind(AttackButton, k => Main.Binds.AttackKey = k, k => Main.Binds.AttackMouse = k);
     };
-    
-    InteractButton = new DubTextButton("Interact", $"{Main.InteractKey.ToString()}");
-    contBtns.AddChild(InteractButton);
 
-    InteractButton.Click += (sender, args) =>
+    ResetButton = new CustomButton();
+    contBtns.AddChild(ResetButton);
+
+    ResetButton.Text = "Reset";
+    ResetButton.X = 120;
+
+    ResetButton.Click += (sender, args) =>
     {
-      Rebind(InteractButton, k => Main.InteractKey = k, k => Main.InteractMouse = k);
+      SetBindText();
     };
+    SetBindText();
+  }
 
+  public void SetBindText()
+  {
+    if (Main.Binds.LeftKey != null)
+      LeftButton.RightLabel.Text = Main.Binds.LeftKey.ToString();
+    if (Main.Binds.RightKey !=  null)
+      RightButton.RightLabel.Text = Main.Binds.RightKey.ToString();
+    if (Main.Binds.DownKey != null)
+      DownButton.RightLabel.Text = Main.Binds.DownKey.ToString();
+    if (Main.Binds.UpKey != null)
+      UpButton.RightLabel.Text = Main.Binds.UpKey.ToString();
+    if (Main.Binds.JumpKey != null)
+      JumpButton.RightLabel.Text = Main.Binds.JumpKey.ToString();
+    if (Main.Binds.JumpMouse != null)
+      JumpButton.RightLabel.Text = Main.Binds.JumpMouse.ToString();
+    if (Main.Binds.DashKey != null)
+      DashButton.RightLabel.Text = Main.Binds.DashKey.ToString();
+    if (Main.Binds.DashMouse != null)
+      DashButton.RightLabel.Text = Main.Binds.DashMouse.ToString();
+    if (Main.Binds.AttackKey != null)
+      AttackButton.RightLabel.Text = Main.Binds.AttackKey.ToString();
+    if (Main.Binds.AttackMouse != null)
+      AttackButton.RightLabel.Text = Main.Binds.AttackMouse.ToString();
   }
 
   public void Rebind(DubTextButton button, Action<Keys> setKey, Action<MouseButton> setMouseButton)
   {
+    NavigationLock = true;
+    inputThresh = false;
     ReadingInput = true;
     CurrentInputButton = button;
     SetKey = setKey;
     SetMouseButton = setMouseButton;
-
-    return;
-
-    Await.Until(() => 
-    {
-      KeyToRemap = Core.Input.Keyboard.GetDown();
-      MouseButtonToRemap = Core.Input.Mouse.GetDown();
-      return (KeyToRemap != Keys.None || MouseButtonToRemap != MouseButton.None);
-    }, () =>
-    {
-      NavigationLock = true;
-      if (KeyToRemap != Keys.None && setKey != null)
-      {
-        setKey(KeyToRemap);
-        button.RightLabel.Text = KeyToRemap.ToString();
-      }
-      else if (MouseButtonToRemap != MouseButton.None && setMouseButton != null)
-      {
-        setMouseButton(MouseButtonToRemap);
-        button.RightLabel.Text = MouseButtonToRemap.ToString();
-      }
-      NavigationLock = false;
-      KeyToRemap = Keys.None;
-      MouseButtonToRemap = MouseButton.None;
-    });
   }
 
   public void Back()
@@ -390,15 +410,14 @@ public class TitleScreen : Scene
     {
       Controls.Visible = false;
       Controls.Disable();
-      Settings.IsVisible = true;
-      Settings.Enable();
-      KeyBtn.IsFocused = true;
+      SettingsChooser.Enable();
+      BindBtn.IsFocused = true;
       return;
     }
-    if (Settings.IsVisible)
+    if (SettingsChooser.IsVisible)
     {
-      Settings.IsVisible = false;
-      Settings.Disable();
+      SettingsChooser.IsVisible = false;
+      SettingsChooser.Disable();
       MenuChooser.Enable();
       SetBtn.IsFocused = true;
       return; 
@@ -475,9 +494,9 @@ public class TitleScreen : Scene
         if (upPressed)
           DashButton.IsFocused = true;
         if (downPressed)
-          InteractButton.IsFocused = true;
+          ResetButton.IsFocused = true;
         break;
-      case true when InteractButton.IsFocused:
+      case true when ResetButton.IsFocused:
         if (upPressed)
           AttackButton.IsFocused = true;
         break;
@@ -493,7 +512,11 @@ public class TitleScreen : Scene
 
     void ReadInput()
     {
-      NavigationLock = true;
+      if (!inputThresh && (Core.Input.Keyboard.GetJustReleased() != Keys.None || Core.Input.Mouse.GetJustReleased() != MouseButton.None))
+        inputThresh = true;
+
+      if (!inputThresh)
+        return;
 
       KeyToRemap = Core.Input.Keyboard.GetDown();
       MouseButtonToRemap = Core.Input.Mouse.GetDown();
@@ -504,21 +527,28 @@ public class TitleScreen : Scene
       if (KeyToRemap != Keys.None && SetKey != null)
       {
         SetKey(KeyToRemap);
-        CurrentInputButton.RightLabel.Text = KeyToRemap.ToString();
+        SetBindText();
       }
       else if (MouseButtonToRemap != MouseButton.None && SetMouseButton != null)
       {
         SetMouseButton(MouseButtonToRemap);
-        CurrentInputButton.RightLabel.Text = MouseButtonToRemap.ToString();
+        SetBindText();
       }
 
-      NavigationLock = false;
-      
-      KeyToRemap = Keys.None;
-      MouseButtonToRemap = MouseButton.None;
+      Await.Until(() => Core.Input.Keyboard.GetJustReleased() != Keys.None, () =>
+      {
 
-      SetKey = null;
-      SetMouseButton = null;
+        NavigationLock = false;
+        
+        KeyToRemap = Keys.None;
+        MouseButtonToRemap = MouseButton.None;
+
+        SetKey = null;
+        SetMouseButton = null;
+
+        ReadingInput = false;
+      });
+
     }
 
     if (ReadingInput)

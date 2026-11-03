@@ -29,7 +29,7 @@ public class GumManager
 
   public void Draw(GameTime gameTime)
   {
-    GumBatch.Begin(Core.Token.Get<Camera2D>()?.GetTransform());
+    GumBatch.Begin();//Core.Token.Get<Camera2D>()?.GetTransform());
   
     for (int i = 0; i < ToSubmit.Count; i++)
       GumBatch.Draw(ToSubmit[i]);

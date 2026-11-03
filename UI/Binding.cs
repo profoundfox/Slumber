@@ -28,8 +28,8 @@ public class Binding : StackPanel
         return KeyToRemap != Keys.None;
       }, () =>
       {
-        Main.UpKey = KeyToRemap;
-        UpButton.RightLabel.Text = Main.UpKey.ToString();
+        Main.Binds.UpKey = KeyToRemap;
+        UpButton.RightLabel.Text = Main.Binds.UpKey.ToString();
       });
     };
 

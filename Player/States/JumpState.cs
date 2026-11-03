@@ -30,8 +30,8 @@ public class JumpState : BaseAirState
   {
     base.Physics(delta);
     
-    if (Main.LeftKey != null && Main.RightKey != null && Main.DownKey != null && Main.UpKey != null)
-      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.LeftKey.Value, Main.RightKey.Value, Main.DownKey.Value, Main.UpKey.Value).ToVector2();
+    if (Main.Binds.LeftKey != null && Main.Binds.RightKey != null && Main.Binds.DownKey != null && Main.Binds.UpKey != null)
+      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.Binds.LeftKey.Value, Main.Binds.RightKey.Value, Main.Binds.DownKey.Value, Main.Binds.UpKey.Value).ToVector2();
 
     HandleJump();
   }
@@ -46,9 +46,9 @@ public class JumpState : BaseAirState
 
   public void HandleJump()
   {
-    if (!p.Properties.JumpReleased && !((Main.JumpKey != null && Core.Input.Keyboard.IsDown(Main.JumpKey.Value)
-        || Main.JumpButton != null && Core.Input.CurrentGamePad.IsDown(Main.JumpButton.Value)
-        || Main.JumpMouse != null && Core.Input.Mouse.IsDown(Main.JumpMouse.Value)) || p.Properties.JumpBuffered) && p.Velocity.Y < 0)
+    if (!p.Properties.JumpReleased && !((Main.Binds.JumpKey != null && Core.Input.Keyboard.IsDown(Main.Binds.JumpKey.Value)
+        || Main.Binds.JumpButton != null && Core.Input.CurrentGamePad.IsDown(Main.Binds.JumpButton.Value)
+        || Main.Binds.JumpMouse != null && Core.Input.Mouse.IsDown(Main.Binds.JumpMouse.Value)) || p.Properties.JumpBuffered) && p.Velocity.Y < 0)
     {
       p.Velocity.Y /= 2f;
       p.Properties.JumpReleased = true;

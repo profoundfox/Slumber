@@ -1,5 +1,7 @@
 using Gum.Converters;
+using Gum.DataTypes;
 using Gum.Forms.Controls;
+using RenderingLibrary;
 using RenderingLibrary.Graphics;
 
 namespace Slumber;
@@ -7,109 +9,61 @@ namespace Slumber;
 public class PauseMenu : Node2D
 {
   public bool Open = false;
+  
+  public Grid Root;
 
-  public StackPanel Settings;
   public StackPanel MainPanel;
+
+  public CustomButton ResumeBtn;
+  public CustomButton SettingsBtn;
+  public CustomButton QuitBtn;
+
+  public bool NavigationLock;
 
   public override void EnterTree()
   {
-    MainPanel = new StackPanel();
-
-    MainPanel.IsVisible = false;
     Visible = false;
 
-    MainPanel.AddToRoot();
-    
-    MainPanel.XUnits = GeneralUnitType.PixelsFromMiddle;
+    Root = new Grid();
+    Root.Visual.AttachManagersOnly(SystemManagers.Default);
+
+    Root.Width = 640;
+    Root.Height = 360;
+
+    MainPanel = new StackPanel();
+    Root.AddChild(MainPanel, 0, 0);
+
     MainPanel.XOrigin = HorizontalAlignment.Center;
-    
-    MainPanel.YUnits = GeneralUnitType.PixelsFromMiddle;
-    MainPanel.YOrigin = VerticalAlignment.Center;
 
-    var startBtn = new CustomButton();
-    MainPanel.AddChild(startBtn);
+    MainPanel.WidthUnits = DimensionUnitType.Absolute;
+    MainPanel.Width = 100;
 
-    startBtn.Y = 5;
+    ResumeBtn = new CustomButton();
+    MainPanel.AddChild(ResumeBtn);
 
-    startBtn.Text = "Continue";
-    startBtn.Click += (sender, args) =>
+    ResumeBtn.Text = "Resume";
+
+    ResumeBtn.Click += (sender, args) =>
     {
       CloseMenu();
     };
 
-    startBtn.IsFocused = true;
+    SettingsBtn = new CustomButton();
+    MainPanel.AddChild(SettingsBtn);
 
-    var exitBtn = new CustomButton();
-    MainPanel.AddChild(exitBtn);
+    SettingsBtn.Text = "Settings";
 
-    exitBtn.Y = 5;
+    QuitBtn = new CustomButton();
+    MainPanel.AddChild(QuitBtn);
 
-    exitBtn.Text = "Quit";
-    exitBtn.Click += (sender, args) =>
-    {
-      CloseMenu();
-      Main.GameManager.Transition("TitleScreen", () => {});
-    };
-
-    Settings = new StackPanel();
-    Settings.AddToRoot();
-
-    Settings.XUnits = GeneralUnitType.PixelsFromMiddle;
-    Settings.XOrigin = HorizontalAlignment.Center;
-    
-    Settings.YUnits = GeneralUnitType.PixelsFromMiddle;
-    Settings.YOrigin = VerticalAlignment.Center;
-
-    Settings.IsVisible = false;
-
-    var contrBtn = new CustomButton();
-    Settings.AddChild(contrBtn);
-
-    contrBtn.Y = 5;
-
-    contrBtn.Text = "Controls";
-    contrBtn.Click += (sender, args) =>
-    {
-    };
-
-    var keybBtn = new CustomButton();
-    Settings.AddChild(keybBtn);
-
-    keybBtn.Y = 5;
-
-    keybBtn.Text = "Keyboard";
-    keybBtn.Click += (sender, args) =>
-    {
-    };
-
-    var audBtn = new CustomButton();
-    Settings.AddChild(audBtn);
-
-    audBtn.Y = 5;
-
-    audBtn.Text = "Audio";
-    audBtn.Click += (sender, args) =>
-    {
-    };
-
-    var backBtn = new CustomButton();
-    Settings.AddChild(backBtn);
-
-    backBtn.Y = 40;
-
-    backBtn.Text = "Back";
-    backBtn.Click += (sender, args) =>
-    {
-      Settings.IsVisible = false;
-      MainPanel.IsVisible = true;
-      startBtn.IsFocused = true;
-    };
+    QuitBtn.Text = "To Menu";
   }
 
   public void OpenMenu()
   {
     Open = true;
     Visible = true;
+    ResumeBtn.IsFocused = true;
     Core.Time.TimeScale = 0f;
   }
 
@@ -120,16 +74,45 @@ public class PauseMenu : Node2D
     Core.Time.TimeScale = 1f;
   }
 
+  public override void Submit(Canvas2D canvas)
+  {
+    Main.GumManager.Submit(Root.Visual); 
+  }
+
+  public void Move(bool upPressed, bool downPressed, bool rightPressed, bool leftPressed)
+  {
+    if (!upPressed && !downPressed && !rightPressed && !leftPressed)
+      return;
+
+    switch (true)
+    {
+      case true when ResumeBtn.IsFocused:
+        if (downPressed)
+          SettingsBtn.IsFocused = true;
+        break;
+      case true when SettingsBtn.IsFocused:
+        if (upPressed)
+          ResumeBtn.IsFocused = true;
+        if (downPressed)
+          QuitBtn.IsFocused = true;
+        break;
+      case true when QuitBtn.IsFocused:
+        if (upPressed)
+          SettingsBtn.IsFocused = true;
+        break;
+    }
+  }
+
   public override void Process(float delta)
   {
-    MainPanel.X = Transform.Global.Position.X;
-    MainPanel.Y = Transform.Global.Position.Y;
+    Root.X = Transform.Global.Position.X;
+    Root.Y = Transform.Global.Position.Y;
     
-    MainPanel.IsVisible = Material.Global.Visible;
+    Root.IsVisible = Material.Global.Visible;
 
-    if (Main.PauseKey != null && Core.Input.Keyboard.WasJustPressed(Main.PauseKey.Value)
-        || Main.PauseButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.PauseButton.Value)
-        || Main.PauseMouse != null && Core.Input.Mouse.WasJustPressed(Main.PauseMouse.Value))
+    if (Main.Binds.PauseKey != null && Core.Input.Keyboard.WasJustPressed(Main.Binds.PauseKey.Value)
+        || Main.Binds.PauseButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.PauseButton.Value)
+        || Main.Binds.PauseMouse != null && Core.Input.Mouse.WasJustPressed(Main.Binds.PauseMouse.Value))
     {
       if (!Open)
       {
@@ -140,5 +123,15 @@ public class PauseMenu : Node2D
         CloseMenu();
       }
     }
+
+    if (NavigationLock)
+      return;
+
+    bool upPressed = Core.Input.Keyboard.WasJustPressed(Keys.Up);
+    bool downPressed = Core.Input.Keyboard.WasJustPressed(Keys.Down);
+    bool rightPressed = Core.Input.Keyboard.WasJustPressed(Keys.Right);
+    bool leftPressed = Core.Input.Keyboard.WasJustPressed(Keys.Left);
+
+    Move(upPressed, downPressed, rightPressed, leftPressed);
   }
 }

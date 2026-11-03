@@ -26,30 +26,8 @@ namespace Slumber
 
     public static AudioManager AudioManager;
     public static GumManager GumManager;
-
-    public static Keys? LeftKey = Keys.A;
-    public static Buttons? LeftButton = Buttons.LeftThumbstickLeft;
-    public static Keys? RightKey = Keys.D;
-    public static Buttons? RightButton = Buttons.LeftThumbstickRight;
-    public static Keys? DownKey = Keys.S;
-    public static Buttons? DownButton = Buttons.LeftThumbstickDown;
-    public static Keys? UpKey = Keys.W;
-    public static Buttons? UpButton = Buttons.LeftThumbstickUp;
-    public static Keys? JumpKey = Keys.Space;
-    public static Buttons? JumpButton = Buttons.X;
-    public static MouseButton? JumpMouse = null;
-    public static Keys? DashKey = Keys.E;
-    public static Buttons? DashButton = Buttons.RightTrigger;
-    public static MouseButton? DashMouse = null;
-    public static Keys? InteractKey = Keys.W;
-    public static Buttons? InteractButton = Buttons.DPadUp;
-    public static MouseButton? InteractMouse = null;
-    public static Keys? AttackKey = Keys.K;
-    public static Buttons? AttackButton = Buttons.Y;
-    public static MouseButton? AttackMouse = MouseButton.Left;
-    public static Keys? PauseKey = Keys.Escape;
-    public static Buttons? PauseButton = Buttons.Start;
-    public static MouseButton? PauseMouse = null;
+    
+    public static Binds Binds = Binds.Identity;
 
     public static InputType CurrentInputType = InputType.Keyboard;
     public static InputType PreviousInputType;
