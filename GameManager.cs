@@ -14,6 +14,8 @@ public class GameManager : Object
 
   public Player Player { get; set; }
 
+  public bool IsPaused { get; set; }
+
   public ScreenEffects ScreenEffects;
 
   public GameManager()
@@ -42,6 +44,26 @@ public class GameManager : Object
 
     FileT.ToBinary(Persistence, System.IO.Path.Combine(myGameFolder, "Persistence"));
     FileT.ToBinary(JangoPersistence, System.IO.Path.Combine(myGameFolder, "JangoPersistence"));
+  }
+
+  public void SaveSettings()
+  {
+    string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+    string myGameFolder = System.IO.Path.Combine(saveFolder, "Slumber");
+    System.IO.Directory.CreateDirectory(myGameFolder);
+
+    FileT.ToBinary(Main.Binds, System.IO.Path.Combine(myGameFolder, "Binds"));
+  }
+
+  public void LoadSettings()
+  {
+    string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+    string myGameFolder = System.IO.Path.Combine(saveFolder, "Slumber");
+    System.IO.Directory.CreateDirectory(myGameFolder);
+
+    FileT.FromBinary(Main.Binds, System.IO.Path.Combine(myGameFolder, "Binds"));
+
+    Console.WriteLine(Main.Binds.UpKey.ToString());
   }
 
   public void Load()
@@ -88,13 +110,12 @@ public class GameManager : Object
             x += 50;
           Player.Velocity = new Vector2(x * Data.PlayerViewDirection, 200 * dir.Y);
         }
-      });
+      }, ignoreTimeScale: true);
     });
   }
 
   public void Transition(string targetScene, Action onNewScene)
   {
-    Console.WriteLine(targetScene);
     ScreenEffects.In();
     Await.Until(() => ScreenEffects.Transition.IsFinished, () =>
     {
@@ -123,8 +144,8 @@ public class GameManager : Object
       }
 
       ScreenEffects.Out();
-      Await.Until(() => Core.Token.Anchor.GetCurrentAnchor() != null, onNewScene);
-    });
+      Await.Until(() => Core.Token.Anchor.GetCurrentAnchor() != null, onNewScene, ignoreTimeScale: true);
+    }, ignoreTimeScale: true);
   }
 
   private bool canBeHazard = true;

@@ -32,6 +32,9 @@ public class StateMachine : Node
   public override void Process(float delta)
   {
     base.Process(delta);
+    
+    if (Main.GameManager.IsPaused)
+      return;
 
     Current?.Update(delta);
   }
@@ -39,6 +42,9 @@ public class StateMachine : Node
   public override void PhysicsUpdate(float delta)
   {
     base.PhysicsUpdate(delta);
+
+    if (Main.GameManager.IsPaused)
+      return;
 
     Current?.Physics(delta);
   }

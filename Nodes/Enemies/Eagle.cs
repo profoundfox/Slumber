@@ -42,6 +42,9 @@ public class Eagle : Node2D
   {
     base.PhysicsUpdate(delta);
 
+    if (Main.GameManager.IsPaused)
+      return;
+
     Sprite.PlayAnimation("Flying");
 
 
@@ -60,6 +63,9 @@ public class Eagle : Node2D
   public override void Process(float delta)
   {
     base.Process(delta);
+
+    if (Main.GameManager.IsPaused)
+      return;
   }
 
   public override void Submit(Canvas2D canvas)

@@ -1,6 +1,7 @@
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Forms.Controls;
+using Gum.GueDeriving;
 using RenderingLibrary;
 using RenderingLibrary.Graphics;
 
@@ -18,6 +19,10 @@ public class PauseMenu : Node2D
   public CustomButton SettingsBtn;
   public CustomButton QuitBtn;
 
+  public NineSliceRuntime RootBG;
+
+  public RectangleRuntime BG;
+
   public bool NavigationLock;
 
   public override void EnterTree()
@@ -28,7 +33,20 @@ public class PauseMenu : Node2D
     Root.Visual.AttachManagersOnly(SystemManagers.Default);
 
     Root.Width = 640;
-    Root.Height = 360;
+
+    Root.XOrigin = HorizontalAlignment.Left;  
+
+    BG = new RectangleRuntime();
+    Root.AddChild(BG, 0, 0);
+
+    BG.X = -1280;
+    BG.Y = -640;
+
+    BG.Width = 2560;
+    BG.Height = 1280;
+
+    BG.FillColor= new Color(255, 255, 255, 50);
+    BG.IsFilled = true;
 
     MainPanel = new StackPanel();
     Root.AddChild(MainPanel, 0, 0);
@@ -37,6 +55,8 @@ public class PauseMenu : Node2D
 
     MainPanel.WidthUnits = DimensionUnitType.Absolute;
     MainPanel.Width = 100;
+    MainPanel.X = -50;
+    MainPanel.Y = -50;
 
     ResumeBtn = new CustomButton();
     MainPanel.AddChild(ResumeBtn);
@@ -57,6 +77,13 @@ public class PauseMenu : Node2D
     MainPanel.AddChild(QuitBtn);
 
     QuitBtn.Text = "To Menu";
+
+    QuitBtn.Click += (sender, args) =>
+    {
+      Main.GameManager.IsPaused = true;
+      CloseMenu();
+      Main.GameManager.Transition("TitleScreen", () => Main.GameManager.IsPaused = false);
+    };
   }
 
   public void OpenMenu()
@@ -110,9 +137,9 @@ public class PauseMenu : Node2D
     
     Root.IsVisible = Material.Global.Visible;
 
-    if (Main.Binds.PauseKey != null && Core.Input.Keyboard.WasJustPressed(Main.Binds.PauseKey.Value)
-        || Main.Binds.PauseButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.PauseButton.Value)
-        || Main.Binds.PauseMouse != null && Core.Input.Mouse.WasJustPressed(Main.Binds.PauseMouse.Value))
+    if (Main.Binds.PauseKey != Keys.None && Core.Input.Keyboard.WasJustPressed(Main.Binds.PauseKey)
+        || Main.Binds.PauseButton != Buttons.None && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.PauseButton)
+        || Main.Binds.PauseMouse != MouseButton.None && Core.Input.Mouse.WasJustPressed(Main.Binds.PauseMouse))
     {
       if (!Open)
       {

@@ -21,24 +21,24 @@ public class IdleState : State
     if (p.Properties.PlayerAxis.X != 0) 
       Transition?.Invoke("RunState");
 
-    if ((Main.Binds.JumpKey != null && Core.Input.Keyboard.WasJustPressed(Main.Binds.JumpKey.Value)
-        || Main.Binds.JumpButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.JumpButton.Value)
-        || Main.Binds.JumpMouse != null && Core.Input.Mouse.WasJustPressed(Main.Binds.JumpMouse.Value)) || p.Properties.JumpBuffered)
+    if ((Main.Binds.JumpKey != Keys.None && Core.Input.Keyboard.WasJustPressed(Main.Binds.JumpKey)
+        || Main.Binds.JumpButton != Buttons.None && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.JumpButton)
+        || Main.Binds.JumpMouse != MouseButton.None && Core.Input.Mouse.WasJustPressed(Main.Binds.JumpMouse)) || p.Properties.JumpBuffered)
       Transition?.Invoke("JumpState");
 
     if (!p.IsOnFloor)
       Transition?.Invoke("FallState");
 
-    if (Main.Binds.AttackKey != null && Core.Input.Keyboard.WasJustPressed(Main.Binds.AttackKey.Value)
-        || Main.Binds.AttackButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.AttackButton.Value)
-        || Main.Binds.AttackMouse != null && Core.Input.Mouse.WasJustPressed(Main.Binds.AttackMouse.Value))
+    if (Main.Binds.AttackKey != Keys.None && Core.Input.Keyboard.WasJustPressed(Main.Binds.AttackKey)
+        || Main.Binds.AttackButton != Buttons.None && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.AttackButton)
+        || Main.Binds.AttackMouse != MouseButton.None && Core.Input.Mouse.WasJustPressed(Main.Binds.AttackMouse))
       Transition?.Invoke("FloorAttackState");
   }
 
   public override void Physics(float delta)
   {
-    if (Main.Binds.LeftKey != null && Main.Binds.RightKey != null && Main.Binds.DownKey != null && Main.Binds.UpKey != null)
-      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.Binds.LeftKey.Value, Main.Binds.RightKey.Value, Main.Binds.DownKey.Value, Main.Binds.UpKey.Value).ToVector2();
+    if (Main.Binds.LeftKey != Keys.None && Main.Binds.RightKey != Keys.None && Main.Binds.DownKey != Keys.None && Main.Binds.UpKey != Keys.None)
+      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.Binds.LeftKey, Main.Binds.RightKey, Main.Binds.DownKey, Main.Binds.UpKey).ToVector2();
 
     p.HandleDeceleration(delta);
     p.HandleCoyoteTime();

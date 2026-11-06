@@ -16,9 +16,9 @@ public class FloorAttackState : State
 
   public override void Update(float delta)
   {
-    if (Main.Binds.AttackKey != null && Core.Input.Keyboard.WasJustPressed(Main.Binds.AttackKey.Value)
-        || Main.Binds.AttackButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.AttackButton.Value)
-        || Main.Binds.AttackMouse != null && Core.Input.Mouse.WasJustPressed(Main.Binds.AttackMouse.Value))
+    if (Main.Binds.AttackKey != Keys.None && Core.Input.Keyboard.WasJustPressed(Main.Binds.AttackKey)
+        || Main.Binds.AttackButton != Buttons.None && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.AttackButton)
+        || Main.Binds.AttackMouse != MouseButton.None && Core.Input.Mouse.WasJustPressed(Main.Binds.AttackMouse))
       BufferAttack();
 
     if (p.Sprite.IsFinished)
@@ -59,8 +59,8 @@ public class FloorAttackState : State
 
   public override void Physics(float delta)
   {
-    if (Main.Binds.LeftKey != null && Main.Binds.RightKey != null && Main.Binds.DownKey != null && Main.Binds.UpKey != null)
-      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.Binds.LeftKey.Value, Main.Binds.RightKey.Value, Main.Binds.DownKey.Value, Main.Binds.UpKey.Value).ToVector2();
+    if (Main.Binds.LeftKey != Keys.None && Main.Binds.RightKey != Keys.None && Main.Binds.DownKey != Keys.None && Main.Binds.UpKey != Keys.None)
+      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.Binds.LeftKey, Main.Binds.RightKey, Main.Binds.DownKey, Main.Binds.UpKey).ToVector2();
 
     if (p.AttackArea.IsInsideAnyBody() && !pushedBack)
     {

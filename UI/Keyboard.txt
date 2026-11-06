@@ -62,7 +62,7 @@ public class Keyboard : Node2D
     foreach(var bind in Core.Input.Binds)
     {
       string valResult = "";
-      foreach (var val in bind.Value)
+      foreach (var val in bind)
       {
         string i = string.Empty;
         if (val.HasKey)
@@ -107,7 +107,7 @@ public class Keyboard : Node2D
 
   public override void Process(float delta)
   {
-    if (CurrentRebindButton != null)
+    if (CurrentRebindButton != Buttons.None)
     {
       var currentFirstReleasedKey = Core.Input.Keyboard.GetFirstKeyJustReleased();
 

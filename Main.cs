@@ -88,7 +88,7 @@ namespace Slumber
       GumManager.Update(gameTime);
 
       #if !DEBUG 
-      Mouse.SetPosition(0, 0);
+      //Mouse.SetPosition(0, 0);
       #endif
 
       AudioManager.Update(gameTime);

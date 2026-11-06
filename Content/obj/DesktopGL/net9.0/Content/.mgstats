@@ -44,6 +44,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/lan.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/lan.xnb","TextureProcessor","Texture2DContent",4803,409685,0.009837
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/light.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/light.xnb","TextureProcessor","Texture2DContent",779,36949,0.075647
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/MBG.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/MBG.xnb","TextureProcessor","Texture2DContent",11082,210997,0.084489
+"/Users/nilslauvstad/Git/Slumber/Content/Graphics/Pause-9-Slice.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/Pause-9-Slice.xnb","TextureProcessor","Texture2DContent",537,36949,0.073345
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/Settings-9-Slice.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/Settings-9-Slice.xnb","TextureProcessor","Texture2DContent",495,36949,0.074236
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/Shader/WhiteEffect.fx","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/Shader/WhiteEffect.xnb","EffectProcessor","CompiledEffectContent",844,1063,14.115702
 "/Users/nilslauvstad/Git/Slumber/Content/Graphics/SlumberLogo.png","/Users/nilslauvstad/Git/Slumber/Content/bin/DesktopGL/Content/Graphics/SlumberLogo.xnb","TextureProcessor","Texture2DContent",330,8533,0.083554

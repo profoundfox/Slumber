@@ -18,12 +18,12 @@ public class FallState : BaseAirState
   {
     base.Physics(delta);
 
-    if (Main.Binds.LeftKey != null && Main.Binds.RightKey != null && Main.Binds.DownKey != null && Main.Binds.UpKey != null)
-      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.Binds.LeftKey.Value, Main.Binds.RightKey.Value, Main.Binds.DownKey.Value, Main.Binds.UpKey.Value).ToVector2();
+    if (Main.Binds.LeftKey != Keys.None && Main.Binds.RightKey != Keys.None && Main.Binds.DownKey != Keys.None && Main.Binds.UpKey != Keys.None)
+      p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.Binds.LeftKey, Main.Binds.RightKey, Main.Binds.DownKey, Main.Binds.UpKey).ToVector2();
 
-    if (Main.Binds.JumpKey != null && Core.Input.Keyboard.WasJustPressed(Main.Binds.JumpKey.Value)
-        || Main.Binds.JumpMouse != null && Core.Input.Mouse.WasJustPressed(Main.Binds.JumpMouse.Value) 
-        || Main.Binds.JumpButton != null && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.JumpButton.Value))
+    if (Main.Binds.JumpKey != Keys.None && Core.Input.Keyboard.WasJustPressed(Main.Binds.JumpKey)
+        || Main.Binds.JumpMouse != MouseButton.None && Core.Input.Mouse.WasJustPressed(Main.Binds.JumpMouse) 
+        || Main.Binds.JumpButton != Buttons.None && Core.Input.CurrentGamePad.WasJustPressed(Main.Binds.JumpButton))
     {
       if (p.Properties.CanCoyoteJump)
       {

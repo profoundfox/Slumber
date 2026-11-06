@@ -13,6 +13,14 @@ using RenderingLibrary.Graphics;
 
 namespace Slumber;
 
+public enum PropNums
+{
+  Grongo = 0,
+  Kilgo = 1,
+  Kraligo = 2,
+  Tilsof = 3
+}
+
 public class PropTest
 {
   public bool Alive = true;
@@ -26,6 +34,7 @@ public class PropTest
     {"Caverns", false},
     {"Krongo", true}
   };
+  public Keys Key = Keys.F;
 }
 
 public class Test : Scene
@@ -57,15 +66,16 @@ public class Test : Scene
       {"Kringle", false},
       {"Urno", false}
     };
+    Props.Key = Keys.T;
     
     Console.WriteLine("[BEFORE LOAD]");
-    Console.WriteLine($"Alive: {Props.Alive}, Health: {Props.Health}, Pi: {Props.Pi}, Name: {Props.Name}, Pos: {Props.Pos.ToString()}, Discovered: ");
+    Console.WriteLine($"Alive: {Props.Alive}, Health: {Props.Health}, Pi: {Props.Pi}, Name: {Props.Name}, Pos: {Props.Pos.ToString()}, Key: {Props.Key.ToString()},Discovered: ");
     foreach (var entry in Props.Discovered)
       Console.WriteLine(entry.ToString());
 
     FileT.FromBinary(Props, "Saved/Test");
     Console.WriteLine("[AFTER LOAD]");
-    Console.WriteLine($"Alive: {Props.Alive}, Health: {Props.Health}, Pi: {Props.Pi}, Name: {Props.Name}, Pos: {Props.Pos.ToString()}");
+    Console.WriteLine($"Alive: {Props.Alive}, Health: {Props.Health}, Pi: {Props.Pi}, Name: {Props.Name}, Pos: {Props.Pos.ToString()}, Key: {Props.Key.ToString()}");
     foreach (var entry in Props.Discovered)
       Console.WriteLine(entry.ToString());
 
@@ -103,6 +113,7 @@ public class Test : Scene
       stack.AddChild(b);
     }
 
+
   }
 
   public override void ExitTree()
@@ -119,6 +130,7 @@ public class Test : Scene
   {
     base.Process(delta);
 
+    Console.WriteLine(Core.Input.Keyboard.GetAxis(Keys.A, Keys.D, Keys.W, Keys.S).ToString());
     if (Core.Input.Keyboard.WasJustPressed(Keys.I))
       Transition.PlayAnimation("In");
     if (Core.Input.Keyboard.WasJustPressed(Keys.O))

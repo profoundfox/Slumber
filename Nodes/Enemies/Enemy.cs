@@ -158,6 +158,9 @@ public class Enemy : CharacterBody2D
   {
     base.Process(delta);
 
+    if (Main.GameManager.IsPaused)
+      return;
+
     HandleDamage();
   }
 

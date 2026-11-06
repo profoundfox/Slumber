@@ -174,6 +174,9 @@ namespace Slumber
     {
       base.PhysicsUpdate(delta);
 
+      if (Main.GameManager.IsPaused)
+        return;
+      
       Main.GameManager.Data.PlayerViewDirection = (int)Properties.PlayerAxis.X != 0 ? (int)Properties.PlayerAxis.X : Main.GameManager.Data.PlayerViewDirection;
 
       MoveAndSlide(delta);
@@ -184,6 +187,11 @@ namespace Slumber
     public override void Process(float delta)
     {
       base.Process(delta);
+
+      if (Main.GameManager.IsPaused)
+      {
+        return;
+      }
 
       FlipSprite();
       HandleDamage();

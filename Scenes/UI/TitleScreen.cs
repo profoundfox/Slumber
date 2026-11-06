@@ -64,8 +64,17 @@ public class TitleScreen : Scene
 
     Main.AudioManager.Play(Main.AudioManager.TitleScreen);
 
-    BuildUI();
+    string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+    string myGameFolder = System.IO.Path.Combine(saveFolder, "Slumber");
+    System.IO.Directory.CreateDirectory(myGameFolder);
 
+    if (File.Exists(Path.Combine(myGameFolder, "Binds")))
+    {
+      Main.GameManager.LoadSettings();
+    }
+
+    BuildUI();
+    
     var animations = AsepriteLoader.LoadAnimation(
         new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Atlas/Comet"), new Rectangle(0, 0, 7040, 180)),
         new Extent(320, 180)
@@ -82,6 +91,7 @@ public class TitleScreen : Scene
     {
       n.BackBufferColor = new Color(44, 41, 38);
     });
+
   }
 
   public void BuildUI()
@@ -91,8 +101,6 @@ public class TitleScreen : Scene
 
     Root.Width = 640;
     Root.Height = 360;
-
-    //Root.X = -50;
 
     MenuChooser = new StackPanel();
     Root.AddChild(MenuChooser, 0, 0);
@@ -149,7 +157,6 @@ public class TitleScreen : Scene
         };
       }
     }
-
 
     PlayBtn.Click += (sender, args) =>
     {
@@ -329,7 +336,7 @@ public class TitleScreen : Scene
     {
       Rebind(RightButton, k => Main.Binds.RightKey = k, null);
     };
-    
+  
     JumpButton = new DubTextButton("Jump", $"{Main.Binds.JumpKey.ToString()}");
     contBtns.AddChild(JumpButton);
     
@@ -362,33 +369,55 @@ public class TitleScreen : Scene
 
     ResetButton.Click += (sender, args) =>
     {
+      Main.Binds = Binds.Identity;
       SetBindText();
+      Main.GameManager.SaveSettings();
     };
     SetBindText();
   }
 
   public void SetBindText()
   {
-    if (Main.Binds.LeftKey != null)
+    if (Main.Binds.LeftKey != Keys.None)
+    {
       LeftButton.RightLabel.Text = Main.Binds.LeftKey.ToString();
-    if (Main.Binds.RightKey !=  null)
+    }
+    if (Main.Binds.RightKey !=  Keys.None)
+    {
       RightButton.RightLabel.Text = Main.Binds.RightKey.ToString();
-    if (Main.Binds.DownKey != null)
+    }
+    if (Main.Binds.DownKey != Keys.None)
+    {
       DownButton.RightLabel.Text = Main.Binds.DownKey.ToString();
-    if (Main.Binds.UpKey != null)
+    }
+    if (Main.Binds.UpKey != Keys.None)
+    {
       UpButton.RightLabel.Text = Main.Binds.UpKey.ToString();
-    if (Main.Binds.JumpKey != null)
+    }
+    if (Main.Binds.JumpKey != Keys.None)
+    {
       JumpButton.RightLabel.Text = Main.Binds.JumpKey.ToString();
-    if (Main.Binds.JumpMouse != null)
+    }
+    if (Main.Binds.JumpMouse != MouseButton.None)
+    {
       JumpButton.RightLabel.Text = Main.Binds.JumpMouse.ToString();
-    if (Main.Binds.DashKey != null)
+    }
+    if (Main.Binds.DashKey != Keys.None)
+    {
       DashButton.RightLabel.Text = Main.Binds.DashKey.ToString();
-    if (Main.Binds.DashMouse != null)
+    }
+    if (Main.Binds.DashMouse != MouseButton.None)
+    {
       DashButton.RightLabel.Text = Main.Binds.DashMouse.ToString();
-    if (Main.Binds.AttackKey != null)
+    }
+    if (Main.Binds.AttackKey != Keys.None)
+    {
       AttackButton.RightLabel.Text = Main.Binds.AttackKey.ToString();
-    if (Main.Binds.AttackMouse != null)
+    }
+    if (Main.Binds.AttackMouse != MouseButton.None)
+    {
       AttackButton.RightLabel.Text = Main.Binds.AttackMouse.ToString();
+    }
   }
 
   public void Rebind(DubTextButton button, Action<Keys> setKey, Action<MouseButton> setMouseButton)
@@ -548,6 +577,8 @@ public class TitleScreen : Scene
 
         ReadingInput = false;
       });
+
+      Main.GameManager.SaveSettings();
 
     }
 
