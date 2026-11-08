@@ -40,7 +40,7 @@ public class LandingState : State
 
   public override void Physics(float delta)
   {
-    base.PhysicsUpdate(delta);
+    base.PhysicsProcess(delta);
 
     if (Main.Binds.LeftKey != Keys.None && Main.Binds.RightKey != Keys.None && Main.Binds.DownKey != Keys.None && Main.Binds.UpKey != Keys.None)
       p.Properties.PlayerAxis = Core.Input.Keyboard.GetAxis(Main.Binds.LeftKey, Main.Binds.RightKey, Main.Binds.DownKey, Main.Binds.UpKey).ToVector2();

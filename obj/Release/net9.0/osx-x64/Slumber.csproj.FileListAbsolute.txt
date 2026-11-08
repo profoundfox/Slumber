@@ -321,3 +321,5 @@
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/StbImageSharp.dll
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/StbImageWriteSharp.dll
 /Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/libfreetype.dylib
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/Pause-9-Slice.xnb
+/Users/nilslauvstad/Git/Slumber/bin/Release/net9.0/osx-x64/Content/Graphics/CheckButton.xnb

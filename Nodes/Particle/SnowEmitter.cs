@@ -48,9 +48,9 @@ public class SnowEmitter : Node2D
     });
   }
 
-  public override void PhysicsUpdate(float delta)
+  public override void PhysicsProcess(float delta)
   {
-    base.PhysicsUpdate(delta);
+    base.PhysicsProcess(delta);
   }
 
   public override void Process(float delta)

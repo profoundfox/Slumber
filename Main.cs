@@ -50,15 +50,18 @@ namespace Slumber
 
       Token.Anchor.SetAnchor<TitleScreen>();
 
-      Prefs.Graphics.Fullscreen = false;
+      Prefs.Graphics.Fullscreen = true;
+      Prefs.Graphics.MouseVisible = false;
       Graphics.SynchronizeWithVerticalRetrace = true;
       Graphics.HardwareModeSwitch = true;
       IsFixedTimeStep = true;
 
       #if DEBUG
       IsFixedTimeStep = true;
-      Graphics.SynchronizeWithVerticalRetrace = false;
-      Prefs.Graphics.Fullscreen = false;
+      Graphics.SynchronizeWithVerticalRetrace = true;
+      Prefs.Graphics.Fullscreen = true;
+      #else
+
       #endif
 
       Prefs.General.ShowCollision = false;

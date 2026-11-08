@@ -114,6 +114,9 @@ public class TitleScreen : Scene
     MenuChooser.X = -360;
     MenuChooser.Y = -180;
 
+    var checkBox = new CustomCheckBox();
+    Root.AddChild(checkBox, 0, 0);
+
     var slumLogo = new SpriteRuntime();
     slumLogo.FromRegion(new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/SlumberLogo"), new Rectangle(0, 0, 96, 22)));
     MenuChooser.AddChild(slumLogo);
@@ -459,9 +462,9 @@ public class TitleScreen : Scene
     base.ExitTree();
   }
 
-  public override void PhysicsUpdate(float delta)
+  public override void PhysicsProcess(float delta)
   {
-    base.PhysicsUpdate(delta);
+    base.PhysicsProcess(delta);
   }
 
   public void Move(bool upPressed, bool downPressed, bool leftPressed, bool rightPressed)

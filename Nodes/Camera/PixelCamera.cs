@@ -92,9 +92,9 @@ public class PixelCamera : Camera2D
     Await.Span(length, () => toggleShake = false);
   }
 
-  public override void PhysicsUpdate(float delta)
+  public override void PhysicsProcess(float delta)
   {
-    base._PhysicsUpdate(delta);
+    base._PhysicsProcess(delta);
 
     if (Target == null)
       return;

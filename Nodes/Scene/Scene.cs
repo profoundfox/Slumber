@@ -7,7 +7,7 @@ namespace Slumber;
 public class Scene : Anchor,
   IReady,
   IEnterTree, 
-  IPhysicsUpdate, 
+  IPhysicsProcess, 
   IProcess, 
   ICall, 
   IExitTree
@@ -33,8 +33,8 @@ public class Scene : Anchor,
   public virtual void _Process(float delta) { }
   public virtual void Process(float delta) { }
 
-  public virtual void _PhysicsUpdate(float delta) { }
-  public virtual void PhysicsUpdate(float delta) { }
+  public virtual void _PhysicsProcess(float delta) { }
+  public virtual void PhysicsProcess(float delta) { }
 
   public virtual void _Submit(Canvas2D canvas) { }
   public virtual void Submit(Canvas2D canvas) { }
@@ -43,5 +43,15 @@ public class Scene : Anchor,
   public virtual void ExitTree()
   {
     SpawnPoints.Clear();
+  }
+
+  public void SetPhysicsProcess(bool value)
+  {
+    Core.Token.SetPhysicsProcess(this, value);
+  }
+
+  public void SetProcess(bool value)
+  {
+    Core.Token.SetProcess(this, value);
   }
 }

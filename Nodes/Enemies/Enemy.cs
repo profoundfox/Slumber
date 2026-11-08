@@ -136,10 +136,10 @@ public class Enemy : CharacterBody2D
     );
   }
 
-  public override void PhysicsUpdate(float delta)
+  public override void PhysicsProcess(float delta)
   {
 
-    base.PhysicsUpdate(delta);
+    base.PhysicsProcess(delta);
 
     ApplyGravity(delta);
     Flip();

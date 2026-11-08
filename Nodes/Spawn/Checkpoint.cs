@@ -54,7 +54,7 @@ public class Checkpoint : Node2D
     });
   }
 
-  public override void PhysicsUpdate(float delta)
+  public override void PhysicsProcess(float delta)
   {
 
   }

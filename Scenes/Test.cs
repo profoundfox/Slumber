@@ -79,12 +79,6 @@ public class Test : Scene
     foreach (var entry in Props.Discovered)
       Console.WriteLine(entry.ToString());
 
-    new ColorRect().Set(n =>
-    {
-      n.Color = Color.Red;
-      n.Scale = new Vector2(100, 100);
-    });
-
     var transAn = AsepriteLoader.LoadAnimations(
         new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/Transition"), new Rectangle(0, 0, 28, 1)),
         PathTools.Combine("Raw/Raw/Transition.json") 
@@ -102,18 +96,6 @@ public class Test : Scene
 
     Transition.Detach();
 
-    var stack = new StackPanel();
-    stack.AddToRoot();
-    
-    for (int i = 0; i < 3; i++)
-    {
-      var b = new CustomButton();
-      b.Text = "Button";
-
-      stack.AddChild(b);
-    }
-
-
   }
 
   public override void ExitTree()
@@ -121,9 +103,9 @@ public class Test : Scene
     base.ExitTree();
   }
 
-  public override void PhysicsUpdate(float delta)
+  public override void PhysicsProcess(float delta)
   {
-    base.PhysicsUpdate(delta);
+    base.PhysicsProcess(delta);
   }
 
   public override void Process(float delta)

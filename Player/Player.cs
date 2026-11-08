@@ -170,9 +170,9 @@ namespace Slumber
       }
     }
 
-    public override void PhysicsUpdate(float delta)
+    public override void PhysicsProcess(float delta)
     {
-      base.PhysicsUpdate(delta);
+      base.PhysicsProcess(delta);
 
       if (Main.GameManager.IsPaused)
         return;

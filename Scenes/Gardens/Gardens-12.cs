@@ -84,9 +84,9 @@ public class Gardens12 : Scene
     base.ExitTree();
   }
 
-  public override void PhysicsUpdate(float delta)
+  public override void PhysicsProcess(float delta)
   {
-    base.PhysicsUpdate(delta);
+    base.PhysicsProcess(delta);
   }
 
   Vector2 offset = new Vector2(20, 0);
