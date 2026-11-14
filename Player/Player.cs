@@ -200,9 +200,9 @@ namespace Slumber
         Properties.AttackCounter = 0;
     }
 
-    public override void Submit(Canvas2D canvas)
+    public override void Submit(BatchLayer layer)
     {
-      base.Submit(canvas);
+      base.Submit(layer);
 
       var fps = Math.Round(Core.Time.FPS);
 
@@ -215,9 +215,9 @@ namespace Slumber
       if (fps >= 60)
         color = Color.Green;
 
-      Core.Canvas.SubmitUnLit(new FontDrawCall
+      Core.Batch.Submit(new FontRenderUnit
       {
-        Params = CanvasParams.Identity with
+        Params = RenderUnitParams.Identity with
         {
           Color = color,
           Position = new Vector2(625, 8),
@@ -227,7 +227,7 @@ namespace Slumber
         Text = fps.ToString()
       });
 
-      //canvas.SubmitLight(t);
+      //layer.SubmitLight(t);
     }
   }
 }

@@ -102,6 +102,8 @@ public class TitleScreen : Scene
     Root.Width = 640;
     Root.Height = 360;
 
+    Root.X = -40;
+
     MenuChooser = new StackPanel();
     Root.AddChild(MenuChooser, 0, 0);
     
@@ -111,8 +113,8 @@ public class TitleScreen : Scene
     MenuChooser.YUnits = GeneralUnitType.PixelsFromSmall;
     MenuChooser.YOrigin = VerticalAlignment.Top;
 
-    MenuChooser.X = -360;
-    MenuChooser.Y = -180;
+    MenuChooser.X = -160;
+    MenuChooser.Y = -90;
 
     var checkBox = new CustomCheckBox();
     Root.AddChild(checkBox, 0, 0);
@@ -121,13 +123,13 @@ public class TitleScreen : Scene
     slumLogo.FromRegion(new TextureRegion(Core.Resource.Load<Texture2D>("Graphics/SlumberLogo"), new Rectangle(0, 0, 96, 22)));
     MenuChooser.AddChild(slumLogo);
     slumLogo.WidthUnits = DimensionUnitType.Absolute;
-    slumLogo.Width = slumLogo.SourceRectangle.Width * 4; 
+    slumLogo.Width = slumLogo.SourceRectangle.Width * 2; 
     slumLogo.HeightUnits = DimensionUnitType.Absolute;
-    slumLogo.Height = slumLogo.SourceRectangle.Height * 4;
+    slumLogo.Height = slumLogo.SourceRectangle.Height * 2;
 
     slumLogo.XOrigin = HorizontalAlignment.Center;
 
-    slumLogo.X = 113;
+    slumLogo.X = 56;
 
     PlayBtn = new CustomButton();
     MenuChooser.AddChild(PlayBtn);
@@ -191,6 +193,7 @@ public class TitleScreen : Scene
 
     QuitBtn.Click += (sender, args) =>
     {
+      Root.IsVisible = false;
       Root.RemoveFromRoot();
       Main.GameManager.ScreenEffects.In();
       Main.AudioManager.FadeOut();
@@ -206,10 +209,10 @@ public class TitleScreen : Scene
     SettingsChooser.YUnits = GeneralUnitType.PixelsFromSmall;
     SettingsChooser.YOrigin = VerticalAlignment.Top;
 
-    SettingsChooser.X = -80;
-    SettingsChooser.Y = -180;
-
     SettingsChooser.IsVisible = false;
+
+    SettingsChooser.Y = -95;
+    SettingsChooser.X = -10;
 
     BindBtn = new CustomButton();
     SettingsChooser.AddChild(BindBtn);
@@ -281,8 +284,8 @@ public class TitleScreen : Scene
     Controls.WidthUnits = DimensionUnitType.Absolute;
     Controls.HeightUnits = DimensionUnitType.Absolute;
 
-    Controls.Width = 370;
-    Controls.Height = 570;
+    Controls.Width = 140;
+    Controls.Height = 247;
 
     Controls.XUnits = GeneralUnitType.PixelsFromSmall;
     Controls.XOrigin = HorizontalAlignment.Center;
@@ -290,8 +293,8 @@ public class TitleScreen : Scene
     Controls.YUnits = GeneralUnitType.PixelsFromSmall;
     Controls.YOrigin = VerticalAlignment.Center;
 
-    Controls.X = 310;
-    Controls.Y = -36;
+    Controls.X = 165;
+    Controls.Y = -18;
    
     var conteolsBG = new NineSliceRuntime();
     Controls.AddChild(conteolsBG);
@@ -300,13 +303,16 @@ public class TitleScreen : Scene
     conteolsBG.WidthUnits = DimensionUnitType.RelativeToParent;
     conteolsBG.HeightUnits = DimensionUnitType.RelativeToParent;
 
-    conteolsBG.X = -31;
-    conteolsBG.Y = -31;
+    conteolsBG.X = -16;
+    conteolsBG.Y = -32;
 
     var contBtns = new StackPanel();
     Controls.AddChild(contBtns);
     contBtns.WidthUnits = DimensionUnitType.RelativeToParent;
     contBtns.WidthUnits = DimensionUnitType.RelativeToParent;
+
+    contBtns.Y = -10;
+    contBtns.X = 8;
 
     UpButton = new DubTextButton("Up",$"{Main.Binds.UpKey}");
     contBtns.AddChild(UpButton);
@@ -368,7 +374,7 @@ public class TitleScreen : Scene
     contBtns.AddChild(ResetButton);
 
     ResetButton.Text = "Reset";
-    ResetButton.X = 120;
+    ResetButton.X = 60;
 
     ResetButton.Click += (sender, args) =>
     {
@@ -603,9 +609,9 @@ public class TitleScreen : Scene
       Move(upPressed, downPressed, leftPressed, rightPressed);
   }
 
-  public override void Submit(Canvas2D canvas)
+  public override void Submit(BatchLayer layer)
   {
-    base.Submit(canvas);
+    base.Submit(layer);
 
     Main.GumManager.Submit(Root.Visual);
   }

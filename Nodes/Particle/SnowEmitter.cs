@@ -63,9 +63,9 @@ public class SnowEmitter : Node2D
     Emitter2.Emit(new Vector2(MathE.Random.Next(c.Bounds.Right - 320, c.Bounds.Right + 320), c.Bounds.Top - 20), 3);
   }
 
-  public override void Submit(Canvas2D canvas)
+  public override void Submit(BatchLayer layer)
   {
-    base.Submit(canvas);
+    base.Submit(layer);
   }
 
   public override void ExitTree()

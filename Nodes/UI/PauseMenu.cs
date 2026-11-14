@@ -42,6 +42,8 @@ public class PauseMenu : Node2D
     BG.X = -1280;
     BG.Y = -640;
 
+    BG.Visible = false;
+
     BG.Width = 2560;
     BG.Height = 1280;
 
@@ -101,7 +103,7 @@ public class PauseMenu : Node2D
     Core.Time.TimeScale = 1f;
   }
 
-  public override void Submit(Canvas2D canvas)
+  public override void Submit(BatchLayer layer)
   {
     Main.GumManager.Submit(Root.Visual); 
   }

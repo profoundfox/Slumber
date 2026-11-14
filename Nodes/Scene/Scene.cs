@@ -36,8 +36,8 @@ public class Scene : Anchor,
   public virtual void _PhysicsProcess(float delta) { }
   public virtual void PhysicsProcess(float delta) { }
 
-  public virtual void _Submit(Canvas2D canvas) { }
-  public virtual void Submit(Canvas2D canvas) { }
+  public virtual void _Submit(BatchLayer layer) { }
+  public virtual void Submit(BatchLayer layer) { }
 
   public virtual void _ExitTree() { }
   public virtual void ExitTree()

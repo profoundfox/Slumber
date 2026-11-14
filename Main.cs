@@ -123,9 +123,6 @@ namespace Slumber
     {
       base.Draw(gameTime);
       
-      //GumUI.Draw();
-      GumManager.Draw(gameTime);
-
       #if DEBUG
 
       var player = Core.Token.Get<Player>();

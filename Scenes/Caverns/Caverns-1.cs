@@ -38,7 +38,6 @@ public class Caverns1 : Scene
     new CanvasAnchor().Set(n =>
     {
       n.BackBufferColor = new Color(49, 49, 56);
-      //n.AmbientColor = Color.Gray;
     });
     
     var t = DotTiledBridge.Load(mapPath, this, loader);
@@ -80,8 +79,8 @@ public class Caverns1 : Scene
       new Enemy().Set("Position", Core.Token.Get<Player>()?.Transform.Global.Position + offset);
   }
 
-  public override void Submit(Canvas2D canvas)
+  public override void Submit(BatchLayer layer)
   {
-    base.Submit(canvas);
+    base.Submit(layer);
   }
 }

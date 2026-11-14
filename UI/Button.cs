@@ -20,7 +20,7 @@ public class CustomButton : Button
   {
     var buttonVisual = (Gum.Forms.DefaultVisuals.V3.ButtonVisual)Visual;
 
-    float offset = 20f;
+    float offset = 10f;
     
     NineSliceRuntime background = buttonVisual.Background;
 
@@ -36,7 +36,7 @@ public class CustomButton : Button
 
     text.UseCustomFont = true;
     text.CustomFontFile = "Fonts/RainHearts.fnt";
-    text.FontScale = 2.0f;
+    text.FontScale = 1.0f;
     
     background.Color = Color.White * 0f;
     text.Color = Color.White;
@@ -46,12 +46,12 @@ public class CustomButton : Button
 
     FocusThingy.FromRegion(new TextureRegion(Core.Resource.Load<Texture2D>("Maps/Atlas"), new Rectangle(416, 592, 8, 8)));
     FocusThingy.WidthUnits = DimensionUnitType.Absolute;
-    FocusThingy.Width = FocusThingy.SourceRectangle.Width * 4; 
+    FocusThingy.Width = FocusThingy.SourceRectangle.Width * 2; 
     FocusThingy.HeightUnits = DimensionUnitType.Absolute;
-    FocusThingy.Height = FocusThingy.SourceRectangle.Height * 4;
+    FocusThingy.Height = FocusThingy.SourceRectangle.Height * 2;
 
-    FocusThingy.X = 10;
-    FocusThingy.Y = 20;
+    FocusThingy.X = 5;
+    FocusThingy.Y = 12;
 
     FocusThingy.Visible = false;
 
@@ -134,7 +134,7 @@ public class CustomButton : Button
     buttonVisual.Background.Color = Color.White * 0f;
     buttonVisual.TextInstance.Color = ColorExtension.Hex("#808796");
     IsFocused = true;
-    buttonVisual.TextInstance.X = 20f;
+    buttonVisual.TextInstance.X = 10f;
     FocusThingy.Visible = true;
     FocusThingy.Color = ColorExtension.Hex("#808796");
   }

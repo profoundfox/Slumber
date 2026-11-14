@@ -23,7 +23,7 @@ public class CustomButtonSquare : Button
 
     text.UseCustomFont = true;
     text.CustomFontFile = "Fonts/RainHearts.fnt";
-    text.FontScale = 2.0f;
+    text.FontScale = 1.0f;
     
     background.Color = new Color(0, 0, 0) * 0.6f;
     text.Color = Color.White;
@@ -36,7 +36,7 @@ public class CustomButtonSquare : Button
     borderContainer.HasEvents = false;
     buttonVisual.Children.Add(borderContainer);
 
-    float borderWidth = 4.0f;
+    float borderWidth = 2.0f;
 
     var top = CreateBorderLine();
     top.WidthUnits = DimensionUnitType.RelativeToParent;

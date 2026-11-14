@@ -4,7 +4,7 @@ using RenderingLibrary.Graphics;
 
 namespace Slumber;
 
-public class GumManager
+public class GumManager 
 {
   public GumBatch GumBatch { get; set; }
 
@@ -15,6 +15,8 @@ public class GumManager
     SystemManagers.Default = new SystemManagers();
     SystemManagers.Default.Initialize(Core.Instance.GraphicsDevice);
     GumBatch = new GumBatch();
+    
+    Core.Batch.OnDraw += Draw;
   }
 
   public void Update(GameTime gameTime)
@@ -27,9 +29,9 @@ public class GumManager
     ToSubmit.Add(renderable);
   }
 
-  public void Draw(GameTime gameTime)
+  public void Draw(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice, BaseRenderer2D renderer)
   {
-    GumBatch.Begin();//Core.Token.Get<Camera2D>()?.GetTransform());
+    GumBatch.Begin();
   
     for (int i = 0; i < ToSubmit.Count; i++)
       GumBatch.Draw(ToSubmit[i]);

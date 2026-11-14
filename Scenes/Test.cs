@@ -119,8 +119,8 @@ public class Test : Scene
       Transition.PlayAnimation("Out");
   }
 
-  public override void Submit(Canvas2D canvas)
+  public override void Submit(BatchLayer layer)
   {
-    base.Submit(canvas);
+    base.Submit(layer);
   }
 }

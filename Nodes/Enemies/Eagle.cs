@@ -68,9 +68,9 @@ public class Eagle : Node2D
       return;
   }
 
-  public override void Submit(Canvas2D canvas)
+  public override void Submit(BatchLayer layer)
   {
-    base.Submit(canvas);
+    base.Submit(layer);
   }
 
   public override void ExitTree()

@@ -68,7 +68,6 @@ public class Gardens6 : Scene
     new CanvasAnchor().Set(n =>
     {
       n.BackBufferColor = new Color(13, 22, 24);
-      n.AmbientColor = Color.White;
     });
     
     var t = DotTiledBridge.Load(mapPath, this, loader);
@@ -103,8 +102,8 @@ public class Gardens6 : Scene
 
   }
 
-  public override void Submit(Canvas2D canvas)
+  public override void Submit(BatchLayer layer)
   {
-    base.Submit(canvas);
+    base.Submit(layer);
   }
 }

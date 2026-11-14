@@ -164,9 +164,9 @@ public class Enemy : CharacterBody2D
     HandleDamage();
   }
 
-  public override void Submit(Canvas2D canvas)
+  public override void Submit(BatchLayer layer)
   {
-    base.Submit(canvas);
+    base.Submit(layer);
   }
 
   public void Move(float delta)

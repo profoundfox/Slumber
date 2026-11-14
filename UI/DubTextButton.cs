@@ -25,7 +25,7 @@ public class DubTextButton : Button
   {
     var buttonVisual = (Gum.Forms.DefaultVisuals.V3.ButtonVisual)Visual;
 
-    float offset = 50f;
+    float offset = 25f;
     
     NineSliceRuntime background = buttonVisual.Background;
 
@@ -34,10 +34,10 @@ public class DubTextButton : Button
     this.Text = string.Empty; 
 
     this.WidthUnits = DimensionUnitType.Absolute;
-    this.Width = 400; 
+    this.Width = 200; 
     
     this.HeightUnits = DimensionUnitType.RelativeToChildren;
-    this.Height = 12;
+    this.Height = 6;
 
     LeftLabel = new Label();
     LeftLabel.WidthUnits = DimensionUnitType.RelativeToChildren;
@@ -54,7 +54,7 @@ public class DubTextButton : Button
     var textLeftVisual = (Gum.Forms.DefaultVisuals.V3.LabelVisual)LeftLabel.Visual;
     textLeftVisual.UseCustomFont = true;
     textLeftVisual.CustomFontFile = "Fonts/RainHearts.fnt";
-    textLeftVisual.FontScale = 2.0f;
+    textLeftVisual.FontScale = 1.0f;
     textLeftVisual.Color = Color.White;
 
     RightLabel = new Label();
@@ -75,7 +75,7 @@ public class DubTextButton : Button
 
     textRightVisual.UseCustomFont = true;
     textRightVisual.CustomFontFile = "Fonts/RainHearts.fnt";
-    textRightVisual.FontScale = 2.0f;
+    textRightVisual.FontScale = 1.0f;
     textRightVisual.Color = Color.White;
 
     background.Color = Color.White * 0f;
@@ -85,13 +85,16 @@ public class DubTextButton : Button
 
     FocusThingy.FromRegion(new TextureRegion(Core.Resource.Load<Texture2D>("Maps/Atlas"), new Rectangle(416, 592, 8, 8)));
     FocusThingy.WidthUnits = DimensionUnitType.Absolute;
-    FocusThingy.Width = FocusThingy.SourceRectangle.Width * 4; 
+    FocusThingy.Width = FocusThingy.SourceRectangle.Width * 2; 
     FocusThingy.HeightUnits = DimensionUnitType.Absolute;
-    FocusThingy.Height = FocusThingy.SourceRectangle.Height * 4;
+    FocusThingy.Height = FocusThingy.SourceRectangle.Height * 2;
 
-    FocusThingy.X = 10;
-    FocusThingy.Y = 20;
+    FocusThingy.X = 5;
+    FocusThingy.Y = 12;
 
+    background.Color = Color.White * 0f;
+    textLeftVisual.Color = Color.White;
+    textLeftVisual.X = 0;
     FocusThingy.Visible = false;
 
     StateSave enabledState = buttonVisual.States.Enabled;

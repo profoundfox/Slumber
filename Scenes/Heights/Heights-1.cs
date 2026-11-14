@@ -87,7 +87,6 @@ public class Heights1 : Scene
     new CanvasAnchor().Set(n =>
     {
       n.BackBufferColor = new Color(8, 10, 12);
-      n.AmbientColor = Color.White;
     });
     
     var t = DotTiledBridge.Load(mapPath, this, loader);

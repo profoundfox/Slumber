@@ -98,9 +98,9 @@ namespace Slumber
       entered = side != CameraSide.None;
     }
 
-    public override void Submit(Canvas2D canvas)
+    public override void Submit(BatchLayer layer)
     {
-      base.Submit(canvas);
+      base.Submit(layer);
     }
 
     private void Shift(Vector2 dir)
