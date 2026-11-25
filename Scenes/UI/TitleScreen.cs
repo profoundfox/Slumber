@@ -148,7 +148,7 @@ public class TitleScreen : Scene
         PlayBtn.Text = "Start";
         PlayBtn.Click += (sender, args) =>
         {
-          Main.GameManager.Change("Caverns1", "door_1");
+          Main.GameManager.Change("Burrow1", "door_1");
           Main.AudioManager.FadeOut();
         };
       }

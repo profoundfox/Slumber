@@ -632,3 +632,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Graphics/CheckButton.png
+
+#begin Maps/Burrow/burrow-1.tmx
+/copy:Maps/Burrow/burrow-1.tmx

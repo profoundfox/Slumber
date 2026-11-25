@@ -55,6 +55,8 @@ namespace Slumber
       Graphics.SynchronizeWithVerticalRetrace = true;
       Graphics.HardwareModeSwitch = true;
       IsFixedTimeStep = true;
+      
+      Window.Title = "Slumber";
 
       #if DEBUG
       IsFixedTimeStep = true;

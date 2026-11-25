@@ -23,7 +23,6 @@ public class GardensFlatTest : Scene
 
     var rect = new Rectangle(-2008, -248, 2264, 408);
 
-
     var loader = Loader.Default();
     var mapPath = Path.Combine(
         AppContext.BaseDirectory,
